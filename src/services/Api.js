@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 const http = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   withCredentials: true
@@ -20,3 +19,7 @@ http.interceptors.response.use(function (response) {
 export const login = ({ email, password }) => http.post('/login', { email, password })
 
 export const logout = () => http.post('/logout')
+
+export const getSongsFromSpotify = ({ search }) => {
+  return http.post('/songsSpotify', {search})
+}
