@@ -4,7 +4,7 @@ import { AuthenticatedRoute, NotAuthenticatedRoute } from './components/Authenti
 import Header from './components/Header/Header'
 import Dashboard from './components/Dashboard/Dashboard'
 import Login from './components/Login/Login'
-import SongMenu from './components/songs/SongMenu'
+import SongMenu from './components/Songs/SongMenu'
 import './App.css'
 
 function App() {
