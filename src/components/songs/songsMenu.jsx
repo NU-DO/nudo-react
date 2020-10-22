@@ -1,42 +1,52 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { getSongsFromSpotify } from '../../services/Api';
+import { getSongsFromSpotify, createSong, getSongs } from '../../services/Api'
+import { useAuthContext } from '../../contexts/AuthContext'
 
 function SongsMenu() {
     const [search, setSearch] = useState({
         search: ''
-    });
-    const [matchSong, setMatchSong] = useState([]);
-    const intervalId = useRef()
-    const [fav, setFav] = useState([]);
+    })
+    const [matchSong, setMatchSong] = useState([])
     const [form, setForm] = useState(false)
+    const [fav, setFav] = useState([]) //back
+    const { user } = useAuthContext()
 
     const handleChange = (e) => {
         setSearch({ search: e.target.value.toLowerCase() })
     }
 
     useEffect(() => {
-        window.clearTimeout(intervalId.current)
+        getSongs()
+            .then(data => {
+                setFav(data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+    useEffect(() => {
         getSongsFromSpotify(search)
             .then(data => {
-                setMatchSong(data)
+                setMatchSong(data.slice(0, 3))
             })
             .catch(err => console.log(err))
     }, [search])
 
-    const addFav = (song, decade) => {
-        song.decade = decade
-        setFav(prev => {
-            return [
-                ...prev,
-                song
-            ]
-        })
+    const handleOpen = (name) => {
+        setForm(name)
     }
 
-    const handleOpen = (name) => {
-        setForm(name);
-    };
-
+    const addFav = (song, decade) => {
+        song.decade = decade
+        song.url = song.preview_url
+        createSong(song, user)
+            .then(() => {
+                getSongs()
+                    .then(data => {
+                        setFav(data)
+                    })
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
         <div className="songsMenu">
@@ -57,7 +67,7 @@ function SongsMenu() {
                                     <button onClick={() => handleOpen(song.name)}>Add Fav</button>
                                     {form === song.name ? <div><button onClick={() => addFav(song, "60's")}>60</button><button onClick={() => addFav(song, "70's")}>70</button></div> : null}
                                 </li>
-                            )).slice(0, 3)
+                            ))
                         }
                     </ul>
                 </div>
@@ -73,7 +83,7 @@ function SongsMenu() {
                                         <p>{song.name}</p>
                                         <p>{song.decade}</p>
                                         <audio controls>
-                                            <source src={song.preview_url} type="audio/mpeg" />
+                                            <source src={song.url} type="audio/mpeg" />
                                         </audio>
                                     </li>
                                 )

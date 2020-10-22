@@ -1,22 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './DCard.scss'
 
-const DCard = ({img, textHead, buttonText, nudoIcon}) => {
+const DCard = ({ img, textHead, buttonText, nudoIcon, link }) => {
     return (
         <div>
-             <div class="wrap">
+            <Link to={link}>
                 <div class="card">
-                <img src={nudoIcon} className='nudo-icon-card'/>
+                    <img src={nudoIcon} className='nudo-icon-card' />
                     <div class="content">
-                        <img src={img} className='card-image'/>
+                        <img src={img} className='card-image' />
                     </div>
-                    
+
                     <div class="backdrop">
-                        <h1>Imágenes</h1>
+                        <h1>{textHead}</h1>
                         <div class="action-buttons"><a class="btn" href="#">Ir</a></div>
                     </div>
                 </div>
-            </div>
+            </Link>
         </div>
     );
 };
