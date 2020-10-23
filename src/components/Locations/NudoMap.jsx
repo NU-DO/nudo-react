@@ -1,12 +1,13 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
 import { formatRelative } from 'date-fns'
-import mapStyles from './mapStyles'
+import MapStyles from './MapStyles'
 import '@reach/combobox/styles.css'
 import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog"
 import "@reach/dialog/styles.css";
 import VisuallyHidden from "@reach/visually-hidden"
 import Locate from './Locate'
+import SearchMap from './SearchMap'
 
 const mapContainerStyle = {
   width: '50vw',
@@ -17,7 +18,7 @@ const center = {
   lng: -79.383186,
 }
 const options = {
-  styles: mapStyles,
+  styles: MapStyles,
   disableDefaultUI: false,
   zoomControl: true,
 }
@@ -67,7 +68,7 @@ const NudoMap = () =>  {
   return (
     <div className="App">
       <h1>🧠 NUDO Map 🧠</h1>
-      <Search panTo={panTo} />
+      <SearchMap panTo={panTo} />
       <Locate panTo={panTo}/>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
