@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
 import { logout } from '../../services/Api'
 import { makeStyles } from '@material-ui/core/styles'
@@ -42,7 +43,7 @@ export default function MenuAppBar() {
                         <Drawer />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        NUDO
+                        <Link to="/login">NUDO</Link>
           </Typography>
                     {user && (
                         <div>
