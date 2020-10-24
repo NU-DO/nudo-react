@@ -90,10 +90,8 @@ const NudoMap = () => {
 
 
         createLocation(tempCoordenates)
-
         setTempCoordenates({})
         closeModal()
-
     }
 
     const mapRef = useRef()
