@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
 import { logout } from '../../services/Api'
@@ -28,8 +28,7 @@ export default function MenuAppBar() {
     const { user, logout: logOut } = useAuthContext()
 
     const handleLogout = (event) => {
-        event.preventDefault();
-        console.log('desloguea');
+        event.preventDefault()
         logout()
             .then(user => logOut())
             .catch(err => console.log(err))
@@ -37,21 +36,17 @@ export default function MenuAppBar() {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static">
+            <AppBar position='static'>
                 <Toolbar>
-
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu'>
                         <Drawer />
                     </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                    
-                        <Link to="/login" style={{ textDecoration: 'none', color: 'white' }}>NUDO</Link>
-                    
-                       
-          </Typography>
+                    <Typography variant='h6' className={classes.title}>
+                        <Link to='/login' style={{ textDecoration: 'none', color: 'white' }}>NUDO</Link>             
+                    </Typography>
                     {user && (
                         <div>
-                            <Button variant="contained" color="secondary" onClick={handleLogout}>
+                            <Button variant='contained' color='secondary' onClick={handleLogout}>
                                 LogOut
                             </Button>
                         </div>

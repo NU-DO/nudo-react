@@ -1,23 +1,21 @@
-import React from 'react';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
-import MusicNoteIcon from '@material-ui/icons/MusicNote';
-import ContactsIcon from '@material-ui/icons/Contacts';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import TimelapseIcon from '@material-ui/icons/Timelapse';
-import EventIcon from '@material-ui/icons/Event';
-import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
-import EqualizerIcon from '@material-ui/icons/Equalizer';
-import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-import { IconButton } from '@material-ui/core';
+import React from 'react'
+import clsx from 'clsx'
+import { makeStyles } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import List from '@material-ui/core/List'
+import Divider from '@material-ui/core/Divider'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary'
+import MusicNoteIcon from '@material-ui/icons/MusicNote'
+import ContactsIcon from '@material-ui/icons/Contacts'
+import LocationOnIcon from '@material-ui/icons/LocationOn'
+import TimelapseIcon from '@material-ui/icons/Timelapse'
+import EventIcon from '@material-ui/icons/Event'
+import SportsEsportsIcon from '@material-ui/icons/SportsEsports'
+import EqualizerIcon from '@material-ui/icons/Equalizer'
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom'
 import MenuIcon from '@material-ui/icons/Menu'
 
 const useStyles = makeStyles({
@@ -27,28 +25,28 @@ const useStyles = makeStyles({
     fullList: {
         width: 'auto',
     },
-});
+})
 
 export default function NudoDrawer() {
-    const classes = useStyles();
+    const classes = useStyles()
     const [state, setState] = React.useState({
         hamMenu: false
-    });
+    })
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
+            return
         }
 
-        setState({ ...state, [anchor]: open });
-    };
+        setState({ ...state, [anchor]: open })
+    }
 
     const list = (anchor) => (
         <div
             className={clsx(classes.list, {
                 [classes.fullList]: anchor === 'top' || anchor === 'bottom',
             })}
-            role="presentation"
+            role='presentation'
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
@@ -76,7 +74,7 @@ export default function NudoDrawer() {
                 ))}
             </List>
         </div>
-    );
+    )
 
     return (
         <div>
@@ -87,9 +85,7 @@ export default function NudoDrawer() {
                         {list(anchor)}
                     </Drawer>
                 </React.Fragment>
-
-
             ))}
         </div>
-    );
+    )
 }

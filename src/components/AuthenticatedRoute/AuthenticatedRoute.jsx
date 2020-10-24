@@ -2,9 +2,9 @@ import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
 
-const RedirectToLogin = () => <Redirect to="/login"/>
+const RedirectToLogin = () => <Redirect to='/login'/>
 
-const RedirectToHome = () => <Redirect to="/"/>
+const RedirectToHome = () => <Redirect to='/'/>
 
 export const AuthenticatedRoute = (props) => {
   const { user } = useAuthContext()

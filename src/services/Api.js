@@ -25,8 +25,8 @@ export const getSongsFromSpotify = ({ search }) => {
   return http.post('/songsSpotify', {search})
 }
 
-export const createSong = ({ name, url, artist, decade }) => {
-  return http.post('/song/new', { name, url, artist, decade })
+export const createSong = ({ name, url, artists, decade, album }) => {
+  return http.post('/song/new', { name, url, artists, decade, album })
 }
 
 export const getSongs = () => {
