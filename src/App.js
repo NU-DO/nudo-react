@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import Login from './components/Login/Login'
 import SongMenu from './components/Songs/SongMenu'
 import NudoMap from './components/Locations/NudoMap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 function App() {

@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import Divider from '@material-ui/core/Divider'
 import ZoomInIcon from '@material-ui/icons/ZoomIn'
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 import './LocationElement.scss'
 
 const useStyles = makeStyles((theme) => ({
@@ -69,6 +71,8 @@ const LocationElement = ({ marker, zoomToMarker, i }) => {
                     <Divider variant="middle"/>
                     <AccordionActions>
                         <ZoomInIcon onClick={() => zoomToMarker(marker.lat, marker.lng)}/>
+                        <EditIcon />
+                        <DeleteIcon />
                     </AccordionActions>
                 </Accordion>
             </div>

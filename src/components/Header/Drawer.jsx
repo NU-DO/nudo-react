@@ -1,4 +1,5 @@
 import React from 'react'
+import { useAuthContext } from '../../contexts/AuthContext'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
@@ -28,6 +29,8 @@ const useStyles = makeStyles({
 })
 
 export default function NudoDrawer() {
+    
+    const { user } = useAuthContext()
     const classes = useStyles()
     const [state, setState] = React.useState({
         hamMenu: false
@@ -50,6 +53,10 @@ export default function NudoDrawer() {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
+            <div className='ComponentHeaderStyle'>
+                <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603577840/NUDO/assets/Dashboard-icons/logo-menu_rxm9q6.svg' className='NudoIconStyle'/>
+                <h4 className='mt-3 text-center'>Hello {user.username}!</h4>
+            </div>
             <List>
                 {['Fotos', 'Música', 'Contactos', 'Localizaciones', 'Historia', 'Eventos', 'Juegos'].map((text, index) => (
                     <ListItem button key={text}>

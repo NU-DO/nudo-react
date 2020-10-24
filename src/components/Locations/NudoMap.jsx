@@ -3,8 +3,8 @@ import SearchMap from './SearchMap'
 import LocationModal from './LocationModal'
 import LocationList from './LocationList'
 import LocationDetails from './LocationDetails'
-import Locate from './Locate'
-import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
+import ComponentHeader from '../Generic/ComponentHeader'
+import { GoogleMap, useLoadScript, Marker, flightPlanCoordinates } from '@react-google-maps/api'
 import '@reach/combobox/styles.css'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
@@ -13,7 +13,7 @@ import MapStyles from './MapStyles'
 import './NudoMap.scss'
 
 const mapContainerStyle = {
-    width: '90vw',
+    width: '100%',
     height: '50vh',
 }
 const center = {
@@ -42,6 +42,7 @@ const NudoMap = () => {
         name: '',
         description: '',
     })
+
 
     const openModal = () => setShowDialog(true)
     const closeModal = () => setShowDialog(false)
@@ -102,55 +103,76 @@ const NudoMap = () => {
 
     const zoomToMarker = (lat, lng) => {
         mapRef.current.panTo({ lat, lng })
-        mapRef.current.setZoom(14)   
+        mapRef.current.setZoom(14)
     }
 
     if (loadError) return 'Error loading Google Maps'
     if (!isLoaded) return 'Loading Google Maps'
 
     return (
-            <div className='NudoMap'>
-                <h1>🧠 NUDO Map 🧠</h1>
-                <SearchMap panTo={panTo} />
-                <Locate panTo={panTo} />
-                <GoogleMap
-                    mapContainerStyle={mapContainerStyle}
-                    zoom={6}
-                    center={center}
-                    options={options}
-                    onClick={onMapClick}
-                    onLoad={onMapLoad}
-                >
-                    {!markers.length ? 
-                    <div>Loading</div> :
-                    markers.map((marker, i) =>
-                        <Marker
-                            key={i}
-                            position={{
-                                lat: marker.lat, lng: marker.lng
-                            }}
-                            icon={{
-                              url: 'https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png',
-                              scaledSize: new window.google.maps.Size(30,40),
-                              origin: new window.google.maps.Point(0, 0),
-                              anchor: new window.google.maps.Point(15, 15),
-                            }}
-                            onClick={() => {
-                                setSelected(marker)
-                            }}
-                        />)}
+        <div className='NudoMap'>
+            <ComponentHeader
+            text='Localizaciones'
+            nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Localizaciones_oyhg3m.svg'
+             />
+            <div className='container ContainerMap'>
+                <div className='row'>
+                    <div className='col col-lg-8 col-sm-12 RoundedMap'>
+                        <div className='SearchMap'>
+                            <SearchMap panTo={panTo}  />
+                        </div>
+                        <GoogleMap
+                            mapContainerStyle={mapContainerStyle}
+                            zoom={6}
+                            center={center}
+                            options={options}
+                            onClick={onMapClick}
+                            onLoad={onMapLoad}
+                        >
+                            {!markers.length ?
+                                <div>Loading</div> :
+                                markers.map((marker, i) =>
+                                    <Marker
+                                        key={i}
+                                        position={{
+                                            lat: marker.lat, lng: marker.lng
+                                        }}
+                                        icon={{
+                                            url: 'https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png',
+                                            scaledSize: new window.google.maps.Size(30, 40),
+                                            origin: new window.google.maps.Point(0, 0),
+                                            anchor: new window.google.maps.Point(15, 15),
+                                        }}
+                                        onClick={() => {
+                                            setSelected(marker)
+                                        }}
+                                    />)}
 
-                    {selected ? <LocationDetails selected={selected} setSelected={setSelected} closeModal={closeModal} /> : null}
-                </GoogleMap>
-                <LocationList markers={markers} zoomToMarker={zoomToMarker} />
-                <Dialog isOpen={showDialog} onDismiss={closeModal} className='NudoMapDialog'>
-                    <LocationModal  
-                        closeModal={closeModal} 
-                        modalSent={modalSent} 
-                        handleChange={handleChange}
-                    />
-                </Dialog>
+                            {selected ? <LocationDetails selected={selected} setSelected={setSelected} closeModal={closeModal} /> : null}
+                        </GoogleMap>
+                    </div>
+                    <div className='col col-lg-4 d-none d-lg-block'>
+                    <h3>Mis Localizaciones:</h3>
+                        <LocationList markers={markers} zoomToMarker={zoomToMarker} />
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col col-sm-12 d-lg-none '>
+                    <h3 className='mt-4'>Mis Localizaciones:</h3>
+                        <LocationList markers={markers} zoomToMarker={zoomToMarker} />
+                    </div>
+                </div>
             </div>
+
+
+            <Dialog isOpen={showDialog} onDismiss={closeModal} className='NudoMapDialog'>
+                <LocationModal
+                    closeModal={closeModal}
+                    modalSent={modalSent}
+                    handleChange={handleChange}
+                />
+            </Dialog>
+        </div>
     )
 }
 

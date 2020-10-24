@@ -41,6 +41,7 @@ const SearchMap = ({ panTo }) => {
             }}
             disabled={!ready}
             placeHolder='Escribe una localización'
+            className='ComboboxInput'
           />
           <ComboboxPopover>
           <ComboboxList>

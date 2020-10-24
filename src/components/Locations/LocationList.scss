@@ -1,3 +1,14 @@
 .LocationList {
-   max-width: 400px;
+  max-width: 400px;
+  max-height: 45vh;
+  overflow: scroll;
+  border: 2px solid #839672;
+  border-radius: 10px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0;
+  }
 }
