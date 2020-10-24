@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import { Button } from '@material-ui/core'
 import Drawer from './Drawer'
+import './Header.scss'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -43,7 +44,10 @@ export default function MenuAppBar() {
                         <Drawer />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
-                        <Link to="/login">NUDO</Link>
+                    
+                        <Link to="/login" style={{ textDecoration: 'none', color: 'white' }}>NUDO</Link>
+                    
+                       
           </Typography>
                     {user && (
                         <div>

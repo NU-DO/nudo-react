@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { getSongsFromSpotify, createSong, getSongs } from '../../services/Api'
-import { useAuthContext } from '../../contexts/AuthContext'
+
 
 function SongsMenu() {
     const [search, setSearch] = useState({
@@ -9,7 +9,7 @@ function SongsMenu() {
     const [matchSong, setMatchSong] = useState([])
     const [form, setForm] = useState(false)
     const [fav, setFav] = useState([]) //back
-    const { user } = useAuthContext()
+
 
     const handleChange = (e) => {
         setSearch({ search: e.target.value.toLowerCase() })
@@ -38,7 +38,7 @@ function SongsMenu() {
     const addFav = (song, decade) => {
         song.decade = decade
         song.url = song.preview_url
-        createSong(song, user)
+        createSong(song)
             .then(() => {
                 getSongs()
                     .then(data => {

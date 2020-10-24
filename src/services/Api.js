@@ -24,10 +24,18 @@ export const getSongsFromSpotify = ({ search }) => {
   return http.post('/songsSpotify', {search})
 }
 
-export const createSong = ({ user, name, url, artist, decade }) => {
-  return http.post('/song/new', { user, name, url, artist, decade })
+export const createSong = ({ name, url, artist, decade }) => {
+  return http.post('/song/new', { name, url, artist, decade })
 }
 
 export const getSongs = () => {
   return http.get('/song')
+}
+
+export const createLocation = ({ name, description, lat, lng }) => {
+  return http.post('/location/new', { name, description, lat, lng })
+}
+
+export const getLocations = () => {
+  return http.get('/location')
 }
