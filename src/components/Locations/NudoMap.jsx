@@ -1,16 +1,18 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api'
-import { formatRelative } from 'date-fns'
-import MapStyles from './MapStyles'
-import '@reach/combobox/styles.css'
-import { Dialog } from "@reach/dialog"
-import "@reach/dialog/styles.css";
-import VisuallyHidden from "@reach/visually-hidden"
-import Locate from './Locate'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import SearchMap from './SearchMap'
+import LocationModal from './LocationModal'
+import LocationList from './LocationList'
+import LocationDetails from './LocationDetails'
+import Locate from './Locate'
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
+import { formatRelative } from 'date-fns'
+import '@reach/combobox/styles.css'
+import { Dialog } from '@reach/dialog'
+import '@reach/dialog/styles.css'
+import VisuallyHidden from '@reach/visually-hidden'
 import { createLocation, getLocations } from '../../services/Api'
+import MapStyles from './MapStyles'
 import './NudoMap.scss'
-
 
 const mapContainerStyle = {
     width: '90vw',
@@ -29,29 +31,27 @@ const options = {
 const libraries = ['places']
 
 const NudoMap = () => {
-   
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`,
         libraries: libraries,
     })
-
     const [markers, setMarkers] = useState([])
     const [selected, setSelected] = useState(null)
-    const [showDialog, setShowDialog] = useState(false);
+    const [showDialog, setShowDialog] = useState(false)
     const [tempCoordenates, setTempCoordenates] = useState({
         lat: '',
         lng: '',
         name: '',
         description: '',
-    });
-    const openModal = () => setShowDialog(true);
-    const closeModal = () => setShowDialog(false);
+    })
+
+    const openModal = () => setShowDialog(true)
+    const closeModal = () => setShowDialog(false)
 
     useEffect(() => {
         getLocations()
             .then(locations => setMarkers(locations))
     }, [])
-
 
     const onMapClick = useCallback((event) => {
         setTempCoordenates(
@@ -65,16 +65,16 @@ const NudoMap = () => {
         openModal()
 
     }, [])
+
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { name, value } = event.target
         setTempCoordenates(prev => {
             return {
                 ...prev,
                 [name]: value,
             }
-        });
+        })
     }
-
 
     const modalSent = (event) => {
         event.preventDefault()
@@ -87,10 +87,7 @@ const NudoMap = () => {
                 description: tempCoordenates.description,
             }
         ])
-
-
         createLocation(tempCoordenates)
-
         setTempCoordenates({})
         closeModal()
 
@@ -111,11 +108,11 @@ const NudoMap = () => {
         mapRef.current.setZoom(14)   
     }
 
-    if (loadError) return "Error loading Google Maps"
-    if (!isLoaded) return "Loading Google Maps"
+    if (loadError) return 'Error loading Google Maps'
+    if (!isLoaded) return 'Loading Google Maps'
 
     return (
-            <div className="NudoMap">
+            <div className='NudoMap'>
                 <h1>🧠 NUDO Map 🧠</h1>
                 <SearchMap panTo={panTo} />
                 <Locate panTo={panTo} />
@@ -135,56 +132,29 @@ const NudoMap = () => {
                             position={{
                                 lat: marker.lat, lng: marker.lng
                             }}
-                            // icon={{
-                            //   url: '/icon',
-                            //   scaledSize: new window.google.maps.Size(30,30),
-                            //   origin: new window.google.maps.Point(0, 0),
-                            //   anchor: new window.google.maps.Point(15, 15),
-                            // }}
+                            icon={{
+                              url: 'https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png',
+                              scaledSize: new window.google.maps.Size(30,40),
+                              origin: new window.google.maps.Point(0, 0),
+                              anchor: new window.google.maps.Point(15, 15),
+                            }}
                             onClick={() => {
                                 setSelected(marker)
                             }}
                         />)}
 
-                    {selected ? (<InfoWindow position={{ lat: selected.lat, lng: selected.lng }} onCloseClick={() => { setSelected(null) }}>
-                        <div>
-                            <h2>{selected.name}</h2>
-                            <p>{selected.description}</p>
-                            <p>Stored</p>
-                        </div>
-                    </InfoWindow>) : null}
+                    {selected ? <LocationDetails selected={selected} setSelected={setSelected} closeModal={closeModal} /> : null}
                 </GoogleMap>
-                <ul>
-                    {markers.length ? markers.map((pin, i) => {
-                        return (<li key={i}>Name : {pin.name} || description: {pin.description} || <button onClick={() => zoomToMarker(pin.lat, pin.lng)}>Zoom</button></li>)
-                    }) : null}
-                </ul>
-                <Dialog isOpen={showDialog} onDismiss={closeModal}>
-                    <button className="close-button" onClick={closeModal}>
-                        <VisuallyHidden>Close</VisuallyHidden>
-                        <span aria-hidden>×</span>
-                    </button>
-                    <p>Form to edit marker</p>
-                    <form onSubmit={modalSent}>
-                        <input
-                            type='text'
-                            name='name'
-                            value={tempCoordenates.name}
-                            onChange={handleChange}
-                            placeHolder='Escribe un nombre de localización'
-                        />
-                        <input
-                            type='text'
-                            name='description'
-                            value={tempCoordenates.description}
-                            onChange={handleChange}
-                            placeHolder='Escribe una descripción'
-                        />
-                        <button>send</button>
-                    </form>
+                <LocationList markers={markers} zoomToMarker={zoomToMarker} />
+                <Dialog isOpen={showDialog} onDismiss={closeModal} className='NudoMapDialog'>
+                    <LocationModal  
+                        closeModal={closeModal} 
+                        modalSent={modalSent} 
+                        handleChange={handleChange}
+                    />
                 </Dialog>
             </div>
-    );
+    )
 }
 
 export default NudoMap

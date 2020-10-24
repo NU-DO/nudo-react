@@ -20,6 +20,7 @@ export const login = ({ email, password }) => http.post('/login', { email, passw
 
 export const logout = () => http.post('/logout')
 
+
 export const getSongsFromSpotify = ({ search }) => {
   return http.post('/songsSpotify', {search})
 }
@@ -31,6 +32,7 @@ export const createSong = ({ name, url, artist, decade }) => {
 export const getSongs = () => {
   return http.get('/song')
 }
+
 
 export const createLocation = ({ name, description, lat, lng }) => {
   return http.post('/location/new', { name, description, lat, lng })
