@@ -15,7 +15,7 @@ function App() {
       <Header />
       <div>
         <Switch>
-            <NotAuthenticatedRoute exact path='/login' component={Login}/>
+            <NotAuthenticatedRoute exact path='/login' component={Login}/>7
             <AuthenticatedRoute exact path='/canciones' component={SongMenu}/>
             <AuthenticatedRoute exact path='/localizaciones' component={NudoMap}/>
             <AuthenticatedRoute exact path='/' component={Dashboard}/>

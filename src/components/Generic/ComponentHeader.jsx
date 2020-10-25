@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 import './ComponentHeader.scss'
 
-const ComponentHeader = ({ nudoIcon, text }) => {
+const ComponentHeader = ({ nudoIcon, title, description }) => {
     return (
         <div className='ComponentHeaderStyle'>
-           
-                <img src= {nudoIcon} className='NudoIconStyle'/>
-          
-            <h2>{text}</h2>
-           
+            <img src= {nudoIcon} className='NudoIconStyle'/>
+            <div>
+                <h2>{title}</h2>
+                <p className='descriptionHeader'>{description}</p>
+            </div>
         </div>
-    );
-};
+    )
+}
 
-export default ComponentHeader;
+export default ComponentHeader

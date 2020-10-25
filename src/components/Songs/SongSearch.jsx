@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SongSearcherForm from './SongSearchForm'
+import SongCard from './SongCard'
 
 const SongSearch = ({ matchSong, handleOpen, addFav, form, handleChange, search }) => {
+    const [typeSearch, setTypeSearch] = useState(true)
     return (
         <div className='SongSearch'>
             <SongSearcherForm handleChange={handleChange} search={search}/>
@@ -9,12 +11,7 @@ const SongSearch = ({ matchSong, handleOpen, addFav, form, handleChange, search 
                     <ul>
                         {!matchSong.length ? <p>No coincide ninguna cancion</p> :
                             matchSong.map(song => (
-                                <li className='splitted'>
-                                    <p>{song.name} ---</p>
-                                    <p>{song.artists[0].name}</p>
-                                    <button onClick={() => handleOpen(song.name)}>Add Fav</button>
-                                    {form === song.name ? <div><button onClick={() => addFav(song, "60's")}>60</button><button onClick={() => addFav(song, "70's")}>70</button></div> : null}
-                                </li>
+                                <SongCard song={song} typeSearch={typeSearch} form={form} handleOpen={handleOpen} addFav={addFav} />
                             ))
                         }
                     </ul>

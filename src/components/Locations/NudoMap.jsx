@@ -112,7 +112,8 @@ const NudoMap = () => {
     return (
         <div className='NudoMap'>
             <ComponentHeader
-            text='Localizaciones'
+            title='Localizaciones'
+            description='Bienvenido a Localizaciones. En esta sección puedes guardar tus localizaciones. Clickando en el mapa generas un marcador para guardar un lugar que quieras mantener en tu recuerdo.'
             nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Localizaciones_oyhg3m.svg'
              />
             <div className='container ContainerMap'>

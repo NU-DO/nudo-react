@@ -55,7 +55,7 @@ export default function NudoDrawer() {
         >
             <div className='ComponentHeaderStyle'>
                 <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603577840/NUDO/assets/Dashboard-icons/logo-menu_rxm9q6.svg' className='NudoIconStyle'/>
-                <h4 className='mt-3 text-center'>Hello {user.username}!</h4>
+                <h5 className='mt-3 text-center'>Hola {user.username}!</h5>
             </div>
             <List>
                 {['Fotos', 'Música', 'Contactos', 'Localizaciones', 'Historia', 'Eventos', 'Juegos'].map((text, index) => (
