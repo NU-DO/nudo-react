@@ -4,7 +4,7 @@ import SongCard from './SongCard'
 import './SongSearch.scss'
 
 const SongSearch = ({ matchSong, handleOpen, addFav, form, handleChange, search }) => {
-    const [typeSearch, setTypeSearch] = useState(true)
+    const typeSearch = useState(true)
     return (
         <div className='SongSearch'>
             <div className='songSearcher'>

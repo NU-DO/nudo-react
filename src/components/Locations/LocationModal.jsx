@@ -22,7 +22,7 @@ const LocationModal = ({ closeModal, modalSent, handleChange }) => {
 
             <h2 style={{ textAlign: 'center' }}>Completa los campos</h2>
             <div >
-                <form onSubmit={modalSent} className={classes.root} noValidate autoComplete='off' className='MapDialogElements'>
+                <form onSubmit={modalSent} className={classes.root} noValidate autoComplete='off'>
                     <div>
                         <TextField
                             id='name'

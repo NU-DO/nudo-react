@@ -1,9 +1,6 @@
 import React from 'react'
 import ButtonAddSong from './ButtonAddSong'
 import './SongCard.scss'
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
-import AddIcon from '@material-ui/icons/Add';
-import { Fab } from '@material-ui/core'
 
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav }) => {
     return (

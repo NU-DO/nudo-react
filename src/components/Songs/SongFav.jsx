@@ -4,18 +4,18 @@ import SongFavFilter from './SongFavFilter'
 import './SongSearch.scss'
 
 const SongFav = ({ fav }) => {
-    const [favSongs, setFav] = useState(fav)
+    const [favSongs, setFavSongs] = useState(fav)
 
     useEffect(() => {
-        setFav(fav)
-    }, [])
+        setFavSongs(fav) 
+    }, [fav])
 
     const setDecade = (decade) => {
         if (decade === 'all') {
-            setFav(fav)
+            setFavSongs(fav)
         } else {
             const songDecade = fav.filter(song => song.decade === decade)
-            setFav(songDecade)
+            setFavSongs(songDecade)
         }
     }
 
@@ -24,7 +24,7 @@ const SongFav = ({ fav }) => {
             <h4 className='py-3'>Canciones Favoritas</h4>
             <SongFavFilter setDecade={setDecade} />
             <div className='songFavContainer'>
-                {!favSongs.length ? <p>No coincide ningún fav</p> :
+                {!fav.length ? <p>No coincide ningún fav</p> :
                     favSongs.map(song => {
                         return (
                             <SongCard song={song}/>

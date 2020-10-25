@@ -40,7 +40,6 @@ function SongMenu() {
     const addFav = (song, decade) => {
         song.decade = decade
         song.url = song.preview_url
-        console.log(song)
         createSong(song)
             .then(() => {
                 getSongs()
