@@ -1,9 +1,22 @@
 import React from 'react'
+import { TextField } from '@material-ui/core'
+
 
 const SongSearcher = ({ handleChange, search }) => {
     return (
         <form method='GET'>
-            <input name='search' placeholder='search for an artist' onChange={handleChange} value={search.search} />
+        <TextField
+          variant='outlined'
+          margin='small'
+          required
+          id='searchSong'
+          label='Busca tu canción'
+          name='search'
+          autoComplete='text'
+          value={search.search}
+          onChange={handleChange}
+          autoFocus
+        />
         </form>
     )
 }

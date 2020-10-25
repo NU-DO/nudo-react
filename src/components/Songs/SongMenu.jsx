@@ -3,8 +3,9 @@ import SongSearch from './SongSearch'
 import SongFav from './SongFav'
 import { getSongsFromSpotify, createSong, getSongs } from '../../services/Api'
 import './SongMenu.scss'
+import ComponentHeader from '../Generic/ComponentHeader'
 
-function SongsMenu() {
+function SongMenu() {
     const [search, setSearch] = useState({
         search: ''
     })
@@ -23,7 +24,7 @@ function SongsMenu() {
     useEffect(() => {
         getSongsFromSpotify(search)
             .then(data => {
-                setMatchSong(data.slice(0, 3))
+                setMatchSong(data.slice(0, 20))
             })
             .catch(err => console.log(err))
     }, [search])
@@ -45,6 +46,7 @@ function SongsMenu() {
                 getSongs()
                     .then(data => {
                         setFav(data)
+                        setForm(false)
                     })
             })
             .catch(err => console.log(err))
@@ -52,12 +54,22 @@ function SongsMenu() {
 
     return (
         <div className='SongMenu'>
+            <ComponentHeader
+                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-musica_a9qwta.svg'
+                title='Canciones'
+                description='Busca tus canciones favoritas de siempre y guardalas en Nudo. Disfruta, baila, recuerda.'
+            />
             <div className='splitted'>
-                <SongSearch matchSong={matchSong} handleOpen={handleOpen} addFav={addFav} form={form} handleChange={handleChange} search={search} />
-                <SongFav fav={fav}/>
+                <div className='songSearchDiv'>
+                    <SongSearch matchSong={matchSong} handleOpen={handleOpen} addFav={addFav} form={form} handleChange={handleChange} search={search} />
+                </div>
+                <div className='songSearchDiv'>
+                    <SongFav fav={fav} />
+                </div>
             </div>
         </div>
+
     )
 }
 
-export default SongsMenu
+export default SongMenu

@@ -1,9 +1,13 @@
 import React from 'react'
+import ButtonAddSong from './ButtonAddSong'
 import './SongCard.scss'
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline'
+import AddIcon from '@material-ui/icons/Add';
+import { Fab } from '@material-ui/core'
 
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav }) => {
     return (
-        <li className='SongCard'>
+        <div className='SongCard'>
             <img
                 className='albumImage'
                 src={typeSearch ? song.album.images[0].url : song.image}
@@ -17,13 +21,22 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav }) => {
                     <source src={typeSearch ? song.preview_url : song.url} type='audio/mpeg' />
                 </audio>
                 {typeSearch ?
-                    <div>
-                        <button onClick={() => handleOpen(song.name)}>Add Fav</button>
-                        {form === song.name ? <div><button onClick={() => addFav(song, "60's")}>60</button><button onClick={() => addFav(song, "70's")}>70</button></div> : null}
+                    <div className='addSongForm'>
+                        <div className='addButton' onClick={() => handleOpen(song.id)}>+</div>
+                        {form === song.id ? 
+                            <div className='absolute'>
+                                <ButtonAddSong decade="50's" addFav={addFav} song={song} />
+                                <ButtonAddSong decade="60's" addFav={addFav} song={song} />
+                                <ButtonAddSong decade="70's" addFav={addFav} song={song} />
+                                <ButtonAddSong decade="80's" addFav={addFav} song={song} />
+                                <ButtonAddSong decade="90's" addFav={addFav} song={song} />
+                                <ButtonAddSong decade="00's" addFav={addFav} song={song} />
+                            </div>
+                        : null}
                     </div>
-                    : null}
+                : null}
             </div>
-        </li>
+        </div>
     )
 }
 

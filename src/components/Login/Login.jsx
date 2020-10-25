@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function SignIn() {
+const LogIn = () => {
   const classes = useStyles()
   const [state, setState] = useState({
     data: {
@@ -126,3 +126,5 @@ export default function SignIn() {
     </Container>
   )
 }
+
+export default LogIn
