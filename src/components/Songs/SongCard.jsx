@@ -1,15 +1,14 @@
 import React from 'react'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
 import './SongCard.scss'
 
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav }) => {
     return (
-        <li className="SongCard">
+        <li className='SongCard'>
             <img
-                className="albumImage"
+                className='albumImage'
                 src={typeSearch ? song.album.images[0].url : song.image}
                 alt={song.name} />
-            <div className="songCardInfo">
+            <div className='songCardInfo'>
                 <div className='songText'>
                     <p className='songName'>"{song.name}"</p>
                     <p className='songArtist'>{song.artists[0].name} | {song.decade}</p>
