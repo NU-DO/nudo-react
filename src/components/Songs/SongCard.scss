@@ -1,0 +1,39 @@
+.SongCard {
+    list-style: none;
+    border: 1px solid grey;
+    background-color: #DBDBDB;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 3px;
+    box-shadow: 0px 1px 16px -2px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    width: 600px;
+    audio {
+        filter: sepia(0%) saturate(10%) grayscale(0.3) contrast(99%) invert(10%);
+        width: 200px;
+        height: 25px;
+    }
+    .albumImage {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    .songName {
+        margin: 0 0 5px 0;
+        
+    }
+    .songArtist {
+        font-size: 10px;
+        color: rgb(112, 109, 109);
+        padding: 5px;
+    }
+    .songCardInfo {
+        display: flex;
+        padding-left: 8px;
+        align-items: center;
+    }
+    .songText {
+        width: 250px;
+    }
+}
