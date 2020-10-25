@@ -1,5 +1,17 @@
 .CloseModalButton {
-    text-align: right;
+    position: absolute;
+    top: 15%;
+    right: 18%;
     color: rgb(165, 161, 161);
     margin: -20px -20px 0 0;
 } 
+
+@media (min-width: 700px) {
+    .CloseModalButton {
+        position: absolute;
+        top: 13%;
+        right: 43%;
+        color: rgb(165, 161, 161);
+        margin: -20px -20px 0 0;
+    } 
+}

@@ -17,8 +17,8 @@ const LocationModal = ({ closeModal, modalSent, handleChange }) => {
     const classes = useStyles()
 
     return (
-        <div>
-            <CloseModalButton onClick={closeModal} />
+        <div className='containerDialog'>
+            <CloseModalButton onClick={closeModal}  />
 
             <h2 style={{ textAlign: 'center' }}>Completa los campos</h2>
             <div >
@@ -60,7 +60,6 @@ const LocationModal = ({ closeModal, modalSent, handleChange }) => {
                     </div>
                 </form>
             </div>
-
         </div>
     )
 }

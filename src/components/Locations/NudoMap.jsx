@@ -4,13 +4,16 @@ import LocationModal from './LocationModal'
 import LocationList from './LocationList'
 import LocationDetails from './LocationDetails'
 import ComponentHeader from '../Generic/ComponentHeader'
+import AlertSnackBar from '../Generic/AlertSnackBar'
+import MapStyles from './MapStyles'
+import './NudoMap.scss'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import '@reach/combobox/styles.css'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 import { createLocation, getLocations } from '../../services/Api'
-import MapStyles from './MapStyles'
-import './NudoMap.scss'
+
+import { Snackbar } from '@material-ui/core'
 
 const mapContainerStyle = {
     width: '100%',
@@ -36,6 +39,7 @@ const NudoMap = () => {
     const [markers, setMarkers] = useState([])
     const [selected, setSelected] = useState(null)
     const [showDialog, setShowDialog] = useState(false)
+    const [snackOpen, setSnackOpen] = useState(false);
     const [tempCoordenates, setTempCoordenates] = useState({
         lat: '',
         lng: '',
@@ -46,6 +50,15 @@ const NudoMap = () => {
 
     const openModal = () => setShowDialog(true)
     const closeModal = () => setShowDialog(false)
+    const handleSnack = () => setSnackOpen(true);
+    const handleCloseSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setSnackOpen(false);
+      };
+      
 
     useEffect(() => {
         getLocations()
@@ -86,9 +99,11 @@ const NudoMap = () => {
                 description: tempCoordenates.description,
             }
         ])
+        handleSnack()
         createLocation(tempCoordenates)
-        setTempCoordenates({})
+        setTimeout(() =>setTempCoordenates({}), 3000) 
         closeModal()
+        
     }
 
     const mapRef = useRef()
@@ -112,15 +127,15 @@ const NudoMap = () => {
     return (
         <div className='NudoMap'>
             <ComponentHeader
-            title='Localizaciones'
-            description='Bienvenido a Localizaciones. En esta sección puedes guardar tus localizaciones. Clickando en el mapa generas un marcador para guardar un lugar que quieras mantener en tu recuerdo.'
-            nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Localizaciones_oyhg3m.svg'
-             />
+                title='Localizaciones'
+                description='Bienvenido a Localizaciones. En esta sección puedes guardar tus localizaciones. Clickando en el mapa generas un marcador para guardar un lugar que quieras mantener en tu recuerdo.'
+                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Localizaciones_oyhg3m.svg'
+            />
             <div className='container ContainerMap'>
                 <div className='row'>
                     <div className='col col-lg-8 col-sm-12 RoundedMap'>
                         <div className='SearchMap'>
-                            <SearchMap panTo={panTo}  />
+                            <SearchMap panTo={panTo} />
                         </div>
                         <GoogleMap
                             mapContainerStyle={mapContainerStyle}
@@ -153,13 +168,13 @@ const NudoMap = () => {
                         </GoogleMap>
                     </div>
                     <div className='col col-lg-4 d-none d-lg-block'>
-                    <h3>Mis Localizaciones:</h3>
+                        <h3>Mis Localizaciones:</h3>
                         <LocationList markers={markers} zoomToMarker={zoomToMarker} />
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col col-sm-12 d-lg-none '>
-                    <h3 className='mt-4'>Mis Localizaciones:</h3>
+                        <h3 className='mt-4'>Mis Localizaciones:</h3>
                         <LocationList markers={markers} zoomToMarker={zoomToMarker} />
                     </div>
                 </div>
@@ -173,6 +188,11 @@ const NudoMap = () => {
                     handleChange={handleChange}
                 />
             </Dialog>
+            <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnack}>
+                <AlertSnackBar onClose={handleCloseSnack} severity="success">
+                    {tempCoordenates.name} guardada correctamente!
+        </AlertSnackBar>
+            </Snackbar>
         </div>
     )
 }

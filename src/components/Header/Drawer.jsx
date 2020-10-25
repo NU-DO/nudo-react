@@ -1,4 +1,5 @@
 import React from 'react'
+import './Drawer.scss'
 import { useAuthContext } from '../../contexts/AuthContext'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
@@ -53,8 +54,8 @@ export default function NudoDrawer() {
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
-            <div className='ComponentHeaderStyle'>
-                <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603577840/NUDO/assets/Dashboard-icons/logo-menu_rxm9q6.svg' className='NudoIconStyle' alt="logo"/>
+            <div className='ComponentHeaderStyleDrawer'>
+                <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603577840/NUDO/assets/Dashboard-icons/logo-menu_rxm9q6.svg' className='NudoIconStyleDrawer' alt="logo"/>
                 <h5 className='mt-3 text-center'>Hola {user.username}!</h5>
             </div>
             <List>

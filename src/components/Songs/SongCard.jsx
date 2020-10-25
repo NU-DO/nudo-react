@@ -12,7 +12,7 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav }) => {
             <div className='songCardInfo'>
                 <div className='songText'>
                     <p className='songName'>"{song.name}"</p>
-                    <p className='songArtist'>{song.artists[0].name} | {song.decade}</p>
+                    <p className='songArtist'>{song.artists[0].name} {typeSearch ? null : `| ${song.decade}`}</p>
                 </div>
                 <audio controls>
                     <source src={typeSearch ? song.preview_url : song.url} type='audio/mpeg' />
