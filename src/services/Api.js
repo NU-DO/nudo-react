@@ -20,7 +20,6 @@ export const login = ({ email, password }) => http.post('/login', { email, passw
 
 export const logout = () => http.post('/logout')
 
-
 export const getSongsFromSpotify = ({ search }) => {
   return http.post('/songsSpotify', {search})
 }
