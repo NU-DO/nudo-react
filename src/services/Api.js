@@ -33,6 +33,9 @@ export const getSongs = () => {
   return http.get('/song')
 }
 
+export const deleteSong = (id) => {
+  return http.delete(`/song/${id}/delete`, { id })
+}
 
 export const createLocation = ({ name, description, lat, lng }) => {
   return http.post('/location/new', { name, description, lat, lng })
@@ -40,4 +43,12 @@ export const createLocation = ({ name, description, lat, lng }) => {
 
 export const getLocations = () => {
   return http.get('/location')
+}
+
+export const deleteLocation = (id) => {
+  return http.delete(`/location/${id}/delete`, { id })
+}
+
+export const editLocation = (id, body) => {
+  return http.patch(`/location/${id}/edit`, { body })
 }

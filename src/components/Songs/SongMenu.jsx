@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SongSearch from './SongSearch'
 import SongFav from './SongFav'
-import { getSongsFromSpotify, createSong, getSongs } from '../../services/Api'
+import { getSongsFromSpotify, createSong, getSongs, deleteSong } from '../../services/Api'
 import './SongMenu.scss'
 import ComponentHeader from '../Generic/ComponentHeader'
 
@@ -51,6 +51,14 @@ function SongMenu() {
             .catch(err => console.log(err))
     }
 
+    const handleDeleteSong = (id) => {
+        deleteSong(id)
+            .then(() => {
+                getSongs()
+                    .then(songs => setFav(songs))
+            })
+    }
+
     return (
         <div className='SongMenu'>
             <ComponentHeader
@@ -63,7 +71,7 @@ function SongMenu() {
                     <SongSearch matchSong={matchSong} handleOpen={handleOpen} addFav={addFav} form={form} handleChange={handleChange} search={search} />
                 </div>
                 <div className='songSearchDiv'>
-                    <SongFav fav={fav} />
+                    <SongFav fav={fav} handleDeleteSong={handleDeleteSong} />
                 </div>
             </div>
         </div>

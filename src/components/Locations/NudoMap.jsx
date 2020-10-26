@@ -11,7 +11,7 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import '@reach/combobox/styles.css'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
-import { createLocation, getLocations } from '../../services/Api'
+import { createLocation, getLocations, deleteLocation, editLocation } from '../../services/Api'
 
 import { Snackbar } from '@material-ui/core'
 
@@ -53,17 +53,27 @@ const NudoMap = () => {
     const handleSnack = () => setSnackOpen(true);
     const handleCloseSnack = (event, reason) => {
         if (reason === 'clickaway') {
-          return;
+            return;
         }
-    
+
         setSnackOpen(false);
-      };
-      
+    };
+
 
     useEffect(() => {
         getLocations()
             .then(locations => setMarkers(locations))
     }, [])
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setTempCoordenates(prev => {
+            return {
+                ...prev,
+                [name]: value,
+            }
+        })
+    }
 
     const onMapClick = useCallback((event) => {
         setTempCoordenates(
@@ -78,32 +88,24 @@ const NudoMap = () => {
 
     }, [])
 
-    const handleChange = (event) => {
-        const { name, value } = event.target
-        setTempCoordenates(prev => {
-            return {
-                ...prev,
-                [name]: value,
-            }
-        })
-    }
-
     const modalSent = (event) => {
         event.preventDefault()
-        setMarkers(current => [
-            ...current,
-            {
-                lat: tempCoordenates.lat,
-                lng: tempCoordenates.lng,
-                name: tempCoordenates.name,
-                description: tempCoordenates.description,
-            }
-        ])
         handleSnack()
         createLocation(tempCoordenates)
-        setTimeout(() =>setTempCoordenates({}), 3000) 
+            .then(() => {
+                getLocations()
+                    .then(locations => setMarkers(locations))
+            })
+        setTimeout(() => setTempCoordenates({}), 3000)
         closeModal()
-        
+    }
+
+    const handleDeleteLocation = (id) => {
+        deleteLocation(id)
+            .then(locations => {
+                getLocations()
+                    .then(locations => setMarkers(locations))
+            })
     }
 
     const mapRef = useRef()
@@ -169,13 +171,21 @@ const NudoMap = () => {
                     </div>
                     <div className='col col-lg-4 d-none d-lg-block'>
                         <h3>Mis Localizaciones:</h3>
-                        <LocationList markers={markers} zoomToMarker={zoomToMarker} />
+                        <LocationList
+                            markers={markers}
+                            zoomToMarker={zoomToMarker}
+                            deleteMarker={handleDeleteLocation}
+                        />
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col col-sm-12 d-lg-none '>
                         <h3 className='mt-4'>Mis Localizaciones:</h3>
-                        <LocationList markers={markers} zoomToMarker={zoomToMarker} />
+                        <LocationList
+                            markers={markers}
+                            zoomToMarker={zoomToMarker}
+                            deleteMarker={handleDeleteLocation}
+                        />
                     </div>
                 </div>
             </div>

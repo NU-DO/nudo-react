@@ -2,7 +2,7 @@ import React from 'react'
 import ButtonAddSong from './ButtonAddSong'
 import './SongCard.scss'
 
-const SongCard = ({ song, typeSearch, form, handleOpen, addFav }) => {
+const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong }) => {
     return (
         <div className='SongCard'>
             <img
@@ -31,7 +31,7 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav }) => {
                             </div>
                         : null}
                     </div>
-                : null}
+                : <div onClick={() => handleDeleteSong(song.id)}>x</div>}
             </div>
         </div>
     )

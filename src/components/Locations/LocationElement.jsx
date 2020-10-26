@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const LocationElement = ({ marker, zoomToMarker, i }) => {
+const LocationElement = ({ marker, zoomToMarker, deleteMarker, i }) => {
     const classes = useStyles()
 
     return (
@@ -72,7 +72,7 @@ const LocationElement = ({ marker, zoomToMarker, i }) => {
                     <AccordionActions>
                         <ZoomInIcon onClick={() => zoomToMarker(marker.lat, marker.lng)}/>
                         <EditIcon />
-                        <DeleteIcon />
+                        <DeleteIcon onClick={() =>  deleteMarker(marker.id)}/>
                     </AccordionActions>
                 </Accordion>
             </div>

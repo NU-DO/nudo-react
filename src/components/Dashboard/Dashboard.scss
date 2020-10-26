@@ -1,112 +1,20 @@
-// .DashboardIconContainer {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     margin-left: auto;
-//     margin-right: auto;
-//     width: 50%;
-//     position: absolute;
-//     top:45%;
-//     left:25%;
-// }
-
-// .Dashboard-icon-primary {
-//   width: 30%;
-//   height: 30%;
-// }
-
-// /// Mixin to put items on a circle
-// /// [1] - Allows children to be absolutely positioned
-// /// [2] - Allows the mixin to be used on a list
-// /// [3] - In case box-sizing: border-box has been enabled
-// /// [4] - Allows any type of direct children to be targeted
-// ///
-// /// @param {Integer} $nb-items - Number or items
-// /// @param {Length} $circle-size - Container size
-// /// @param {Length} $item-size - Item size
-// /// @param {String | false} $class-for-IE - Base class name for old IE
-// @mixin distribute-on-circle(
-//   $nb-items,
-//   $circle-size,
-//   $item-size,
-//   $class-for-IE: false
-// ) {
-//   $half-item: ($item-size / 2);
-//   $half-parent: ($circle-size / 1.5);
-
-//   position: relative; /* 1 */
-//   width: $circle-size;
-//   height: $circle-size;
-//   padding: 0;
-//   border-radius: 50%;
-//   list-style: none; /* 2 */
-//   box-sizing: content-box; /* 3 */
-
-//   > * {
-//     /* 4 */
-//     display: block;
-//     position: absolute;
-//     top: 80%;
-//     left: 50%;
-//     width: $item-size;
-//     height: $item-size;
-//     margin: -$half-item;
-//   }
-
-//   $angle: (360 / $nb-items);
-//   $rot: 13;
-
-//   @for $i from 1 through $nb-items {
-//     @if not $class-for-IE {
-//       > :nth-of-type(#{$i}) {
-//         transform: rotate($rot * 1deg)
-//           translate($half-parent)
-//           rotate($rot * -1deg);
-//       }
-//     } @else {
-//       > .#{$class-for-IE}#{$i} {
-//         // If CSS transforms are not supported
-//         $mt: sin($rot * pi() / 180) * $half-parent - $half-item;
-//         $ml: cos($rot * pi() / 180) * $half-parent - $half-item;
-//         margin: $mt 0 0 $ml;
-//       }
-//     }
-
-//     $rot: ($rot + $angle);
-//   }
-// }
-
-// .circle-container {
-//   @include distribute-on-circle(7, 28em, 9em, false);
-//   margin: 0.5em auto 0;
-//   position: absolute;
-//   top: 15%;
-//   left: 35%;
-// }
-
-// .circle-container img {
-//   display: block;
-//   width: 100%;
-
-//   &:hover {
-//     filter: grayscale(0);
-//   }
-// }
-
-/* Fonts */
-
 @import url(https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap);
-/* Variables */
 
 $color: white;
 $font: "Comfortaa", cursive;
 
-
-.Dashboard-card-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
+.Dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.Dashboard-card-container {
+  max-width: 900px;
+  font-family: $font;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

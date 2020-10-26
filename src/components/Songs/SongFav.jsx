@@ -3,7 +3,7 @@ import SongCard from './SongCard'
 import SongFavFilter from './SongFavFilter'
 import './SongSearch.scss'
 
-const SongFav = ({ fav }) => {
+const SongFav = ({ fav, handleDeleteSong }) => {
     const [favSongs, setFavSongs] = useState(fav)
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const SongFav = ({ fav }) => {
                 {!fav.length ? <p>No coincide ningún fav</p> :
                     favSongs.map(song => {
                         return (
-                            <SongCard song={song}/>
+                            <SongCard song={song} handleDeleteSong={handleDeleteSong} />
                         )
                     })
                 }
