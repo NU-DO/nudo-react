@@ -49,6 +49,6 @@ export const deleteLocation = (id) => {
   return http.delete(`/location/${id}/delete`, { id })
 }
 
-export const editLocation = (id, body) => {
-  return http.patch(`/location/${id}/edit`, { body })
+export const editLocation = (id, {name, description}) => {
+  return http.patch(`/location/${id}/edit`, {name, description})
 }

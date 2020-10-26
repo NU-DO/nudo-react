@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -13,7 +13,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const LocationModal = ({ closeModal, modalSent, handleChange }) => {
+const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange, tempCoordenates }) => {
+    const [edit, setEdit] = useState(false)
+
+    useEffect(() => {
+        if(tempCoordenates.name) {
+            setEdit(true)
+        }
+    }, [])
+    
     const classes = useStyles()
 
     return (
@@ -22,7 +30,7 @@ const LocationModal = ({ closeModal, modalSent, handleChange }) => {
 
             <h2 style={{ textAlign: 'center' }}>Completa los campos</h2>
             <div >
-                <form onSubmit={modalSent} className={classes.root} noValidate autoComplete='off'>
+                <form onSubmit={edit ? handleEditLocation : modalSent} className={classes.root} noValidate autoComplete='off'>
                     <div>
                         <TextField
                             id='name'
@@ -33,6 +41,7 @@ const LocationModal = ({ closeModal, modalSent, handleChange }) => {
                             name='name'
                             onChange={handleChange}
                             autoFocus
+                            value={tempCoordenates.name}
                             variant='outlined' />
                     </div>
                     <div>
@@ -45,6 +54,7 @@ const LocationModal = ({ closeModal, modalSent, handleChange }) => {
                             name='description'
                             onChange={handleChange}
                             variant='outlined'
+                            value={tempCoordenates.description}
                             multiline />
                     </div>
                     <div>

@@ -2,7 +2,7 @@ import React from 'react'
 import LocationElement from './LocationElement'
 import './LocationList.scss'
 
-const LocationList = ({ markers, zoomToMarker, deleteMarker }) => {
+const LocationList = ({ markers, zoomToMarker, deleteMarker, onEdit }) => {
     return (
         <div className='LocationList'>
             <ul>
@@ -12,6 +12,7 @@ const LocationList = ({ markers, zoomToMarker, deleteMarker }) => {
                     zoomToMarker={zoomToMarker}  
                     deleteMarker={deleteMarker} 
                     i={i}
+                    onEdit={onEdit}
                     />
                 )) : null}  
             </ul>

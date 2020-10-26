@@ -39,26 +39,20 @@ const NudoMap = () => {
     const [markers, setMarkers] = useState([])
     const [selected, setSelected] = useState(null)
     const [showDialog, setShowDialog] = useState(false)
-    const [snackOpen, setSnackOpen] = useState(false);
-    const [tempCoordenates, setTempCoordenates] = useState({
-        lat: '',
-        lng: '',
-        name: '',
-        description: '',
-    })
+    const [snackOpen, setSnackOpen] = useState(false)
+    const [tempCoordenates, setTempCoordenates] = useState({})
 
 
     const openModal = () => setShowDialog(true)
     const closeModal = () => setShowDialog(false)
-    const handleSnack = () => setSnackOpen(true);
+    const handleSnack = () => setSnackOpen(true)
     const handleCloseSnack = (event, reason) => {
         if (reason === 'clickaway') {
-            return;
+            return
         }
 
-        setSnackOpen(false);
-    };
-
+        setSnackOpen(false)
+    }
 
     useEffect(() => {
         getLocations()
@@ -92,6 +86,26 @@ const NudoMap = () => {
         event.preventDefault()
         handleSnack()
         createLocation(tempCoordenates)
+            .then(() => {
+                getLocations()
+                    .then(locations => setMarkers(locations))
+            })
+        setTimeout(() => setTempCoordenates({}), 3000)
+        closeModal()
+    }
+
+    const editMarker = (marker) => {
+        setTempCoordenates(marker)
+        openModal()
+    }
+
+    const handleEditLocation = (event) => {
+        event.preventDefault()
+        handleSnack()
+        const data= {}
+        data.name = tempCoordenates.name
+        data.description = tempCoordenates.description
+        editLocation(tempCoordenates.id, data)
             .then(() => {
                 getLocations()
                     .then(locations => setMarkers(locations))
@@ -175,6 +189,7 @@ const NudoMap = () => {
                             markers={markers}
                             zoomToMarker={zoomToMarker}
                             deleteMarker={handleDeleteLocation}
+                            onEdit={editMarker}
                         />
                     </div>
                 </div>
@@ -185,6 +200,7 @@ const NudoMap = () => {
                             markers={markers}
                             zoomToMarker={zoomToMarker}
                             deleteMarker={handleDeleteLocation}
+                            onEdit={editMarker}
                         />
                     </div>
                 </div>
@@ -195,13 +211,15 @@ const NudoMap = () => {
                 <LocationModal
                     closeModal={closeModal}
                     modalSent={modalSent}
+                    handleEditLocation={handleEditLocation}
                     handleChange={handleChange}
+                    tempCoordenates={tempCoordenates}
                 />
             </Dialog>
             <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleCloseSnack}>
-                <AlertSnackBar onClose={handleCloseSnack} severity="success">
+                <AlertSnackBar onClose={handleCloseSnack} severity='success'>
                     {tempCoordenates.name} guardada correctamente!
-        </AlertSnackBar>
+                 </AlertSnackBar>
             </Snackbar>
         </div>
     )

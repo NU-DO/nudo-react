@@ -47,9 +47,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const LocationElement = ({ marker, zoomToMarker, deleteMarker, i }) => {
+const LocationElement = ({ marker, zoomToMarker, deleteMarker, onEdit, i }) => {
     const classes = useStyles()
-
     return (
         <li key={i} className='noBullet'>
             <div className={classes.root}>
@@ -71,7 +70,7 @@ const LocationElement = ({ marker, zoomToMarker, deleteMarker, i }) => {
                     <Divider variant='middle'/>
                     <AccordionActions>
                         <ZoomInIcon onClick={() => zoomToMarker(marker.lat, marker.lng)}/>
-                        <EditIcon />
+                        <EditIcon onClick={() => {onEdit(marker)}}/>
                         <DeleteIcon onClick={() =>  deleteMarker(marker.id)}/>
                     </AccordionActions>
                 </Accordion>
