@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useSpring, animated as a } from "react-spring";
+import React, { useState, useEffect } from 'react'
+import { useSpring, animated as a } from 'react-spring'
 import './Game.scss'
 
 const Card = ({
@@ -63,14 +63,14 @@ const Card = ({
     return (
         <div onClick={onCardClick}>
             <a.div
-                className="c back"
+                className='c back'
                 style={{
                     opacity: opacity.interpolate(o => 1 - o),
                     transform,
                 }}
             />
             <a.div
-                className="c front"
+                className='c front'
                 style={{
                     opacity,
                     transform: transform.interpolate(t => `${t} rotateX(180deg)`),

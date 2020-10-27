@@ -1,37 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
-import MemoryGame from "./MemoryGame";
-import { getScores } from '../../services/Api'
+import MemoryGame from './MemoryGame'
+import { getScores, newScore } from '../../services/Api'
 import './Game.scss'
 
 const Game = () => {
-
     const [options, setOptions] = useState(null)
-    const [allScores, setAllScores] = useState(null)
     const [score, setScore] = useState(1000)
     const [highScore, setHighScore] = useState(0)
     const [level, setLevel] = useState(null)
 
-
-
     useEffect(() => {
         getScores()
-            .then(scores => setAllScores(scores))
+            .then(scores => {
+                const orderedScores = scores.sort((a, b) => b.score - a.score)
+                setHighScore(orderedScores[0].score)
+            })
             .catch(e => console.log(e))
-
-
     }, [])
 
-    // const lastScores = allScores.map(item => item.score)
-    // const topScore = lastScores.sort((a, b) => a - b).reverse()[0]
-    console.log(allScores)
-    // let topScore
-    // const bestScore = (allScores) => {
-    //     const lastScores = arr.map(item => item.score)
-    //     const maxScore = lastScores.sort((a, b) => a - b).reverse()[0]
-    //     maxScore = topScore
-    // }
-
+    const sendScore = (lastScore, selectedLevel) => {
+        const data = {}
+        data.score = lastScore
+        data.level = selectedLevel
+        newScore(data)
+    }
 
     return (
         <div className='NudoMap'>
@@ -41,7 +34,7 @@ const Game = () => {
                 nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Juegos_axxxkw.svg'
             />
             <div className='containerGeneralGame'>
-                <div className="containerGame mt-3">
+                <div className='containerGame mt-3'>
                     <div>
 
                         {/* <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1602165130/NUDO/assets/nudo-logo-header_m0ojwr.png' style={{ width: 200 }} /> */}
@@ -70,7 +63,6 @@ const Game = () => {
                                     <button className='gameButtons'
                                         onClick={() => {
                                             const prevOptions = options
-                                            const prevLevel = level
                                             setOptions(null)
                                             setScore(1000)
                                             setTimeout(() => {
@@ -96,8 +88,10 @@ const Game = () => {
                         score={score}
                         setScore={setScore}
                         level={level}
+                        setLevel={setLevel}
                         highScore={highScore}
                         setHighScore={setHighScore}
+                        sendScore={sendScore}
                     />
                 ) : (
                         <h2>Elige una dificultad para empezar el juego</h2>
@@ -105,9 +99,9 @@ const Game = () => {
             </div>
 
         </div>
-    );
-};
+    )
+}
 
-export default Game;
+export default Game
 
 
