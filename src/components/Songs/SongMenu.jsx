@@ -4,6 +4,8 @@ import SongFav from './SongFav'
 import { getSongsFromSpotify, createSong, getSongs, deleteSong } from '../../services/Api'
 import './SongMenu.scss'
 import ComponentHeader from '../Generic/ComponentHeader'
+import AlertSnackBar from '../Generic/AlertSnackBar'
+import { Snackbar } from '@material-ui/core'
 
 function SongMenu() {
     const [search, setSearch] = useState({
@@ -12,6 +14,26 @@ function SongMenu() {
     const [matchSong, setMatchSong] = useState([])
     const [form, setForm] = useState(false)
     const [fav, setFav] = useState([])
+    const [snackSavedOpen, setSnackSavedOpen] = useState(false)
+    const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
+
+    const handleSavedSnack = () => setSnackSavedOpen(true)
+    const handleDeleteSnack = () => setSnackDeleteOpen(true)
+    const handleCloseSavedSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+
+        setSnackSavedOpen(false)
+    }
+
+    const handleCloseDeleteSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+
+        setSnackDeleteOpen(false)
+    }
 
     useEffect(() => {
         getSongs()
@@ -38,6 +60,7 @@ function SongMenu() {
     }
 
     const addFav = (song, decade) => {
+        handleSavedSnack()
         song.decade = decade
         song.url = song.preview_url
         createSong(song)
@@ -52,6 +75,7 @@ function SongMenu() {
     }
 
     const handleDeleteSong = (id) => {
+        handleDeleteSnack()
         deleteSong(id)
             .then(() => {
                 getSongs()
@@ -74,6 +98,16 @@ function SongMenu() {
                     <SongFav fav={fav} handleDeleteSong={handleDeleteSong} />
                 </div>
             </div>
+            <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
+                <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
+                    Canción guardada correctamente!
+                 </AlertSnackBar>
+            </Snackbar>
+            <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
+                <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
+                    Canción eliminada correctamente!
+                 </AlertSnackBar>
+            </Snackbar>
         </div>
 
     )

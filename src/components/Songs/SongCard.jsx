@@ -1,6 +1,7 @@
 import React from 'react'
 import ButtonAddSong from './ButtonAddSong'
 import './SongCard.scss'
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong }) => {
     return (
@@ -31,7 +32,7 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong
                             </div>
                         : null}
                     </div>
-                : <div onClick={() => handleDeleteSong(song.id)}>x</div>}
+                : <div onClick={() => handleDeleteSong(song.id)}><DeleteIcon  className='songsDeleteIcon'/></div>}
             </div>
         </div>
     )
