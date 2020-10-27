@@ -20,7 +20,7 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
         if(tempCoordenates.name) {
             setEdit(true)
         }
-    }, [tempCoordenates.name])
+    }, [])
     
     const classes = useStyles()
 
