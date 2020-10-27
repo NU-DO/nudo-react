@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField } from '@material-ui/core'
+import InputText from '../Generic/InputText'
 
 
 
@@ -7,14 +7,10 @@ const SongSearcher = ({ handleChange, search }) => {
     
     return (
         <form method='GET'>
-            <TextField
-                variant='outlined'
-                margin='small'
-                required
+            <InputText
                 id='searchSong'
-                label='Busca tu canción'
                 name='search'
-                autoComplete='text'
+                placeHolder='Busca una canción'
                 value={search.search}
                 onChange={handleChange}
                 autoFocus

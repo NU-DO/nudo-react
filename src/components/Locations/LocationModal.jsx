@@ -3,6 +3,9 @@ import CloseModalButton from '../Generic/CloseModalButton'
 import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
+import InputText from '../Generic/InputText'
+import GenericButton from '../Generic/GenericButton'
+import './LocationModal.scss'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,22 +20,25 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {
-        if(tempCoordenates.name) {
+        if (tempCoordenates.name) {
             setEdit(true)
         }
     }, [tempCoordenates.name])
-    
+
     const classes = useStyles()
 
     return (
-        <div className='containerDialog'>
-            <CloseModalButton onClick={closeModal}  />
+        <div >
+            <CloseModalButton onClick={closeModal} />
 
-            <h2 style={{ textAlign: 'center' }}>Completa los campos</h2>
-            <div >
-                <form onSubmit={edit ? handleEditLocation : modalSent} className={classes.root} noValidate autoComplete='off'>
+            <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
+
+            <form onSubmit={edit ? handleEditLocation : modalSent} className={classes.root} noValidate autoComplete='off'>
+                <div className='LocationModalContainer'>
                     <div>
-                        <TextField
+                    <br />
+                        <label>Nombre:</label>
+                        <InputText
                             id='name'
                             margin='normal'
                             required
@@ -45,7 +51,9 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
                             variant='outlined' />
                     </div>
                     <div>
-                        <TextField
+                    <br />
+                        <label>Descripción:</label>
+                        <InputText
                             id='descripcion'
                             margin='normal'
                             required
@@ -58,18 +66,18 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
                             multiline />
                     </div>
                     <div>
-                        <Button
+                        <br />
+                        <GenericButton
                             type='submit'
                             fullWidth
                             variant='contained'
                             color='primary'
                             className='mt-3'
-                        >
-                            Guardar
-                </Button>
+                            text='Guardar'
+                        />
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     )
 }

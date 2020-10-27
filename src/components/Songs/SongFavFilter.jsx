@@ -1,4 +1,5 @@
 import React from 'react'
+import GenericButton from '../Generic/GenericButton'
 import './SongFavFilter.scss'
 
 const SongFavFilter = ({ setDecade }) => {

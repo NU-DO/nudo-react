@@ -1,6 +1,6 @@
 import React from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
-import { Button } from '@material-ui/core'
+import GenericButton from '../Generic/GenericButton'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
@@ -17,35 +17,26 @@ const LocationModal = ({ closeModal, score, newGame, goMenu }) => {
     return (
         <div className='containerDialog'>
             <CloseModalButton onClick={closeModal} />
-
-            <h2 style={{ textAlign: 'center' }}>Has Ganado! tu puntuación es:</h2>
-            <div>{score}</div>
+            <h4 style={{ textAlign: 'center' }}>Has Ganado! tu puntuación es:</h4>
+            <div>{score} puntos</div>
             <div >
                 <div>
-                    <Button
-                        type='submit'
-                        fullWidth
-                        variant='contained'
-                        color='primary'
-                        className='mt-3'
+                <br/>
+                    <GenericButton
+                        text='Juega otra vez'
+                        style={{marginTop: '5px'}}
                         onClick={() => {
                             newGame()
                         }}
-                    >
-                        Juega otra vez
-                </Button>
-                <Button
-                        type='submit'
-                        fullWidth
-                        variant='contained'
-                        color='primary'
-                        className='mt-3'
+                    />       
+                    <br/>      
+                <GenericButton
+                        text='Volver al Menu'
+                        style={{marginTop: '5px'}}
                         onClick={() => {
                             goMenu()
                         }}
-                    >
-                        Volver al Menu
-                </Button>
+                    />
                 </div>
             </div>
         </div>

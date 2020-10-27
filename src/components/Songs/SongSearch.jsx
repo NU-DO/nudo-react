@@ -11,7 +11,7 @@ const SongSearch = ({ matchSong, handleOpen, addFav, form, handleChange, search 
                 <SongSearcherForm handleChange={handleChange} search={search} />
             </div>
             <div className='songFavContainer'>
-                {!matchSong.length ? <p>No coincide ninguna cancion</p> :
+                {!matchSong.length ? <p>Empieza a buscar tus canciones favoritas!</p> :
                     matchSong.map(song => (
                         <SongCard song={song} typeSearch={typeSearch} form={form} handleOpen={handleOpen} addFav={addFav} />
                     ))

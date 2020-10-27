@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
 import MemoryGame from './MemoryGame'
+import GenericButton from '../Generic/GenericButton'
 import { getScores, newScore } from '../../services/Api'
 import './Game.scss'
 
@@ -39,28 +40,35 @@ const Game = () => {
 
                         {/* <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1602165130/NUDO/assets/nudo-logo-header_m0ojwr.png' style={{ width: 200 }} /> */}
                     </div>
-                    <div className='text-left'>Máxima Puntuación: {(highScore).toFixed(0)}</div>
-                    <div className='text-left'>Puntuación: {(score).toFixed(0)}</div>
+                    <div className='text-left'>Max Score: {(highScore).toFixed(0)}</div>
+                    {level ? <div className='text-left'>Score: {(score).toFixed(0)}</div> : null}
                     {level ? <div className='text-left'>Nivel : {level}</div> : null}
                     <div>
                         {options === null ? (
-                            <>
-                                <button className='gameButtons' onClick={() => {
+                            <div className='ContainerLevelButtons'>
+                                <GenericButton 
+                                text='Fácil'
+                                onClick={() => {
                                     setOptions(12)
                                     setLevel('Fácil')
-                                }}>Fácil</button>
-                                <button className='gameButtons' onClick={() => {
+                                }}/>
+                                <GenericButton  
+                                text='Medio'
+                                onClick={() => {
                                     setOptions(18)
                                     setLevel('Medio')
-                                }}>Medio</button>
-                                <button className='gameButtons' onClick={() => {
+                                }}/>
+                                <GenericButton  
+                                text='Dificil'
+                                onClick={() => {
                                     setOptions(24)
                                     setLevel('Dificil')
-                                }}>Dificil</button>
-                            </>
+                                }}/>
+                            </div>
                         ) : (
-                                <>
-                                    <button className='gameButtons'
+                                <div className='ContainerLevelButtons'>
+                                    <GenericButton 
+                                    text='Reiniciar'
                                         onClick={() => {
                                             const prevOptions = options
                                             setOptions(null)
@@ -69,14 +77,14 @@ const Game = () => {
                                                 setOptions(prevOptions)
                                             }, 5)
                                         }}
-                                    >
-                                        Empezar de nuevo
-              </button>
-                                    <button className='gameButtons' onClick={() => {
+                                    />
+                                    <GenericButton  
+                                    text='Menú principal'
+                                    onClick={() => {
                                         setOptions(null)
                                         setLevel(null)
-                                    }}>Menú principal</button>
-                                </>
+                                    }}/>
+                                </div>
                             )}
                     </div>
                 </div>

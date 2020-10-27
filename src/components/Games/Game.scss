@@ -5,34 +5,21 @@
 }
 
 .containerGame {
-  max-width: 679px;
+  max-width: 1055px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-//   align-items: center;
   margin-bottom: 20px;
 }
 
-.gameButtons {
-  background: #00ad9f;
-  border-radius: 4px;
-  font-weight: 700;
-  color: #fff;
-  border: none;
-  padding: 7px 15px;
-  margin-left: 8px;
-  cursor: pointer;
-  &:hover {
-    background: #008378;
-  }
-  &:focus {
-    outline: 0;
-  }
+.ContainerLevelButtons {
+  display: flex;
+  justify-content: space-between;
 }
 
 #cardsGame {
   margin: 20px;
-  width: 899px;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
