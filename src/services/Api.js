@@ -32,8 +32,8 @@ export const getSongs = () => {
   return http.get('/song')
 }
 
-export const deleteSong = (id) => {
-  return http.delete(`/song/${id}/delete`, { id })
+export const deleteSong = (songId) => {
+  return http.delete(`/song/${songId}/delete`, { songId })
 }
 
 export const createLocation = ({ name, description, lat, lng }) => {
@@ -44,18 +44,18 @@ export const getLocations = () => {
   return http.get('/location')
 }
 
-export const deleteLocation = (id) => {
-  return http.delete(`/location/${id}/delete`, { id })
+export const deleteLocation = (locationId) => {
+  return http.delete(`/location/${locationId}/delete`, { locationId })
 }
 
-export const editLocation = (id, {name, description}) => {
-  return http.patch(`/location/${id}/edit`, {name, description})
+export const editLocation = (locationId, {name, description}) => {
+  return http.patch(`/location/${locationId}/edit`, {name, description})
 }
 
 export const getScores = () => {
   return http.get('/gamescore')
 }
 
-export const newScore = (id, {score, level}) => {
+export const newScore = ({score, level}) => {
   return http.post('/gamescore/new', { score, level })
 }
