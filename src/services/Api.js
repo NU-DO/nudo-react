@@ -51,3 +51,11 @@ export const deleteLocation = (id) => {
 export const editLocation = (id, {name, description}) => {
   return http.patch(`/location/${id}/edit`, {name, description})
 }
+
+export const getScores = () => {
+  return http.get('/gamescore')
+}
+
+export const newScore = (id, {score, level}) => {
+  return http.post('/gamescore/new', { score, level })
+}

@@ -6,8 +6,10 @@ import Dashboard from './components/Dashboard/Dashboard'
 import Login from './components/Login/Login'
 import SongMenu from './components/Songs/SongMenu'
 import NudoMap from './components/Locations/NudoMap'
+import Game from './components/Games/Game'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
             <NotAuthenticatedRoute exact path='/login' component={Login}/>7
             <AuthenticatedRoute exact path='/canciones' component={SongMenu}/>
             <AuthenticatedRoute exact path='/localizaciones' component={NudoMap}/>
+            <AuthenticatedRoute exact path='/juegos' component={Game}/>
             <AuthenticatedRoute exact path='/' component={Dashboard}/>
         </Switch>
       </div>

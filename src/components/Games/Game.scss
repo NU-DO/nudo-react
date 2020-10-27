@@ -1,0 +1,79 @@
+.containerGeneralGame {
+  border-radius: 10px;
+  box-shadow: 0px 1px 16px -2px rgba(0, 0, 0, 0.12);
+  padding: 20px;
+}
+
+.containerGame {
+  max-width: 679px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+//   align-items: center;
+  margin-bottom: 20px;
+}
+
+.gameButtons {
+  background: #00ad9f;
+  border-radius: 4px;
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  padding: 7px 15px;
+  margin-left: 8px;
+  cursor: pointer;
+  &:hover {
+    background: #008378;
+  }
+  &:focus {
+    outline: 0;
+  }
+}
+
+#cardsGame {
+  margin: 20px;
+  width: 899px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cardGame {
+  width: 160px;
+  height: 160px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+/* .card:not(:nth-child(6n)) {
+    margin-right: 20px;
+} */
+
+.c {
+  position: absolute;
+  max-width: 160px;
+  max-height: 160px;
+  width: 50ch;
+  height: 50ch;
+  cursor: pointer;
+  will-change: transform, opacity;
+  border: #000000 4px solid;
+  border-radius: 10px;
+  box-shadow: 11px 11px 19px -14px rgba(0, 0, 0, 0.75);
+}
+
+.front,
+.back {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 140px;
+}
+
+.back {
+  background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1602165257/NUDO/assets/nudo-card_eifulq.jpg);
+}
+
+.front {
+  background-image: url(https://images.unsplash.com/photo-1540206395-68808572332f?ixlib=rb-1.2.1&w=1181&q=80&auto=format&fit=crop);
+}
