@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
-import { Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
 import InputText from '../Generic/InputText'
 import GenericButton from '../Generic/GenericButton'
 import './LocationModal.scss'

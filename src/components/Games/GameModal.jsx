@@ -3,15 +3,6 @@ import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
 import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: '25ch',
-        },
-    },
-}))
-
 const LocationModal = ({ closeModal, score, newGame, goMenu }) => {
 
     return (
