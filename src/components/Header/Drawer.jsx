@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Drawer.scss'
 import { useAuthContext } from '../../contexts/AuthContext'
+import { logout } from '../../services/Api'
+import { Link } from 'react-router-dom'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
@@ -29,11 +31,12 @@ const useStyles = makeStyles({
     },
 })
 
-export default function NudoDrawer() {
-    
-    const { user } = useAuthContext()
+const routesRedirect = ['Imagenes', 'Canciones', 'Contactos', 'Localizaciones', 'Historia', 'Eventos', 'Juegos']
+
+const NudoDrawer = () => {
+    const { user, logout: logOut } = useAuthContext()
     const classes = useStyles()
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         hamMenu: false
     })
 
@@ -43,6 +46,14 @@ export default function NudoDrawer() {
         }
 
         setState({ ...state, [anchor]: open })
+    }
+
+    const handleLogout = (event) => {
+        console.log('logout')
+        event.preventDefault()
+        logout()
+            .then(user => logOut())
+            .catch(err => console.log(err))
     }
 
     const list = (anchor) => (
@@ -55,45 +66,52 @@ export default function NudoDrawer() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <div className='ComponentHeaderStyleDrawer'>
-                <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603577840/NUDO/assets/Dashboard-icons/logo-menu_rxm9q6.svg' className='NudoIconStyleDrawer' alt="logo"/>
+                <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603577840/NUDO/assets/Dashboard-icons/logo-menu_rxm9q6.svg' className='NudoIconStyleDrawer' alt="logo" />
                 <h5 className='mt-3 text-center'>Hola {user.username}!</h5>
             </div>
             <List>
-                {['Fotos', 'Música', 'Contactos', 'Localizaciones', 'Historia', 'Eventos', 'Juegos'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index === 0 ? <PhotoLibraryIcon /> :
-                            index === 1 ? <MusicNoteIcon /> :
-                                index === 2 ? <ContactsIcon /> :
-                                    index === 3 ? <LocationOnIcon /> :
-                                        index === 4 ? <TimelapseIcon /> :
-                                            index === 5 ? <EventIcon /> : <SportsEsportsIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
+                {routesRedirect.map((text, index) => (
+                    <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: 'none', color: 'black' }}>
+                        <div>
+                            <ListItem button key={text}>
+                                <ListItemIcon>{index === 0 ? <PhotoLibraryIcon /> :
+                                    index === 1 ? <MusicNoteIcon /> :
+                                        index === 2 ? <ContactsIcon /> :
+                                            index === 3 ? <LocationOnIcon /> :
+                                                index === 4 ? <TimelapseIcon /> :
+                                                    index === 5 ? <EventIcon /> :
+                                                        index === 6 ? <SportsEsportsIcon /> : <EqualizerIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary={text} />
+                            </ListItem>
+                        </div>
+                    </Link>
                 ))}
             </List>
             <Divider />
             <List>
-                {['Estadísticas', 'Logout'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index === 0 ? <EqualizerIcon /> : <MeetingRoomIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                <ListItem button onClick={handleLogout}>
+                    <ListItemIcon>
+                        <MeetingRoomIcon />
+                    </ListItemIcon>
+                    <ListItemText primary={'Logout'} />
+                </ListItem>
             </List>
         </div>
     )
 
-    return (
-        <div>
-            {['hamMenu'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                    <MenuIcon onClick={toggleDrawer(anchor, true)} />
-                    <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                        {list(anchor)}
-                    </Drawer>
-                </React.Fragment>
-            ))}
-        </div>
-    )
+return (
+    <div>
+        {['hamMenu'].map((anchor) => (
+            <React.Fragment key={anchor}>
+                <MenuIcon onClick={toggleDrawer(anchor, true)} />
+                <Drawer anchor={`/${anchor.toLowerCase()}`} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                    {list(anchor)}
+                </Drawer>
+            </React.Fragment>
+        ))}
+    </div>
+)
 }
+
+export default NudoDrawer

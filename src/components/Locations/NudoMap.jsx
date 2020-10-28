@@ -3,6 +3,7 @@ import SearchMap from './SearchMap'
 import LocationModal from './LocationModal'
 import LocationList from './LocationList'
 import LocationDetails from './LocationDetails'
+import { createLocation, getLocations, deleteLocation, editLocation } from '../../services/Api'
 import ComponentHeader from '../Generic/ComponentHeader'
 import AlertSnackBar from '../Generic/AlertSnackBar'
 import MapStyles from './MapStyles'
@@ -11,7 +12,6 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import '@reach/combobox/styles.css'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
-import { createLocation, getLocations, deleteLocation, editLocation } from '../../services/Api'
 import { Snackbar } from '@material-ui/core'
 
 
@@ -77,6 +77,7 @@ const NudoMap = () => {
     useEffect(() => {
         getLocations()
             .then(locations => setMarkers(locations))
+            .catch(err => console.log(err))
     }, [])
 
     const handleChange = (event) => {
@@ -110,6 +111,7 @@ const NudoMap = () => {
                 getLocations()
                     .then(locations => setMarkers(locations))
             })
+            .catch(err => console.log(err))
         setTimeout(() => setTempCoordenates({}), 4000)
         closeModal()
     }
@@ -130,6 +132,7 @@ const NudoMap = () => {
                 getLocations()
                     .then(locations => setMarkers(locations))
             })
+            .catch(err => console.log(err))
         setTimeout(() => setTempCoordenates({}), 4000)
         closeModal()
     }
@@ -141,6 +144,7 @@ const NudoMap = () => {
             getLocations()
                 .then(locations => setMarkers(locations))
         }) , 4000)
+        .catch(err => console.log(err))
        
     }
 

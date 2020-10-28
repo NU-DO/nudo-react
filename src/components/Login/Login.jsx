@@ -45,7 +45,6 @@ const LogIn = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('loguea')
     login(data)
     .then(user =>  authContext.login(user))
     .catch(err => console.log(err))

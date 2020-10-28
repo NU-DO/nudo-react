@@ -59,3 +59,15 @@ export const getScores = () => {
 export const newScore = ({score, level}) => {
   return http.post('/gamescore/new', { score, level })
 }
+
+export const getImages = () => {
+  return http.get('/image')
+}
+
+export const createImage = ({ title, description, date, url }) => {
+  return http.post('/image/new', { title, description, date, url })
+} 
+
+export const handleUpload = (theFile) => {
+  return http.post('/upload', theFile)
+}
