@@ -1,7 +1,6 @@
 import React from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
-import { makeStyles } from '@material-ui/core/styles'
 
 const LocationModal = ({ closeModal, score, newGame, goMenu }) => {
 

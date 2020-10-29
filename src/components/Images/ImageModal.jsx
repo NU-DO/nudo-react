@@ -9,39 +9,36 @@ const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             margin: theme.spacing(1),
-            width: '25ch',
+            width: '400px',
         },
     },
 }))
 
-const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, state}) => {
-
+const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, state }) => {
     const classes = useStyles()
-
+    
     return (
-        <div >
+        <div className='ImageModalContainer'>
             <CloseModalButton onClick={closeModal} />
-
             <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
-
-            <form  className={classes.root}>
+            <form onSubmit={modalSent} className={classes.root}>
                 <div className='ImageModalContainer'>
                     <div>
-                    <br />
-                        <label>Fecha:</label>
+                        <br />
+                        <label>Título:</label>
                         <InputText
-                            id='name'
+                            id='descripcion'
+                            type='text'
                             margin='normal'
                             required
-                            fullWidth
-                            label='Nombre de localización'
-                            name='date'
+                            label='Describe tu localización'
+                            name='title'
                             onChange={handleChange}
-                            autoFocus
-                            variant='outlined' />
+                            variant='outlined'
+                            placeholder='Escribe un título' />
                     </div>
                     <div>
-                    <br />
+                        <br />
                         <label>Descripción:</label>
                         <InputText
                             id='descripcion'
@@ -55,20 +52,21 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, sta
                             multiline />
                     </div>
                     <div>
-                    <br />
-                        <label>Título:</label>
+                        <br />
+                        <label>Fecha:</label>
                         <InputText
-                            id='descripcion'
+                            id='name'
                             margin='normal'
                             required
                             fullWidth
-                            label='Describe tu localización'
-                            name='title'
+                            label='Nombre de localización'
+                            name='date'
                             onChange={handleChange}
-                            variant='outlined'
-                            placeholder='Escribe un título' />
+                            autoFocus
+                            variant='outlined' />
                     </div>
-                    <br />
+                    <div>
+                        <br />
                         <label>Archivo:</label>
                         <input
                             type='file'
@@ -76,11 +74,12 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, sta
                             onChange={(e) => handleFileUpload(e)}
                             placeholder='Selecciona un archivo'
                         />
+                    </div>
                     <div>
                         <br />
                         {state.url ? <GenericButton
-                            type='submit'
-                            onClick={() => modalSent()}
+                            type='button'
+                            // onClick={() => modalSent()}
                             fullWidth
                             variant='contained'
                             color='primary'

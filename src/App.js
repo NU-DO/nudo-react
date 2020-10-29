@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import SongMenu from './components/Songs/SongMenu'
 import NudoMap from './components/Locations/NudoMap'
 import ImagesMenu from './components/Images/ImagesMenu'
+import ContactMenu from './components/Contacts/ContactMenu'
 import Game from './components/Games/Game'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -22,8 +23,8 @@ function App() {
             <AuthenticatedRoute exact path='/localizaciones' component={NudoMap}/>
             <AuthenticatedRoute exact path='/imagenes' component={ImagesMenu}/>
             <AuthenticatedRoute exact path='/juegos' component={Game}/>
-            {/* <AuthenticatedRoute exact path='/contactos' component={}/>
-            <AuthenticatedRoute exact path='/historia' component={}/>
+             <AuthenticatedRoute exact path='/contactos' component={ContactMenu}/>
+            {/*<AuthenticatedRoute exact path='/historia' component={}/>
             <AuthenticatedRoute exact path='/eventos' component={}/>*/}
             <AuthenticatedRoute exact path='/' component={Dashboard}/> 
         </Switch>

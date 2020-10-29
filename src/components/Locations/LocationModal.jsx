@@ -20,8 +20,9 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
     useEffect(() => {
         if (tempCoordenates.name) {
             setEdit(true)
+            console.log('modal')
         }
-    }, [tempCoordenates.name])
+    }, [])
 
     const classes = useStyles()
 

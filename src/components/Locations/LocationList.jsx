@@ -13,6 +13,7 @@ const LocationList = ({ markers, zoomToMarker, deleteMarker, onEdit }) => {
                     deleteMarker={deleteMarker} 
                     i={i}
                     onEdit={onEdit}
+                    key={i}
                     />
                 )) : null}  
             </ul>

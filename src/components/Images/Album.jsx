@@ -1,10 +1,19 @@
 import React from 'react'
 import Image from './Image'
+import './Album.scss'
+import GenericButton from '../Generic/GenericButton'
 
-const Album = ({ images }) => {
+const Album = ({ images, addImageClick }) => {
     return (
-        <div className='ContainerAlbum'>
-            {images.map(image => <Image image={image}/>)}
+        <div>
+            <div className='ContainerAlbum'>
+                <div className='ContainerAlbumButtons'>
+                    <GenericButton
+                        text='Nueva foto'
+                        onClick={addImageClick} />
+                </div>
+                {images.map(image => <Image image={image} key={image.id} />)}
+            </div>
         </div>
     )
 }

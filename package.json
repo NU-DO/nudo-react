@@ -24,6 +24,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-spring": "^8.0.27",
+    "simple-react-lightbox": "^3.3.4-1",
     "use-places-autocomplete": "^1.5.7"
   },
   "scripts": {

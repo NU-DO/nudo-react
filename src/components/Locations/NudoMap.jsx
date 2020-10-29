@@ -54,7 +54,6 @@ const NudoMap = () => {
         if (reason === 'clickaway') {
             return
         }
-
         setSnackSavedOpen(false)
     }
 
@@ -62,7 +61,6 @@ const NudoMap = () => {
         if (reason === 'clickaway') {
             return
         }
-
         setSnackEditOpen(false)
     }
 
@@ -112,7 +110,7 @@ const NudoMap = () => {
                     .then(locations => setMarkers(locations))
             })
             .catch(err => console.log(err))
-        setTimeout(() => setTempCoordenates({}), 4000)
+        setTempCoordenates({})
         closeModal()
     }
 
@@ -133,19 +131,18 @@ const NudoMap = () => {
                     .then(locations => setMarkers(locations))
             })
             .catch(err => console.log(err))
-        setTimeout(() => setTempCoordenates({}), 4000)
+        setTempCoordenates({})
         closeModal()
     }
 
     const handleDeleteLocation = (id) => {
         handleDeleteSnack()
-        setTimeout(() =>  deleteLocation(id)
-        .then(locations => {
-            getLocations()
-                .then(locations => setMarkers(locations))
-        }) , 4000)
-        .catch(err => console.log(err))
-       
+        deleteLocation(id)
+            .then(locations => {
+                getLocations()
+                    .then(locations => setMarkers(locations))
+            })
+            .catch(err => console.log(err))
     }
 
     const mapRef = useRef()
@@ -244,12 +241,12 @@ const NudoMap = () => {
             </Dialog>
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                 <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
-                    {tempCoordenates.name} guardada correctamente!
+                    Localización guardada correctamente!
                  </AlertSnackBar>
             </Snackbar>
             <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
                 <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
-                    {tempCoordenates.name} editada correctamente!
+                   Localización editada correctamente!
                  </AlertSnackBar>
             </Snackbar>
             <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>

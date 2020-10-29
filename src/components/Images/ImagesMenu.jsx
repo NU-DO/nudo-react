@@ -3,7 +3,7 @@ import Album from './Album'
 import ComponentHeader from '../Generic/ComponentHeader'
 import ImageModal from './ImageModal'
 import { getImages, createImage, handleUpload } from '../../services/Api'
-import GenericButton from '../Generic/GenericButton'
+import SimpleReactLightbox from 'simple-react-lightbox'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 
@@ -17,7 +17,7 @@ const ImagesMenu = () => {
             .then(images => {
                 setImages(images)
             })
-            .catch(err => console.log(err))        
+            .catch(err => console.log(err))
     }, [])
 
     const openModal = () => setShowDialog(true)
@@ -29,32 +29,33 @@ const ImagesMenu = () => {
 
     const handleFileUpload = (event) => {
         const uploadData = new FormData()
-        uploadData.append("url", event.target.files[0])
+        uploadData.append('url', event.target.files[0])
         handleUpload(uploadData)
-        .then(response => {
-            console.log('reponse', response)
-            setState({ url: response.secure_url })
-        })
-        .catch(err => {
-            console.log("Error while uploading the file: ", err)
-        })
+            .then(response => {
+                setState(prev => {
+                    return {
+                        ...prev,
+                        url: response.secure_url
+                    }
+                })
+            })
+            .catch(err => {
+                console.log('Error while uploading the file: ', err)
+            })
     }
 
     const handleChange = (event) => {
         const { name, value } = event.target
-    
         setState(prev => {
-          return {
-            ...prev,
-            data: {
-              ...prev.data,
-              [name]: value,
-            },
-          }
+            return {
+                ...prev,
+                [name]: value,
+            }
         })
     }
 
-    const modalSent = () => {
+    const modalSent = (event) => {
+        event.preventDefault()
         createImage(state)
             .then(() => {
                 getImages()
@@ -67,16 +68,16 @@ const ImagesMenu = () => {
 
     return (
         <div className='NudoMap'>
-        <ComponentHeader
+            <ComponentHeader
                 title='Imágenes'
                 description='Una imagen vale más que mil palabras... o eso dicen. Añade las imagenes que quieras tener a mano para poderlas rememorar diariamente'
                 nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
             />
-            <Album images={images} />
-            <GenericButton 
-            text='Añade una imagen'
-            onClick={addImageClick}/>
-
+            <SimpleReactLightbox>
+                <Album 
+                images={images}
+                addImageClick={addImageClick} />
+            </SimpleReactLightbox>
             <Dialog isOpen={showDialog} onDismiss={closeModal} className='ImageDialog'>
                 <ImageModal
                     closeModal={closeModal}
