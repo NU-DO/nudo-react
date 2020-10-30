@@ -44,7 +44,7 @@ const options = {
 }
 
 const Image = ({ image, handleDelete, editThisImage }) => {
-
+    
     return (
         <SRLWrapper options={options}>
             <div className='PolaroidCard'>

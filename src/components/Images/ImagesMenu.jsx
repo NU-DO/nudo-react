@@ -17,8 +17,6 @@ const ImagesMenu = () => {
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [showDialog, setShowDialog] = useState(false)
 
-
-
     useEffect(() => {
         getImages()
             .then(images => {
@@ -121,9 +119,11 @@ const ImagesMenu = () => {
         body.date = state.date
         
         editImage(state.id, body)
-            .then((images) => {
+            .then(() => {
                 getImages()
-                    .then(images => setImages(images))
+                    .then(images => {
+                        setImages(images)
+                    })
             })
             .catch(err => console.log(err))
         setState({})
