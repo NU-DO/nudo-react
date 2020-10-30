@@ -39,7 +39,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             margin='normal'
                             required
                             name='title'
-                            // value={state.title}
+                            value={state.title}
                             onChange={handleChange}
                             variant='outlined'
                             placeholder='Escribe un título' />
@@ -53,7 +53,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             required
                             fullWidth
                             name='description'
-                            // value={state.description}
+                            value={state.description}
                             onChange={handleChange}
                             variant='outlined'
                             multiline />
@@ -67,7 +67,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             required
                             fullWidth
                             name='date'
-                            // value={state.date}
+                            value={state.date}
                             onChange={handleChange}
                             autoFocus
                             variant='outlined' />
@@ -86,7 +86,6 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                         <br />
                         {state.url ? <GenericButton
                             type='button'
-                            // onClick={() => modalSent()}
                             fullWidth
                             variant='contained'
                             color='primary'
