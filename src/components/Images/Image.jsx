@@ -1,6 +1,8 @@
 import React from 'react'
 import './Image.scss'
 import { SRLWrapper } from 'simple-react-lightbox'
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 const options = {
     caption: {
@@ -41,15 +43,21 @@ const options = {
     }
 }
 
-const Image = ({ image }) => {
+const Image = ({ image, handleDelete, editThisImage }) => {
+
     return (
         <SRLWrapper options={options}>
             <div className='PolaroidCard'>
                 <div className='PolaroidCardImgContainer'>
+                    <div className='FakeImageCard' style={{backgroundImage: `url(${image.url})`}}></div>
                     <img src={image.url} alt={image.description} className='PolaroidCardImg' />
                 </div>
                 <h6 className='PolaroidCardTitle'>{image.title}</h6>
                 <p className='PolaroidCardDate'>({image.date})</p>
+                <div className='PolaroidCRUDButtons'>
+                    <EditIcon className='PolaroidEditButton' onClick={() => editThisImage(image)}/>
+                    <DeleteIcon className='PolaroidDeleteButton' onClick={() => handleDelete(image.id)}/>
+                </div>
             </div>
         </SRLWrapper>
     )

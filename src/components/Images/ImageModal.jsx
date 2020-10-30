@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
 import { makeStyles } from '@material-ui/core/styles'
 import InputText from '../Generic/InputText'
@@ -14,14 +14,24 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, state }) => {
+const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, handleEditImage, state }) => {
     const classes = useStyles()
+    const [edit, setEdit] = useState(false)
+    
+
+    useEffect(() => {
+        console.log(state)
+        if(state.id) {
+            setEdit(true)
+        }
+        console.log('state que llega al form: ', state)
+    }, [])
     
     return (
         <div className='ImageModalContainer'>
             <CloseModalButton onClick={closeModal} />
             <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
-            <form onSubmit={modalSent} className={classes.root}>
+            <form onSubmit={edit ? handleEditImage : modalSent} className={classes.root}>
                 <div className='ImageModalContainer'>
                     <div>
                         <br />
@@ -31,8 +41,8 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, sta
                             type='text'
                             margin='normal'
                             required
-                            label='Describe tu localización'
                             name='title'
+                            // value={state.title}
                             onChange={handleChange}
                             variant='outlined'
                             placeholder='Escribe un título' />
@@ -45,8 +55,8 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, sta
                             margin='normal'
                             required
                             fullWidth
-                            label='Describe tu localización'
                             name='description'
+                            // value={state.description}
                             onChange={handleChange}
                             variant='outlined'
                             multiline />
@@ -59,13 +69,13 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, sta
                             margin='normal'
                             required
                             fullWidth
-                            label='Nombre de localización'
                             name='date'
+                            // value={state.date}
                             onChange={handleChange}
                             autoFocus
                             variant='outlined' />
                     </div>
-                    <div>
+                     {state.ulr ? <div>
                         <br />
                         <label>Archivo:</label>
                         <input
@@ -74,7 +84,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, sta
                             onChange={(e) => handleFileUpload(e)}
                             placeholder='Selecciona un archivo'
                         />
-                    </div>
+                    </div> : null}
                     <div>
                         <br />
                         {state.url ? <GenericButton
@@ -85,7 +95,20 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, sta
                             color='primary'
                             className='mt-3'
                             text='Guardar'
-                        /> : <div>Subiendo Imagen</div>}
+                        />  : <div>Subiendo Imagen</div>}
+                        {/* <GenericButton
+                            type='button'
+                            // onClick={() => modalSent()}
+                            fullWidth
+                            variant='contained'
+                            color='primary'
+                            className='mt-3'
+                            text='Guardar'
+                        /> */}
+                    </div>
+                    <div>
+                        <img src={state.url} style={{width: '200px'}} />
+                        {state.url && <p>Imagen actual</p>}
                     </div>
                 </div>
             </form>

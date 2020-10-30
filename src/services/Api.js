@@ -68,6 +68,23 @@ export const createImage = ({ title, description, date, url }) => {
   return http.post('/image/new', { title, description, date, url })
 } 
 
+export const deleteImage = (imageId) => {
+  return http.delete(`/image/${imageId}/delete`, { imageId })
+}
+
+export const editImage = ( id, {title, date, description}) => {
+  return http.patch(`/image/${id}/edit`, { title, date, description })
+}
+
 export const handleUpload = (theFile) => {
   return http.post('/upload', theFile)
 }
+
+export const getContacts = () => {
+  return http.get('/contact')
+}
+
+export const createContact = ({ name, role, address, email, phone, birthday, photo }) => {
+  return http.post('/contact/new', { name, role, address, email, phone, birthday, photo })
+} 
+
