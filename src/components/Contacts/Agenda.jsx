@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Contact from './Contact'
+import './Agenda.scss'
 
 const Agenda = ({ contacts, handleDelete, editThisContact }) => {
 

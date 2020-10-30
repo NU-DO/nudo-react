@@ -1,15 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
+import ContactSeacher from './ContactSearcher'
 import Agenda from './Agenda'
 import ContactModal from './ContactModal'
 import GenericButton from '../Generic/GenericButton'
 import { getContacts, handleUpload, createContact, deleteContact, editContact } from '../../services/Api'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
+import './ContactMenu.scss'
 
 const ContactMenu = () => {
+    const [search, setSearch] = useState({
+        search: ''
+    })
     const [tempState, setTempState] = useState({})
     const [contacts, setContacts] = useState([])
+    const [searchedContacts, setSearchedContacts] = useState([])
     const [showDialog, setShowDialog] = useState(false)
 
     useEffect(() => {
@@ -20,8 +26,24 @@ const ContactMenu = () => {
             .catch(err => console.log(err))
     }, [])
 
+    useEffect(() => {
+        setSearchedContacts(contacts)
+    }, [contacts])
+
+    const handleSearch = (e) => {
+        setSearch({ search: e.target.value.toLowerCase() })
+    } 
+
+    useEffect(() => {
+        const match = contacts.filter(contact => contact.name.toLowerCase().includes(search.search))
+        setSearchedContacts(match)
+    }, [search])
+
     const openModal = () => setShowDialog(true)
-    const closeModal = () => setShowDialog(false)
+    const closeModal = () => {
+        setShowDialog(false)
+        setTempState({})
+    }
 
     const addContactClick = useCallback((event) => {
         openModal()
@@ -35,6 +57,7 @@ const ContactMenu = () => {
                 [name]: value,
             }
         })
+        console.log(tempState);
     }
 
     const handleFileUpload = (event) => {
@@ -84,7 +107,7 @@ const ContactMenu = () => {
         event.preventDefault()
         // handleEditSnack()
         editContact(tempState.id, tempState)
-            .then((contact) => {
+            .then(() => {
                 getContacts()
                     .then(contact => setContacts(contact))
             })
@@ -100,10 +123,11 @@ const ContactMenu = () => {
                     description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
                 />
+                <ContactSeacher handleSearch={handleSearch} search={search} />
                 <GenericButton text='Nuevo Contacto' onClick={addContactClick} />
             </div>
             <Agenda
-                contacts={contacts}
+                contacts={searchedContacts}
                 handleDelete={handleDelete}
                 editThisContact={editThisContact}
             />

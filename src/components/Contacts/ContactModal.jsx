@@ -123,16 +123,18 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                             variant='outlined'
                             multiline />
                     </div>
-                    <div>
-                        <br />
-                        <label>Foto:</label>
-                        <input
-                            type='file'
-                            name='url'
-                            onChange={(e) => handleFileUpload(e)}
-                            placeholder='Selecciona un archivo'
-                        />
-                    </div>
+                    {!edit ? 
+                        <div>
+                            <br />
+                            <label>Foto:</label>
+                            <input
+                                type='file'
+                                name='url'
+                                onChange={(e) => handleFileUpload(e)}
+                                placeholder='Selecciona un archivo'
+                            />
+                        </div>
+                    : null}
                     <div>
                         <br />
                         <GenericButton

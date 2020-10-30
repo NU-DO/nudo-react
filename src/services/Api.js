@@ -80,8 +80,8 @@ export const getContacts = () => {
   return http.get('/contact')
 }
 
-export const createContact = ({ name, role, address, email, phone, birthday, photo }) => {
-  return http.post('/contact/new', { name, role, address, email, phone, birthday, photo })
+export const createContact = ({ name, role, address, email, phone, birthday, photo, description }) => {
+  return http.post('/contact/new', { name, role, address, email, phone, birthday, photo, description })
 }
 
 export const deleteContact = (contactId) => {
