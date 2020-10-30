@@ -14,8 +14,16 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent }) => {
+const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, handleEditContact, modalSent }) => {
     const classes = useStyles()
+
+    const [edit, setEdit] = useState(false)
+    
+    useEffect(() => {
+        if(tempState.id) {
+            setEdit(true)
+        }
+    }, [])
 
     return (
         <div >
@@ -23,7 +31,7 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
 
             <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
 
-            <form onSubmit={modalSent} className={classes.root} noValidate autoComplete='off'>
+            <form onSubmit={edit ? handleEditContact : modalSent} className={classes.root} noValidate autoComplete='off'>
                 <div className='LocationModalContainer'>
                     <div>
                         <br />
@@ -33,6 +41,7 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
                             margin='normal'
                             required
                             name='name'
+                            value={tempState.name}
                             onChange={handleChange}
                             variant='outlined' />
                     </div>
@@ -44,6 +53,7 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
                             margin='normal'
                             required
                             name='role'
+                            value={tempState.role}
                             onChange={handleChange}
                             variant='outlined'
                             multiline />
@@ -56,6 +66,7 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
                             margin='normal'
                             required
                             name='address'
+                            value={tempState.address}
                             onChange={handleChange}
                             variant='outlined'
                             multiline />
@@ -68,6 +79,7 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
                             margin='normal'
                             required
                             name='email'
+                            value={tempState.email}
                             onChange={handleChange}
                             variant='outlined'
                             multiline />
@@ -80,6 +92,7 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
                             margin='normal'
                             required
                             name='phone'
+                            value={tempState.phone}
                             onChange={handleChange}
                             variant='outlined'
                             multiline />
@@ -92,6 +105,7 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
                             margin='normal'
                             required
                             name='birthday'
+                            value={tempState.birthday}
                             onChange={handleChange}
                             variant='outlined'
                             multiline />
@@ -104,6 +118,7 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
                             margin='normal'
                             required
                             name='description'
+                            value={tempState.description}
                             onChange={handleChange}
                             variant='outlined'
                             multiline />
@@ -128,6 +143,10 @@ const ContactModal = ({ closeModal, handleChange, handleFileUpload, modalSent })
                             className='mt-3'
                             text='Guardar'
                         />
+                    </div>
+                    <div>
+                        <img src={tempState.photo} style={{width: '200px'}} />
+                        {tempState.photo && <p>Imagen actual</p>}
                     </div>
                 </div>
             </form>

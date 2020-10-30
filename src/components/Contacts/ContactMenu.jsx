@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
 import Agenda from './Agenda'
 import ContactModal from './ContactModal'
+import GenericButton from '../Generic/GenericButton'
 import { getContacts, handleUpload, createContact, deleteContact, editContact } from '../../services/Api'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
@@ -61,6 +62,7 @@ const ContactMenu = () => {
                     .then(contacts => setContacts(contacts))
             })
             .catch(err => console.log(err))
+        setTempState({})
         closeModal()
     }
 
@@ -92,23 +94,27 @@ const ContactMenu = () => {
     }
     return (
         <div className='ContactMenu'>
-            <ComponentHeader
-                title='Contactos'
-                description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
-            />
+            <div className="NudoMap">
+                <ComponentHeader
+                    title='Contactos'
+                    description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
+                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
+                />
+                <GenericButton text='Nuevo Contacto' onClick={addContactClick} />
+            </div>
             <Agenda
                 contacts={contacts}
-                addContactClick={addContactClick}
                 handleDelete={handleDelete}
                 editThisContact={editThisContact}
             />
             <Dialog isOpen={showDialog} onDismiss={closeModal} className='ContactDialog'>
                 <ContactModal
                     closeModal={closeModal}
+                    tempState={tempState}
                     handleChange={handleChange}
                     tempState={tempState}
                     handleFileUpload={handleFileUpload}
+                    handleEditContact={handleEditContact}
                     modalSent={modalSent}
                 />
             </Dialog>

@@ -18,7 +18,6 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
     const classes = useStyles()
     const [edit, setEdit] = useState(false)
     
-
     useEffect(() => {
         if(state.id) {
             setEdit(true)
