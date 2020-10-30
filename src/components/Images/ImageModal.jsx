@@ -72,7 +72,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             autoFocus
                             variant='outlined' />
                     </div>
-                     {state.ulr ? <div>
+                    {!edit ? <div>
                         <br />
                         <label>Archivo:</label>
                         <input
