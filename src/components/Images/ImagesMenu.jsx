@@ -6,11 +6,18 @@ import { getImages, createImage, handleUpload, deleteImage, editImage } from '..
 import SimpleReactLightbox from 'simple-react-lightbox'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
+import { Snackbar } from '@material-ui/core'
+import AlertSnackBar from '../Generic/AlertSnackBar'
 
 const ImagesMenu = () => {
     const [state, setState] = useState({})
     const [images, setImages] = useState([])
+    const [snackSavedOpen, setSnackSavedOpen] = useState(false)
+    const [snackEditOpen, setSnackEditOpen] = useState(false)
+    const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [showDialog, setShowDialog] = useState(false)
+
+
 
     useEffect(() => {
         getImages()
@@ -22,6 +29,30 @@ const ImagesMenu = () => {
 
     const openModal = () => setShowDialog(true)
     const closeModal = () => setShowDialog(false)
+    const handleSavedSnack = () => setSnackSavedOpen(true)
+    const handleEditSnack = () => setSnackEditOpen(true)
+    const handleDeleteSnack = () => setSnackDeleteOpen(true)
+    const handleCloseSavedSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+        setSnackSavedOpen(false)
+    }
+
+    const handleCloseEditSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+        setSnackEditOpen(false)
+    }
+
+    const handleCloseDeleteSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+
+        setSnackDeleteOpen(false)
+    }
 
     const addImageClick = useCallback((event) => {
         openModal()
@@ -56,6 +87,7 @@ const ImagesMenu = () => {
 
     const modalSent = (event) => {
         event.preventDefault()
+        handleSavedSnack()
         createImage(state)
             .then(() => {
                 getImages()
@@ -67,6 +99,7 @@ const ImagesMenu = () => {
     }
 
     const handleDelete = (id) => {
+        handleDeleteSnack()
         deleteImage(id)
             .then(() => {
                 getImages()
@@ -81,7 +114,7 @@ const ImagesMenu = () => {
 
     const handleEditImage = (event) => {
         event.preventDefault()
-        // handleEditSnack()
+        handleEditSnack()
         const body = {}
         body.title = state.title
         body.description = state.description
@@ -122,6 +155,21 @@ const ImagesMenu = () => {
                     state={state}
                 />
             </Dialog>
+            <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
+                <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
+                    Imagen guardada correctamente!
+                 </AlertSnackBar>
+            </Snackbar>
+            <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
+                <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
+                   Imagen editada correctamente!
+                 </AlertSnackBar>
+            </Snackbar>
+            <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
+                <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
+                    Imagen borrada correctamente!
+                 </AlertSnackBar>
+            </Snackbar>
         </div>
     )
 }

@@ -9,14 +9,6 @@
   border: 2px solid #4051b5;
 }
 
-[data-reach-dialog-content] {
-  width: 100vw !important;
-  margin: 5vh auto;
-  background: white;
-  padding: 2rem;
-  outline: none;
-}
-
 .containerDialog {
   display: flex;
   flex-direction: column;
@@ -37,13 +29,13 @@
 }
 
 .ComboboxInput {
-    border: 1px solid black;
-    border-radius: 10px;
-    font-size: 14px;
-    padding: 7px 60px 7px 10px;
-    -webkit-box-shadow: inset 0px 0px 7px 0px rgba(0,0,0,0.84); 
-    box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.14);
-    margin-bottom: 16px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 7px 60px 7px 10px;
+  -webkit-box-shadow: inset 0px 0px 7px 0px rgba(0, 0, 0, 0.84);
+  box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.14);
+  margin-bottom: 16px;
 }
 
 textarea:focus,
