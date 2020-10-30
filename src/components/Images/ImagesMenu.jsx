@@ -52,12 +52,10 @@ const ImagesMenu = () => {
                 [name]: value,
             }
         })
-        console.log('handelChangeForm: ', state);
     }
 
     const modalSent = (event) => {
         event.preventDefault()
-        console.log('modalSent state:', state)
         createImage(state)
             .then(() => {
                 getImages()
@@ -89,8 +87,6 @@ const ImagesMenu = () => {
         body.description = state.description
         body.date = state.date
         
-
-    console.log('body', body)
         editImage(state.id, body)
             .then((images) => {
                 getImages()

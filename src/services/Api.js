@@ -76,15 +76,22 @@ export const editImage = ( id, {title, date, description}) => {
   return http.patch(`/image/${id}/edit`, { title, date, description })
 }
 
-export const handleUpload = (theFile) => {
-  return http.post('/upload', theFile)
-}
-
 export const getContacts = () => {
   return http.get('/contact')
 }
 
 export const createContact = ({ name, role, address, email, phone, birthday, photo }) => {
   return http.post('/contact/new', { name, role, address, email, phone, birthday, photo })
-} 
+}
 
+export const deleteContact = (contactId) => {
+  return http.delete(`/contact/${contactId}/delete`, { contactId })
+}
+
+export const editContact = ( id, {...tempState}) => {
+  return http.patch(`/contact/${id}/edit`, {...tempState})
+}
+
+export const handleUpload = (theFile) => {
+  return http.post('/upload', theFile)
+}

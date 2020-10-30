@@ -1,8 +1,8 @@
 import React from 'react'
 import './Image.scss'
 import { SRLWrapper } from 'simple-react-lightbox'
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete'
+import EditIcon from '@material-ui/icons/Edit'
 
 const options = {
     caption: {

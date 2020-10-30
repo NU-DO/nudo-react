@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
 import Agenda from './Agenda'
 import ContactModal from './ContactModal'
-import { getContacts, handleUpload, createContact } from '../../services/Api'
+import { getContacts, handleUpload, createContact, deleteContact, editContact } from '../../services/Api'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 
@@ -41,7 +41,6 @@ const ContactMenu = () => {
         uploadData.append('url', event.target.files[0])
         handleUpload(uploadData)
             .then(response => {
-                console.log(response.secure_url);
                 setTempState(prev => {
                     return {
                         ...prev,
@@ -65,6 +64,32 @@ const ContactMenu = () => {
         closeModal()
     }
 
+    const handleDelete = (id) => {
+        deleteContact(id)
+            .then(() => {
+                getContacts()
+                    .then(contact => setContacts(contact))
+            })
+            .catch(err => console.log(err))
+    }
+
+    const editThisContact = (contact) => {
+        setTempState(contact)
+        openModal()
+    }
+
+    const handleEditContact = (event) => {
+        event.preventDefault()
+        // handleEditSnack()
+        editContact(tempState.id, tempState)
+            .then((contact) => {
+                getContacts()
+                    .then(contact => setContacts(contact))
+            })
+            .catch(err => console.log(err))
+        setTempState({})
+        closeModal()
+    }
     return (
         <div className='ContactMenu'>
             <ComponentHeader
@@ -72,7 +97,12 @@ const ContactMenu = () => {
                 description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
                 nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
             />
-            <Agenda contacts={contacts} addContactClick={addContactClick} />
+            <Agenda
+                contacts={contacts}
+                addContactClick={addContactClick}
+                handleDelete={handleDelete}
+                editThisContact={editThisContact}
+            />
             <Dialog isOpen={showDialog} onDismiss={closeModal} className='ContactDialog'>
                 <ContactModal
                     closeModal={closeModal}

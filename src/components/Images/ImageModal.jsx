@@ -20,11 +20,9 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
     
 
     useEffect(() => {
-        console.log(state)
         if(state.id) {
             setEdit(true)
         }
-        console.log('state que llega al form: ', state)
     }, [])
     
     return (
