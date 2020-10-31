@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { AuthenticatedRoute, NotAuthenticatedRoute } from './components/AuthenticatedRoute/AuthenticatedRoute'
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'
+import Signin from './components/SignIn/SignIn'
 import Dashboard from './components/Dashboard/Dashboard'
 import SongMenu from './components/Songs/SongMenu'
 import NudoMap from './components/Locations/NudoMap'
@@ -20,6 +21,7 @@ function App() {
       <div>
         <Switch>
             <NotAuthenticatedRoute exact path='/login' component={Login}/>7
+            <NotAuthenticatedRoute exact path='/signin' component={Signin}/> 
             <AuthenticatedRoute exact path='/canciones' component={SongMenu}/>
             <AuthenticatedRoute exact path='/localizaciones' component={NudoMap}/>
             <AuthenticatedRoute exact path='/imagenes' component={ImagesMenu}/>

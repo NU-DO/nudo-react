@@ -18,6 +18,11 @@ http.interceptors.response.use(function (response) {
 
 export const login = ({ email, password }) => http.post('/login', { email, password })
 
+export const signin = ({ email, password, username }) => {
+  return http.post('/user', { email, password, username })
+    .then((res) => res.data)
+}
+
 export const logout = () => http.post('/logout')
 
 export const getSongsFromSpotify = ({ search }) => {

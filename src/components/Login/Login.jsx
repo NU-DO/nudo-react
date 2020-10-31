@@ -1,44 +1,18 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import ComponentHeader from '../Generic/ComponentHeader'
+import GenericButton from '../Generic/GenericButton'
 import { useAuthContext } from '../../contexts/AuthContext'
 import { login } from '../../services/Api'
-import Avatar from '@material-ui/core/Avatar'
-import Button from '@material-ui/core/Button'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-import Link from '@material-ui/core/Link'
-import Grid from '@material-ui/core/Grid'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}))
+import './Login.scss'
 
 const LogIn = () => {
-  const classes = useStyles()
   const [state, setState] = useState({
     data: {
       email: '',
       password: ''
-    }
+    },
+    error: false
   })
   const authContext = useAuthContext()
   const { data } = state
@@ -46,8 +20,8 @@ const LogIn = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     login(data)
-    .then(user =>  authContext.login(user))
-    .catch(err => console.log(err))
+      .then(user => authContext.login(user))
+      .catch(err => setState({ error: true }))
   }
 
   const handleChange = (event) => {
@@ -65,64 +39,54 @@ const LogIn = () => {
   }
 
   return (
-    <Container component='main' maxWidth='xs'>
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component='h1' variant='h5'>
-          Sign in
-        </Typography>
-        <form className={classes.form} onSubmit={(e) => handleSubmit(e)} noValidate>
-          <TextField
-            variant='outlined'
-            margin='normal'
-            required
-            fullWidth
-            id='email'
-            label='Email Address'
-            name='email'
-            autoComplete='email'
-            onChange={handleChange}
-            autoFocus
-          />
-          <TextField
-            variant='outlined'
-            margin='normal'
-            required
-            fullWidth
-            name='password'
-            label='Password'
-            type='password'
-            id='password'
-            autoComplete='current-password'
-            onChange={handleChange}
-          />
-          <Button
-            type='submit'
-            fullWidth
-            variant='contained'
-            color='primary'
-            className={classes.submit}
-          >
-            Sign In
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href='#' variant='body2'>
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href='#' variant='body2'>
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
+    <div className='container'>
+      <div className='row'>
+        <div className='col-12 mt-5'>
+        <div className='NudoMap'>
+            <ComponentHeader
+              nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-login_cuaa4a.svg'
+              title='Entra'
+              description='Entra a NUDO con tu email y tu password.'
+            />
+          </div>
+        </div>
+        <div className='col-12 mt-5 LoginContainer'>
+        <div className='LoginImage'>
+          
+        </div>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <div class='form-group'>
+              <label for='exampleInputEmail1'>Email address</label>
+              <input type='email'
+                class={`form-control ${state.error ? `is-invalid` : null}`}
+                id='email'
+                name='email'
+                aria-describedby='emailHelp'
+                onChange={handleChange} />
+              {state.error  ? 
+                <div class="invalid-feedback">
+                  Email o contraseña incorrecta
+                </div>
+                : null
+              }
+            </div>
+            <div class='form-group'>
+              <label for='exampleInputPassword1'>Password</label>
+              <input
+                type='password'
+                class={`form-control ${state.error ? `is-invalid` : null}`}
+                id='password'
+                name='password'
+                onChange={handleChange} />
+            </div>
+            <div class='form-group form-check'>
+              <label class='form-check-label' for='exampleCheck1'>Si no estas logeado <Link to='/signin'>Regístrate</Link></label>
+            </div>
+            <GenericButton text='Login' />
+          </form>
+        </div>
       </div>
-    </Container>
+    </div>
   )
 }
 
