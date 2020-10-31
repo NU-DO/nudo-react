@@ -20,7 +20,7 @@ export const login = ({ email, password }) => http.post('/login', { email, passw
 
 export const signin = ({ email, password, username }) => {
   return http.post('/user', { email, password, username })
-    .then((res) => res.data)
+    .then((res) => res?.data)
 }
 
 export const logout = () => http.post('/logout')

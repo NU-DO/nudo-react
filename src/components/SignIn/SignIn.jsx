@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import ComponentHeader from '../Generic/ComponentHeader'
 import GenericButton from '../Generic/GenericButton'
-import { useAuthContext } from '../../contexts/AuthContext'
 import { signin } from '../../services/Api'
 import './SignIn.scss'
 
@@ -13,22 +11,26 @@ const SignIn = () => {
             email: '',
             password: ''
         },
-        error: false
+        error: {}
     })
-    const authContext = useAuthContext()
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(state.data)
         signin(state.data)
-            .then(user => authContext.login(user))
+            .then(user => console.log('Hola'))
             .catch(err => {
-                console.log(err.response.data.errors)
-                setState({ error: err })
+                // console.log(err.response.data.errors)
+                setState((prev) => {
+                    return {
+                        ...prev, 
+                        error: err.response.data.errors
+                    }
+                })
             })
     }
 
     const handleChange = (event) => {
+        console.log(state);
         const { name, value } = event.target
 
         setState(prev => {
@@ -66,7 +68,9 @@ const SignIn = () => {
                                 id='username'
                                 name='username'
                                 aria-describedby='emailHelp'
+                                value={state.data?.username}
                                 onChange={handleChange} />
+                                
                             {state.error.username ?
                                 <div class="invalid-feedback">
                                    {state.error.username}
@@ -77,15 +81,16 @@ const SignIn = () => {
                         <div class='form-group'>
                             <label for='exampleInputEmail1'>Email address</label>
                             <input type='email'
-                                class={`form-control ${state.error ? `is-invalid` : null}`}
+                                class={`form-control ${state.error.email ? `is-invalid` : null}`}
                                 id='email'
                                 name='email'
                                 aria-describedby='emailHelp'
+                                value={state.data?.email}
                                 onChange={handleChange} />
-                            {state.error ?
+                            {state.error.email ?
                                 <div class="invalid-feedback">
-                                    Email o contraseña incorrecta
-                </div>
+                                   {state.error.email}
+                                </div>
                                 : null
                             }
                         </div>
@@ -93,15 +98,19 @@ const SignIn = () => {
                             <label for='exampleInputPassword1'>Password</label>
                             <input
                                 type='password'
-                                class={`form-control ${state.error ? `is-invalid` : null}`}
+                                class={`form-control ${state.error.password ? `is-invalid` : null}`}
                                 id='password'
                                 name='password'
+                                value={state.data?.password}
                                 onChange={handleChange} />
+                            {state.error.password ?
+                                <div class="invalid-feedback">
+                                   {state.error.password}
+                                </div>
+                                : null
+                            }
                         </div>
-                        <div class='form-group form-check'>
-                            <label class='form-check-label' for='exampleCheck1'>Si no estas logeado <Link to='/signup'>Regístrate</Link></label>
-                        </div>
-                        <GenericButton text='Login' />
+                        <GenericButton text='Signin' />
                     </form>
                 </div>
             </div>
