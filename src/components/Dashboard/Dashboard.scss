@@ -10,11 +10,20 @@ $font: "Comfortaa", cursive;
 }
 
 .Dashboard-card-container {
-  max-width: 900px;
+  max-width: 83%;
   font-family: $font;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-bottom: 30px;
+}
+
+.DashBoardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
 }
