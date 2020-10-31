@@ -1,0 +1,86 @@
+.ContainerNotFound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NotFoundTop {
+    width: 200px;
+    margin: 26px 0 26px 0;
+}
+
+.NotFoundContainer {
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.NotFoundText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.NotFoundOps {
+    text-align: center;
+}
+
+.NotFoundNumbers {
+    font-size: 15em;
+    margin: 0 26px 0 0;
+}
+
+.NotFoundCrying {
+    width: 400px;
+}
+
+@media (max-width: 700px) {
+    .ContainerNotFound {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .NotFoundTop {
+        width: 100px;
+        margin: 26px 0 26px 0;
+    }
+    
+    .NotFoundContainer {
+        width: 300px;
+        height: 200px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .NotFoundText {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .NotFoundOps {
+        text-align: center;
+    }
+    
+    .NotFoundNumbers {
+        font-size: 6em;
+        margin: 0 26px 0 0;
+    }
+    
+    .NotFoundCrying {
+        width: 100px;
+    }
+}
+
+
+

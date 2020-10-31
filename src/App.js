@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { AuthenticatedRoute, NotAuthenticatedRoute } from './components/AuthenticatedRoute/AuthenticatedRoute'
 import Header from './components/Header/Header'
 import Login from './components/Login/Login'
@@ -11,6 +11,7 @@ import ContactMenu from './components/Contacts/ContactMenu'
 import Game from './components/Games/Game'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import NotFound from './components/Generic/NotFound'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             {/*<AuthenticatedRoute exact path='/historia' component={}/>
             <AuthenticatedRoute exact path='/eventos' component={}/>*/}
             <AuthenticatedRoute exact path='/' component={Dashboard}/> 
+            <Route component={NotFound} />
         </Switch>
       </div>
     </div>
