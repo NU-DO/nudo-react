@@ -6,16 +6,13 @@ import GenericButton from '../Generic/GenericButton'
 import './ImageModal.scss'
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: '400px',
-        },
-    },
+   paper: {
+       backgound: 'red'
+   }
 }))
 
 const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, handleEditImage, state }) => {
-    const classes = useStyles()
+   
     const [edit, setEdit] = useState(false)
     
     useEffect(() => {
@@ -24,11 +21,13 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
         }
     }, [])
     
+    const classes = useStyles()
+
     return (
-        <div className='ImageModalContainer'>
+        <div className='ImageDialog'>
             <CloseModalButton onClick={closeModal} />
             <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
-            <form onSubmit={edit ? handleEditImage : modalSent} className={classes.root}>
+            <form onSubmit={edit ? handleEditImage : modalSent} className={classes}>
                 <div className='ImageModalContainer'>
                     <div>
                         <br />
