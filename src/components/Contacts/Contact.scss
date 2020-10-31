@@ -1,49 +1,41 @@
 .Contact {
-    border: 1px solid grey;
-    border-radius: 5px;
-    width: 250px;
-    height: 120px;
-    margin: 5px;
-    p {
-        color: transparent
+  border-radius: 5px;
+  padding-left: 0px;
+  padding: 5px;
+  margin: 3px;
+  box-shadow: 0px 0px 12px 0px rgba(85, 85, 85, 0.281);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 300px;
+  .nameHeader {
+    margin: 3px 0 0 0;
+    & >span {
+      margin-left: 5px;
     }
+  }
+  .contactSm {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  } 
+  .contactPhoto {
+    margin: 7px 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  .detailsButton {
+    color: black;
+    font-size: 22px;
+    margin-top: 2px;
+    margin-left: 3px;
+    transition: all 0.1s;
     &:hover {
-        height: 300px;
-        position: static;
-        p {
-            color: black;
-        }
+      font-size: 25px;
+      color: #839672;
+      transition: all 0.1s;
     }
-    .alwaysOn {
-        display: flex;
-        align-items: center;
-    }
-    .contactPhoto {
-        margin: 0 20px;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-    }
-    .CRUDButtons{
-        display: flex;
-        justify-content: flex-end;
-        margin: 12px 12px 0 0;
-        .editButton {
-          color: #839672;
-          transition: all 0.2s linear;
-          margin-right: 10px;
-          &:hover {
-            font-size: 35px;
-            color: #919d87;
-          }
-        }
-        .deleteButton {
-          color: #F89677;
-          transition: all 0.2s linear;
-          &:hover {
-            font-size: 35px;
-            color: #e13400;
-          }
-        }
-      }
+  }
 }

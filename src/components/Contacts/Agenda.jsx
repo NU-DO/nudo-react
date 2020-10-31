@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Contact from './Contact'
+import ContactSeacher from './ContactSearcher'
 import './Agenda.scss'
 
-const Agenda = ({ contacts, handleDelete, editThisContact }) => {
+const Agenda = ({ contacts, handleSelect, handleSearch, search }) => {
 
     return (
-        <div className='Agenda'>
-            {contacts.map(contact => (
-                <Contact
-                    contact={contact}
-                    key={contact.id}
-                    handleDelete={handleDelete}
-                    editThisContact={editThisContact} 
-                />
-            ))}
+        <div className='AgendaDiv'>
+            <ContactSeacher handleSearch={handleSearch} search={search} />
+            <div className='Agenda'>
+
+                {contacts.map(contact => (
+                    <Contact
+                        contact={contact}
+                        key={contact.id}
+                        handleSelect={handleSelect}
+                    />
+                ))}
+            </div>
         </div>
     )
 }

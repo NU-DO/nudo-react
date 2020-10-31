@@ -1,8 +1,13 @@
-.Agenda {
-    padding-top: 40px;
+.AgendaDiv {
+    width: 350px;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 75%;
+    flex-direction: column;
+    align-items: flex-start;
+    .Agenda {
+        align-items: center;
+        height: 50vh;
+        overflow: scroll;
+        border: 1px solid #839672;
+        border-radius: 10px;
+    }
 }
