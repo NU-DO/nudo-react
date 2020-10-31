@@ -3,11 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     .dividedBody {
         margin-top: 20px;
         display: flex;
         width: 800px;
     }
+
     .contactSearchAndAdd {
         display: flex;
         justify-content: space-between;
