@@ -17,7 +17,7 @@ import { Snackbar } from '@material-ui/core'
 
 const mapContainerStyle = {
     width: '100%',
-    height: '50vh',
+    height: '60vh',
 }
 const center = {
     lat: 40.463667,

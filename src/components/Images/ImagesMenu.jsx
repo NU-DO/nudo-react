@@ -8,6 +8,7 @@ import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
 import AlertSnackBar from '../Generic/AlertSnackBar'
+import '../Locations/NudoMap.scss'
 
 const ImagesMenu = () => {
     const [state, setState] = useState({})
