@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import GenericButton from '../Generic/GenericButton'
 import { signin } from '../../services/Api'
+import { Redirect } from 'react-router-dom'
 import './SignIn.scss'
 
 const SignIn = () => {
@@ -12,11 +13,14 @@ const SignIn = () => {
         },
         error: {}
     })
+    const [redirect, setRedirect] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault()
         signin(state.data)
-            .then(user => console.log('Hola'))
+            .then(user => {
+                setRedirect(true) 
+            })
             .catch(err => {
                 setState((prev) => {
                     return {
@@ -28,7 +32,6 @@ const SignIn = () => {
     }
 
     const handleChange = (event) => {
-        console.log(state);
         const { name, value } = event.target
 
         setState(prev => {
@@ -63,14 +66,14 @@ const SignIn = () => {
                                 <div class='form-group'>
                                     <label for='exampleInputEmail1'>Nombre de usuario</label>
                                     <input type='text'
-                                        class={`form-control ${state.error.username ? `is-invalid` : null}`}
+                                        class={`form-control ${state.error?.username ? `is-invalid` : null}`}
                                         id='username'
                                         name='username'
                                         aria-describedby='emailHelp'
                                         value={state.data?.username}
                                         onChange={handleChange} />
 
-                                    {state.error.username ?
+                                    {state.error?.username ?
                                         <div class="invalid-feedback">
                                             {state.error.username}
                                         </div>
@@ -80,13 +83,13 @@ const SignIn = () => {
                                 <div class='form-group'>
                                     <label for='exampleInputEmail1'>Correo electrónico</label>
                                     <input type='email'
-                                        class={`form-control ${state.error.email ? `is-invalid` : null}`}
+                                        class={`form-control ${state.error?.email ? `is-invalid` : null}`}
                                         id='email'
                                         name='email'
                                         aria-describedby='emailHelp'
                                         value={state.data?.email}
                                         onChange={handleChange} />
-                                    {state.error.email ?
+                                    {state.error?.email ?
                                         <div class="invalid-feedback">
                                             {state.error.email}
                                         </div>
@@ -97,12 +100,12 @@ const SignIn = () => {
                                     <label for='exampleInputPassword1'>Contraseña</label>
                                     <input
                                         type='password'
-                                        class={`form-control ${state.error.password ? `is-invalid` : null}`}
+                                        class={`form-control ${state.error?.password ? `is-invalid` : null}`}
                                         id='password'
                                         name='password'
                                         value={state.data?.password}
                                         onChange={handleChange} />
-                                    {state.error.password ?
+                                    {state.error?.password ?
                                         <div class="invalid-feedback">
                                             {state.error.password}
                                         </div>
@@ -117,6 +120,12 @@ const SignIn = () => {
                     </div>
                 </div>
             </div>
+            {redirect ?
+                <Redirect to={{
+                    pathname: '/login',
+                    state: { fromSignin: redirect }
+                }}/>
+                : null }
         </div>
     )
 }

@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import GenericButton from '../Generic/GenericButton'
 import { useAuthContext } from '../../contexts/AuthContext'
 import { login } from '../../services/Api'
+import Alert from 'react-bootstrap/Alert';
 import './Login.scss'
 
-const LogIn = () => {
+const LogIn = (props) => {
   const [state, setState] = useState({
     data: {
       email: '',
@@ -17,9 +18,19 @@ const LogIn = () => {
   const { data } = state
 
   const handleSubmit = (event) => {
+    console.log(props.location.state.fromSignin);
     event.preventDefault()
     login(data)
-      .then(user => authContext.login(user))
+      .then(user => {
+        authContext.login(user)
+        setState({
+          data: {
+            email: '',
+            password: ''
+          },
+          error: false 
+        })
+      })
       .catch(err => setState({ error: true }))
   }
 
@@ -86,6 +97,16 @@ const LogIn = () => {
                 <GenericButton text='Login' />
               </div>
             </form>
+            {props.location.state?.fromSignin ? 
+              <Alert variant='primary'>
+                Revisa tu correo para activar tu cuenta!
+              </Alert>
+              : null}
+            {props.location.state?.fromMail ? 
+              <Alert variant='primary'>
+                Cuenta activada con éxito
+              </Alert>
+              : null}
           </div>
         </div>
       </div>

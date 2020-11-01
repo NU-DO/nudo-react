@@ -23,6 +23,10 @@ export const signin = ({ email, password, username }) => {
     .then((res) => res?.data)
 }
 
+export const activate = (id, token) => {
+  return http.post(`user/${id}/activate/${token}`)
+}
+
 export const logout = () => http.post('/logout')
 
 export const getSongsFromSpotify = ({ search }) => {
