@@ -74,7 +74,7 @@ const SignIn = () => {
                                         onChange={handleChange} />
 
                                     {state.error?.username ?
-                                        <div class="invalid-feedback">
+                                        <div class='invalid-feedback'>
                                             {state.error.username}
                                         </div>
                                         : null
@@ -90,7 +90,7 @@ const SignIn = () => {
                                         value={state.data?.email}
                                         onChange={handleChange} />
                                     {state.error?.email ?
-                                        <div class="invalid-feedback">
+                                        <div class='invalid-feedback'>
                                             {state.error.email}
                                         </div>
                                         : null
@@ -106,7 +106,7 @@ const SignIn = () => {
                                         value={state.data?.password}
                                         onChange={handleChange} />
                                     {state.error?.password ?
-                                        <div class="invalid-feedback">
+                                        <div class='invalid-feedback'>
                                             {state.error.password}
                                         </div>
                                         : null

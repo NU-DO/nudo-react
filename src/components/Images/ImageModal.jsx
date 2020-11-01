@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
 import { makeStyles } from '@material-ui/core/styles'
-import InputText from '../Generic/InputText'
 import GenericButton from '../Generic/GenericButton'
 import './ImageModal.scss'
 
@@ -11,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
    }
 }))
 
-const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, handleEditImage, state }) => {
+const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, handleEditImage, state, error }) => {
    
     const [edit, setEdit] = useState(false)
     
@@ -32,44 +31,48 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                     <div>
                         <br />
                         <label>Título:</label>
-                        <InputText
-                            id='descripcion'
+                        <input
+                            id='title'
                             type='text'
-                            margin='normal'
-                            required
+                            className={`form-control ${error?.title ? `is-invalid` : null}`}
                             name='title'
                             value={state.title}
                             onChange={handleChange}
-                            variant='outlined'
-                            placeholder='Escribe un título' />
+                        />
+                        {error?.title ?
+                            <div class='invalid-feedback'>
+                                {error.title}
+                            </div>
+                            : null
+                        }
                     </div>
                     <div>
                         <br />
                         <label>Descripción:</label>
-                        <InputText
+                        <textarea
                             id='descripcion'
-                            margin='normal'
-                            required
-                            fullWidth
+                            className='form-control'
                             name='description'
                             value={state.description}
                             onChange={handleChange}
-                            variant='outlined'
-                            multiline />
+                        ></textarea>
                     </div>
                     <div>
                         <br />
                         <label>Fecha:</label>
-                        <InputText
-                            id='name'
-                            margin='normal'
-                            required
-                            fullWidth
+                        <input
+                            id='date'
                             name='date'
+                            className={`form-control ${error?.date ? `is-invalid` : null}`}
                             value={state.date}
                             onChange={handleChange}
-                            autoFocus
-                            variant='outlined' />
+                        />
+                        {error?.date ?
+                            <div class='invalid-feedback'>
+                                {error.date}
+                            </div>
+                            : null
+                        }
                     </div>
                     {!edit ? <div>
                         <br />
@@ -77,6 +80,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                         <input
                             type='file'
                             name='url'
+                            className='form-control'
                             onChange={(e) => handleFileUpload(e)}
                             placeholder='Selecciona un archivo'
                         />
@@ -91,15 +95,6 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             className='mt-3'
                             text='Guardar'
                         />  : <div>Subiendo Imagen</div>}
-                        {/* <GenericButton
-                            type='button'
-                            // onClick={() => modalSent()}
-                            fullWidth
-                            variant='contained'
-                            color='primary'
-                            className='mt-3'
-                            text='Guardar'
-                        /> */}
                     </div>
                     <div>
                         <img src={state.url} style={{width: '200px'}} />

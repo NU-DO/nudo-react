@@ -41,9 +41,15 @@
         font-size: 42px;
         margin-top: -8px;
         margin-left: 12px;
+        &:hover {
+            cursor: pointer;
+        }
     }
     .addSongForm {
         display: flex;
+        &:hover {
+            cursor: pointer;
+        }
     }
     .absolute {
         position: absolute;

@@ -16,6 +16,7 @@ const ImagesMenu = () => {
     const [snackEditOpen, setSnackEditOpen] = useState(false)
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [showDialog, setShowDialog] = useState(false)
+    const [error, setError] = useState({})
 
     useEffect(() => {
         getImages()
@@ -48,7 +49,6 @@ const ImagesMenu = () => {
         if (reason === 'clickaway') {
             return
         }
-
         setSnackDeleteOpen(false)
     }
 
@@ -85,15 +85,16 @@ const ImagesMenu = () => {
 
     const modalSent = (event) => {
         event.preventDefault()
-        handleSavedSnack()
         createImage(state)
             .then(() => {
                 getImages()
                     .then(images => setImages(images))
+                setState({})
+                closeModal()
+                setError({})
+                handleSavedSnack()
             })
-            .catch(err => console.log(err))
-        setState({})
-        closeModal()
+            .catch(err => setError(err.response.data.errors))
     }
 
     const handleDelete = (id) => {
@@ -117,17 +118,17 @@ const ImagesMenu = () => {
         body.title = state.title
         body.description = state.description
         body.date = state.date
-        
+
         editImage(state.id, body)
             .then(() => {
                 getImages()
-                    .then(images => {
-                        setImages(images)
-                    })
+                    .then(images => setImages(images))
+                setState({})
+                closeModal()
+                setError({})
+                handleEditSnack()
             })
-            .catch(err => console.log(err))
-        setState({})
-        closeModal()
+            .catch(err => setError(err.response.data.errors))
     }
 
     return (
@@ -153,6 +154,7 @@ const ImagesMenu = () => {
                     handleFileUpload={handleFileUpload}
                     handleEditImage={handleEditImage}
                     state={state}
+                    error={error}
                 />
             </Dialog>
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
@@ -162,7 +164,7 @@ const ImagesMenu = () => {
             </Snackbar>
             <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
                 <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
-                   Imagen editada correctamente!
+                    Imagen editada correctamente!
                  </AlertSnackBar>
             </Snackbar>
             <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>

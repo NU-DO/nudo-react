@@ -21,7 +21,7 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong
                 {typeSearch ?
                     <div className='addSongForm'>
                         <div className='addButton' onClick={() => handleOpen(song.id)}>+</div>
-                        {form === song.id ? 
+                        {form === song.id ?
                             <div className='absolute'>
                                 <ButtonAddSong decade="50's" addFav={addFav} song={song} />
                                 <ButtonAddSong decade="60's" addFav={addFav} song={song} />
@@ -30,9 +30,9 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong
                                 <ButtonAddSong decade="90's" addFav={addFav} song={song} />
                                 <ButtonAddSong decade="00's" addFav={addFav} song={song} />
                             </div>
-                        : null}
+                            : null}
                     </div>
-                : <div onClick={() => handleDeleteSong(song.id)}><DeleteIcon  className='songsDeleteIcon'/></div>}
+                    : <div onClick={() => handleDeleteSong(song.id)}><DeleteIcon className='songsDeleteIcon' /></div>}
             </div>
         </div>
     )

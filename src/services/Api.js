@@ -47,6 +47,7 @@ export const deleteSong = (songId) => {
 
 export const createLocation = ({ name, description, lat, lng }) => {
   return http.post('/location/new', { name, description, lat, lng })
+    .then((res) => res?.data)
 }
 
 export const getLocations = () => {
@@ -59,6 +60,7 @@ export const deleteLocation = (locationId) => {
 
 export const editLocation = (locationId, {name, description}) => {
   return http.patch(`/location/${locationId}/edit`, {name, description})
+    .then((res) => res?.data)
 }
 
 export const getScores = () => {
@@ -75,6 +77,7 @@ export const getImages = () => {
 
 export const createImage = ({ title, description, date, url }) => {
   return http.post('/image/new', { title, description, date, url })
+    .then((res) => res?.data)
 } 
 
 export const deleteImage = (imageId) => {
@@ -83,6 +86,7 @@ export const deleteImage = (imageId) => {
 
 export const editImage = ( id, {title, date, description}) => {
   return http.patch(`/image/${id}/edit`, { title, date, description })
+    .then((res) => res?.data)
 }
 
 export const getContacts = () => {
@@ -91,6 +95,7 @@ export const getContacts = () => {
 
 export const createContact = ({ name, role, address, email, phone, birthday, photo, description }) => {
   return http.post('/contact/new', { name, role, address, email, phone, birthday, photo, description })
+    .then((res) => res?.data)
 }
 
 export const deleteContact = (contactId) => {
@@ -99,6 +104,7 @@ export const deleteContact = (contactId) => {
 
 export const editContact = ( id, {...tempState}) => {
   return http.patch(`/contact/${id}/edit`, {...tempState})
+    .then((res) => res?.data)
 }
 
 export const handleUpload = (theFile) => {

@@ -43,6 +43,7 @@ const NudoMap = () => {
     const [snackEditOpen, setSnackEditOpen] = useState(false)
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [tempCoordenates, setTempCoordenates] = useState({})
+    const [error, setError] = useState({})
 
 
     const openModal = () => setShowDialog(true)
@@ -98,20 +99,20 @@ const NudoMap = () => {
             }
         )
         openModal()
-
     }, [])
 
     const modalSent = (event) => {
         event.preventDefault()
-        handleSavedSnack()
         createLocation(tempCoordenates)
             .then(() => {
                 getLocations()
                     .then(locations => setMarkers(locations))
+                setTempCoordenates({})
+                closeModal()
+                handleSavedSnack()
+                setError({})
             })
-            .catch(err => console.log(err))
-        setTempCoordenates({})
-        closeModal()
+            .catch(err => setError(err.response.data.errors))
     }
 
     const editMarker = (marker) => {
@@ -121,18 +122,19 @@ const NudoMap = () => {
 
     const handleEditLocation = (event) => {
         event.preventDefault()
-        handleEditSnack()
-        const data= {}
+        const data = {}
         data.name = tempCoordenates.name
         data.description = tempCoordenates.description
         editLocation(tempCoordenates.id, data)
             .then(() => {
                 getLocations()
                     .then(locations => setMarkers(locations))
+                setTempCoordenates({})
+                closeModal()
+                handleEditSnack()
+                setError({})
             })
-            .catch(err => console.log(err))
-        setTempCoordenates({})
-        closeModal()
+            .catch(err => setError(err.response.data.errors))
     }
 
     const handleDeleteLocation = (id) => {
@@ -237,6 +239,7 @@ const NudoMap = () => {
                     handleEditLocation={handleEditLocation}
                     handleChange={handleChange}
                     tempCoordenates={tempCoordenates}
+                    error={error}
                 />
             </Dialog>
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
@@ -246,7 +249,7 @@ const NudoMap = () => {
             </Snackbar>
             <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
                 <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
-                   Localización editada correctamente!
+                    Localización editada correctamente!
                  </AlertSnackBar>
             </Snackbar>
             <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
