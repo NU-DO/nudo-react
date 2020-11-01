@@ -22,7 +22,7 @@ const Agenda = ({ selected, editThisContact, handleDelete, addContactClick }) =>
                             <EditIcon className='editButton' onClick={() => editThisContact(selected)} />
                             <DeleteIcon className='deleteButton' onClick={() => handleDelete(selected.id)} />
                         </div>
-                            <h3 className='contactCardTitle'>{selected.name}</h3>
+                            <h5 className='contactCardTitle'>{selected.name}</h5>
                             <p className='contactCardSubtitle'>{selected.role}</p>
                             <img src={selected.photo} className='contactPhoto' alt='contact photo' />
                         </div>

@@ -4,9 +4,12 @@ import Agenda from './Agenda'
 import ContactDetails from './ContactDetails'
 import ContactModal from './ContactModal'
 import { getContacts, handleUpload, createContact, deleteContact, editContact } from '../../services/Api'
+import './ContactMenu.scss'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
-import './ContactMenu.scss'
+import { Snackbar } from '@material-ui/core'
+import AlertSnackBar from '../Generic/AlertSnackBar'
+
 
 const ContactMenu = () => {
     const [search, setSearch] = useState({
@@ -17,6 +20,9 @@ const ContactMenu = () => {
     const [selected, setSelected] = useState()
     const [searchedContacts, setSearchedContacts] = useState([])
     const [showDialog, setShowDialog] = useState(false)
+    const [snackSavedOpen, setSnackSavedOpen] = useState(false)
+    const [snackEditOpen, setSnackEditOpen] = useState(false)
+    const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
 
     useEffect(() => {
         getContacts()
@@ -38,7 +44,30 @@ const ContactMenu = () => {
         const match = contacts.filter(contact => contact.name.toLowerCase().includes(search.search))
         setSearchedContacts(match)
     }, [search])
+    const handleSavedSnack = () => setSnackSavedOpen(true)
+    const handleEditSnack = () => setSnackEditOpen(true)
+    const handleDeleteSnack = () => setSnackDeleteOpen(true)
+    const handleCloseSavedSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+        setSnackSavedOpen(false)
+    }
 
+    const handleCloseEditSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+        setSnackEditOpen(false)
+    }
+
+    const handleCloseDeleteSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+
+        setSnackDeleteOpen(false)
+    }
     const openModal = () => setShowDialog(true)
     const closeModal = () => {
         setShowDialog(false)
@@ -155,6 +184,21 @@ const ContactMenu = () => {
                     modalSent={modalSent}
                 />
             </Dialog>
+            <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
+                <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
+                    Contacto guardado correctamente!
+                 </AlertSnackBar>
+            </Snackbar>
+            <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
+                <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
+                   Contacto guardado correctamente!
+                 </AlertSnackBar>
+            </Snackbar>
+            <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
+                <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
+                    Contacto borrado correctamente!
+                 </AlertSnackBar>
+            </Snackbar>
         </div>
     )
 }

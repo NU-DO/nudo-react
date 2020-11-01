@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ComponentHeader from '../Generic/ComponentHeader'
 import GenericButton from '../Generic/GenericButton'
 import { signin } from '../../services/Api'
 import './SignIn.scss'
@@ -21,7 +20,7 @@ const SignIn = () => {
             .catch(err => {
                 setState((prev) => {
                     return {
-                        ...prev, 
+                        ...prev,
                         error: err.response.data.errors
                     }
                 })
@@ -45,72 +44,77 @@ const SignIn = () => {
 
     return (
         <div className='container'>
-            <div className='row'>
+            <div className='row NudoMap'>
                 <div className='col-12 mt-5'>
                     <div className='NudoMap'>
-                        <ComponentHeader
-                            nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-login_cuaa4a.svg'
-                            title='Entra'
-                            description='Entra a NUDO con tu email y tu password.'
-                        />
+                        <h1 className='text-center'>Regístrate</h1>
+                        <p className='text-center'>Para acceder a NUDO necesitamos algunos datos tuyos como tu nombre, <br /> correo electrónico y una contraseña para que puedas acceder a tu perfil.</p>
                     </div>
                 </div>
-                <div className='col-12 mt-5 SignInContainer'>
-                    <div className='SignInImage'>
-
+                <div className='SignInContainer'>
+                    <div className='SignInNudoIcon'>
+                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-signin_ekelsq.svg' />
                     </div>
-                    <form onSubmit={(e) => handleSubmit(e)}>
-                        <div class='form-group'>
-                            <label for='exampleInputEmail1'>Nombre de usuario</label>
-                            <input type='text'
-                                class={`form-control ${state.error.username ? `is-invalid` : null}`}
-                                id='username'
-                                name='username'
-                                aria-describedby='emailHelp'
-                                value={state.data?.username}
-                                onChange={handleChange} />
-                                
-                            {state.error.username ?
-                                <div class="invalid-feedback">
-                                   {state.error.username}
+                    <div className='SignInImage'>
+                    </div>
+                    <div className='SignInForm'>
+                        <form onSubmit={(e) => handleSubmit(e)}>
+                            <div className='SignInFormContainer'>
+                                <div class='form-group'>
+                                    <label for='exampleInputEmail1'>Nombre de usuario</label>
+                                    <input type='text'
+                                        class={`form-control ${state.error.username ? `is-invalid` : null}`}
+                                        id='username'
+                                        name='username'
+                                        aria-describedby='emailHelp'
+                                        value={state.data?.username}
+                                        onChange={handleChange} />
+
+                                    {state.error.username ?
+                                        <div class="invalid-feedback">
+                                            {state.error.username}
+                                        </div>
+                                        : null
+                                    }
                                 </div>
-                                : null
-                            }
-                        </div>
-                        <div class='form-group'>
-                            <label for='exampleInputEmail1'>Email address</label>
-                            <input type='email'
-                                class={`form-control ${state.error.email ? `is-invalid` : null}`}
-                                id='email'
-                                name='email'
-                                aria-describedby='emailHelp'
-                                value={state.data?.email}
-                                onChange={handleChange} />
-                            {state.error.email ?
-                                <div class="invalid-feedback">
-                                   {state.error.email}
+                                <div class='form-group'>
+                                    <label for='exampleInputEmail1'>Correo electrónico</label>
+                                    <input type='email'
+                                        class={`form-control ${state.error.email ? `is-invalid` : null}`}
+                                        id='email'
+                                        name='email'
+                                        aria-describedby='emailHelp'
+                                        value={state.data?.email}
+                                        onChange={handleChange} />
+                                    {state.error.email ?
+                                        <div class="invalid-feedback">
+                                            {state.error.email}
+                                        </div>
+                                        : null
+                                    }
                                 </div>
-                                : null
-                            }
-                        </div>
-                        <div class='form-group'>
-                            <label for='exampleInputPassword1'>Password</label>
-                            <input
-                                type='password'
-                                class={`form-control ${state.error.password ? `is-invalid` : null}`}
-                                id='password'
-                                name='password'
-                                value={state.data?.password}
-                                onChange={handleChange} />
-                            {state.error.password ?
-                                <div class="invalid-feedback">
-                                   {state.error.password}
+                                <div class='form-group'>
+                                    <label for='exampleInputPassword1'>Contraseña</label>
+                                    <input
+                                        type='password'
+                                        class={`form-control ${state.error.password ? `is-invalid` : null}`}
+                                        id='password'
+                                        name='password'
+                                        value={state.data?.password}
+                                        onChange={handleChange} />
+                                    {state.error.password ?
+                                        <div class="invalid-feedback">
+                                            {state.error.password}
+                                        </div>
+                                        : null
+                                    }
                                 </div>
-                                : null
-                            }
-                        </div>
-                        <GenericButton text='Signin' />
-                    </form>
+                            </div>
+                            <div className='SignInButton'>
+                                <GenericButton text='Signin' />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

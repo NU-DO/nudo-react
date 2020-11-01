@@ -5,6 +5,10 @@ import DCard from './DCard'
 const Dashboard = () => {
     return (
         <div className='Dashboard'>
+            <div className='DashBoardHeader'>
+                <h1>Bienvenido a NUDO</h1>
+                <h6>¿Qué quieres hacer hoy? Elige una opción de las que te mostramos a continuación.</h6>
+            </div>
             <div className='Dashboard-card-container'>
                 <DCard
                     action='Mira'
@@ -37,7 +41,7 @@ const Dashboard = () => {
                     img='https://www.master-finanzas-cuantitativas.com/wp-content/uploads/2019/08/adventure-blur-cartography-408503-e1563195599874.jpg'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Localizaciones_oyhg3m.svg'
                     link='localizaciones'
-                    textBody='¿Recuerdas aquellas vacaciones? pues aquí podrás marcar tus sitios y añadir comentarios en ellos, además de pasear de nuevo por allí.'
+                    textBody='¿Recuerdas aquellas vacaciones? Aquí podrás marcar tus sitios y añadir comentarios en ellos, además de pasear de nuevo por allí.'
 
                 />
                 <DCard
@@ -46,7 +50,7 @@ const Dashboard = () => {
                     img='https://contextomediagroup.com/wp-content/uploads/2019/06/tu-historia-678x381.jpg'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
                     link='historia'
-                    textBody='¿Recuerdas aquel acontecimiento? aquí en esta sección podrás guardar esos recuerdos y organizarlos cronológicamente.'
+                    textBody='¿Recuerdas aquel acontecimiento? Aquí podrás guardar esos recuerdoscronológicamente.'
 
                 />
                 <DCard

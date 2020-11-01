@@ -8,13 +8,16 @@ import './LocationModal.scss'
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
-            margin: theme.spacing(1),
-            width: '25ch',
+            margin: 0,
+            border: '0',
+            borderRadius: '10px',
+            width: 'auto'
+            
         },
     },
 }))
 
-const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange, tempCoordenates }) => {
+const LocationModal = ({ modalSent, handleEditLocation, handleChange, tempCoordenates }) => {
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {
@@ -27,50 +30,35 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
 
     return (
         <div >
-            <CloseModalButton onClick={closeModal} />
-
-            <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
-
             <form onSubmit={edit ? handleEditLocation : modalSent} className={classes.root} noValidate autoComplete='off'>
                 <div className='LocationModalContainer'>
-                    <div>
-                    <br />
-                        <label>Nombre:</label>
-                        <InputText
-                            id='name'
-                            margin='normal'
-                            required
-                            fullWidth
-                            label='Nombre de localización'
-                            name='name'
-                            onChange={handleChange}
-                            autoFocus
-                            value={tempCoordenates.name}
-                            variant='outlined' />
+                    <h4 className='ml-1'>Completa los campos</h4>
+                    <div className="form-group">
+                        <label for="name">Nombre</label>
+                        <input 
+                        type="text" 
+                        className="form-control" 
+                        id="name" 
+                        name='name'
+                        onChange={handleChange}
+                        value={tempCoordenates.name}
+                         />
                     </div>
-                    <div>
-                    <br />
-                        <label>Descripción:</label>
-                        <InputText
-                            id='descripcion'
-                            margin='normal'
-                            required
-                            fullWidth
-                            label='Describe tu localización'
-                            name='description'
-                            onChange={handleChange}
-                            variant='outlined'
-                            value={tempCoordenates.description}
-                            multiline />
+                    <div className="form-group">
+                        <label for="name">Descripción</label>
+                        <input 
+                        type="text" 
+                        className="form-control" 
+                        id="description" 
+                        name='description'
+                        onChange={handleChange}
+                        value={tempCoordenates.description}
+                         />
                     </div>
                     <div>
                         <br />
                         <GenericButton
                             type='submit'
-                            fullWidth
-                            variant='contained'
-                            color='primary'
-                            className='mt-3'
                             text='Guardar'
                         />
                     </div>
