@@ -4,9 +4,9 @@ import Drawer from './Drawer'
 import { useAuthContext } from '../../contexts/AuthContext'
 import { logout } from '../../services/Api'
 import { makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+// import AppBar from '@material-ui/core/AppBar'
+// import Toolbar from '@material-ui/core/Toolbar'
+// import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import { Button } from '@material-ui/core'
 import './Header.scss'
@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     menuButton: {
-        marginRight: theme.spacing(2),
+        marginRight: theme.spacing(1),
     },
     title: {
-        flexGrow: 1,
+        flexGrow: 2,
     },
 }))
 
@@ -34,9 +34,41 @@ export default function MenuAppBar() {
             .catch(err => console.log(err))
     }
 
+    const LinkStyle = {
+        textDecoration: 'none',
+        color: 'black',
+        marginTop: '20px'
+    }
+
     return (
-        <div className={classes.root}>
-            <AppBar position='static'>
+        <div className='NudoHeader fixed-top'>
+            <nav class='navbar'>
+                <div className='NudoHeaderLeft'>
+                    <Link to='/' class='NudoHeaderLogo'>
+                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604218253/NUDO/assets/Recurso_17_ky7ydo.svg' alt='Nudo Logo Header' loading='lazy' className='NudoHeaderIcon' />
+                    </Link>
+                    {user ? null :
+                    <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
+                    <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan'>Registrate</span> </Link></>
+                    }
+                    {/* <Link to='/logout' style={LinkStyle}><span className='NudoHeaderSpan'>Desconectar</span> </Link> */}
+
+                </div>
+                <div className='NudoHeaderRight'>
+                    {user ? <IconButton
+                        edge='start'
+                        size='small'
+                        className={classes.menuButton}
+                        color='inherit'
+                        disableFocusRipple={true}
+                        aria-label='menu'>
+                        <Drawer />
+                    </IconButton>
+                        : null}
+                </div>
+
+            </nav>
+            {/* <AppBar position='static'>
                 <Toolbar>
                     {user ? <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu'>
                             <Drawer />
@@ -53,7 +85,7 @@ export default function MenuAppBar() {
                         </div>
                     )}
                 </Toolbar>
-            </AppBar>
+            </AppBar> */}
         </div>
     )
 }

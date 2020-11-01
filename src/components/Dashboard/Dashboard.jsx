@@ -6,8 +6,8 @@ const Dashboard = () => {
     return (
         <div className='Dashboard'>
             <div className='DashBoardHeader'>
-                <h1>Bienvenido a NUDO</h1>
-                <h6>¿Qué quieres hacer hoy? Elige una opción de las que te mostramos a continuación.</h6>
+                <h1 className='text-center'>Bienvenido a <b>NUDO</b></h1>
+                <h6 className='text-center'>¿Qué quieres hacer hoy? Elige una opción de las que te mostramos a continuación.</h6>
             </div>
             <div className='Dashboard-card-container'>
                 <DCard

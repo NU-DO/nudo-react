@@ -2,5 +2,9 @@
 
 body {
   font-family: 'Comfortaa', cursive;
-  margin: 0;
+  margin: 90px 0 0 0;
+}
+
+*:focus {
+  outline: none !important;
 }

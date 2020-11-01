@@ -94,7 +94,7 @@ const NudoDrawer = () => {
                     <ListItemIcon>
                         <MeetingRoomIcon />
                     </ListItemIcon>
-                    <ListItemText primary={'Logout'} />
+                    <ListItemText primary={'Desconectar'} />
                 </ListItem>
             </List>
         </div>

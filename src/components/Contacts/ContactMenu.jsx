@@ -119,10 +119,12 @@ const ContactMenu = () => {
             })
             .catch(err => console.log(err))
         setTempState({})
+        handleSavedSnack()
         closeModal()
     }
 
     const handleDelete = (id) => {
+        handleDeleteSnack()
         deleteContact(id)
             .then(() => {
                 getContacts()
@@ -138,7 +140,7 @@ const ContactMenu = () => {
 
     const handleEditContact = (event) => {
         event.preventDefault()
-        // handleEditSnack()
+        handleEditSnack()
         editContact(tempState.id, tempState)
             .then(edited => {
                 setSelected(edited)
@@ -191,7 +193,7 @@ const ContactMenu = () => {
             </Snackbar>
             <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
                 <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
-                   Contacto guardado correctamente!
+                   Contacto editado correctamente!
                  </AlertSnackBar>
             </Snackbar>
             <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
