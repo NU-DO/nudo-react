@@ -18,7 +18,6 @@ const LogIn = (props) => {
   const { data } = state
 
   const handleSubmit = (event) => {
-    console.log(props.location.state.fromSignin);
     event.preventDefault()
     login(data)
       .then(user => {
@@ -31,7 +30,12 @@ const LogIn = (props) => {
           error: false 
         })
       })
-      .catch(err => setState({ error: true }))
+      .catch(err => setState((prev) => {
+        return {
+          ...prev, 
+          error: true
+        }
+      }))
   }
 
   const handleChange = (event) => {
