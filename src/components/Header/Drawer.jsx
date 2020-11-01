@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     },
 })
 
-const routesRedirect = ['Imagenes', 'Canciones', 'Contactos', 'Localizaciones', 'Historia', 'Eventos', 'Juegos']
+const routesRedirect = ['Imagenes', 'Canciones', 'Contactos', 'Localizaciones', 'Historia', 'Eventos', 'Juegos', 'Estadisticas']
 
 const NudoDrawer = () => {
     const { user, logout: logOut } = useAuthContext()

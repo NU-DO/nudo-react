@@ -4,11 +4,7 @@ import Drawer from './Drawer'
 import { useAuthContext } from '../../contexts/AuthContext'
 import { logout } from '../../services/Api'
 import { makeStyles } from '@material-ui/core/styles'
-// import AppBar from '@material-ui/core/AppBar'
-// import Toolbar from '@material-ui/core/Toolbar'
-// import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
-import { Button } from '@material-ui/core'
 import './Header.scss'
 
 const useStyles = makeStyles((theme) => ({
@@ -47,12 +43,8 @@ export default function MenuAppBar() {
                     <Link to='/' class='NudoHeaderLogo'>
                         <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604218253/NUDO/assets/Recurso_17_ky7ydo.svg' alt='Nudo Logo Header' loading='lazy' className='NudoHeaderIcon' />
                     </Link>
-                    {user ? null :
-                    <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
-                    <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan'>Registrate</span> </Link></>
-                    }
-                    {/* <Link to='/logout' style={LinkStyle}><span className='NudoHeaderSpan'>Desconectar</span> </Link> */}
 
+                    {/* <Link to='/logout' style={LinkStyle}><span className='NudoHeaderSpan'>Desconectar</span> </Link> */}
                 </div>
                 <div className='NudoHeaderRight'>
                     {user ? <IconButton
@@ -64,7 +56,10 @@ export default function MenuAppBar() {
                         aria-label='menu'>
                         <Drawer />
                     </IconButton>
-                        : null}
+                        : 
+                        <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
+                            <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan'>Registrate</span> </Link></>
+                    }
                 </div>
 
             </nav>

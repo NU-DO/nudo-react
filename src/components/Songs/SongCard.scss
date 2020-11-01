@@ -8,6 +8,7 @@
     display: flex;
     justify-content: flex-start;
     width: 340px;
+    position: relative;
     audio {
         filter: sepia(0%) saturate(10%) grayscale(0.3) contrast(99%) invert(10%);
         width: 100px;
@@ -56,6 +57,7 @@
         border-radius: 5px;
         margin-left: 13px;
         margin-top: -50px;
+        z-index: 10;
     }
     .songsDeleteIcon {
         margin: 23px;

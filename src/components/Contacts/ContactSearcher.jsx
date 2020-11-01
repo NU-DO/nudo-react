@@ -1,5 +1,4 @@
 import React from 'react'
-import InputText from '../Generic/InputText'
 import './ContactSearcher.scss'
 
 const ContactSeacher = ({ handleSearch, search }) => {
