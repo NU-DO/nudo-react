@@ -19,7 +19,6 @@ const SignIn = () => {
         signin(state.data)
             .then(user => console.log('Hola'))
             .catch(err => {
-                // console.log(err.response.data.errors)
                 setState((prev) => {
                     return {
                         ...prev, 
