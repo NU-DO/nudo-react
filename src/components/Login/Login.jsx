@@ -59,6 +59,16 @@ const LogIn = (props) => {
           <div className='NudoMap'>
             <h1 className='text-center'>Entrar</h1>
             <p className='text-center'>Si ya tienes eres usuario de NUDO, ingresa tu correo y tu contraseña <br /> para acceder al menú principal.</p>
+            {props.location.state?.fromSignin ? 
+              <Alert variant='primary' className='my-1'>
+                Revisa tu correo para activar tu cuenta!
+              </Alert>
+              : null}
+            {props.location.state?.fromMail ? 
+              <Alert variant='primary' className='my-1'>
+                Cuenta activada con éxito
+              </Alert>
+              : null}
           </div>
         </div>
         <div className='LogInContainer'>
@@ -101,16 +111,6 @@ const LogIn = (props) => {
                 <GenericButton text='Login' />
               </div>
             </form>
-            {props.location.state?.fromSignin ? 
-              <Alert variant='primary'>
-                Revisa tu correo para activar tu cuenta!
-              </Alert>
-              : null}
-            {props.location.state?.fromMail ? 
-              <Alert variant='primary'>
-                Cuenta activada con éxito
-              </Alert>
-              : null}
           </div>
         </div>
       </div>

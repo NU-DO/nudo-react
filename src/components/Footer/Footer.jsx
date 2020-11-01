@@ -12,35 +12,35 @@ const Footer = () => {
                     </div>
                     <div className='FooterText'>
                         <div>
-                            <h6>Titulo 1</h6>
+                            <h5>Somos NUDO</h5>
                             <ul>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
+                                <li>Contacto</li>
+                                <li>Compañía</li>
+                                <li>Desarroladores</li>
+                                <li>Diseñadores</li>
                             </ul>
                         </div>
                         <div>
-                            <h6>Titulo 1</h6>
+                            <h5>Enlaces Rápiodos</h5>
                             <ul>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
+                                <li>Recomienda</li>
+                                <li>Todas las categorias</li>
+                                <li>Preguntas Frecuentes</li>
+                                <li>FAQ</li>
                             </ul>
                         </div>
                         <div>
-                            <h6>Titulo 1</h6>
+                            <h5>Redes Sociales</h5>
                             <ul>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
+                                <li>Facebook</li>
+                                <li>Tweeter</li>
+                                <li>Linked In</li>
+                                <li>Instagram</li>
                             </ul>
                         </div>
                     </div>
-                    <div>
-                        <small>Copiright Developed by Fernando Marín y Miguel del Vale</small>
+                    <div className='FooterTextCopy'>
+                        <small>Copyright © All Rights Reserved 2020 |  Development and Design by Miguel del Valle & Fernando Marín</small>
                     </div>
                 </div>
             </footer>
