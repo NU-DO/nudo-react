@@ -14,6 +14,7 @@ import Game from './components/Games/Game'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import NotFound from './components/Generic/NotFound'
+import Footer from './components/Footer/Footer'
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route component={NotFound} />
         </Switch>
       </div>
+      <Footer />
     </div>
   )
 }

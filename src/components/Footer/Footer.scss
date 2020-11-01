@@ -1,0 +1,20 @@
+.FooterWaves {
+    background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604244208/NUDO/assets/Imagen_footer_NUDO_mxdrtj.svg);
+    width: 100%;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  .FooterIconNudo {
+    width: 14%;
+    padding: 128px 0 0 0;
+    margin: auto;
+  }
+}
+.FooterText {
+    color: white;
+    margin-top: 34px;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid white;
+}
