@@ -14,5 +14,3 @@ const LocationDetails = ({ selected, setSelected, closeModal }) => {
 }
 
 export default LocationDetails
-
-
