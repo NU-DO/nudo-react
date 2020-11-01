@@ -23,6 +23,7 @@ const ContactMenu = () => {
     const [snackSavedOpen, setSnackSavedOpen] = useState(false)
     const [snackEditOpen, setSnackEditOpen] = useState(false)
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
+    const [error, setError] = useState({})
 
     useEffect(() => {
         getContacts()
@@ -116,11 +117,12 @@ const ContactMenu = () => {
             .then(() => {
                 getContacts()
                     .then(contacts => setContacts(contacts))
+                setTempState({})
+                setError({})
+                handleSavedSnack()
+                closeModal()
             })
-            .catch(err => console.log(err))
-        setTempState({})
-        handleSavedSnack()
-        closeModal()
+            .catch(err => setError(err.response.data.errors))
     }
 
     const handleDelete = (id) => {
@@ -140,16 +142,18 @@ const ContactMenu = () => {
 
     const handleEditContact = (event) => {
         event.preventDefault()
-        handleEditSnack()
         editContact(tempState.id, tempState)
             .then(edited => {
                 setSelected(edited)
                 getContacts()
                     .then(contact => setContacts(contact))
+                setTempState({})
+                setError({})
+                closeModal()
+                handleEditSnack()
             })
-            .catch(err => console.log(err))
-        setTempState({})
-        closeModal()
+            .catch(err => setError(err.response.data.errors))
+
     }
     return (
         <div className='ContactMenu'>
@@ -184,6 +188,7 @@ const ContactMenu = () => {
                     handleFileUpload={handleFileUpload}
                     handleEditContact={handleEditContact}
                     modalSent={modalSent}
+                    error={error}
                 />
             </Dialog>
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
@@ -193,7 +198,7 @@ const ContactMenu = () => {
             </Snackbar>
             <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
                 <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
-                   Contacto editado correctamente!
+                    Contacto editado correctamente!
                  </AlertSnackBar>
             </Snackbar>
             <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>

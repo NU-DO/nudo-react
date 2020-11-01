@@ -12,12 +12,12 @@ const useStyles = makeStyles((theme) => ({
             border: '0',
             borderRadius: '10px',
             width: 'auto'
-            
+
         },
     },
 }))
 
-const LocationModal = ({ modalSent, handleEditLocation, handleChange, tempCoordenates }) => {
+const LocationModal = ({ modalSent, handleEditLocation, handleChange, tempCoordenates, error }) => {
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {
@@ -33,27 +33,33 @@ const LocationModal = ({ modalSent, handleEditLocation, handleChange, tempCoorde
             <form onSubmit={edit ? handleEditLocation : modalSent} className={classes.root} noValidate autoComplete='off'>
                 <div className='LocationModalContainer'>
                     <h4 className='ml-1'>Completa los campos</h4>
-                    <div className="form-group">
-                        <label for="name">Nombre</label>
-                        <input 
-                        type="text" 
-                        className="form-control" 
-                        id="name" 
-                        name='name'
-                        onChange={handleChange}
-                        value={tempCoordenates.name}
-                         />
+                    <div className='form-group'>
+                        <label for='name'>Nombre</label>
+                        <input
+                            type='text'
+                            className={`form-control ${error?.name ? `is-invalid` : null}`}
+                            id='name'
+                            name='name'
+                            onChange={handleChange}
+                            value={tempCoordenates.name}
+                        />
+                        {error?.name ?
+                            <div class='invalid-feedback'>
+                                {error.name}
+                            </div>
+                            : null
+                        }
                     </div>
-                    <div className="form-group">
-                        <label for="name">Descripción</label>
-                        <input 
-                        type="text" 
-                        className="form-control" 
-                        id="description" 
-                        name='description'
-                        onChange={handleChange}
-                        value={tempCoordenates.description}
-                         />
+                    <div className='form-group'>
+                        <label for='name'>Descripción</label>
+                        <input
+                            type='text'
+                            className={`form-control`}
+                            id='description'
+                            name='description'
+                            onChange={handleChange}
+                            value={tempCoordenates.description}
+                        />
                     </div>
                     <div>
                         <br />
