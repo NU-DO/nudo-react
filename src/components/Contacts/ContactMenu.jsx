@@ -91,7 +91,6 @@ const ContactMenu = () => {
                 [name]: value,
             }
         })
-        console.log(tempState);
     }
 
     const handleFileUpload = (event) => {
@@ -156,14 +155,20 @@ const ContactMenu = () => {
 
     }
     return (
+<<<<<<< HEAD
         <div>
             <div className="NudoMap">
+=======
+        <div className='ContactMenu'>
+            <div className='NudoMap'>
+>>>>>>> cce4e9437ff0c0ae7dc97e20d997374a117a893d
                 <ComponentHeader
                     title='Contactos'
                     description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
                 />
             </div>
+<<<<<<< HEAD
             <div className='ContactMenu'>
 
                 <div className="dividedBody">
@@ -196,6 +201,38 @@ const ContactMenu = () => {
                 <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                     <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
                         Contacto guardado correctamente!
+=======
+            <div className='dividedBody'>
+                <Agenda
+                    contacts={searchedContacts}
+                    handleSelect={handleSelect}
+                    handleSearch={handleSearch}
+                    search={search}
+                />
+                <ContactDetails
+                    selected={selected}
+                    handleDelete={handleDelete}
+                    editThisContact={editThisContact}
+                    addContactClick={addContactClick}
+                />
+
+            </div>
+            <Dialog isOpen={showDialog} onDismiss={closeModal} className='ContactDialog'>
+                <ContactModal
+                    closeModal={closeModal}
+                    tempState={tempState}
+                    handleChange={handleChange}
+                    tempState={tempState}
+                    handleFileUpload={handleFileUpload}
+                    handleEditContact={handleEditContact}
+                    modalSent={modalSent}
+                    error={error}
+                />
+            </Dialog>
+            <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
+                <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
+                    Contacto guardado correctamente!
+>>>>>>> cce4e9437ff0c0ae7dc97e20d997374a117a893d
                  </AlertSnackBar>
                 </Snackbar>
                 <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>

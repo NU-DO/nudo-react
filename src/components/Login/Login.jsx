@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import GenericButton from '../Generic/GenericButton'
 import { useAuthContext } from '../../contexts/AuthContext'
 import { login } from '../../services/Api'
-import Alert from 'react-bootstrap/Alert';
+import Alert from 'react-bootstrap/Alert'
 import './Login.scss'
 
 const LogIn = (props) => {

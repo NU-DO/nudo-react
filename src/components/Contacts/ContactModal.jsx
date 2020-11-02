@@ -9,8 +9,8 @@ const useStyles = makeStyles((theme) => ({
         '& > *': {
             margin: theme.spacing(1),
             width: '25ch',
-        },
-    },
+        }
+    }
 }))
 
 const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, handleEditContact, modalSent, error }) => {

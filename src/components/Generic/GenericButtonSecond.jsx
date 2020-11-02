@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './GenericButtonSecond.scss'
 
 const GenericButton = ({text, onClick}) => {
@@ -9,4 +9,4 @@ const GenericButton = ({text, onClick}) => {
     );
 };
 
-export default GenericButton;
+export default GenericButton

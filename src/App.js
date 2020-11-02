@@ -11,7 +11,7 @@ import NudoMap from './components/Locations/NudoMap'
 import ImagesMenu from './components/Images/ImagesMenu'
 import ContactMenu from './components/Contacts/ContactMenu'
 import Game from './components/Games/Game'
-import Statistics from './components/Statistics/Statistics'
+import StatisticsMenu from './components/Statistics/StatisticsMenu'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import NotFound from './components/Generic/NotFound'
@@ -33,7 +33,7 @@ function App() {
              <AuthenticatedRoute exact path='/contactos' component={ContactMenu}/>
             {/*<AuthenticatedRoute exact path='/historia' component={}/>
             <AuthenticatedRoute exact path='/eventos' component={}/>*/}
-            <AuthenticatedRoute exact path='/estadisticas' component={Statistics}/>
+            <AuthenticatedRoute exact path='/estadisticas' component={StatisticsMenu}/>
             <AuthenticatedRoute exact path='/' component={Dashboard}/> 
             <Route component={NotFound} />
         </Switch>

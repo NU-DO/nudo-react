@@ -5,6 +5,7 @@ import './SongSearch.scss'
 
 const SongSearch = ({ matchSong, handleOpen, addFav, form, handleChange, search }) => {
     const typeSearch = useState(true)
+
     return (
         <div className='SongSearch'>
             <div className='songSearcher'>

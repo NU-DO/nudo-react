@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './InputText.scss'
 
 const InputText = ({ name, value, onChange, onBlur, placeHolder, required, type }) => {
@@ -15,7 +15,7 @@ const InputText = ({ name, value, onChange, onBlur, placeHolder, required, type 
                 className='InputText'
             />
         </div>
-    );
-};
+    )
+}
 
-export default InputText;
+export default InputText

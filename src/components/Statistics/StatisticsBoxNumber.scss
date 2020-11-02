@@ -1,0 +1,17 @@
+.StatisticsBoxNumber {
+    border: 1px solid #839672;
+    border-radius: 10px;
+    width: 400px;
+    height: 200px;
+    padding: 20px;
+    margin: 5px;
+    position: relative;
+
+    .statisticsRightH {
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        font-size: 64px;
+        color: #839672;
+    }
+}

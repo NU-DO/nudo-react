@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import GenericButton from './GenericButton';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import GenericButton from './GenericButton'
 import './NotFound.scss'
 
 const NotFound = () => {
@@ -27,7 +27,7 @@ const NotFound = () => {
 
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default NotFound;
+export default NotFound

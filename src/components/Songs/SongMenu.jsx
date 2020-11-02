@@ -46,7 +46,7 @@ function SongMenu() {
     useEffect(() => {
         getSongsFromSpotify(search)
             .then(data => {
-                setMatchSong(data.slice(0, 20))
+                setMatchSong(data.slice(0, 15))
             })
             .catch(err => console.log(err))
     }, [search])
