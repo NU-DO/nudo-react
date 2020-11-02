@@ -13,6 +13,7 @@ import '@reach/combobox/styles.css'
 import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
+import Spinner from '../Generic/Spinner'
 
 
 const mapContainerStyle = {
@@ -163,7 +164,7 @@ const NudoMap = () => {
     }
 
     if (loadError) return 'Error loading Google Maps'
-    if (!isLoaded) return 'Loading Google Maps'
+    if (!isLoaded) return (<Spinner />)
 
     return (
         <div className='NudoMap'>

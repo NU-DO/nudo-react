@@ -1,9 +1,10 @@
 .LocationList {
   max-width: 400px;
-  max-height: 45vh;
+  max-height: 60vh;
   overflow: scroll;
   border: 2px solid #839672;
   border-radius: 10px;
+  margin-top: 50px;
 
   ul {
     display: flex;

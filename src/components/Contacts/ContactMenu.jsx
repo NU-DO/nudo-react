@@ -156,7 +156,7 @@ const ContactMenu = () => {
 
     }
     return (
-        <div className='ContactMenu'>
+        <div>
             <div className="NudoMap">
                 <ComponentHeader
                     title='Contactos'
@@ -164,48 +164,51 @@ const ContactMenu = () => {
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
                 />
             </div>
-            <div className="dividedBody">
-                <Agenda
-                    contacts={searchedContacts}
-                    handleSelect={handleSelect}
-                    handleSearch={handleSearch}
-                    search={search}
-                />
-                <ContactDetails
-                    selected={selected}
-                    handleDelete={handleDelete}
-                    editThisContact={editThisContact}
-                    addContactClick={addContactClick}
-                />
+            <div className='ContactMenu'>
 
+                <div className="dividedBody">
+                    <Agenda
+                        contacts={searchedContacts}
+                        handleSelect={handleSelect}
+                        handleSearch={handleSearch}
+                        search={search}
+                    />
+                    <ContactDetails
+                        selected={selected}
+                        handleDelete={handleDelete}
+                        editThisContact={editThisContact}
+                        addContactClick={addContactClick}
+                    />
+
+                </div>
+                <Dialog isOpen={showDialog} onDismiss={closeModal} className='ContactDialog'>
+                    <ContactModal
+                        closeModal={closeModal}
+                        tempState={tempState}
+                        handleChange={handleChange}
+                        tempState={tempState}
+                        handleFileUpload={handleFileUpload}
+                        handleEditContact={handleEditContact}
+                        modalSent={modalSent}
+                        error={error}
+                    />
+                </Dialog>
+                <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
+                    <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
+                        Contacto guardado correctamente!
+                 </AlertSnackBar>
+                </Snackbar>
+                <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
+                    <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
+                        Contacto editado correctamente!
+                 </AlertSnackBar>
+                </Snackbar>
+                <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
+                    <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
+                        Contacto borrado correctamente!
+                 </AlertSnackBar>
+                </Snackbar>
             </div>
-            <Dialog isOpen={showDialog} onDismiss={closeModal} className='ContactDialog'>
-                <ContactModal
-                    closeModal={closeModal}
-                    tempState={tempState}
-                    handleChange={handleChange}
-                    tempState={tempState}
-                    handleFileUpload={handleFileUpload}
-                    handleEditContact={handleEditContact}
-                    modalSent={modalSent}
-                    error={error}
-                />
-            </Dialog>
-            <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
-                <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
-                    Contacto guardado correctamente!
-                 </AlertSnackBar>
-            </Snackbar>
-            <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
-                <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
-                    Contacto editado correctamente!
-                 </AlertSnackBar>
-            </Snackbar>
-            <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
-                <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
-                    Contacto borrado correctamente!
-                 </AlertSnackBar>
-            </Snackbar>
         </div>
     )
 }
