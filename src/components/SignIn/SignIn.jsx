@@ -114,7 +114,7 @@ const SignIn = () => {
                                 </div>
                             </div>
                             <div className='SignInButton'>
-                                <GenericButton text='Signin' />
+                                <GenericButton text='Regístrate' />
                             </div>
                         </form>
                     </div>

@@ -108,7 +108,7 @@ const LogIn = (props) => {
                 {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
               </div>
               <div className='LogInButton'>
-                <GenericButton text='Login' />
+                <GenericButton text='Entrar' />
               </div>
             </form>
           </div>

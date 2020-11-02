@@ -32,7 +32,10 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'left',
     },
     column: {
-        flexBasis: '33.33%',
+        // flexBasis: '33.33%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     helper: {
         borderLeft: `0px solid ${theme.palette.divider}`,
@@ -59,12 +62,13 @@ const LocationElement = ({ marker, zoomToMarker, deleteMarker, onEdit, i }) => {
                         id='panel1c-header'
                     >
                         <div className={classes.column}>
+                        <span><img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png' alt='Marker nudo icon' className='LocationElementMarker'/></span>
                             <Typography className={classes.heading}>{marker.name}</Typography>
                         </div>
                     </AccordionSummary>
                     <AccordionDetails className={classes.details}>
                         <Typography variant='caption'>
-                           {marker.description}
+                           <p><b>Descripción: </b></p>{marker.description}
                         </Typography>
                     </AccordionDetails>
                     <Divider variant='middle'/>

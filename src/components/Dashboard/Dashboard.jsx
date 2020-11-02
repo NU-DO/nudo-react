@@ -7,7 +7,7 @@ const Dashboard = () => {
         <div className='Dashboard'>
             <div className='DashBoardHeader'>
                 <h1 className='text-center'>Bienvenido a <b>NUDO</b></h1>
-                <h6 className='text-center'>¿Qué quieres hacer hoy? Elige una opción de las que te mostramos a continuación.</h6>
+                <p className='text-center'>¿Qué quieres hacer hoy? Elige una opción de las que te mostramos a continuación.</p>
             </div>
             <div className='Dashboard-card-container'>
                 <DCard
@@ -50,7 +50,7 @@ const Dashboard = () => {
                     img='https://contextomediagroup.com/wp-content/uploads/2019/06/tu-historia-678x381.jpg'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
                     link='historia'
-                    textBody='¿Recuerdas aquel acontecimiento? Aquí podrás guardar esos recuerdoscronológicamente.'
+                    textBody='¿Recuerdas aquel acontecimiento inolvidable? Aquí podrás guardar esos y muchos más recuerdos cronológicamente.'
 
                 />
                 <DCard

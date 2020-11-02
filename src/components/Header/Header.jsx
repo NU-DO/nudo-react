@@ -33,7 +33,8 @@ export default function MenuAppBar() {
     const LinkStyle = {
         textDecoration: 'none',
         color: 'black',
-        marginTop: '20px'
+        marginTop: '20px',
+        marginLeft: '10px'
     }
 
     return (
@@ -43,8 +44,6 @@ export default function MenuAppBar() {
                     <Link to='/' class='NudoHeaderLogo'>
                         <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604218253/NUDO/assets/Recurso_17_ky7ydo.svg' alt='Nudo Logo Header' loading='lazy' className='NudoHeaderIcon' />
                     </Link>
-
-                    {/* <Link to='/logout' style={LinkStyle}><span className='NudoHeaderSpan'>Desconectar</span> </Link> */}
                 </div>
                 <div className='NudoHeaderRight'>
                     {user ? <IconButton
@@ -58,29 +57,11 @@ export default function MenuAppBar() {
                     </IconButton>
                         : 
                         <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
-                            <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan'>Registrate</span> </Link></>
+                            <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan'onClick={handleLogout} >Registrate</span> </Link></>
                     }
                 </div>
 
             </nav>
-            {/* <AppBar position='static'>
-                <Toolbar>
-                    {user ? <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu'>
-                            <Drawer />
-                        </IconButton>
-                    : null}
-                    <Typography variant='h6' className={classes.title}>
-                        <Link to='/login' style={{ textDecoration: 'none', color: 'white' }}>NUDO</Link>
-                    </Typography>
-                    {user && (
-                        <div>
-                            <Button variant='contained' color='secondary' onClick={handleLogout}>
-                                LogOut
-                            </Button>
-                        </div>
-                    )}
-                </Toolbar>
-            </AppBar> */}
         </div>
     )
 }
