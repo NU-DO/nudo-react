@@ -12,7 +12,7 @@ const Footer = () => {
                     </div>
                     <div className='FooterText'>
                         <div>
-                            <h5>Somos NUDO</h5>
+                            <h5>NUDO</h5>
                             <ul>
                                 <li>Contacto</li>
                                 <li>Compañía</li>
@@ -21,16 +21,16 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div>
-                            <h5>Enlaces Rápiodos</h5>
+                            <h5>Enlaces</h5>
                             <ul>
                                 <li>Recomienda</li>
-                                <li>Todas las categorias</li>
+                                <li>Categorias</li>
                                 <li>Preguntas Frecuentes</li>
                                 <li>FAQ</li>
                             </ul>
                         </div>
                         <div>
-                            <h5>Redes Sociales</h5>
+                            <h5>RRSS</h5>
                             <ul>
                                 <li>Facebook</li>
                                 <li>Tweeter</li>
@@ -40,7 +40,7 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className='FooterTextCopy'>
-                        <small>Copyright © All Rights Reserved 2020 |  Development and Design by Miguel del Valle & Fernando Marín</small>
+                        <small>Copyright © All Rights Reserved 2020 |  Development and Design by Miguel Valle & Fernando Marín</small>
                     </div>
                 </div>
             </footer>

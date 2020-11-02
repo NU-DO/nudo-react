@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
 import Agenda from './Agenda'
 import ContactDetails from './ContactDetails'
+import Modal from '../Generic/Modal'
 import ContactModal from './ContactModal'
 import { getContacts, handleUpload, createContact, deleteContact, editContact } from '../../services/Api'
 import './ContactMenu.scss'
@@ -180,7 +181,7 @@ const ContactMenu = () => {
                     />
 
                 </div>
-                <Dialog isOpen={showDialog} onDismiss={closeModal} className='ContactDialog'>
+                {showDialog ? <Modal> 
                     <ContactModal
                         closeModal={closeModal}
                         tempState={tempState}
@@ -191,7 +192,9 @@ const ContactMenu = () => {
                         modalSent={modalSent}
                         error={error}
                     />
-                </Dialog>
+                </Modal>
+                : null}
+                    
                 <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                     <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
                         Contacto guardado correctamente!

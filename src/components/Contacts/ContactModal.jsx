@@ -4,18 +4,9 @@ import GenericButton from '../Generic/GenericButton'
 import { makeStyles } from '@material-ui/core/styles'
 import './ContactModal.scss'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: theme.spacing(1),
-            width: '25ch',
-        }
-    }
-}))
+
 
 const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, handleEditContact, modalSent, error }) => {
-    const classes = useStyles()
-
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {
@@ -25,15 +16,13 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
     }, [])
 
     return (
-        <div >
+        <div className='ModalContent'>
             <CloseModalButton onClick={closeModal} />
-
             <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
-
-            <form onSubmit={edit ? handleEditContact : modalSent} className={classes.root} noValidate autoComplete='off'>
+            <form onSubmit={edit ? handleEditContact : modalSent}>
                 <div className='ContactModalContainer'>
                     <div className='form-row'>
-                        <div className='form-group col-md-8'>
+                        <div className='form-group col-8 '>
                             <label for='exampleFormControlInput1'>Nombre</label>
                             <input type='text'
                                 className={`form-control ${error?.name ? `is-invalid` : null}`}
@@ -49,7 +38,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 : null
                             }
                         </div>
-                        <div className='form-group col-md-4'>
+                        <div className='form-group col-4'>
                             <label for='exampleFormControlInput1'>Relación</label>
                             <input type='text'
                                 className={`form-control ${error?.role ? `is-invalid` : null}`}
@@ -78,7 +67,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         />
                     </div>
                     <div className='form-row'>
-                        <div className='form-group col-md-4'>
+                        <div className='form-group col-4 col-md-4'>
                             <label for='exampleFormControlInput1'>Email</label>
                             <input type='email'
                                 className={`form-control ${error?.email ? `is-invalid` : null}`}
@@ -94,7 +83,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 : null
                             }
                         </div>
-                        <div className='form-group col-md-4'>
+                        <div className='form-group col-4 col-md-4'>
                             <label for='exampleFormControlInput1'>Teléfono</label>
                             <input type='text'
                                 className={`form-control ${error?.phone ? `is-invalid` : null}`}
@@ -110,7 +99,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 : null
                             }
                         </div>
-                        <div className='form-group'>
+                        <div className='form-group col-4'>
                             <label for='exampleFormControlInput1'>Cumpleaños</label>
                             <input type='text'
                                 className='form-control'
@@ -145,18 +134,24 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         </div> : null}
                     <div>
                         <br />
-                        <GenericButton
-                            type='submit'
-                            fullWidth
-                            variant='contained'
-                            color='primary'
-                            className='mt-3'
-                            text='Guardar'
-                        />
+                        <div className='d-flex justify-content-around align-items-center'>
+                            <GenericButton
+                                type='submit'
+                                fullWidth
+                                variant='contained'
+                                color='primary'
+                                className='mt-3'
+                                text='Guardar'
+                            />
+                            <div>
+                                <img src={tempState.photo} style={{ width: '100px', marginLeft: '10px' }} className='rounded-circle' />
+                                {tempState.photo && <p className='text-center text-muted'>Imagen actual</p>}
+                            </div>
+
+                        </div>
                     </div>
                     <div>
-                        <img src={tempState.photo} style={{ width: '200px' }} />
-                        {tempState.photo && <p>Imagen actual</p>}
+
                     </div>
                 </div>
             </form>

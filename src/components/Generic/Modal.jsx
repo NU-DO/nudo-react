@@ -1,17 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import './Modal.scss'
 
-const ModalContent = () => {
+const ModalContent = (props) => {
+
+
+
     return (
-        <div>
-            Esto es un Modal
+        <div className='ModalOverlay'>
+            {props.children}
         </div>
     )
 }
 
 const Modal = (props) => {
     return (
-        ReactDOM.createPortal(<ModalContent {...props}/>, document.getElementById("root"))
+        ReactDOM.createPortal(<ModalContent {...props} />, document.getElementById("root"))
     )
 }
 

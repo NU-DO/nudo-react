@@ -1,7 +1,6 @@
 import React from 'react'
 import './Dashboard.scss'
 import DCard from './DCard'
-import Modal from '../Generic/Modal'
 
 const Dashboard = () => {
     return (
@@ -71,7 +70,6 @@ const Dashboard = () => {
                     link='juegos'
                     textBody='¿Unas partiditas? Ejercita tu cerebro con un simple juego de memoría con tres niveles de dificultad diferentes. Cuidado que engancha.'
                 />
-                <Modal />
             </div>
         </div>
 
