@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
             width: 'auto'
 
         },
-    },
+    }
 }))
 
 const LocationModal = ({ modalSent, handleEditLocation, handleChange, tempCoordenates, error }) => {

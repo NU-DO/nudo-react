@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, handleEditImage, state, error }) => {
-   
     const [edit, setEdit] = useState(false)
     
     useEffect(() => {

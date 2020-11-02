@@ -91,7 +91,6 @@ const ContactMenu = () => {
                 [name]: value,
             }
         })
-        console.log(tempState);
     }
 
     const handleFileUpload = (event) => {
@@ -157,14 +156,14 @@ const ContactMenu = () => {
     }
     return (
         <div className='ContactMenu'>
-            <div className="NudoMap">
+            <div className='NudoMap'>
                 <ComponentHeader
                     title='Contactos'
                     description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
                 />
             </div>
-            <div className="dividedBody">
+            <div className='dividedBody'>
                 <Agenda
                     contacts={searchedContacts}
                     handleSelect={handleSelect}

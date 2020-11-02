@@ -1,7 +1,7 @@
 import React from 'react'
 import ButtonAddSong from './ButtonAddSong'
 import './SongCard.scss'
-import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@material-ui/icons/Delete'
 
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong }) => {
     return (

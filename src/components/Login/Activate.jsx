@@ -6,10 +6,8 @@ const Activate = (props) => {
     const [activated, setActivated] = useState(false)
     const fromMail = true
     useEffect(() => {
-        console.log(activate);
         activate(props.match.params.id, props.match.params.token)
             .then(setActivated(true))
-
     }, [])
 
     return (
