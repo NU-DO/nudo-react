@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
 import StatisticsFavFilter from './StatisticsFavFilter'
 import StatisticsBoxNumber from './StatisticsBoxNumber'
+import StatisticsGraphic from './StatisticsGraphic'
 import { getSongs, getLocations, getImages, getContacts, getScores } from '../../services/Api'
 import './StatisticsMenu.scss'
 
@@ -9,6 +10,7 @@ const StatisticsMenu = ({ setDecade }) => {
     const [total, setTotal] = useState({})
     const [selected, setSelected] = useState()
     const [selectedInfo, setSelectedInfo] = useState([])
+    const [totalLength, setTotalLength] = useState(0)
 
     useEffect(() => {
         getSongs()
@@ -69,6 +71,11 @@ const StatisticsMenu = ({ setDecade }) => {
         //Falta eventos
     }, [])
 
+    useEffect(() => {
+        const allElementsLength = total.images?.length + total.songs?.length + total.locations?.length + total.contacts?.length + total.gameScores?.length
+        setTotalLength(allElementsLength)
+    }, [total])
+
     const setFocus = (category) => {
         setSelected(category)
         switch (category) {
@@ -95,6 +102,7 @@ const StatisticsMenu = ({ setDecade }) => {
                 break;
         }
     }
+
     return (
         <div className='NudoMap StatisticsMenu'>
             <ComponentHeader
@@ -105,18 +113,23 @@ const StatisticsMenu = ({ setDecade }) => {
             <StatisticsFavFilter 
                 setFocus={setFocus}
             />
-            {selected ? 
-                <div className='StatisticsBoxNumberDiv'>
-                    <StatisticsBoxNumber 
-                        selected={selected}
-                        selectedInfo={selectedInfo}
-                    />
-                    <StatisticsBoxNumber 
-                        selected={selected}
-                        selectedInfo={selectedInfo}
-                        lastDays={true}
-                    />
+            {totalLength ? 
+                <div>
+                    <div className='statisticsBoxNumberDiv'>
+                        <StatisticsBoxNumber 
+                            selected={selected}
+                            selectedInfo={selectedInfo}
+                            totalLength={totalLength}
+                        />
+                        <StatisticsBoxNumber 
+                            selected={selected}
+                            selectedInfo={selectedInfo}
+                            lastDays={true}
+                        />
+                    </div>
+                    <StatisticsGraphic />
                 </div>
+                
                 : <div>Campo sin información</div>
             }
         </div>

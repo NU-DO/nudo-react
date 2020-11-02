@@ -1,0 +1,13 @@
+.StatisticsGraphic {
+    margin: 5px;
+    border: 1px solid #839672;
+    border-radius: 10px;
+    width: 810px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    .Chart {
+        padding-top: 20px;
+        height: 300px
+    }
+}

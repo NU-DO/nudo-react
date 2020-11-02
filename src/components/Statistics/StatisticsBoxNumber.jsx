@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './StatisticsBoxNumber.scss'
 
-const StatisticsBoxNumber = ({ selected, lastDays, selectedInfo }) => {
-    const [totalLength, setTotalLength] = useState(0)
-
-    useEffect(() => {
-        if (selected === 'total') {
-            const allElementsLength = selectedInfo.images?.length + selectedInfo.songs?.length + selectedInfo.locations?.length + selectedInfo.contacts?.length + selectedInfo.gameScores?.length
-            setTotalLength(allElementsLength)
-        }
-    }, [selectedInfo])
-
+const StatisticsBoxNumber = ({ selected, lastDays, selectedInfo , totalLength}) => {
     return (
         <div className='StatisticsBoxNumber'>
             {selected === 'total' ?

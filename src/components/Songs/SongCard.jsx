@@ -19,8 +19,7 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong
                     <p className='songName'>"{song.name}"</p>
                     <p className='songArtist'>{song.artists[0].name} {typeSearch ? null : `| ${song.decade}`}</p>
                 </div>
-                <audio controls src={typeSearch ? song.preview_url : song.url} type='audio/mpeg'>
-                </audio>
+                <audio controls src={typeSearch ? song.preview_url : song.url} type='audio/mpeg' />
                 {typeSearch ?
                     <div className='addSongForm'>
                         <div className='addButton' onClick={() => handleOpen(song.id)}>+</div>
