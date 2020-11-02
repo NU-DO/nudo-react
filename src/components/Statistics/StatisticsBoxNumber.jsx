@@ -6,7 +6,6 @@ const StatisticsBoxNumber = ({ selected, lastDays, selectedInfo }) => {
 
     useEffect(() => {
         if (selected === 'total') {
-            console.log(selectedInfo);
             const allElementsLength = selectedInfo.images?.length + selectedInfo.songs?.length + selectedInfo.locations?.length + selectedInfo.contacts?.length + selectedInfo.gameScores?.length
             setTotalLength(allElementsLength)
         }

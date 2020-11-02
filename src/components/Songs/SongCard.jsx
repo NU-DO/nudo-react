@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import ButtonAddSong from './ButtonAddSong'
 import './SongCard.scss'
 import DeleteIcon from '@material-ui/icons/Delete'
 
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong }) => {
+    useEffect(() => {
+        console.log(song);
+        console.log(song.preview_url)
+    }, [song])
     return (
         <div className='SongCard'>
             <img
@@ -15,8 +19,7 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong
                     <p className='songName'>"{song.name}"</p>
                     <p className='songArtist'>{song.artists[0].name} {typeSearch ? null : `| ${song.decade}`}</p>
                 </div>
-                <audio controls>
-                    <source src={typeSearch ? song.preview_url : song.url} type='audio/mpeg' />
+                <audio controls src={typeSearch ? song.preview_url : song.url} type='audio/mpeg'>
                 </audio>
                 {typeSearch ?
                     <div className='addSongForm'>

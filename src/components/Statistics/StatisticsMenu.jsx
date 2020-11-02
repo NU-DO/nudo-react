@@ -117,7 +117,7 @@ const StatisticsMenu = ({ setDecade }) => {
                         lastDays={true}
                     />
                 </div>
-                : null
+                : <div>Campo sin información</div>
             }
         </div>
     )
