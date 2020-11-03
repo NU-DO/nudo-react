@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
-import { makeStyles } from '@material-ui/core/styles'
 import './ContactModal.scss'
 
 
@@ -137,10 +136,6 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         <div className='d-flex justify-content-around align-items-center'>
                             <GenericButton
                                 type='submit'
-                                fullWidth
-                                variant='contained'
-                                color='primary'
-                                className='mt-3'
                                 text='Guardar'
                             />
                             <div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Card from './Card'
+import Modal from '../Generic/Modal'
 import GameModal from './GameModal'
-import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 import './Game.scss'
 
@@ -117,14 +117,15 @@ const MemoryGame = ({ options, setOptions, highScore, setHighScore, score, setSc
                         />
                     </div>
                 ))}
-                <Dialog isOpen={showDialog} onDismiss={closeModal} className='NudoMapDialog'>
+                {showDialog ? <Modal> 
                     <GameModal
                         closeModal={closeModal}
                         newGame={newGame}
                         goMenu={goMenu}
                         score={score}
                     />
-                </Dialog>
+                </Modal>
+                : null}
             </div>
 
         )
