@@ -88,7 +88,7 @@ function SongMenu() {
 
     return (
         <div className='SongMenu'>
-            {fav.length ?
+            {loaded ?
                 <><ComponentHeader
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-musica_a9qwta.svg'
                     title='Canciones'
