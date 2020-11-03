@@ -1,23 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
-import { makeStyles } from '@material-ui/core/styles'
-import InputText from '../Generic/InputText'
 import GenericButton from '../Generic/GenericButton'
 import './LocationModal.scss'
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            margin: 0,
-            border: '0',
-            borderRadius: '10px',
-            width: 'auto'
 
-        },
-    }
-}))
-
-const LocationModal = ({ modalSent, handleEditLocation, handleChange, tempCoordenates, error }) => {
+const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange, tempCoordenates, error }) => {
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {
@@ -25,14 +12,12 @@ const LocationModal = ({ modalSent, handleEditLocation, handleChange, tempCoorde
             setEdit(true)
         }
     }, [])
-
-    const classes = useStyles()
-
     return (
-        <div >
-            <form onSubmit={edit ? handleEditLocation : modalSent} className={classes.root} noValidate autoComplete='off'>
-                <div className='LocationModalContainer'>
-                    <h4 className='ml-1'>Completa los campos</h4>
+        <div className='ModalContent'>
+         <CloseModalButton onClick={closeModal} />
+            <form onSubmit={edit ? handleEditLocation : modalSent}>
+                <div className='ModalLocationContainer'>
+                    <h4 className='text-center'>Completa los campos</h4>
                     <div className='form-group'>
                         <label for='name'>Nombre</label>
                         <input
@@ -52,14 +37,15 @@ const LocationModal = ({ modalSent, handleEditLocation, handleChange, tempCoorde
                     </div>
                     <div className='form-group'>
                         <label for='name'>Descripción</label>
-                        <input
+                        <textarea
                             type='text'
                             className={`form-control`}
                             id='description'
+                            rows='3'
                             name='description'
                             onChange={handleChange}
                             value={tempCoordenates.description}
-                        />
+                        ></textarea>
                     </div>
                     <div>
                         <br />

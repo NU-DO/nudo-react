@@ -73,9 +73,9 @@ const LocationElement = ({ marker, zoomToMarker, deleteMarker, onEdit, i }) => {
                     </AccordionDetails>
                     <Divider variant='middle'/>
                     <AccordionActions>
-                        <ZoomInIcon onClick={() => zoomToMarker(marker.lat, marker.lng)}/>
-                        <EditIcon onClick={() => {onEdit(marker)}}/>
-                        <DeleteIcon onClick={() =>  deleteMarker(marker.id)}/>
+                        <ZoomInIcon onClick={() => zoomToMarker(marker.lat, marker.lng)} style={{cursor: 'pointer'}}/>
+                        <EditIcon onClick={() => {onEdit(marker)}} style={{cursor: 'pointer'}}/>
+                        <DeleteIcon onClick={() =>  deleteMarker(marker.id)} style={{cursor: 'pointer'}}/>
                     </AccordionActions>
                 </Accordion>
             </div>

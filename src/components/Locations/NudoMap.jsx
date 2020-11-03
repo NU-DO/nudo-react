@@ -10,7 +10,7 @@ import MapStyles from './MapStyles'
 import './NudoMap.scss'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import '@reach/combobox/styles.css'
-import { Dialog } from '@reach/dialog'
+import Modal from '../Generic/Modal'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
 import Spinner from '../Generic/Spinner'
@@ -231,9 +231,7 @@ const NudoMap = () => {
                     </div>
                 </div>
             </div>
-
-
-            <Dialog isOpen={showDialog} onDismiss={closeModal} className='NudoMapDialog'>
+            {showDialog ? <Modal> 
                 <LocationModal
                     closeModal={closeModal}
                     modalSent={modalSent}
@@ -242,7 +240,8 @@ const NudoMap = () => {
                     tempCoordenates={tempCoordenates}
                     error={error}
                 />
-            </Dialog>
+                </Modal>
+                : null}
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                 <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
                     Localización guardada correctamente!

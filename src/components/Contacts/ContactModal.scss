@@ -5,123 +5,43 @@
   height: fit-content;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0px 1px 16px -2px rgba(0, 0, 0, 0.22);
+  box-shadow: 5px 3px 15px 15px rgba(0, 0, 0, 0.12);
   margin: auto 0;
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.5s;
   animation-name: animatetop;
-  animation-duration: 0.5s;
-  transition: all 2s ease;
+  transition: all 5s ease;
 }
 
-
-@-webkit-keyframes animatetop {
-    0% {
-      top: -300px;
-      opacity: 0;
-    }
-    25% {
-      top: -200px;
-      opacity: 0;
-    }
-    50% {
-      top: -100px;
-      opacity: 0;
-    }
-    75% {
-      top: -50px;
-      opacity: 0;
-    }
-    100% {
-      bottom: 0;
-      opacity: 1;
-    }
+@keyframes animatetop {
+  from {
+    margin-left: -3000px;
   }
-  
-  @keyframes animatetop {
-    0% {
-      top: -300px;
-      opacity: 0;
-    }
-    25% {
-      top: -200px;
-      opacity: 0;
-    }
-    50% {
-      top: -100px;
-      opacity: 0;
-    }
-    75% {
-      top: -50px;
-      opacity: 0;
-    }
-    100% {
-      bottom: 0;
-      opacity: 1;
-    }
+  to {
+    margin: auto 0;
   }
+}
 
 @media (min-width: 700px) {
   .ModalContent {
-    padding: 20px 20px 20px 20px;
+    padding: 40px;
     width: auto;
     height: fit-content;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0px 1px 16px -2px rgba(0, 0, 0, 0.12);
+    box-shadow: 5px 3px 15px 15px rgba(0, 0, 0, 0.12);
     margin: auto 0;
     overflow: scroll;
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.5s;
     animation-name: animatetop;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-out;
     transition: all 2s ease;
   }
 }
 
-@-webkit-keyframes animatetop {
-  0% {
-    top: -300px;
-    opacity: 0;
-  }
-  25% {
-    top: -200px;
-    opacity: 0;
-  }
-  50% {
-    top: -100px;
-    opacity: 0;
-  }
-  75% {
-    top: -50px;
-    opacity: 0;
-  }
-  100% {
-    bottom: 0;
-    opacity: 1;
-  }
-}
+
 
 @keyframes animatetop {
-  0% {
-    top: -300px;
-    opacity: 0;
-  }
-  25% {
-    top: -200px;
-    opacity: 0;
-  }
-  50% {
-    top: -100px;
-    opacity: 0;
-  }
-  75% {
-    top: -50px;
-    opacity: 0;
-  }
-  100% {
-    bottom: 0;
-    opacity: 1;
-  }
+    from {
+        margin-left: -3000px;
+      }
+      to {
+        margin: auto 0;
+      }
 }

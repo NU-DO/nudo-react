@@ -12,6 +12,7 @@ import ImagesMenu from './components/Images/ImagesMenu'
 import ContactMenu from './components/Contacts/ContactMenu'
 import Game from './components/Games/Game'
 import StatisticsMenu from './components/Statistics/StatisticsMenu'
+import LandingPage from './components/LandingPage/LandingPage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import NotFound from './components/Generic/NotFound'
@@ -35,6 +36,7 @@ function App() {
             <AuthenticatedRoute exact path='/eventos' component={}/>*/}
             <AuthenticatedRoute exact path='/estadisticas' component={StatisticsMenu}/>
             <AuthenticatedRoute exact path='/' component={Dashboard}/> 
+            <Route exact path='/landing' component={LandingPage} />
             <Route component={NotFound} />
         </Switch>
       </div>

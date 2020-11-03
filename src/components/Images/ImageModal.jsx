@@ -1,31 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
-import { makeStyles } from '@material-ui/core/styles'
 import GenericButton from '../Generic/GenericButton'
 import './ImageModal.scss'
 
-const useStyles = makeStyles((theme) => ({
-   paper: {
-       backgound: 'red'
-   }
-}))
 
 const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, handleEditImage, state, error }) => {
     const [edit, setEdit] = useState(false)
-    
+
     useEffect(() => {
-        if(state.id) {
+        if (state.id) {
             setEdit(true)
         }
     }, [])
-    
-    const classes = useStyles()
+
 
     return (
-        <div className='ImageDialog'>
+        <div className='ModalImageContent'>
             <CloseModalButton onClick={closeModal} />
             <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
-            <form onSubmit={edit ? handleEditImage : modalSent} className={classes}>
+            <form onSubmit={edit ? handleEditImage : modalSent}>
                 <div className='ImageModalContainer'>
                     <div>
                         <br />
@@ -47,7 +40,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                     </div>
                     <div>
                         <br />
-                        <label>Descripción:</label>
+                        <label>Descripción</label>
                         <textarea
                             id='descripcion'
                             className='form-control'
@@ -58,7 +51,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                     </div>
                     <div>
                         <br />
-                        <label>Fecha:</label>
+                        <label>Año</label>
                         <input
                             id='date'
                             name='date'
@@ -75,29 +68,30 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                     </div>
                     {!edit ? <div>
                         <br />
-                        <label>Archivo:</label>
+                        <label>Archivo</label>
                         <input
                             type='file'
                             name='url'
-                            className='form-control'
+                            className='form-control-file'
                             onChange={(e) => handleFileUpload(e)}
                             placeholder='Selecciona un archivo'
                         />
                     </div> : null}
                     <div>
                         <br />
-                        {state.url ? <GenericButton
-                            type='button'
-                            fullWidth
-                            variant='contained'
-                            color='primary'
-                            className='mt-3'
-                            text='Guardar'
-                        />  : <div>Subiendo Imagen</div>}
-                    </div>
-                    <div>
-                        <img src={state.url} style={{width: '200px'}} />
-                        {state.url && <p>Imagen actual</p>}
+                        {state.url &&
+                            <div className='d-flex justify-content-around align-items-center'>
+                                <GenericButton
+                                    type='button'
+                                    text='Guardar'
+                                />
+                                <div>
+                                    <img src={state.url} style={{ width: '100px', marginLeft: '10px'}}/>
+                                    {state.url &&  <p className='text-center text-muted mt-2'>Imagen actual</p>}
+                                </div>
+                            </div>
+
+                        }
                     </div>
                 </div>
             </form>

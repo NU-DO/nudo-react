@@ -1,16 +1,17 @@
 import React from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
+import './GameModal.scss'
 
 const LocationModal = ({ closeModal, score, newGame, goMenu }) => {
 
     return (
-        <div className='containerDialog'>
+        <div className='ModalGameContent'>
             <CloseModalButton onClick={closeModal} />
-            <h4 style={{ textAlign: 'center' }}>Has Ganado! tu puntuación es:</h4>
-            <div>{score} puntos</div>
+            <h4 style={{ textAlign: 'center' }}>Has Ganado! <br/> tu puntuación es:</h4>
+            <div className='text-center'>{score} puntos</div>
             <div >
-                <div>
+                <div className='d-flex mt-5'>
                 <br/>
                     <GenericButton
                         text='Juega otra vez'

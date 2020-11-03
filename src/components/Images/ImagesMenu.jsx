@@ -4,7 +4,7 @@ import ComponentHeader from '../Generic/ComponentHeader'
 import ImageModal from './ImageModal'
 import { getImages, createImage, handleUpload, deleteImage, editImage } from '../../services/Api'
 import SimpleReactLightbox from 'simple-react-lightbox'
-import { Dialog } from '@reach/dialog'
+import Modal from '../Generic/Modal'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
 import AlertSnackBar from '../Generic/AlertSnackBar'
@@ -147,7 +147,7 @@ const ImagesMenu = () => {
                     handleDelete={handleDelete}
                     editThisImage={editThisImage} />
             </SimpleReactLightbox>
-            <Dialog isOpen={showDialog} onDismiss={closeModal} className='ImageDialog'>
+            {showDialog ? <Modal> 
                 <ImageModal
                     closeModal={closeModal}
                     modalSent={modalSent}
@@ -157,7 +157,8 @@ const ImagesMenu = () => {
                     state={state}
                     error={error}
                 />
-            </Dialog>
+                </Modal>
+                : null}
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                 <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
                     Imagen guardada correctamente!

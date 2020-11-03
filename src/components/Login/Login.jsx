@@ -58,7 +58,7 @@ const LogIn = (props) => {
         <div className='col-12 mt-5'>
           <div className='NudoMap'>
             <h1 className='text-center'>Entrar</h1>
-            <p className='text-center'>Si ya tienes eres usuario de NUDO, ingresa tu correo y tu contraseña <br /> para acceder al menú principal.</p>
+            <p className='text-center'>Si ya eres usuario de NUDO, ingresa tu correo y tu contraseña <br /> para acceder al menú principal.</p>
             {props.location.state?.fromSignin ? 
               <Alert variant='primary' className='my-1'>
                 Revisa tu correo para activar tu cuenta!
