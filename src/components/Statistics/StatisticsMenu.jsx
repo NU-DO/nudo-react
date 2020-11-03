@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
 import StatisticsFavFilter from './StatisticsFavFilter'
 import StatisticsBoxNumber from './StatisticsBoxNumber'
 import StatisticsGraphic from './StatisticsGraphic'
+import StatisticsGameGraphic from './StatisticsGameGraphic'
 import { getSongs, getLocations, getImages, getContacts, getScores } from '../../services/Api'
 import './StatisticsMenu.scss'
 
@@ -11,16 +12,32 @@ const StatisticsMenu = ({ setDecade }) => {
     const [selected, setSelected] = useState()
     const [selectedInfo, setSelectedInfo] = useState([])
     const [totalLength, setTotalLength] = useState(0)
+    const [totalsArray, setTotalsArray] = useState()
+    const [gamesArray, setGameArray] = useState()
 
     useEffect(() => {
-        getSongs()
-            .then(songs => {
+        const arrayTotals = [0, 0, 0, 0, 0, 0]
+        getImages()
+            .then(images => {
                 setTotal(prev => {
                     return {
                         ...prev,
-                        songs: songs
+                        images: images
                     }
                 })
+                arrayTotals[0] = images.length
+            })
+            .then(() => {
+                getSongs()
+                    .then(songs => {
+                        setTotal(prev => {
+                            return {
+                                ...prev,
+                                songs: songs
+                            }
+                        })
+                        arrayTotals[1] = songs.length
+                    })
             })
             .then(() => {
                 getLocations()
@@ -31,17 +48,7 @@ const StatisticsMenu = ({ setDecade }) => {
                                 locations: locations
                             }
                         })
-                    })
-            })
-            .then(() => {
-                getImages()
-                    .then(images => {
-                        setTotal(prev => {
-                            return {
-                                ...prev,
-                                images: images
-                            }
-                        })
+                        arrayTotals[2] = locations.length
                     })
             })
             .then(() => {
@@ -53,6 +60,7 @@ const StatisticsMenu = ({ setDecade }) => {
                                 contacts: contacts
                             }
                         })
+                        arrayTotals[3] = contacts.length
                     })
             })
             .then(() => {
@@ -64,10 +72,15 @@ const StatisticsMenu = ({ setDecade }) => {
                                 gameScores: gameScores
                             }
                         })
+                        const gameScoresArray = []
+                        gameScores.forEach(score => gameScoresArray.push([score.createdAt, score.score]))
+                        setGameArray(gameScoresArray)
+                        arrayTotals[5] = gameScores.length
                     })
             })
             .then(() => setSelectedInfo(total))
             .then(() => setSelected('total'))
+            .then(() => setTotalsArray(arrayTotals))
         //Falta eventos
     }, [])
 
@@ -106,30 +119,37 @@ const StatisticsMenu = ({ setDecade }) => {
     return (
         <div className='NudoMap StatisticsMenu'>
             <ComponentHeader
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-login_cuaa4a.svg'
+                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-signin_ekelsq.svg'
                 title='Estadísticas'
                 description='¿Qué apartado de Nudo has utilizado más?. Aquí podrás comporbar tu actividad.'
             />
-            <StatisticsFavFilter 
+            <StatisticsFavFilter
                 setFocus={setFocus}
             />
-            {totalLength ? 
+            {totalLength ?
                 <div>
                     <div className='statisticsBoxNumberDiv'>
-                        <StatisticsBoxNumber 
+                        <StatisticsBoxNumber
                             selected={selected}
                             selectedInfo={selectedInfo}
                             totalLength={totalLength}
                         />
-                        <StatisticsBoxNumber 
+                        <StatisticsBoxNumber
                             selected={selected}
                             selectedInfo={selectedInfo}
                             lastDays={true}
                         />
                     </div>
-                    <StatisticsGraphic />
+                    {selected != 'partidas' ?
+                        <StatisticsGraphic
+                            totalsArray={totalsArray}
+                        /> :
+                        <StatisticsGameGraphic 
+                            gamesArray={gamesArray}
+                        />
+                    }
                 </div>
-                
+
                 : <div>Campo sin información</div>
             }
         </div>

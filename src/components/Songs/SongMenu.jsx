@@ -5,6 +5,7 @@ import { getSongsFromSpotify, createSong, getSongs, deleteSong } from '../../ser
 import './SongMenu.scss'
 import ComponentHeader from '../Generic/ComponentHeader'
 import AlertSnackBar from '../Generic/AlertSnackBar'
+import Spinner from '../Generic/Spinner'
 import { Snackbar } from '@material-ui/core'
 
 function SongMenu() {
@@ -16,6 +17,7 @@ function SongMenu() {
     const [fav, setFav] = useState([])
     const [snackSavedOpen, setSnackSavedOpen] = useState(false)
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
+    const [loaded, setLoaded] = useState(false)
 
     const handleSavedSnack = () => setSnackSavedOpen(true)
     const handleDeleteSnack = () => setSnackDeleteOpen(true)
@@ -39,6 +41,7 @@ function SongMenu() {
         getSongs()
             .then(data => {
                 setFav(data)
+                setLoaded(true)
             })
             .catch(err => console.log(err))
     }, [])
@@ -85,19 +88,24 @@ function SongMenu() {
 
     return (
         <div className='SongMenu'>
-            <ComponentHeader
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-musica_a9qwta.svg'
-                title='Canciones'
-                description='Busca tus canciones favoritas de siempre y guardalas en Nudo. Disfruta, baila, recuerda.'
-            />
-            <div className='splitted'>
-                <div className='songSearchDiv'>
-                    <SongSearch matchSong={matchSong} handleOpen={handleOpen} addFav={addFav} form={form} handleChange={handleChange} search={search} />
-                </div>
-                <div className='songSearchDiv'>
-                    <SongFav fav={fav} handleDeleteSong={handleDeleteSong} />
-                </div>
-            </div>
+            {fav.length ?
+                <><ComponentHeader
+                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-musica_a9qwta.svg'
+                    title='Canciones'
+                    description='Busca tus canciones favoritas de siempre y guardalas en Nudo. Disfruta, baila, recuerda.'
+                />
+                <div className='splitted'>
+                    <div className='songSearchDiv'>
+                        <SongSearch matchSong={matchSong} handleOpen={handleOpen} addFav={addFav} form={form} handleChange={handleChange} search={search} />
+                    </div>
+                    <div className='songSearchDiv'>
+                        <SongFav fav={fav} handleDeleteSong={handleDeleteSong} />
+                    </div>
+                </div></>
+                :
+                <Spinner />
+            }
+
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                 <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
                     Canción guardada correctamente!

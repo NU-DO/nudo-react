@@ -1,98 +1,102 @@
-
-	$blue: rgba(239, 126, 147, 0.3);
-    $red: rgba(242, 201, 209, 0.3);
-	$green: rgba(183, 53, 81, 0.3);
-	$yellow: rgba(248, 150, 119, 0.3);
+$blue: rgba(239, 126, 147, 0.3);
+$red: rgba(242, 201, 209, 0.3);
+$green: rgba(183, 53, 81, 0.3);
+$yellow: rgba(248, 150, 119, 0.3);
 
 .SpinnerContainer {
-    margin: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .loading-box {
-    position: relative;
-	width: 300px;
-    height: 300px;
+  position: relative;
+  width: 200px;
+  height: 200px;
 }
 
 .dot {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-image: url('https://res.cloudinary.com/difhe4gl3/image/upload/v1604312055/NUDO/assets/Dashboard-icons/Recurso_13_kc8wzu.svg');
-	background-repeat: no-repeat;
-	width: 150px;
-	height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('https://res.cloudinary.com/difhe4gl3/image/upload/v1604312055/NUDO/assets/Dashboard-icons/Recurso_13_kc8wzu.svg');
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
 }
+
 .line {
-    position: absolute;
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	border-left-style: solid;
-	border-top-style: solid;
-	border-top-color: transparent;
-	border-left-width: 20px;
-    border-top-width: 20px;
-    &1 {
-        transform: rotate(120deg) rotateX(66deg) rotate(0deg);
-		animation: line-spin1 1s linear infinite;
-		border-left-color: var($blue);
-    }
-	
-	&2 {
-        transform: rotate(240deg) rotateX(66deg) rotate(0deg);
-		animation: line-spin2 1s linear infinite;
-		border-left-color: var($yellow);
-    }
-		
-	&3 {
-        transform: rotate(1turn) rotateX(66deg) rotate(0deg);
-		animation: line-spin3 1s linear infinite;
-		border-left-color: var($green);
-    }
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-left-style: solid;
+  border-top-style: solid;
+  border-top-color: transparent;
+  border-left-width: 20px;
+  border-top-width: 20px;
+
+  &1 {
+    transform: rotate(120deg) rotateX(66deg) rotate(0deg);
+    animation: line-spin1 1s linear infinite;
+    border-left-color: var($blue);
+  }
+
+  &2 {
+    transform: rotate(240deg) rotateX(66deg) rotate(0deg);
+    animation: line-spin2 1s linear infinite;
+    border-left-color: var($yellow);
+  }
+
+  &3 {
+    transform: rotate(1turn) rotateX(66deg) rotate(0deg);
+    animation: line-spin3 1s linear infinite;
+    border-left-color: var($green);
+  }
 
 }
-	
+
 @-webkit-keyframes line-spin1 {
   100% {
     -webkit-transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
-            transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
+    transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
   }
 }
 
 @keyframes line-spin1 {
   100% {
     -webkit-transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
-            transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
+    transform: rotateZ(120deg) rotateX(66deg) rotateZ(360deg);
   }
 }
+
 @-webkit-keyframes line-spin2 {
   100% {
     -webkit-transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
-            transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
+    transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
   }
 }
+
 @keyframes line-spin2 {
   100% {
     -webkit-transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
-            transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
+    transform: rotateZ(240deg) rotateX(66deg) rotateZ(360deg);
   }
 }
+
 @-webkit-keyframes line-spin3 {
   100% {
     -webkit-transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
-            transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
+    transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
   }
 }
+
 @keyframes line-spin3 {
   100% {
     -webkit-transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
-            transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
+    transform: rotateZ(360deg) rotateX(66deg) rotateZ(360deg);
   }
 }
-	
