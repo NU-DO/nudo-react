@@ -18,6 +18,7 @@ const StatisticsMenu = () => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         const arrayTotals = [0, 0, 0, 0, 0, 0]
         getImages()
             .then(images => {

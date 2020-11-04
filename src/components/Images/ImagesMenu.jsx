@@ -22,6 +22,7 @@ const ImagesMenu = () => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         getImages()
             .then(images => {
                 setImages(images)

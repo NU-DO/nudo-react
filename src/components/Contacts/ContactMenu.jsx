@@ -28,6 +28,7 @@ const ContactMenu = () => {
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         getContacts()
             .then(contacts => {
                 setContacts(contacts)

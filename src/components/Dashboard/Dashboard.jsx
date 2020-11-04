@@ -21,7 +21,7 @@ const Dashboard = () => {
                 <DCard
                     action='Escucha'
                     textHead='Música'
-                    img='https://i1.wp.com/metro.co.uk/wp-content/uploads/2017/09/169954367.jpg?quality=90&strip=all&zoom=1&resize=644%2C429&ssl=1'
+                    img='https://res.cloudinary.com/difhe4gl3/image/upload/v1604520799/NUDO/assets/91amyAksDiL._AC_SL1500__o10gfm.jpg'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-musica_a9qwta.svg'
                     link='canciones'
                     textBody='¿Recuerdas aquella canción? pues esta sección es genial para guardar esas canciones y añadir a la decada a la que pertenecieron de tu vida.'
@@ -47,7 +47,7 @@ const Dashboard = () => {
                 <DCard
                     action='Vida'
                     textHead='Historia'
-                    img='https://contextomediagroup.com/wp-content/uploads/2019/06/tu-historia-678x381.jpg'
+                    img='https://res.cloudinary.com/difhe4gl3/image/upload/v1604521245/NUDO/assets/typewriter_xhzuit.jpg'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
                     link='historia'
                     textBody='¿Recuerdas aquel acontecimiento inolvidable? Aquí podrás guardar esos y muchos más recuerdos cronológicamente.'
@@ -56,7 +56,7 @@ const Dashboard = () => {
                 <DCard
                     action='Disfruta'
                     textHead='Juegos'
-                    img='https://i.blogs.es/21f6e6/mandos/1366_2000.jpeg'
+                    img='https://res.cloudinary.com/difhe4gl3/image/upload/v1604521497/NUDO/assets/juegos_nycbt7.jpg'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Juegos_axxxkw.svg'
                     link='juegos'
                     textBody='¿Unas partiditas? Ejercita tu cerebro con un simple juego de memoría con tres niveles de dificultad diferentes. Cuidado que engancha.'
