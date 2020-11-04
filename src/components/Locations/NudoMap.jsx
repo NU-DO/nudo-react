@@ -4,16 +4,16 @@ import LocationModal from './LocationModal'
 import LocationList from './LocationList'
 import LocationDetails from './LocationDetails'
 import Spinner from '../Generic/Spinner'
-import { createLocation, getLocations, deleteLocation, editLocation } from '../../services/Api'
 import ComponentHeader from '../Generic/ComponentHeader'
 import AlertSnackBar from '../Generic/AlertSnackBar'
-import MapStyles from './MapStyles'
+import { createLocation, getLocations, deleteLocation, editLocation } from '../../services/Api'
 import './NudoMap.scss'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import '@reach/combobox/styles.css'
 import Modal from '../Generic/Modal'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
+import MapStyles from './MapStyles'
 
 
 const mapContainerStyle = {

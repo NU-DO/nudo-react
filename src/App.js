@@ -31,8 +31,7 @@ function App() {
             <AuthenticatedRoute exact path='/localizaciones' component={NudoMap}/>
             <AuthenticatedRoute exact path='/imagenes' component={ImagesMenu}/>
             <AuthenticatedRoute exact path='/juegos' component={Game}/>
-             <AuthenticatedRoute exact path='/contactos' component={ContactMenu}/>
-            {/*<AuthenticatedRoute exact path='/historia' component={}/>*/}
+            <AuthenticatedRoute exact path='/contactos' component={ContactMenu}/>
             <AuthenticatedRoute exact path='/estadisticas' component={StatisticsMenu}/>
             <AuthenticatedRoute exact path='/' component={Dashboard}/> 
             <Route exact path='/landing' component={LandingPage} />
