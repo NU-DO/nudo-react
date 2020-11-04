@@ -34,7 +34,6 @@ const LandingPage = () => {
                         <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604488768/NUDO/assets/Landing%20Page/Recurso_8_oezojl.svg' alt='pink amoeba' />
                         <div className='macbookNudo'></div>
                     </div>
-               
             </div>
             <div className='LandingPartThree'>
                 <div className='LandingPartThreeDivider'>

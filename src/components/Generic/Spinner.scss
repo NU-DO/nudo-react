@@ -1,7 +1,4 @@
-$blue: rgba(239, 126, 147, 0.3);
-$red: rgba(242, 201, 209, 0.3);
-$green: rgba(183, 53, 81, 0.3);
-$yellow: rgba(248, 150, 119, 0.3);
+
 
 .SpinnerContainer {
   margin: 0;
@@ -42,19 +39,19 @@ $yellow: rgba(248, 150, 119, 0.3);
   &1 {
     transform: rotate(120deg) rotateX(66deg) rotate(0deg);
     animation: line-spin1 1s linear infinite;
-    border-left-color: var($blue);
+    border-left-color: var(rgba(239, 126, 147, 0.3));
   }
 
   &2 {
     transform: rotate(240deg) rotateX(66deg) rotate(0deg);
     animation: line-spin2 1s linear infinite;
-    border-left-color: var($yellow);
+    border-left-color: var(rgba(248, 150, 119, 0.3));
   }
 
   &3 {
     transform: rotate(1turn) rotateX(66deg) rotate(0deg);
     animation: line-spin3 1s linear infinite;
-    border-left-color: var($green);
+    border-left-color: var(rgba(183, 53, 81, 0.3));
   }
 
 }

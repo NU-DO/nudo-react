@@ -57,20 +57,23 @@
 
 .LandingPartTwo {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: auto;
-  height: 692px;
-  position: relative;
-  & button {
-    border: none;
-    background-color: #839672;
-    color: white;
-    padding: 14px 60px;
-    border-radius: 10px;
-    margin-top: 23px;
-  }
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: auto;
+    height: 600px;
+    margin-top: 80px;
+    position: relative;
+    & button {
+      border: none;
+      background-color: #839672;
+      color: white;
+      padding: 14px 60px;
+      border-radius: 10px;
+      margin-top: 23px;
+    }
+}
+ 
   .FirstAmoeba {
     width: 500px;
     height: 500px;
@@ -79,7 +82,7 @@
     background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604490108/NUDO/assets/Landing%20Page/macbook-nudo-main_nylgyg.png);
     position: absolute;
     background-repeat: no-repeat;
-    right: 17%;
+    right: 10%;
     top: 9%;
     width: 600px;
     height: 450px;
@@ -89,7 +92,7 @@
     margin: 0px 30px 45px 85px;
     width: 36%;
   }
-}
+
 
 .LandingPartThree {
   display: flex;
