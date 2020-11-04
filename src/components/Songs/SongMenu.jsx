@@ -38,6 +38,7 @@ function SongMenu() {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         getSongs()
             .then(data => {
                 setFav(data)   

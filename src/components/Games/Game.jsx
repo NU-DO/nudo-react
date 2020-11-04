@@ -15,13 +15,14 @@ const Game = () => {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         getScores()
             .then(scores => {
                 const orderedScores = scores.sort((a, b) => b.score - a.score)
                 setHighScore(orderedScores[0].score)
             })
             .catch(e => console.log(e))
-            setLoaded(true)
+        setLoaded(true)
     }, [])
 
     const sendScore = (lastScore, selectedLevel) => {

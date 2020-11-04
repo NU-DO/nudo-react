@@ -75,6 +75,7 @@ const NudoMap = () => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         getLocations()
             .then(locations => setMarkers(locations))
             .catch(err => console.log(err))
