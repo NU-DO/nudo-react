@@ -119,7 +119,7 @@ const StatisticsMenu = ({ setDecade }) => {
     return (
         <div className='NudoMap StatisticsMenu'>
             <ComponentHeader
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-signin_ekelsq.svg'
+                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1604479126/NUDO/assets/Dashboard-icons/Recurso_14_n3acgw.svg'
                 title='Estadísticas'
                 description='¿Qué apartado de Nudo has utilizado más?. Aquí podrás comporbar tu actividad.'
             />

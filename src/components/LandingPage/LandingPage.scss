@@ -1,23 +1,183 @@
-.prueba {
-    margin: 50px 50px;
-    font-size: 42px;
-    text-align: left;
-    background-color: rgb(245, 139, 0);
-    color:red;
+.HeaderCTA {
+  position: relative;
+  width: auto;
+  height: 659px;
+  overflow: hidden;
+  & h1 {
+    font-weight: bolder;
+    color: #333333;
+    font-size: 60px;
+  }
 }
 
-// .react-rotating-text-cursor {
-//     animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
-//   }
-  
-//   @keyframes blinking-cursor {
-//     0% {
-//       opacity: 0;
-//     }
-//     50% {
-//       opacity: 1;
-//     }
-//     100% {
-//       opacity: 0;
-//     }
-//   }
+.TypeHeader {
+  font-size: 36px;
+  // font-weight: bolder;
+  text-align: left;
+  color: #333333;
+}
+
+.FirstWave {
+  position: absolute;
+  overflow: hidden;
+  background-size: 103% 202%;
+  background-position-x: 476%;
+  background-position-y: 76%;
+  height: 700px;
+  width: 2000px;
+  background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604493417/NUDO/assets/Landing%20Page/Recurso_9_vgbjvb.svg);
+  background-repeat: no-repeat;
+}
+
+.HeaderImageCTA {
+  background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604481036/NUDO/assets/Landing%20Page/people-2583943_1920_qq144t.jpg);
+  position: absolute;
+  background-position: right;
+  background-size: 827px;
+  background-repeat: no-repeat;
+  width: 830px;
+  height: 562px;
+  left: 49%;
+  z-index: -1;
+}
+
+.HeaderTypeWCTA {
+  position: absolute;
+  z-index: 2;
+  margin: 150px 0 150px 85px;
+  & button {
+    border: none;
+    background-color: #839672;
+    color: white;
+    padding: 14px 60px;
+    border-radius: 10px;
+    margin-top: 23px;
+  }
+}
+
+.LandingPartTwo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: auto;
+  height: 692px;
+  position: relative;
+  & button {
+    border: none;
+    background-color: #839672;
+    color: white;
+    padding: 14px 60px;
+    border-radius: 10px;
+    margin-top: 23px;
+  }
+  .FirstAmoeba {
+    width: 500px;
+    height: 500px;
+  }
+  .macbookNudo {
+    background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604490108/NUDO/assets/Landing%20Page/macbook-nudo-main_nylgyg.png);
+    position: absolute;
+    background-repeat: no-repeat;
+    right: 17%;
+    top: 9%;
+    width: 600px;
+    height: 450px;
+    background-size: cover;
+  }
+  .LandingPartTwoText {
+    margin: 0px 30px 45px 85px;
+    width: 36%;
+  }
+}
+
+.LandingPartThree {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: auto;
+  height: 600px;
+  position: relative;
+  margin: 0 0 0 0;
+  .SecondAmoeba {
+    width: 400px;
+    height: 400px;
+  }
+  .oldRadio {
+    background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604503759/NUDO/assets/Landing%20Page/RAdioFinal_xzqtp2.png);
+    position: absolute;
+    background-repeat: no-repeat;
+    right: 52%;
+    top: 22%;
+    width: 478px;
+    height: 373px;
+    background-size: cover;
+  }
+  .LandingPartThreeText {
+    margin: 30px 30px 30px 85px;
+    width: 36%;
+  }
+  & button {
+    border: none;
+    background-color: #839672;
+    color: white;
+    padding: 14px 60px;
+    border-radius: 10px;
+    margin-top: 23px;
+  }
+}
+.LandingPartFour {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: auto;
+  height: 600px;
+  position: relative;
+  margin: 0 0 0 -36px;
+  .ThirdAmoeba {
+    width: 553px;
+    height: 400px;
+    margin-right: -70px;
+  }
+  .oldLomo {
+    background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604504772/NUDO/assets/Landing%20Page/cosina_kn3b98.png);
+    position: absolute;
+    background-repeat: no-repeat;
+    right: 15%;
+    top: 18%;
+    width: 467px;
+    height: 395px;
+    background-size: cover;
+  }
+  .LandingPartFourText {
+    margin: 30px 30px 30px 85px;
+    width: 36%;
+  }
+  & button {
+    border: none;
+    background-color: #839672;
+    color: white;
+    padding: 14px 60px;
+    border-radius: 10px;
+    margin-top: 23px;
+  }
+}
+
+.react-rotating-text-cursor {
+  animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s
+    infinite;
+}
+
+@keyframes blinking-cursor {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
