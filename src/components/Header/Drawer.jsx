@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     },
 })
 
-const routesRedirect = ['Imagenes', 'Canciones', 'Contactos', 'Localizaciones', 'Historia', 'Eventos', 'Juegos', 'Estadisticas']
+const routesRedirect = ['Imagenes', 'Canciones', 'Contactos', 'Localizaciones', 'Historia', 'Juegos', 'Estadisticas']
 
 const NudoDrawer = () => {
     const { user, logout: logOut } = useAuthContext()
@@ -78,9 +78,8 @@ const NudoDrawer = () => {
                                     index === 1 ? <MusicNoteIcon /> :
                                         index === 2 ? <ContactsIcon /> :
                                             index === 3 ? <LocationOnIcon /> :
-                                                index === 4 ? <TimelapseIcon /> :
-                                                    index === 5 ? <EventIcon /> :
-                                                        index === 6 ? <SportsEsportsIcon /> : <EqualizerIcon />}
+                                                    index === 4 ? <EventIcon /> :
+                                                        index === 5 ? <SportsEsportsIcon /> : <EqualizerIcon />}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItem>
