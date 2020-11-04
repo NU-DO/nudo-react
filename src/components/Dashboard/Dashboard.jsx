@@ -54,15 +54,6 @@ const Dashboard = () => {
 
                 />
                 <DCard
-                    action='A mano'
-                    textHead='Eventos'
-                    img='https://static1.laverdad.es/www/multimedia/201903/20/media/cortadas/calendario-laboral-2020-murcia-kuGG-U70964365249noF-624x385@La%20Verdad.jpg'
-                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-appointments_grmf6d.svg'
-                    link='eventos'
-                    textBody='¿A qué hora tenía yo el médico? Tranquilo, ahora con esta sección no se te pasará ni el más mínimo detalle.'
-
-                />
-                <DCard
                     action='Disfruta'
                     textHead='Juegos'
                     img='https://i.blogs.es/21f6e6/mandos/1366_2000.jpeg'

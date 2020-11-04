@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './StatisticsBoxNumber.scss'
 
 const StatisticsBoxNumber = ({ selected, lastDays, selectedInfo , totalLength}) => {

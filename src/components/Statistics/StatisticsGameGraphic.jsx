@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import ReactApexChart from "react-apexcharts"
+import React, { Component } from 'react'
+import ReactApexChart from 'react-apexcharts'
 import './StatisticsGraphic.scss'
 
 class StatisticsGameGraphic extends Component {
@@ -61,16 +61,15 @@ class StatisticsGameGraphic extends Component {
 
 
             selection: 'one_year',
-
-        };
+        }
     }
 
     render() {
         return (
             <div className='StatisticsGraphic'>
-                <div id="chart">
-                    <div className="chartLine">
-                        <ReactApexChart options={this.state.options} series={this.state.series} type="area" height={350} width={500} />
+                <div id='chart'>
+                    <div className='chartLine'>
+                        <ReactApexChart options={this.state.options} series={this.state.series} type='area' height={350} width={500} />
                     </div>
                 </div>
             </div>

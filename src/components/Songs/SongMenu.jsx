@@ -40,9 +40,9 @@ function SongMenu() {
     useEffect(() => {
         getSongs()
             .then(data => {
-                setFav(data)
-                setLoaded(true)
+                setFav(data)   
             })
+            .then(() => setLoaded(true))
             .catch(err => console.log(err))
     }, [])
 

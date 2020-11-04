@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import ReactApexChart from "react-apexcharts"
+import React, { Component } from 'react'
+import ReactApexChart from 'react-apexcharts'
 import './StatisticsGraphic.scss'
 
 class StatisticsGraphic extends Component {

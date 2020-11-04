@@ -86,7 +86,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                                     text='Guardar'
                                 />
                                 <div>
-                                    <img src={state.url} style={{ width: '100px', marginLeft: '10px'}}/>
+                                    <img src={state.url} style={{ width: '100px', marginLeft: '10px'}} alt='Cargando' />
                                     {state.url &&  <p className='text-center text-muted mt-2'>Imagen actual</p>}
                                 </div>
                             </div>

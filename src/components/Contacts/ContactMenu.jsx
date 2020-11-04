@@ -4,9 +4,9 @@ import Agenda from './Agenda'
 import ContactDetails from './ContactDetails'
 import Modal from '../Generic/Modal'
 import ContactModal from './ContactModal'
+import Spinner from '../Generic/Spinner'
 import { getContacts, handleUpload, createContact, deleteContact, editContact } from '../../services/Api'
 import './ContactMenu.scss'
-import { Dialog } from '@reach/dialog'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
 import AlertSnackBar from '../Generic/AlertSnackBar'
@@ -25,11 +25,13 @@ const ContactMenu = () => {
     const [snackEditOpen, setSnackEditOpen] = useState(false)
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [error, setError] = useState({})
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         getContacts()
             .then(contacts => {
                 setContacts(contacts)
+                setLoaded(true)
             })
             .catch(err => console.log(err))
     }, [])
@@ -157,61 +159,67 @@ const ContactMenu = () => {
     }
     return (
         <div>
-            <div className="NudoMap">
-                <ComponentHeader
-                    title='Contactos'
-                    description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
-                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
-                />
-            </div>
-            <div className='ContactMenu'>
 
-                <div className="dividedBody">
-                    <Agenda
-                        contacts={searchedContacts}
-                        handleSelect={handleSelect}
-                        handleSearch={handleSearch}
-                        search={search}
-                    />
-                    <ContactDetails
-                        selected={selected}
-                        handleDelete={handleDelete}
-                        editThisContact={editThisContact}
-                        addContactClick={addContactClick}
-                    />
 
-                </div>
-                {showDialog ? <Modal> 
-                    <ContactModal
-                        closeModal={closeModal}
-                        tempState={tempState}
-                        handleChange={handleChange}
-                        tempState={tempState}
-                        handleFileUpload={handleFileUpload}
-                        handleEditContact={handleEditContact}
-                        modalSent={modalSent}
-                        error={error}
-                    />
-                </Modal>
-                : null}
-                    
-                <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
-                    <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
-                        Contacto guardado correctamente!
+
+            {loaded ?
+                <>
+                    <div className="NudoMap">
+                        <ComponentHeader
+                            title='Contactos'
+                            description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
+                            nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
+                        />
+                    </div>
+                    <div className='ContactMenu'>
+                        <div className="dividedBody">
+                            <Agenda
+                                contacts={searchedContacts}
+                                handleSelect={handleSelect}
+                                handleSearch={handleSearch}
+                                search={search}
+                            />
+                            <ContactDetails
+                                selected={selected}
+                                handleDelete={handleDelete}
+                                editThisContact={editThisContact}
+                                addContactClick={addContactClick}
+                            />
+
+                        </div>
+                        {showDialog ? <Modal>
+                            <ContactModal
+                                closeModal={closeModal}
+                                tempState={tempState}
+                                handleChange={handleChange}
+                                handleFileUpload={handleFileUpload}
+                                handleEditContact={handleEditContact}
+                                modalSent={modalSent}
+                                error={error}
+                            />
+                        </Modal>
+                            : null}
+                    </div>
+                </> :
+                <Spinner />
+            }
+
+            <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
+                <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
+                    Contacto guardado correctamente!
                  </AlertSnackBar>
-                </Snackbar>
-                <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
-                    <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
-                        Contacto editado correctamente!
+            </Snackbar>
+            <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
+                <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
+                    Contacto editado correctamente!
                  </AlertSnackBar>
-                </Snackbar>
-                <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
-                    <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
-                        Contacto borrado correctamente!
+            </Snackbar>
+            <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
+                <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
+                    Contacto borrado correctamente!
                  </AlertSnackBar>
-                </Snackbar>
-            </div>
-        </div>
+            </Snackbar>
+        </div >
     )
 }
 

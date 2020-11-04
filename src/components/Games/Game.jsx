@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ComponentHeader from '../Generic/ComponentHeader'
 import MemoryGame from './MemoryGame'
 import GenericButton from '../Generic/GenericButton'
+import Spinner from '../Generic/Spinner'
 import { getScores, newScore } from '../../services/Api'
 import './Game.scss'
 
@@ -10,6 +11,8 @@ const Game = () => {
     const [score, setScore] = useState(1000)
     const [highScore, setHighScore] = useState(0)
     const [level, setLevel] = useState(null)
+    const [loaded, setLoaded] = useState(false)
+
 
     useEffect(() => {
         getScores()
@@ -18,6 +21,7 @@ const Game = () => {
                 setHighScore(orderedScores[0].score)
             })
             .catch(e => console.log(e))
+            setLoaded(true)
     }, [])
 
     const sendScore = (lastScore, selectedLevel) => {
@@ -29,82 +33,83 @@ const Game = () => {
 
     return (
         <div className='NudoMap'>
-            <ComponentHeader
-                title='Juegos'
-                description='Bienvenido a Juegos. En esta sección puedes poner a prueba tu memoria. Puedes elegir el nivel que quieras y practicar tu memoria buscando parejas. ¡Intenta conseguir la mayor puntuación!'
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Juegos_axxxkw.svg'
-            />
-            <div className='containerGeneralGame'>
-                <div className='containerGame mt-3'>
-                    <div>
-
-                        {/* <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1602165130/NUDO/assets/nudo-logo-header_m0ojwr.png' style={{ width: 200 }} /> */}
-                    </div>
-                    <div className='text-left'>Max Score: {(highScore).toFixed(0)}</div>
-                    {level ? <div className='text-left'>Score: {(score).toFixed(0)}</div> : null}
-                    {level ? <div className='text-left'>Nivel : {level}</div> : null}
-                    <div>
-                        {options === null ? (
-                            <div className='ContainerLevelButtons'>
-                                <GenericButton 
-                                text='Fácil'
-                                onClick={() => {
-                                    setOptions(12)
-                                    setLevel('Fácil')
-                                }}/>
-                                <GenericButton  
-                                text='Medio'
-                                onClick={() => {
-                                    setOptions(18)
-                                    setLevel('Medio')
-                                }}/>
-                                <GenericButton  
-                                text='Dificil'
-                                onClick={() => {
-                                    setOptions(24)
-                                    setLevel('Dificil')
-                                }}/>
+            {loaded ?
+                <>
+                    <ComponentHeader
+                        title='Juegos'
+                        description='Bienvenido a Juegos. En esta sección puedes poner a prueba tu memoria. Puedes elegir el nivel que quieras y practicar tu memoria buscando parejas. ¡Intenta conseguir la mayor puntuación!'
+                        nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Juegos_axxxkw.svg'
+                    />
+                    <div className='containerGeneralGame'>
+                        <div className='containerGame mt-3'>
+                            <div className='text-left'>Max Score: {(highScore).toFixed(0)}</div>
+                            {level ? <div className='text-left'>Score: {(score).toFixed(0)}</div> : null}
+                            {level ? <div className='text-left'>Nivel : {level}</div> : null}
+                            <div>
+                                {options === null ? (
+                                    <div className='ContainerLevelButtons'>
+                                        <GenericButton
+                                            text='Fácil'
+                                            onClick={() => {
+                                                setOptions(12)
+                                                setLevel('Fácil')
+                                            }} />
+                                        <GenericButton
+                                            text='Medio'
+                                            onClick={() => {
+                                                setOptions(18)
+                                                setLevel('Medio')
+                                            }} />
+                                        <GenericButton
+                                            text='Dificil'
+                                            onClick={() => {
+                                                setOptions(24)
+                                                setLevel('Dificil')
+                                            }} />
+                                    </div>
+                                ) : (
+                                        <div className='ContainerLevelButtons'>
+                                            <GenericButton
+                                                text='Reiniciar'
+                                                onClick={() => {
+                                                    const prevOptions = options
+                                                    setOptions(null)
+                                                    setScore(1000)
+                                                    setTimeout(() => {
+                                                        setOptions(prevOptions)
+                                                    }, 5)
+                                                }}
+                                            />
+                                            <GenericButton
+                                                text='Menú principal'
+                                                onClick={() => {
+                                                    setOptions(null)
+                                                    setLevel(null)
+                                                }} />
+                                        </div>
+                                    )}
                             </div>
+                        </div>
+
+                        {options ? (
+                            <MemoryGame
+                                options={options}
+                                setOptions={setOptions}
+                                score={score}
+                                setScore={setScore}
+                                level={level}
+                                setLevel={setLevel}
+                                highScore={highScore}
+                                setHighScore={setHighScore}
+                                sendScore={sendScore}
+                            />
                         ) : (
-                                <div className='ContainerLevelButtons'>
-                                    <GenericButton 
-                                    text='Reiniciar'
-                                        onClick={() => {
-                                            const prevOptions = options
-                                            setOptions(null)
-                                            setScore(1000)
-                                            setTimeout(() => {
-                                                setOptions(prevOptions)
-                                            }, 5)
-                                        }}
-                                    />
-                                    <GenericButton  
-                                    text='Menú principal'
-                                    onClick={() => {
-                                        setOptions(null)
-                                        setLevel(null)
-                                    }}/>
-                                </div>
+                                <h2>Elige una dificultad para empezar el juego</h2>
                             )}
                     </div>
-                </div>
-
-                {options ? (
-                    <MemoryGame
-                        options={options}
-                        setOptions={setOptions}
-                        score={score}
-                        setScore={setScore}
-                        level={level}
-                        setLevel={setLevel}
-                        highScore={highScore}
-                        setHighScore={setHighScore}
-                        sendScore={sendScore}
-                    />
-                ) : (
-                        <h2>Elige una dificultad para empezar el juego</h2>
-                    )}
-            </div>
+                </> :
+                <Spinner />
+            }
 
         </div>
     )

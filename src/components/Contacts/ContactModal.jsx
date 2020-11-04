@@ -139,7 +139,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 text='Guardar'
                             />
                             <div>
-                                <img src={tempState.photo} style={{ width: '100px', marginLeft: '10px' }} className='rounded-circle' />
+                                <img src={tempState.photo} style={{ width: '100px', marginLeft: '10px' }} alt='cargando' className='rounded-circle' />
                                 {tempState.photo && <p className='text-center text-muted'>Imagen actual</p>}
                             </div>
 

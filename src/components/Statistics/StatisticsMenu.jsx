@@ -4,16 +4,18 @@ import StatisticsFavFilter from './StatisticsFavFilter'
 import StatisticsBoxNumber from './StatisticsBoxNumber'
 import StatisticsGraphic from './StatisticsGraphic'
 import StatisticsGameGraphic from './StatisticsGameGraphic'
+import Spinner from '../Generic/Spinner'
 import { getSongs, getLocations, getImages, getContacts, getScores } from '../../services/Api'
 import './StatisticsMenu.scss'
 
-const StatisticsMenu = ({ setDecade }) => {
+const StatisticsMenu = () => {
     const [total, setTotal] = useState({})
     const [selected, setSelected] = useState()
     const [selectedInfo, setSelectedInfo] = useState([])
     const [totalLength, setTotalLength] = useState(0)
     const [totalsArray, setTotalsArray] = useState()
     const [gamesArray, setGameArray] = useState()
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         const arrayTotals = [0, 0, 0, 0, 0, 0]
@@ -81,6 +83,7 @@ const StatisticsMenu = ({ setDecade }) => {
             .then(() => setSelectedInfo(total))
             .then(() => setSelected('total'))
             .then(() => setTotalsArray(arrayTotals))
+            .then(() => setLoaded(true))
         //Falta eventos
     }, [])
 
@@ -113,44 +116,50 @@ const StatisticsMenu = ({ setDecade }) => {
             case 'partidas':
                 setSelectedInfo(total.gameScores)
                 break;
+            default:
         }
     }
 
     return (
         <div className='NudoMap StatisticsMenu'>
-            <ComponentHeader
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1604479126/NUDO/assets/Dashboard-icons/Recurso_14_n3acgw.svg'
-                title='Estadísticas'
-                description='¿Qué apartado de Nudo has utilizado más?. Aquí podrás comporbar tu actividad.'
-            />
-            <StatisticsFavFilter
-                setFocus={setFocus}
-            />
-            {totalLength ?
-                <div>
-                    <div className='statisticsBoxNumberDiv'>
-                        <StatisticsBoxNumber
-                            selected={selected}
-                            selectedInfo={selectedInfo}
-                            totalLength={totalLength}
-                        />
-                        <StatisticsBoxNumber
-                            selected={selected}
-                            selectedInfo={selectedInfo}
-                            lastDays={true}
-                        />
-                    </div>
-                    {selected != 'partidas' ?
-                        <StatisticsGraphic
-                            totalsArray={totalsArray}
-                        /> :
-                        <StatisticsGameGraphic 
-                            gamesArray={gamesArray}
-                        />
-                    }
-                </div>
+            {loaded ?
+                <>
+                    <ComponentHeader
+                        nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1604479126/NUDO/assets/Dashboard-icons/Recurso_14_n3acgw.svg'
+                        title='Estadísticas'
+                        description='¿Qué apartado de Nudo has utilizado más?. Aquí podrás comporbar tu actividad.'
+                    />
+                    <StatisticsFavFilter
+                        setFocus={setFocus}
+                    />
+                    {totalLength ?
+                        <div>
+                            <div className='statisticsBoxNumberDiv'>
+                                <StatisticsBoxNumber
+                                    selected={selected}
+                                    selectedInfo={selectedInfo}
+                                    totalLength={totalLength}
+                                />
+                                <StatisticsBoxNumber
+                                    selected={selected}
+                                    selectedInfo={selectedInfo}
+                                    lastDays={true}
+                                />
+                            </div>
+                            {selected !== 'partidas' ?
+                                <StatisticsGraphic
+                                    totalsArray={totalsArray}
+                                /> :
+                                <StatisticsGameGraphic
+                                    gamesArray={gamesArray}
+                                />
+                            }
+                        </div>
 
-                : <div>Campo sin información</div>
+                        : <div>Campo sin información</div>
+                    }
+                </> :
+                <Spinner />
             }
         </div>
     )

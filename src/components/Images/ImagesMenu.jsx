@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import Album from './Album'
 import ComponentHeader from '../Generic/ComponentHeader'
 import ImageModal from './ImageModal'
+import Spinner from '../Generic/Spinner'
 import { getImages, createImage, handleUpload, deleteImage, editImage } from '../../services/Api'
 import SimpleReactLightbox from 'simple-react-lightbox'
 import Modal from '../Generic/Modal'
@@ -18,11 +19,13 @@ const ImagesMenu = () => {
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [showDialog, setShowDialog] = useState(false)
     const [error, setError] = useState({})
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         getImages()
             .then(images => {
                 setImages(images)
+                setLoaded(true)
             })
             .catch(err => console.log(err))
     }, [])
@@ -134,31 +137,36 @@ const ImagesMenu = () => {
 
     return (
         <div className='NudoMap'>
-            <ComponentHeader
-                title='Imágenes'
-                description='Una imagen vale más que mil palabras... o eso dicen. Añade las imagenes que quieras tener a mano para poderlas rememorar diariamente'
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
-            />
-            <SimpleReactLightbox>
-                <Album
-                    images={images}
-                    setImages={setImages}
-                    addImageClick={addImageClick}
-                    handleDelete={handleDelete}
-                    editThisImage={editThisImage} />
-            </SimpleReactLightbox>
-            {showDialog ? <Modal> 
-                <ImageModal
-                    closeModal={closeModal}
-                    modalSent={modalSent}
-                    handleChange={handleChange}
-                    handleFileUpload={handleFileUpload}
-                    handleEditImage={handleEditImage}
-                    state={state}
-                    error={error}
-                />
-                </Modal>
-                : null}
+            {loaded ?
+                <>
+                    <ComponentHeader
+                        title='Imágenes'
+                        description='Una imagen vale más que mil palabras... o eso dicen. Añade las imagenes que quieras tener a mano para poderlas rememorar diariamente'
+                        nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
+                    />
+                    <SimpleReactLightbox>
+                        <Album
+                            images={images}
+                            setImages={setImages}
+                            addImageClick={addImageClick}
+                            handleDelete={handleDelete}
+                            editThisImage={editThisImage} />
+                    </SimpleReactLightbox>
+                    {showDialog ? <Modal>
+                        <ImageModal
+                            closeModal={closeModal}
+                            modalSent={modalSent}
+                            handleChange={handleChange}
+                            handleFileUpload={handleFileUpload}
+                            handleEditImage={handleEditImage}
+                            state={state}
+                            error={error}
+                        />
+                    </Modal>
+                        : null}
+                </> : 
+                <Spinner />
+            }
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                 <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
                     Imagen guardada correctamente!

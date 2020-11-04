@@ -24,7 +24,7 @@ const Agenda = ({ selected, editThisContact, handleDelete, addContactClick }) =>
                         </div>
                             <h5 className='contactCardTitle'>{selected.name}</h5>
                             <p className='contactCardSubtitle'>{selected.role}</p>
-                            <img src={selected.photo} className='contactPhoto' alt='contact photo' />
+                            <img src={selected.photo} className='contactPhoto' alt='contact' />
                         </div>
                         <div className='contactCardBody'>
                             <p>{selected.description}</p>

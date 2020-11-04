@@ -73,7 +73,7 @@ const LogIn = (props) => {
         </div>
         <div className='LogInContainer'>
           <div className='LogInNudoIcon'>
-            <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-login_cuaa4a.svg' />
+            <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-login_cuaa4a.svg' alt='login rock and roll' />
           </div>
             <div className='LogInImage'>
             </div>
