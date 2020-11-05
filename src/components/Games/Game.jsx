@@ -25,6 +25,9 @@ const Game = () => {
     }, [])
 
     const sendScore = (lastScore, selectedLevel) => {
+        if(lastScore > highScore) {
+            setHighScore(lastScore)
+        }
         const data = {}
         data.score = lastScore
         data.level = selectedLevel

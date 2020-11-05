@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
 import GenericButton from '../Generic/GenericButton'
@@ -17,6 +17,10 @@ const LogIn = (props) => {
   const authContext = useAuthContext()
   const { data } = state
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const handleSubmit = (event) => {
     event.preventDefault()
     login(data)
@@ -27,12 +31,12 @@ const LogIn = (props) => {
             email: '',
             password: ''
           },
-          error: false 
+          error: false
         })
       })
       .catch(err => setState((prev) => {
         return {
-          ...prev, 
+          ...prev,
           error: true
         }
       }))
@@ -59,12 +63,12 @@ const LogIn = (props) => {
           <div className='NudoMap'>
             <h1 className='text-center'>Entrar</h1>
             <p className='text-center'>Si ya eres usuario de NUDO, ingresa tu correo y tu contraseña <br /> para acceder al menú principal.</p>
-            {props.location.state?.fromSignin ? 
+            {props.location.state?.fromSignin ?
               <Alert variant='primary' className='my-1'>
                 Revisa tu correo para activar tu cuenta!
               </Alert>
               : null}
-            {props.location.state?.fromMail ? 
+            {props.location.state?.fromMail ?
               <Alert variant='primary' className='my-1'>
                 Cuenta activada con éxito
               </Alert>
@@ -75,8 +79,8 @@ const LogIn = (props) => {
           <div className='LogInNudoIcon'>
             <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-login_cuaa4a.svg' alt='login rock and roll' />
           </div>
-            <div className='LogInImage'>
-            </div>
+          <div className='LogInImage'>
+          </div>
           <div className='LogInForm'>
             <form onSubmit={(e) => handleSubmit(e)}>
               <div className='LogInFormContainer'>
@@ -104,7 +108,7 @@ const LogIn = (props) => {
                     name='password'
                     onChange={handleChange} />
                 </div>
-                <small class='form-text text-muted LogInText' for='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{color: '#839672'}}>Regístrate</Link></small>
+                <small class='form-text text-muted LogInText' for='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{ color: '#839672' }}>Regístrate</Link></small>
               </div>
               <div className='LogInButton'>
                 <GenericButton text='Entrar' />

@@ -24,6 +24,7 @@ function App() {
       <Header />
       <div>
         <Switch>
+            <NotAuthenticatedRoute exact path='/landing' component={LandingPage} />
             <NotAuthenticatedRoute exact path='/login' component={Login}/>
             <NotAuthenticatedRoute exact path='/user/:id/activate/:token' component={Activate}/>
             <NotAuthenticatedRoute exact path='/signin' component={Signin}/> 
@@ -34,7 +35,6 @@ function App() {
             <AuthenticatedRoute exact path='/contactos' component={ContactMenu}/>
             <AuthenticatedRoute exact path='/estadisticas' component={StatisticsMenu}/>
             <AuthenticatedRoute exact path='/' component={Dashboard}/> 
-            <Route exact path='/landing' component={LandingPage} />
             <Route component={NotFound} />
         </Switch>
       </div>

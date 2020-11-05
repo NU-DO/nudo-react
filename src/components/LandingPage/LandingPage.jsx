@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactRotatingText from 'react-rotating-text'
 import './LandingPage.scss'
 
 const LandingPage = () => {
     const words = ['tus viajes', 'tus imágenes', 'tus contactos', 'tus lugares', 'tus canciones', 'recuerdos...']
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <div className='LandingPage'>

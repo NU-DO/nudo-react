@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import GenericButton from '../Generic/GenericButton'
 import { signin } from '../../services/Api'
@@ -14,6 +14,10 @@ const SignIn = () => {
         error: {}
     })
     const [redirect, setRedirect] = useState(false)
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const handleSubmit = (event) => {
         event.preventDefault()

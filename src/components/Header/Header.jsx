@@ -57,7 +57,7 @@ const MenuAppBar = () => {
                     </IconButton>
                         : 
                         <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
-                            <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan'onClick={handleLogout} >Registrate</span> </Link></>
+                            <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan' >Registrate</span> </Link></>
                     }
                 </div>
 
