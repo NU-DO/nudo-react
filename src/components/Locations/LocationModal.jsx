@@ -3,7 +3,6 @@ import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
 import './LocationModal.scss'
 
-
 const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange, tempCoordenates, error }) => {
     const [edit, setEdit] = useState(false)
 
@@ -12,6 +11,7 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
             setEdit(true)
         }
     }, [])
+    
     return (
         <div className='ModalContent'>
          <CloseModalButton onClick={closeModal} />

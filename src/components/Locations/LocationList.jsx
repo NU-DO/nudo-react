@@ -3,6 +3,7 @@ import LocationElement from './LocationElement'
 import './LocationList.scss'
 
 const LocationList = ({ markers, zoomToMarker, deleteMarker, onEdit }) => {
+    
     return (
         <div>
             {markers.length ?
@@ -22,7 +23,6 @@ const LocationList = ({ markers, zoomToMarker, deleteMarker, onEdit }) => {
                 </div>
                 : 'Añada sus localizaciones'
             }
-
         </div>
     )
 }

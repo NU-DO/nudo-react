@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Card from './Card'
-import Modal from '../Generic/Modal'
 import GameModal from './GameModal'
+import Modal from '../Generic/Modal'
 import '@reach/dialog/styles.css'
 import './Game.scss'
 
@@ -61,7 +61,6 @@ const MemoryGame = ({ options, setOptions, highScore, setHighScore, score, setSc
 
     const newGame = () => {
         const gameLength = game.length
-        console.log(gameLength)
         setOptions(null)
             setTimeout(() => {
               setOptions(gameLength)
@@ -77,7 +76,6 @@ const MemoryGame = ({ options, setOptions, highScore, setHighScore, score, setSc
         setLevel(null)
         setOptions(null)
     }
-
 
     if (flippedIndexes.length === 2) {
         const match = game[flippedIndexes[0]].colorId === game[flippedIndexes[1]].colorId
@@ -106,6 +104,7 @@ const MemoryGame = ({ options, setOptions, highScore, setHighScore, score, setSc
                     <div className='cardGame' key={index}>
                         <Card
                             id={index}
+                            key={index}
                             color={card.color}
                             game={game}
                             score={score}

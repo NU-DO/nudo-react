@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import Album from './Album'
-import ComponentHeader from '../Generic/ComponentHeader'
 import ImageModal from './ImageModal'
+import ComponentHeader from '../Generic/ComponentHeader'
+import AlertSnackBar from '../Generic/AlertSnackBar'
+import Modal from '../Generic/Modal'
 import Spinner from '../Generic/Spinner'
 import { getImages, createImage, handleUpload, deleteImage, editImage } from '../../services/Api'
 import SimpleReactLightbox from 'simple-react-lightbox'
-import Modal from '../Generic/Modal'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
-import AlertSnackBar from '../Generic/AlertSnackBar'
 import '../Locations/NudoMap.scss'
 
 const ImagesMenu = () => {
@@ -33,6 +33,7 @@ const ImagesMenu = () => {
 
     const openModal = () => setShowDialog(true)
     const closeModal = () => setShowDialog(false)
+
     const handleSavedSnack = () => setSnackSavedOpen(true)
     const handleEditSnack = () => setSnackEditOpen(true)
     const handleDeleteSnack = () => setSnackDeleteOpen(true)

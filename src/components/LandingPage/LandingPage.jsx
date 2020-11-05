@@ -3,7 +3,6 @@ import ReactRotatingText from 'react-rotating-text'
 import './LandingPage.scss'
 
 const LandingPage = () => {
-
     const words = ['tus viajes', 'tus imágenes', 'tus contactos', 'tus lugares', 'tus canciones', 'recuerdos...']
 
     return (
@@ -62,7 +61,7 @@ const LandingPage = () => {
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default LandingPage;
+export default LandingPage

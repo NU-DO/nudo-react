@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Drawer from './Drawer'
 import { useAuthContext } from '../../contexts/AuthContext'
+import Drawer from './Drawer'
 import { logout } from '../../services/Api'
 import { makeStyles } from '@material-ui/core/styles'
 import IconButton from '@material-ui/core/IconButton'
@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-export default function MenuAppBar() {
+const MenuAppBar = () => {
     const classes = useStyles()
     const { user, logout: logOut } = useAuthContext()
 
@@ -39,9 +39,9 @@ export default function MenuAppBar() {
 
     return (
         <div className='NudoHeader fixed-top'>
-            <nav class='navbar'>
+            <nav className='navbar'>
                 <div className='NudoHeaderLeft'>
-                    <Link to='/' class='NudoHeaderLogo'>
+                    <Link to='/' className='NudoHeaderLogo'>
                         <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604218253/NUDO/assets/Recurso_17_ky7ydo.svg' alt='Nudo Logo Header' loading='lazy' className='NudoHeaderIcon' />
                     </Link>
                 </div>
@@ -65,3 +65,5 @@ export default function MenuAppBar() {
         </div>
     )
 }
+
+export default MenuAppBar

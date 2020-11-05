@@ -4,6 +4,7 @@ import GenericButton from './GenericButton'
 import './NotFound.scss'
 
 const NotFound = () => {
+    
     return (
         <div className='ContainerNotFound'>
             <div className='NotFoundTop'>

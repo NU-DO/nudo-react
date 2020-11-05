@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import ComponentHeader from '../Generic/ComponentHeader'
 import MemoryGame from './MemoryGame'
+import ComponentHeader from '../Generic/ComponentHeader'
 import GenericButton from '../Generic/GenericButton'
 import Spinner from '../Generic/Spinner'
 import { getScores, newScore } from '../../services/Api'
@@ -12,7 +12,6 @@ const Game = () => {
     const [highScore, setHighScore] = useState(0)
     const [level, setLevel] = useState(null)
     const [loaded, setLoaded] = useState(false)
-
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -111,11 +110,8 @@ const Game = () => {
                 </> :
                 <Spinner />
             }
-
         </div>
     )
 }
 
 export default Game
-
-

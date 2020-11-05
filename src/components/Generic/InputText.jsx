@@ -2,6 +2,7 @@ import React from 'react'
 import './InputText.scss'
 
 const InputText = ({ name, value, onChange, onBlur, placeHolder, required, type }) => {
+    
     return (
         <div>
             <input 

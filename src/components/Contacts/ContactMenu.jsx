@@ -5,11 +5,11 @@ import ContactDetails from './ContactDetails'
 import Modal from '../Generic/Modal'
 import ContactModal from './ContactModal'
 import Spinner from '../Generic/Spinner'
+import AlertSnackBar from '../Generic/AlertSnackBar'
 import { getContacts, handleUpload, createContact, deleteContact, editContact } from '../../services/Api'
-import './ContactMenu.scss'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
-import AlertSnackBar from '../Generic/AlertSnackBar'
+import './ContactMenu.scss'
 
 
 const ContactMenu = () => {
@@ -41,17 +41,19 @@ const ContactMenu = () => {
         setSearchedContacts(contacts)
     }, [contacts])
 
-    const handleSearch = (e) => {
-        setSearch({ search: e.target.value.toLowerCase() })
-    }
-
     useEffect(() => {
         const match = contacts.filter(contact => contact.name.toLowerCase().includes(search.search))
         setSearchedContacts(match)
     }, [search])
+
+    const handleSearch = (e) => {
+        setSearch({ search: e.target.value.toLowerCase() })
+    }
+    
     const handleSavedSnack = () => setSnackSavedOpen(true)
     const handleEditSnack = () => setSnackEditOpen(true)
     const handleDeleteSnack = () => setSnackDeleteOpen(true)
+
     const handleCloseSavedSnack = (event, reason) => {
         if (reason === 'clickaway') {
             return
@@ -73,19 +75,12 @@ const ContactMenu = () => {
 
         setSnackDeleteOpen(false)
     }
+
     const openModal = () => setShowDialog(true)
     const closeModal = () => {
         setShowDialog(false)
         setTempState({})
     }
-
-    const handleSelect = (contact) => {
-        setSelected(contact)
-    }
-
-    const addContactClick = useCallback((event) => {
-        openModal()
-    }, [])
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -96,6 +91,14 @@ const ContactMenu = () => {
             }
         })
     }
+
+    const handleSelect = (contact) => {
+        setSelected(contact)
+    }
+
+    const addContactClick = useCallback((event) => {
+        openModal()
+    }, [])
 
     const handleFileUpload = (event) => {
         const uploadData = new FormData()
@@ -160,12 +163,9 @@ const ContactMenu = () => {
     }
     return (
         <div>
-
-
-
             {loaded ?
                 <>
-                    <div className="NudoMap">
+                    <div className='NudoMap'>
                         <ComponentHeader
                             title='Contactos'
                             description='Las personas que nos rodean son lo más importante. Mantén sus datos al día y organizalos en este apartado.'
@@ -173,7 +173,7 @@ const ContactMenu = () => {
                         />
                     </div>
                     <div className='ContactMenu'>
-                        <div className="dividedBody">
+                        <div className='dividedBody'>
                             <Agenda
                                 contacts={searchedContacts}
                                 handleSelect={handleSelect}
@@ -220,7 +220,7 @@ const ContactMenu = () => {
                     Contacto borrado correctamente!
                  </AlertSnackBar>
             </Snackbar>
-        </div >
+        </div>
     )
 }
 

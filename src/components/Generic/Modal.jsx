@@ -4,8 +4,6 @@ import './Modal.scss'
 
 const ModalContent = (props) => {
 
-
-
     return (
         <div className='ModalOverlay'>
             {props.children}
@@ -14,8 +12,9 @@ const ModalContent = (props) => {
 }
 
 const Modal = (props) => {
+    
     return (
-        ReactDOM.createPortal(<ModalContent {...props} />, document.getElementById("root"))
+        ReactDOM.createPortal(<ModalContent {...props} />, document.getElementById('root'))
     )
 }
 

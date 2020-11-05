@@ -1,13 +1,10 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import ButtonAddSong from './ButtonAddSong'
-import './SongCard.scss'
 import DeleteIcon from '@material-ui/icons/Delete'
+import './SongCard.scss'
 
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong }) => {
-    useEffect(() => {
-        console.log(song);
-        console.log(song.preview_url)
-    }, [song])
+
     return (
         <div className='SongCard'>
             <img

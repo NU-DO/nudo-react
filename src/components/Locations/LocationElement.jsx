@@ -32,7 +32,6 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'left',
     },
     column: {
-        // flexBasis: '33.33%',
         display: 'flex',
         justifyContent: 'right',
         alignItems: 'center'
@@ -52,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 const LocationElement = ({ marker, zoomToMarker, deleteMarker, onEdit, i }) => {
     const classes = useStyles()
+    
     return (
         <li key={i} className='noBullet'>
             <div className={classes.root}>

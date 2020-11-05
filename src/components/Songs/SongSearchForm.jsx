@@ -8,7 +8,7 @@ const SongSearcher = ({ handleChange, search }) => {
             <InputText
                 id='searchSong'
                 name='search'
-                placeHolder='Busca una canción'
+                placeholder='Busca una canción'
                 value={search.search}
                 onChange={handleChange}
                 autoFocus

@@ -2,9 +2,9 @@ import React from 'react'
 import './Footer.scss'
 
 const Footer = () => {
+    
     return (
         <div>
-
             <footer>
                 <div className='FooterWaves'>
                     <div className='FooterIconNudo'>

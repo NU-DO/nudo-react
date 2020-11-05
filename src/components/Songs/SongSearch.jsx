@@ -13,8 +13,8 @@ const SongSearch = ({ matchSong, handleOpen, addFav, form, handleChange, search 
             </div>
             <div className='songFavContainer'>
                 {!matchSong.length ? <p>Empieza a buscar tus canciones favoritas!</p> :
-                    matchSong.map(song => (
-                        <SongCard song={song} typeSearch={typeSearch} form={form} handleOpen={handleOpen} addFav={addFav} />
+                    matchSong.map((song, index) => (
+                        <SongCard song={song} key={index} typeSearch={typeSearch} form={form} handleOpen={handleOpen} addFav={addFav} />
                     ))
                 }
             </div>

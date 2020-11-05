@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import GenericButton from '../Generic/GenericButton'
 import { useAuthContext } from '../../contexts/AuthContext'
+import GenericButton from '../Generic/GenericButton'
 import { login } from '../../services/Api'
 import Alert from 'react-bootstrap/Alert'
 import './Login.scss'
@@ -89,7 +89,7 @@ const LogIn = (props) => {
                     aria-describedby='emailHelp'
                     onChange={handleChange} />
                   {state.error ?
-                    <div class="invalid-feedback">
+                    <div class='invalid-feedback'>
                       Email o contraseña incorrecta
                 </div>
                     : null
@@ -105,7 +105,6 @@ const LogIn = (props) => {
                     onChange={handleChange} />
                 </div>
                 <small class='form-text text-muted LogInText' for='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{color: '#839672'}}>Regístrate</Link></small>
-                {/* <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> */}
               </div>
               <div className='LogInButton'>
                 <GenericButton text='Entrar' />

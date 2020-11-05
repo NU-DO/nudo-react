@@ -9,7 +9,6 @@ const Agenda = ({ contacts, handleSelect, handleSearch, search }) => {
         <div className='AgendaDiv'>
             <ContactSeacher handleSearch={handleSearch} search={search} />
             <div className='Agenda'>
-
                 {contacts.map(contact => (
                     <Contact
                         contact={contact}

@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import Image from './Image'
-import './Album.scss'
 import GenericButton from '../Generic/GenericButton'
 import GenericButtonSecond from '../Generic/GenericButtonSecond'
+import './Album.scss'
 
 const Album = ({ images, setImages, addImageClick, handleDelete, editThisImage }) => {
-
     const [dateImages, setDateImages] = useState(images)
 
     useEffect(() => {
         setDateImages(images)
     }, [images])
 
-   
-
     const setCronological = (images) => {
-
         const imageDate = [...images].sort((a, b) => a.date - b.date)
         setDateImages(imageDate)
     }

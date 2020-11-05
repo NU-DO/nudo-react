@@ -27,7 +27,7 @@ const SongFav = ({ fav, handleDeleteSong }) => {
                 {!fav.length ? <p>No coincide ningún fav</p> :
                     favSongs.map(song => {
                         return (
-                            <SongCard song={song} handleDeleteSong={handleDeleteSong} />
+                            <SongCard song={song} key={song.id} handleDeleteSong={handleDeleteSong} />
                         )
                     })
                 }

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-import './Drawer.scss'
+import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
 import { logout } from '../../services/Api'
-import { Link } from 'react-router-dom'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
@@ -20,6 +19,7 @@ import SportsEsportsIcon from '@material-ui/icons/SportsEsports'
 import EqualizerIcon from '@material-ui/icons/Equalizer'
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom'
 import MenuIcon from '@material-ui/icons/Menu'
+import './Drawer.scss'
 
 const useStyles = makeStyles({
     list: {
@@ -43,12 +43,10 @@ const NudoDrawer = () => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return
         }
-
         setState({ ...state, [anchor]: open })
     }
 
     const handleLogout = (event) => {
-        console.log('logout')
         event.preventDefault()
         logout()
             .then(user => logOut())

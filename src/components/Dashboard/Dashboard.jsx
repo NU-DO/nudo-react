@@ -1,8 +1,9 @@
 import React from 'react'
-import './Dashboard.scss'
 import DCard from './DCard'
+import './Dashboard.scss'
 
 const Dashboard = () => {
+
     return (
         <div className='Dashboard'>
             <div className='DashBoardHeader'>
@@ -63,8 +64,6 @@ const Dashboard = () => {
                 />
             </div>
         </div>
-
-
     )
 }
 

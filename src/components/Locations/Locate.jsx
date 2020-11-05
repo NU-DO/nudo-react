@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Locate = ({ panTo }) => {
-    return (
+    
+  return (
       <div>
         <button onClick={() => {
           navigator.geolocation.getCurrentPosition((position) => {

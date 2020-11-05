@@ -85,7 +85,6 @@ const StatisticsMenu = () => {
             .then(() => setSelected('total'))
             .then(() => setTotalsArray(arrayTotals))
             .then(() => setLoaded(true))
-        //Falta eventos
     }, [])
 
     useEffect(() => {

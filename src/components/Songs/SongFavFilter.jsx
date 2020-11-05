@@ -2,6 +2,7 @@ import React from 'react'
 import './SongFavFilter.scss'
 
 const SongFavFilter = ({ setDecade }) => {
+    
     return (
         <div className='SongFavFilter'>
             <div className='filterButton' onClick={() => setDecade('all')}>Todas</div>

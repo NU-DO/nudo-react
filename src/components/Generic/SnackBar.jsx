@@ -29,7 +29,6 @@ const SnackBar = () => {
     if (reason === 'clickaway') {
       return
     }
-
     setOpen(false)
   }
 

@@ -13,7 +13,6 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
         }
     }, [])
 
-
     return (
         <div className='ModalImageContent'>
             <CloseModalButton onClick={closeModal} />
@@ -90,7 +89,6 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                                     {state.url &&  <p className='text-center text-muted mt-2'>Imagen actual</p>}
                                 </div>
                             </div>
-
                         }
                     </div>
                 </div>

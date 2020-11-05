@@ -2,6 +2,7 @@ import React from 'react'
 import './StatisticsBoxNumber.scss'
 
 const StatisticsBoxNumber = ({ selected, lastDays, selectedInfo , totalLength}) => {
+    
     return (
         <div className='StatisticsBoxNumber'>
             {selected === 'total' ?

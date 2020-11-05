@@ -13,10 +13,10 @@ import ContactMenu from './components/Contacts/ContactMenu'
 import Game from './components/Games/Game'
 import StatisticsMenu from './components/Statistics/StatisticsMenu'
 import LandingPage from './components/LandingPage/LandingPage'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.css'
 import NotFound from './components/Generic/NotFound'
 import Footer from './components/Footer/Footer'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css'
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import GenericButton from '../Generic/GenericButton'
 import { signin } from '../../services/Api'
-import { Redirect } from 'react-router-dom'
 import './SignIn.scss'
 
 const SignIn = () => {

@@ -84,8 +84,6 @@ class StatisticsGraphic extends Component {
     }
   }
 
-
-
   render() {
     return (
       <div className='StatisticsGraphic'>
