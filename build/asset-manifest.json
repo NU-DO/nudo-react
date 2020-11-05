@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/NU-DO/nudo-react/static/css/main.278fba19.chunk.css",
+    "main.js": "/NU-DO/nudo-react/static/js/main.2c824473.chunk.js",
+    "main.js.map": "/NU-DO/nudo-react/static/js/main.2c824473.chunk.js.map",
+    "runtime-main.js": "/NU-DO/nudo-react/static/js/runtime-main.c881c890.js",
+    "runtime-main.js.map": "/NU-DO/nudo-react/static/js/runtime-main.c881c890.js.map",
+    "static/css/2.e1c64739.chunk.css": "/NU-DO/nudo-react/static/css/2.e1c64739.chunk.css",
+    "static/js/2.49f9ac43.chunk.js": "/NU-DO/nudo-react/static/js/2.49f9ac43.chunk.js",
+    "static/js/2.49f9ac43.chunk.js.map": "/NU-DO/nudo-react/static/js/2.49f9ac43.chunk.js.map",
+    "index.html": "/NU-DO/nudo-react/index.html",
+    "precache-manifest.42451bec4b72f539199e2f8a3ee320fd.js": "/NU-DO/nudo-react/precache-manifest.42451bec4b72f539199e2f8a3ee320fd.js",
+    "service-worker.js": "/NU-DO/nudo-react/service-worker.js",
+    "static/css/2.e1c64739.chunk.css.map": "/NU-DO/nudo-react/static/css/2.e1c64739.chunk.css.map",
+    "static/css/main.278fba19.chunk.css.map": "/NU-DO/nudo-react/static/css/main.278fba19.chunk.css.map",
+    "static/js/2.49f9ac43.chunk.js.LICENSE.txt": "/NU-DO/nudo-react/static/js/2.49f9ac43.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c881c890.js",
+    "static/css/2.e1c64739.chunk.css",
+    "static/js/2.49f9ac43.chunk.js",
+    "static/css/main.278fba19.chunk.css",
+    "static/js/main.2c824473.chunk.js"
+  ]
+}
