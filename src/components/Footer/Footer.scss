@@ -27,6 +27,7 @@
   & h5 {
     font-weight: bolder;
     border-bottom: 1px solid white;
+    display: inline-block;
   }
   & ul {
     padding-left: 0;
@@ -55,8 +56,7 @@
         margin: auto;
     }
     .FooterTextCopy {
-      display: flex;
-      justify-content: center;
+      text-align: center;
       margin: 15px 38px 0 35px;
       color: white;
       font-size: 12px;
@@ -65,9 +65,9 @@
   .FooterText {
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     border-bottom: 1px solid white;
-    margin: 23px -1px 0 36px;
+    margin: 23px 0px 0 0px;
     & h5 {
       font-weight: bolder;
     }

@@ -16,8 +16,8 @@ const Footer = () => {
                             <ul>
                                 <li>Contacto</li>
                                 <li>Compañía</li>
-                                <li>Desarroladores</li>
-                                <li>Diseñadores</li>
+                                <li>Developers</li>
+                                <li>Designers</li>
                             </ul>
                         </div>
                         <div>
@@ -25,7 +25,7 @@ const Footer = () => {
                             <ul>
                                 <li>Recomienda</li>
                                 <li>Categorias</li>
-                                <li>Preguntas Frecuentes</li>
+                                <li>Preguntas</li>
                                 <li>FAQ</li>
                             </ul>
                         </div>
