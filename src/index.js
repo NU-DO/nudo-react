@@ -6,10 +6,12 @@ import './index.css'
 import App from './App'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <AuthContextProvider>
-      <App />
-    </AuthContextProvider>    
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>    
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById('root')
 )
