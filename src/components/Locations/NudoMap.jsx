@@ -33,7 +33,7 @@ const libraries = ['places']
 
 const NudoMap = () => {
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: `${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`,
+        googleMapsApiKey: `AIzaSyBl7fx8DIx8DITowXkc_rz7JLY7RADwHO4`,
         libraries: libraries,
     })
     const [markers, setMarkers] = useState([])
