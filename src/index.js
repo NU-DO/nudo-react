@@ -7,7 +7,7 @@ import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename='https://github.com/NU-DO/nudo-react/'>
+    <BrowserRouter>
       <AuthContextProvider>
         <App />
       </AuthContextProvider>    
