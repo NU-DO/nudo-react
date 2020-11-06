@@ -5,11 +5,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+
   .FooterIconNudo {
     width: 14%;
     padding: 128px 0 0 0;
     margin: auto;
   }
+
   .FooterTextCopy {
     display: flex;
     justify-content: center;
@@ -18,22 +20,28 @@
     font-size: 14px;
   }
 }
+
 .FooterText {
   color: white;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid white;
   margin: 34px 285px;
+
   & h5 {
     font-weight: bolder;
     border-bottom: 1px solid white;
+    display: inline-block;
   }
+
   & ul {
     padding-left: 0;
+
     & li {
       font-size: 16px;
       padding-left: 0;
       list-style-type: none;
+
       &:hover {
         color: #839672;
         cursor: pointer;
@@ -49,34 +57,40 @@
     height: 419px;
     background-repeat: no-repeat;
     background-size: cover;
+
     .FooterIconNudo {
-        width: 35%;
-        padding: 136px 0 0 0;
-        margin: auto;
+      width: 35%;
+      padding: 136px 0 0 0;
+      margin: auto;
     }
+
     .FooterTextCopy {
-      display: flex;
-      justify-content: center;
+      text-align: center;
       margin: 15px 38px 0 35px;
       color: white;
       font-size: 12px;
     }
   }
+
   .FooterText {
     color: white;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     border-bottom: 1px solid white;
-    margin: 23px -1px 0 36px;
+    margin: 23px 0px 0 0px;
+
     & h5 {
       font-weight: bolder;
     }
+
     & ul {
       padding-left: 0;
+
       & li {
         font-size: 12px;
         padding-left: 0;
         list-style-type: none;
+
         &:hover {
           color: #839672;
           cursor: pointer;

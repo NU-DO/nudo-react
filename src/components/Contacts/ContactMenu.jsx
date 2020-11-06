@@ -137,6 +137,7 @@ const ContactMenu = () => {
             .then(() => {
                 getContacts()
                     .then(contact => setContacts(contact))
+                setSelected()
             })
             .catch(err => console.log(err))
     }

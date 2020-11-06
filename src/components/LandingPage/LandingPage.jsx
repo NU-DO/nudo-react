@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import ReactRotatingText from 'react-rotating-text'
 import './LandingPage.scss'
 
@@ -12,7 +13,6 @@ const LandingPage = () => {
     return (
         <div className='LandingPage'>
             <div className='HeaderCTA'>
-
                 <div className='TextCTA'>
                     <div className='HeaderTypeWCTA'>
                         <h1>NUDO</h1>
@@ -23,7 +23,7 @@ const LandingPage = () => {
                             emptyPause={200}
                         />
                         </p>
-                        <button>Regístrarme ya</button>
+                        <Link to='/signin'><button>Regístrarme ya</button></Link>
                     </div>
 
                 </div>
@@ -33,7 +33,7 @@ const LandingPage = () => {
                 <div className='LandingPartTwoText'>
                     <h2>¿Qué te ofrece <b>NUDO</b>?</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit cubilia interdum mauris. Accumsan laoreet lacus pellentesque platea orci libero, enim cras quam rhoncus felis maecenas nibh, netus morbi vulputate aliquam tempor. Massa feugiat hac risus convallis habitant.</p>
-                    <button>Regístrarme ya</button>
+                    <Link to='/signin'><button>Regístrarme ya</button></Link>
                 </div>
                 <div className='FirstAmoeba'>
                     <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604488768/NUDO/assets/Landing%20Page/Recurso_8_oezojl.svg' alt='pink amoeba' />
@@ -50,14 +50,14 @@ const LandingPage = () => {
                 <div className='LandingPartThreeText'>
                     <h2>Guarda las canciones de tu vida</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit cubilia interdum mauris. Accumsan laoreet lacus pellentesque platea orci libero, enim cras quam rhoncus felis maecenas nibh, netus morbi vulputate aliquam tempor. Massa feugiat hac risus convallis habitant.</p>
-                    <button>Regístrarme ya</button>
+                    <Link to='/signin'><button>Regístrarme ya</button></Link>
                 </div>
             </div>
             <div className='LandingPartFour'>
                 <div className='LandingPartFourText'>
                     <h2>Almacena tus fotos como nunca</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit cubilia interdum mauris. Accumsan laoreet lacus pellentesque platea orci libero, enim cras quam rhoncus felis maecenas nibh, netus morbi vulputate aliquam tempor. Massa feugiat hac risus convallis habitant.</p>
-                    <button>Regístrarme ya</button>
+                    <Link to='/signin'><button>Regístrarme ya</button></Link>
                 </div>
                 <div className='ThirdAmoeba'>
                     <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604481037/NUDO/assets/Landing%20Page/Recurso_7_gwcxgc.svg' alt='pink amoeba' />
