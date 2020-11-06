@@ -13,9 +13,8 @@ export const AuthContextProvider = ({ children }) => {
   }, [])
 
   const logout = useCallback(() => {
-    localStorage.setItem('user', user)
-    console.log('Entra en logout');
-    setUser(user)
+    localStorage.setItem('user', null)
+    setUser(null)
   }, [])
 
   const value = { user, login, logout }
