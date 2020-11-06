@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const http = axios.create({
-  baseURL: 'https://nudo.herokuapp.com/',
+  baseURL: 'https://nudo.herokuapp.com',
   withCredentials: true
 })
 
@@ -24,7 +24,7 @@ export const signin = ({ email, password, username }) => {
 }
 
 export const activate = (id, token) => {
-  return http.post(`user/${id}/activate/${token}`)
+  return http.post(`/user/${id}/activate/${token}`)
 }
 
 export const logout = () => http.post('/logout')
