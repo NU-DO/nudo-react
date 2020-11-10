@@ -2,7 +2,7 @@ import React from 'react'
 import './Footer.scss'
 
 const Footer = () => {
-    
+
     return (
         <div>
             <footer>
@@ -47,5 +47,4 @@ const Footer = () => {
         </div>
     )
 }
-
 export default Footer
