@@ -1,6 +1,6 @@
 # NUDO
 Website for organizing your memories. 
-<img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604218253/NUDO/assets/Recurso_17_ky7ydo.svg' width="200" height="200" style='margin: auto' />
+<img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604218253/NUDO/assets/Recurso_17_ky7ydo.svg' width="300" height="300"  />
 ## Website Developed with React
 
 - [Installation and use](#installation-and-use)
