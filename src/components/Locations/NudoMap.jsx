@@ -6,7 +6,7 @@ import LocationDetails from './LocationDetails'
 import Spinner from '../Generic/Spinner'
 import ComponentHeader from '../Generic/ComponentHeader'
 import AlertSnackBar from '../Generic/AlertSnackBar'
-import Modal from '../Generic/Modal'
+import Modal from '../Generic/Modal' 
 import { createLocation, getLocations, deleteLocation, editLocation } from '../../services/Api'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import '@reach/combobox/styles.css'
@@ -35,6 +35,9 @@ const NudoMap = () => {
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: `AIzaSyBl7fx8DIx8DITowXkc_rz7JLY7RADwHO4`,
         libraries: libraries,
+    })
+    const [search, setSearch] = useState({
+        search: ''
     })
     const [markers, setMarkers] = useState([])
     const [selected, setSelected] = useState(null)
@@ -211,11 +214,13 @@ const NudoMap = () => {
                     </div>
                     <div className='col col-lg-4 d-none d-lg-block'>
                         <h3>Mis Localizaciones:</h3>
+                        
                         <LocationList
                             markers={markers}
                             zoomToMarker={zoomToMarker}
                             deleteMarker={handleDeleteLocation}
                             onEdit={editMarker}
+    
                         />
                     </div>
                 </div>
