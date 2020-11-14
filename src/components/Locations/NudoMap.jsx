@@ -36,10 +36,11 @@ const NudoMap = () => {
         googleMapsApiKey: `AIzaSyBl7fx8DIx8DITowXkc_rz7JLY7RADwHO4`,
         libraries: libraries,
     })
+    const [markers, setMarkers] = useState([])
     const [search, setSearch] = useState({
         search: ''
     })
-    const [markers, setMarkers] = useState([])
+    const [searchedMarkers, setSearchedMarkers] = useState([])
     const [selected, setSelected] = useState(null)
     const [showDialog, setShowDialog] = useState(false)
     const [snackSavedOpen, setSnackSavedOpen] = useState(false)
@@ -47,7 +48,6 @@ const NudoMap = () => {
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [tempCoordenates, setTempCoordenates] = useState({})
     const [error, setError] = useState({})
-
 
     const openModal = () => setShowDialog(true)
     const closeModal = () => setShowDialog(false)
@@ -82,6 +82,19 @@ const NudoMap = () => {
             .then(locations => setMarkers(locations))
             .catch(err => console.log(err))
     }, [])
+
+    useEffect(() => {
+        setSearchedMarkers(markers)
+    }, [markers])
+
+    useEffect(() => {
+        const match = markers.filter(marker => marker.name.toLowerCase().includes(search.search))
+        setSearchedMarkers(match)
+    }, [search])
+
+    const handleSearch = (e) => {
+        setSearch({ search: e.target.value.toLowerCase() })
+    }
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -216,11 +229,12 @@ const NudoMap = () => {
                         <h3>Mis Localizaciones:</h3>
                         
                         <LocationList
-                            markers={markers}
+                            searchedMarkers={searchedMarkers}
                             zoomToMarker={zoomToMarker}
                             deleteMarker={handleDeleteLocation}
                             onEdit={editMarker}
-    
+                            handleSearch={handleSearch}
+                            search={search}
                         />
                     </div>
                 </div>
@@ -228,10 +242,12 @@ const NudoMap = () => {
                     <div className='col col-sm-12 d-lg-none '>
                         <h3 className='mt-4'>Mis Localizaciones:</h3>
                         <LocationList
-                            markers={markers}
+                            searchedMarkers={searchedMarkers}
                             zoomToMarker={zoomToMarker}
                             deleteMarker={handleDeleteLocation}
                             onEdit={editMarker}
+                            handleSearch={handleSearch}
+                            search={search}
                         />
                     </div>
                 </div>

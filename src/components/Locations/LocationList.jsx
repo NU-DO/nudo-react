@@ -1,15 +1,17 @@
 import React from 'react'
 import LocationElement from './LocationElement'
+import LocationSearcher from './LocationSearcher'
 import './LocationList.scss'
 
-const LocationList = ({ markers, zoomToMarker, deleteMarker, onEdit, handleSearch, search }) => {
+const LocationList = ({ searchedMarkers, zoomToMarker, deleteMarker, onEdit, handleSearch, search }) => {
 
     return (
         <div>
-            {markers.length ?
+            <LocationSearcher handleSearch={handleSearch} search={search} />
+            {searchedMarkers.length ?
                 <div className='LocationList'>
                     <ul>
-                        {markers.length ? markers.map((marker, i) => (
+                        {searchedMarkers.length ? searchedMarkers.map((marker, i) => (
                             <LocationElement
                                 marker={marker}
                                 zoomToMarker={zoomToMarker}

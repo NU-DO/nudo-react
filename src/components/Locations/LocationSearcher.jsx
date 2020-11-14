@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LocationSearcher = ( handleSearch, search ) => {
+const LocationSearcher = ({ handleSearch, search }) => {
     return (
         <div>
             <form method='GET'>

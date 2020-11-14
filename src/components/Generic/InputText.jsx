@@ -11,7 +11,7 @@ const InputText = ({ name, value, onChange, onBlur, placeHolder, required, type 
                 value={value}
                 onChange={onChange}
                 onBlur={onBlur}
-                placeHolder={placeHolder}
+                placeholder={placeHolder}
                 className="form-control"
             />
         </div>

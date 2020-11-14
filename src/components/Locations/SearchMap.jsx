@@ -40,7 +40,7 @@ const SearchMap = ({ panTo }) => {
             setValue(e.target.value)
           }}
           disabled={!ready}
-          placeHolder='Busca un lugar'
+          placeholder='Busca un lugar'
           className='ComboboxInput'
         />
         <ComboboxPopover>

@@ -10,7 +10,7 @@ const ContactSeacher = ({ handleSearch, search }) => {
                   <input type='email'
                     class='form-control'
                     id='searchSong'
-                    placeHolder='Busca un contacto'
+                    placeholder='Busca un contacto'
                     name='search'
                     aria-describedby='emailHelp'
                     value={search.search}
