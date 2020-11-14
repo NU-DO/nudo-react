@@ -1,31 +1,4 @@
-.VideoCard {
-    display: flex;
-    align-items: center;
-    margin: 3px 0;
-    box-shadow: 3px 3px 11px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
 
-.VideoThumbnail {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px 0px 0px 10px;
-}
-
-.VideoCardTitle {
-    text-align: left;
-    padding: 10px;
-    margin: 0 0 0 10px;
-    font-weight: 300;
-    font-size: 12px;
-}
-
-.video-list {
-    grid-row: span 2;
-    padding: 0 20px;
-    height: 500px;
-    overflow: scroll;
-}
 
 .video-player .video-iframe {
     width: 100%;

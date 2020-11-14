@@ -3,7 +3,7 @@ import React from 'react'
 const InputText = ({ name, value, onChange, onBlur, placeHolder, required, type }) => {
 
     return (
-        <div class="form-group">
+        <div className="form-group">
             <input
                 type={type}
                 required={required}
@@ -11,7 +11,7 @@ const InputText = ({ name, value, onChange, onBlur, placeHolder, required, type 
                 value={value}
                 onChange={onChange}
                 onBlur={onBlur}
-                placeholder={placeHolder}
+                placeHolder={placeHolder}
                 className="form-control"
             />
         </div>

@@ -14,6 +14,7 @@ const VideoMenu = () => {
     const [videosYT, setVideosYT] = useState([])
     const [loaded, setLoaded] = useState(false)
     const [showDialog, setShowDialog] = useState(false)
+    const [flagData, setFlagData] = useState(false)
     const [title, setTitle] = useState('')
     const [state, setState] = useState({})
     const [error, setError] = useState({})
@@ -46,6 +47,7 @@ const VideoMenu = () => {
         })
             .then(response => {
                 setVideosYT(response.data.items)
+                setFlagData(true)
             })
     }
 
@@ -85,6 +87,11 @@ const VideoMenu = () => {
             .catch(err => setError(err.response.data.errors))
     }
 
+    const editThisVideo = (video) => {
+        setState(video)
+        openModal()
+    }
+
     const handleEditVideo = (event) => {
         event.preventDefault()
         // handleEditSnack()
@@ -115,50 +122,50 @@ const VideoMenu = () => {
 
 
     return (
-        <div className='YoutubeComponentContainer'>
-            {loaded ?
-                <>
-                    <div className='SearchVideoInput'>
-                        <h3 style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold' }}>
-                            Resultados:
-                        </h3>
-                        <VideoList
-                            onVideoSelected={onVideoSelected}
-                            data={state.videoMetaInfo}
-                            handleChangeSearch={handleChangeSearch}
-                            handleSubmit={handleSubmit}
-                            handleEditVideo={handleEditVideo}
-                            handleDelete={handleDelete}
-                            videosYT={videosYT}
-                            title={title}
-                            addVideoClick={addVideoClick}
-                        />
-                    </div>
-                    <div>
-                        <VideoFavs
-                            handleEditVideo={handleEditVideo}
-                            handleDelete={handleDelete}
-                            videos={videos}
-                        />
-                    </div>
-                    <div>
-                        <VideoPlayer videoId={state.videoId} />
-                    </div>
-                    {showDialog ? <Modal>
-                        <VideoModal
-                            closeModal={closeModal}
-                            state={state}
-                            modalSent={modalSent}
-                            handleChange={handleChange}
-                            error={error}
-                        />
-                    </Modal>
-                        : null}
-                </>
-                :
-                <Spinner />
-            }
+        <div className='NudoMap'>
+            <div className='YoutubeComponentContainer'>
+                {loaded ?
+                    <>
+                        <div className='SearchVideoInput'>
+                            <VideoList
+                                onVideoSelected={onVideoSelected}
+                                data={state.videoMetaInfo}
+                                flagData={flagData}
+                                handleChangeSearch={handleChangeSearch}
+                                handleSubmit={handleSubmit}
+                                videosYT={videosYT}
+                                title={title}
+                                addVideoClick={addVideoClick}
+                            />
+                        </div>
+                        <div>
+                            <VideoFavs
+                                editThisVideo={editThisVideo}
+                                handleDelete={handleDelete}
+                                videos={videos}
+                            />
+                        </div>
+                        {/* <div>
+                            <VideoPlayer videoId={state.videoId} />
+                        </div> */}
+                        {showDialog ? <Modal>
+                            <VideoModal
+                                closeModal={closeModal}
+                                state={state}
+                                modalSent={modalSent}
+                                handleChange={handleChange}
+                                handleEditVideo={handleEditVideo}
+                                error={error}
+                            />
+                        </Modal>
+                            : null}
+                    </>
+                    :
+                    <Spinner />
+                }
+            </div>
         </div>
+
     )
 }
 
