@@ -2,8 +2,8 @@ import React from 'react'
 import LocationElement from './LocationElement'
 import './LocationList.scss'
 
-const LocationList = ({ markers, zoomToMarker, deleteMarker, onEdit, handleSearch, search }) => {
-
+const LocationList = ({ markers, zoomToMarker, deleteMarker, onEdit }) => {
+    
     return (
         <div>
             {markers.length ?

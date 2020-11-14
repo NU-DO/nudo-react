@@ -10,7 +10,6 @@ import SimpleReactLightbox from 'simple-react-lightbox'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
 import '../Locations/NudoMap.scss'
-import './ImagesMenu.scss'
 
 const ImagesMenu = () => {
     const [state, setState] = useState({})
@@ -21,7 +20,6 @@ const ImagesMenu = () => {
     const [showDialog, setShowDialog] = useState(false)
     const [error, setError] = useState({})
     const [loaded, setLoaded] = useState(false)
-    const [imageLoad, setImageLoad] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -67,11 +65,9 @@ const ImagesMenu = () => {
     const handleFileUpload = (event) => {
         const uploadData = new FormData()
         uploadData.append('url', event.target.files[0])
-        setImageLoad(true)
         handleUpload(uploadData)
             .then(response => {
                 setState(prev => {
-                    setImageLoad(false)
                     return {
                         ...prev,
                         url: response.secure_url
@@ -165,7 +161,6 @@ const ImagesMenu = () => {
                             handleChange={handleChange}
                             handleFileUpload={handleFileUpload}
                             handleEditImage={handleEditImage}
-                            imageLoad={imageLoad}
                             state={state}
                             error={error}
                         />
@@ -189,9 +184,6 @@ const ImagesMenu = () => {
                     Imagen borrada correctamente!
                  </AlertSnackBar>
             </Snackbar>
-            <div className='AddImageButton'>
-                <button className='AddImageButtonRounded' onClick={addImageClick}>+</button>
-            </div>
         </div>
     )
 }

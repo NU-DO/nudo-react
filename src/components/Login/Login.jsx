@@ -52,7 +52,6 @@ const LogIn = (props) => {
           ...prev.data,
           [name]: value,
         },
-        error: false
       }
     })
   }
@@ -88,13 +87,13 @@ const LogIn = (props) => {
                 <div class='form-group'>
                   <label for='exampleInputEmail1'>Correo electrónico</label>
                   <input type='email'
-                    class={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
+                    class={`form-control ${state.error ? `is-invalid` : null}`}
                     id='email'
                     name='email'
                     aria-describedby='emailHelp'
                     onChange={handleChange} />
                   {state.error ?
-                    <div class='invalid-feedback animate__animated animate__shakeX'>
+                    <div class='invalid-feedback'>
                       Email o contraseña incorrecta
                 </div>
                     : null
@@ -104,7 +103,7 @@ const LogIn = (props) => {
                   <label for='exampleInputPassword1'>Contraseña</label>
                   <input
                     type='password'
-                    class={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
+                    class={`form-control ${state.error ? `is-invalid` : null}`}
                     id='password'
                     name='password'
                     onChange={handleChange} />

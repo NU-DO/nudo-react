@@ -26,7 +26,6 @@ const ContactMenu = () => {
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [error, setError] = useState({})
     const [loaded, setLoaded] = useState(false)
-    const [imageLoad, setImageLoad] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -104,11 +103,9 @@ const ContactMenu = () => {
     const handleFileUpload = (event) => {
         const uploadData = new FormData()
         uploadData.append('url', event.target.files[0])
-        setImageLoad(true)
         handleUpload(uploadData)
             .then(response => {
                 setTempState(prev => {
-                    setImageLoad(false)
                     return {
                         ...prev,
                         photo: response.secure_url
@@ -199,7 +196,6 @@ const ContactMenu = () => {
                                 handleChange={handleChange}
                                 handleFileUpload={handleFileUpload}
                                 handleEditContact={handleEditContact}
-                                imageLoad={imageLoad}
                                 modalSent={modalSent}
                                 error={error}
                             />

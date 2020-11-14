@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Spinner } from 'react-bootstrap'
 import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
 import './ContactModal.scss'
 
 
 
-const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, handleEditContact, modalSent, imageLoad, error }) => {
+const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, handleEditContact, modalSent, error }) => {
     const [edit, setEdit] = useState(false)
-    
 
     useEffect(() => {
         if (tempState.id) {
@@ -17,7 +15,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
     }, [])
 
     return (
-        <div className='ModalContent animate__animated animate__bounceInDown'>
+        <div className='ModalContent'>
             <CloseModalButton onClick={closeModal} />
             <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
             <form onSubmit={edit ? handleEditContact : modalSent}>
@@ -26,14 +24,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         <div className='form-group col-8 '>
                             <label for='exampleFormControlInput1'>Nombre</label>
                             <input type='text'
-                                className={`form-control ${error?.name ? `is-invalid animate__animated animate__shakeX` : null}`}
+                                className={`form-control ${error?.name ? `is-invalid` : null}`}
                                 id='exampleFormControlInput1'
                                 name='name'
                                 value={tempState.name}
                                 onChange={handleChange}
                             />
                             {error?.name ?
-                                <div class='invalid-feedback animate__animated animate__shakeX'>
+                                <div class='invalid-feedback'>
                                     {error.name}
                                 </div>
                                 : null
@@ -42,14 +40,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         <div className='form-group col-4'>
                             <label for='exampleFormControlInput1'>Relación</label>
                             <input type='text'
-                                className={`form-control ${error?.role ? `is-invalid animate__animated animate__shakeX` : null}`}
+                                className={`form-control ${error?.role ? `is-invalid` : null}`}
                                 id='relación'
                                 name='role'
                                 value={tempState.role}
                                 onChange={handleChange}
                             />
                             {error?.role ?
-                                <div class='invalid-feedback animate__animated animate__shakeX'>
+                                <div class='invalid-feedback'>
                                     {error.role}
                                 </div>
                                 : null
@@ -71,14 +69,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         <div className='form-group col-4 col-md-4'>
                             <label for='exampleFormControlInput1'>Email</label>
                             <input type='email'
-                                className={`form-control ${error?.email ? `is-invalid animate__animated animate__shakeX` : null}`}
+                                className={`form-control ${error?.email ? `is-invalid` : null}`}
                                 id='email'
                                 name='email'
                                 value={tempState.email}
                                 onChange={handleChange}
                             />
                             {error?.email ?
-                                <div class='invalid-feedback animate__animated animate__shakeX'>
+                                <div class='invalid-feedback'>
                                     {error.email}
                                 </div>
                                 : null
@@ -87,14 +85,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         <div className='form-group col-4 col-md-4'>
                             <label for='exampleFormControlInput1'>Teléfono</label>
                             <input type='text'
-                                className={`form-control ${error?.phone ? `is-invalid animate__animated animate__shakeX` : null}`}
+                                className={`form-control ${error?.phone ? `is-invalid` : null}`}
                                 id='phone'
                                 name='phone'
                                 value={tempState.phone}
                                 onChange={handleChange}
                             />
                             {error?.phone ?
-                                <div class='invalid-feedback animate__animated animate__shakeX'>
+                                <div class='invalid-feedback'>
                                     {error.phone}
                                 </div>
                                 : null
@@ -141,8 +139,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 text='Guardar'
                             />
                             <div>
-                                {imageLoad &&  <Spinner animation="border" style={{ color: '#B73551'}} />}
-                                {tempState.photo && <img src={tempState.photo} style={{ width: '100px', marginLeft: '10px' }} alt='cargando' className='rounded-circle' />}
+                                <img src={tempState.photo} style={{ width: '100px', marginLeft: '10px' }} alt='cargando' className='rounded-circle' />
                                 {tempState.photo && <p className='text-center text-muted'>Imagen actual</p>}
                             </div>
                         </div>

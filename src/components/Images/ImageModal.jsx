@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap'
 import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
 import './ImageModal.scss'
 
 
-const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, handleEditImage, imageLoad, state, error }) => {
+const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, handleEditImage, state, error }) => {
     const [edit, setEdit] = useState(false)
 
     useEffect(() => {
@@ -26,13 +25,13 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                         <input
                             id='title'
                             type='text'
-                            className={`form-control ${error?.title ? `is-invalid animate__animated animate__shakeX` : null}`}
+                            className={`form-control ${error?.title ? `is-invalid` : null}`}
                             name='title'
                             value={state.title}
                             onChange={handleChange}
                         />
                         {error?.title ?
-                            <div class='invalid-feedback animate__animated animate__shakeX'>
+                            <div class='invalid-feedback'>
                                 {error.title}
                             </div>
                             : null
@@ -55,12 +54,12 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                         <input
                             id='date'
                             name='date'
-                            className={`form-control ${error?.date ? `is-invalid animate__animated animate__shakeX` : null}`}
+                            className={`form-control ${error?.date ? `is-invalid` : null}`}
                             value={state.date}
                             onChange={handleChange}
                         />
                         {error?.date ?
-                            <div class='invalid-feedback animate__animated animate__shakeX'>
+                            <div class='invalid-feedback'>
                                 {error.date}
                             </div>
                             : null
@@ -79,11 +78,6 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                     </div> : null}
                     <div>
                         <br />
-                        {imageLoad && (
-                            <div className='d-flex justify-content-around align-items-center'>
-                                <Spinner animation="border" style={{ color: '#B73551' }} />
-                            </div>
-                        )}
                         {state.url &&
                             <div className='d-flex justify-content-around align-items-center'>
                                 <GenericButton
@@ -91,9 +85,8 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                                     text='Guardar'
                                 />
                                 <div>
-
-                                    <img src={state.url} style={{ width: '100px', marginLeft: '10px' }} alt='Cargando' />
-                                    {state.url && <p className='text-center text-muted mt-2'>Imagen actual</p>}
+                                    <img src={state.url} style={{ width: '100px', marginLeft: '10px'}} alt='Cargando' />
+                                    {state.url &&  <p className='text-center text-muted mt-2'>Imagen actual</p>}
                                 </div>
                             </div>
                         }

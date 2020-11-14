@@ -22,14 +22,14 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
                         <label for='name'>Nombre</label>
                         <input
                             type='text'
-                            className={`form-control ${error?.name ? `is-invalid animate__animated animate__shakeX` : null}`}
+                            className={`form-control ${error?.name ? `is-invalid` : null}`}
                             id='name'
                             name='name'
                             onChange={handleChange}
                             value={tempCoordenates.name}
                         />
                         {error?.name ?
-                            <div class='invalid-feedback animate__animated animate__shakeX'>
+                            <div class='invalid-feedback'>
                                 {error.name}
                             </div>
                             : null
