@@ -9,7 +9,7 @@ const Video = ({ onVideoSelected, videosYT, addVideoClick }) => {
                 key={index}
                 onClick={() => onVideoSelected(id, snippet.thumbnails.high.url)}>
                 <div>
-                    <img src={snippet.thumbnails.high.url} key={index} className='VideoThumbnail' />
+                    <img src={snippet.thumbnails.high.url} key={index} className='VideoThumbnail' alt='recorte' />
                 </div>
                 <div>
                     <p className="VideoCardTitle">{snippet.title}</p>
