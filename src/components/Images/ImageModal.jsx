@@ -77,7 +77,12 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                         />
                     </div> : null}
                     <div>
-                        <br />
+                        <br /> 
+                        {imageLoad && (
+                            <div className='d-flex justify-content-around align-items-center'>
+                                <Spinner animation="border" style={{ color: '#B73551' }} />
+                            </div>
+                        )}
                         {state.url &&
                             <div className='d-flex justify-content-around align-items-center'>
                                 <GenericButton
