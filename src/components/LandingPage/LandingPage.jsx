@@ -57,7 +57,7 @@ const LandingPage = () => {
                 <div className='LandingPartFourText'>
                     <h2>Almacena tus fotos como nunca</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit cubilia interdum mauris. Accumsan laoreet lacus pellentesque platea orci libero, enim cras quam rhoncus felis maecenas nibh, netus morbi vulputate aliquam tempor. Massa feugiat hac risus convallis habitant.</p>
-                    <Link to='/signin'> <button>Regístrarme ya</button></Link>
+                    <Link to='/signin'><button>Regístrarme ya</button></Link>
                 </div>
                 <div className='ThirdAmoeba'>
                     <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604481037/NUDO/assets/Landing%20Page/Recurso_7_gwcxgc.svg' alt='pink amoeba' />

@@ -33,7 +33,7 @@ const Footer = () => {
                             <h5>RRSS</h5>
                             <ul>
                                 <li>Facebook</li>
-                                <li>Tweeter</li>
+                                <li>Twitter</li>
                                 <li>Linked In</li>
                                 <li>Instagram</li>
                             </ul>
