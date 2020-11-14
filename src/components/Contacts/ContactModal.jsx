@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Spinner } from 'react-bootstrap'
 import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
+import { Spinner } from 'react-bootstrap'
 import './ContactModal.scss'
 
 

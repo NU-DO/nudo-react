@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Spinner } from 'react-bootstrap'
 import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
+import { Spinner } from 'react-bootstrap'
 import './ImageModal.scss'
 
 
@@ -81,7 +81,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                         <br /> 
                         {imageLoad && (
                             <div className='d-flex justify-content-around align-items-center'>
-                                <Spinner animation="border" style={{ color: '#B73551' }} />
+                                <Spinner animation='border' style={{ color: '#B73551' }} />
                             </div>
                         )}
                         {state.url &&
