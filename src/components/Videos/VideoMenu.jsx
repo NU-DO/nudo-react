@@ -1,0 +1,165 @@
+import React, { useEffect, useState } from 'react'
+import VideoList from './VideoList'
+import VideoPlayer from './VideoPlayer'
+import VideoFavs from './VideoFavs'
+import Spinner from '../Generic/Spinner'
+import VideoModal from './VideoModal'
+import Modal from '../Generic/Modal'
+import { getVideos, createVideo, deleteVideo, editVideo } from '../../services/Api'
+import youTubeApi from '../../services/YouTubeService'
+import './VideoMenu.scss'
+
+const VideoMenu = () => {
+    const [videos, setVideos] = useState([])
+    const [videosYT, setVideosYT] = useState([])
+    const [loaded, setLoaded] = useState(false)
+    const [showDialog, setShowDialog] = useState(false)
+    const [title, setTitle] = useState('')
+    const [state, setState] = useState({})
+    const [error, setError] = useState({})
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        getVideos()
+            .then(videos => {
+                setVideos(videos)
+                setLoaded(true)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+    const openModal = () => setShowDialog(true)
+    const closeModal = () => setShowDialog(false)
+
+    const handleChangeSearch = (e) => setTitle(e.target.value)
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        onSearch(title)
+    }
+
+    const onSearch = keyword => {
+        youTubeApi.get('/search', {
+            params: {
+                q: keyword,
+            }
+        })
+            .then(response => {
+                setVideosYT(response.data.items)
+            })
+    }
+
+    const onVideoSelected = (videoId, snippet) => {
+        setState((prev) => {
+            return {
+                ...prev,
+                videoId: videoId.videoId,
+                snippet
+            }
+        })
+    }
+    const addVideoClick = (event) => {
+        openModal()
+    }
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setState(prev => {
+            return {
+                ...prev,
+                [name]: value,
+            }
+        })
+    }
+
+    const modalSent = (event) => {
+        event.preventDefault()
+        createVideo(state)
+            .then(() => {
+                getVideos()
+                    .then(videos => setVideos(videos))
+                setState({})
+                closeModal()
+                setError({})
+            })
+            .catch(err => setError(err.response.data.errors))
+    }
+
+    const handleEditVideo = (event) => {
+        event.preventDefault()
+        // handleEditSnack()
+        const body = {}
+        body.title = state.title
+        body.description = state.description
+
+        editVideo(state.id, body)
+            .then(() => {
+                getVideos()
+                    .then(videos => setVideos(videos))
+                setState({})
+                closeModal()
+                setError({})
+                // handleEditSnack()
+            })
+            .catch(err => setError(err.response.data.errors))
+    }
+
+    const handleDelete = (id) => {
+        // handleDeleteSnack()
+        deleteVideo(id)
+            .then(() => {
+                getVideos()
+                    .then(videos => setVideos(videos))
+            })
+    }
+
+
+    return (
+        <div className='YoutubeComponentContainer'>
+            {loaded ?
+                <>
+                    <div className='SearchVideoInput'>
+                        <h3 style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold' }}>
+                            Resultados:
+                        </h3>
+                        <VideoList
+                            onVideoSelected={onVideoSelected}
+                            data={state.videoMetaInfo}
+                            handleChangeSearch={handleChangeSearch}
+                            handleSubmit={handleSubmit}
+                            handleEditVideo={handleEditVideo}
+                            handleDelete={handleDelete}
+                            videosYT={videosYT}
+                            title={title}
+                            addVideoClick={addVideoClick}
+                        />
+                    </div>
+                    <div>
+                        <VideoFavs
+                            handleEditVideo={handleEditVideo}
+                            handleDelete={handleDelete}
+                            videos={videos}
+                        />
+                    </div>
+                    <div>
+                        <VideoPlayer videoId={state.videoId} />
+                    </div>
+                    {showDialog ? <Modal>
+                        <VideoModal
+                            closeModal={closeModal}
+                            state={state}
+                            modalSent={modalSent}
+                            handleChange={handleChange}
+                            error={error}
+                        />
+                    </Modal>
+                        : null}
+                </>
+                :
+                <Spinner />
+            }
+        </div>
+    )
+}
+
+export default VideoMenu

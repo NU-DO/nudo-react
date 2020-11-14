@@ -1,11 +1,10 @@
 import React from 'react'
-import './InputText.scss'
 
 const InputText = ({ name, value, onChange, onBlur, placeHolder, required, type }) => {
-    
+
     return (
-        <div>
-            <input 
+        <div class="form-group">
+            <input
                 type={type}
                 required={required}
                 name={name}
@@ -13,7 +12,7 @@ const InputText = ({ name, value, onChange, onBlur, placeHolder, required, type 
                 onChange={onChange}
                 onBlur={onBlur}
                 placeHolder={placeHolder}
-                className='InputText'
+                className="form-control"
             />
         </div>
     )

@@ -170,7 +170,7 @@ const ImagesMenu = () => {
                             error={error}
                         />
                     </Modal>
-                        : null}
+                    : null}
                 </> : 
                 <Spinner />
             }

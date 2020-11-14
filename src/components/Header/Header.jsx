@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthContext } from '../../contexts/AuthContext'
 import Drawer from './Drawer'
-import { logout } from '../../services/Api'
 import { makeStyles } from '@material-ui/core/styles'
 import IconButton from '@material-ui/core/IconButton'
 import './Header.scss'
@@ -21,14 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MenuAppBar = () => {
     const classes = useStyles()
-    const { user, logout: logOut } = useAuthContext()
-
-    const handleLogout = (event) => {
-        event.preventDefault()
-        logout()
-            .then(user => logOut())
-            .catch(err => console.log(err))
-    }
+    const { user } = useAuthContext()
 
     const LinkStyle = {
         textDecoration: 'none',
@@ -55,9 +47,9 @@ const MenuAppBar = () => {
                         aria-label='menu'>
                         <Drawer />
                     </IconButton>
-                        : 
-                        <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
-                            <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan' >Registrate</span> </Link></>
+                    : 
+                    <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
+                    <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan' >Registrate</span> </Link></>
                     }
                 </div>
 

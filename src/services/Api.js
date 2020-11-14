@@ -108,6 +108,24 @@ export const editContact = ( id, {...tempState}) => {
     .then((res) => res?.data)
 }
 
+export const getVideos = () => {
+  return http.get('/video')
+}
+
+export const createVideo = ({ title, description, videoId, snippet }) => {
+  return http.post('/video/new', { title, description, videoId, snippet })
+    .then((res) => res?.data)
+}
+
+export const deleteVideo = (videoId) => {
+  return http.delete(`/video/${videoId}/delete`, { videoId })
+}
+
+export const editVideo = ( id, {...tempState}) => {
+  return http.patch(`/video/${id}/edit`, {...tempState})
+    .then((res) => res?.data)
+}
+
 export const handleUpload = (theFile) => {
   return http.post('/upload', theFile)
 }

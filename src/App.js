@@ -12,6 +12,7 @@ import ImagesMenu from './components/Images/ImagesMenu'
 import ContactMenu from './components/Contacts/ContactMenu'
 import Game from './components/Games/Game'
 import StatisticsMenu from './components/Statistics/StatisticsMenu'
+import VideoMenu from './components/Videos/VideoMenu'
 import LandingPage from './components/LandingPage/LandingPage'
 import NotFound from './components/Generic/NotFound'
 import Footer from './components/Footer/Footer'
@@ -33,6 +34,7 @@ function App() {
             <AuthenticatedRoute exact path='/imagenes' component={ImagesMenu}/>
             <AuthenticatedRoute exact path='/juegos' component={Game}/>
             <AuthenticatedRoute exact path='/contactos' component={ContactMenu}/>
+            <AuthenticatedRoute exact path='/videos' component={VideoMenu}/>
             <AuthenticatedRoute exact path='/estadisticas' component={StatisticsMenu}/>
             <AuthenticatedRoute exact path='/' component={Dashboard}/> 
             <Route component={NotFound} />
