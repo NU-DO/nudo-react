@@ -39,7 +39,7 @@ const ContactMenu = () => {
     }, [])
 
     useEffect(() => {
-        setSearchedContacts(contacts)
+        setSearchedContacts(contacts.sort((a, b) => ('' + a.name).localeCompare(b.name)))
     }, [contacts])
 
     useEffect(() => {
