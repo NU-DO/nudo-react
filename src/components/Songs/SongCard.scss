@@ -9,24 +9,6 @@
     justify-content: flex-start;
     width: 340px;
     position: relative;
-    .d50 {
-        border-left: 1px solid yellow;
-    }
-    .d60 {
-        border-left: 1px solid green;
-    }
-    .d70 {
-        border-left: 1px solid red;
-    }
-    .d80 {
-        border-left: 1px solid pink;
-    }
-    .d90 {
-        border-left: 1px solid black;
-    }
-    .d00 {
-        border-left: 1px solid blue;
-    }
     audio {
         filter: sepia(0%) saturate(10%) grayscale(0.3) contrast(99%) invert(10%);
         width: 100px;
@@ -79,7 +61,30 @@
     }
     .songsDeleteIcon {
         margin: 23px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
+}
+
+.fifties {
+    border-left: 4px solid yellow;
+}
+.sixties {
+    border-left: 4px solid green;
+}
+.seventies {
+    border-left: 4px solid red;
+}
+.eighties {
+    border-left: 4px solid purple;
+}
+.nineties {
+    border-left: 4px solid black;
+}
+.current {
+    border-left: 4px solid blue;
 }
 
 @media (min-width: 700px) {
@@ -119,15 +124,6 @@
         }
         .songText {
             width: 150px;
-        }
-        .addButton {
-            color: black;
-            font-size: 42px;
-            margin-top: -8px;
-            margin-left: 12px;
-        }
-        .addSongForm {
-            display: flex;
         }
         .absolute {
             position: absolute;
