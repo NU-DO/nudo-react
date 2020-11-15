@@ -6,7 +6,7 @@ import './SongCard.scss'
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong }) => {
 
     return (
-        <div className='SongCard'>
+        <div className={`SongCard ${'d' + song.decade?.slice(0, 3)}`}>
             <img
                 className='albumImage'
                 src={typeSearch ? song.album.images[0].url : song.image}

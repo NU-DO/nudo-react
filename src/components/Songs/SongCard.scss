@@ -9,6 +9,24 @@
     justify-content: flex-start;
     width: 340px;
     position: relative;
+    .d50 {
+        border-left: 1px solid yellow;
+    }
+    .d60 {
+        border-left: 1px solid green;
+    }
+    .d70 {
+        border-left: 1px solid red;
+    }
+    .d80 {
+        border-left: 1px solid pink;
+    }
+    .d90 {
+        border-left: 1px solid black;
+    }
+    .d00 {
+        border-left: 1px solid blue;
+    }
     audio {
         filter: sepia(0%) saturate(10%) grayscale(0.3) contrast(99%) invert(10%);
         width: 100px;
