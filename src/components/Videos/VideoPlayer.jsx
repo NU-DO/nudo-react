@@ -13,10 +13,10 @@ const Videoplayer = ({ videoId }) => {
         <div className='VideoPlayer'>
             <iframe
                 title={videoId}
-                width='640' 
+                width='640'
                 height='360'
                 allowfullscreen='allowfullscreen'
-                style={{ borderRadius: '10px'}}
+                style={{ borderRadius: '10px' }}
                 className='video-iframe'
                 src={`https://www.youtube.com/embed/${videoId}`}
             />

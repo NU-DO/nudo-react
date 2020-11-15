@@ -2,7 +2,7 @@ import React from 'react'
 import InputText from '../Generic/InputText'
 
 const VideoSearcher = ({ handleChangeSearch, handleSubmit, title }) => {
-    
+
     return (
         <form onSubmit={handleSubmit}>
             <label htmlFor='youtubeSearcher'>Busca un video:</label>

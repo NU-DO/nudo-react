@@ -20,7 +20,7 @@ const Video = ({ onVideoSelected, videosYT, addVideoClick }) => {
             </div>
         )
     })
-    
+
     return (
         <div>
             { allVideos}
