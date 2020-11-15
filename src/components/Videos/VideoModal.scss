@@ -1,48 +1,45 @@
-.ModalVideoContent {
-    position: relative;
-    padding: 40px;
+.ModalVideoContainer {
+  position: relative;
+  padding: 40px;
+  width: auto;
+  height: fit-content;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 3px 15px 15px rgba(0, 0, 0, 0.12);
+  margin: auto 0;
+  animation-name: animatetop;
+  transition: all 5s ease-in;
+}
+
+@keyframes animatetop {
+  from {
+    margin-left: -300000px;
+  }
+  to {
+    margin: auto 0;
+  }
+}
+
+@media (min-width: 700px) {
+  .ModalVideoContent {
+    padding: 20px 20px 20px 20px;
     width: auto;
     height: fit-content;
     background-color: white;
     border-radius: 10px;
     box-shadow: 5px 3px 15px 15px rgba(0, 0, 0, 0.12);
     margin: auto 0;
+    overflow: scroll;
     animation-name: animatetop;
-    transition: all 5s ease-in;
+    transition: all 2s ease-in;
   }
-  
-  @keyframes animatetop {
-    from {
-      margin-left: -300000px;
-    }
-    to {
-      margin: auto 0;
-    }
+}
+
+@keyframes animatetop {
+  from {
+    margin-left: -30000000px;
   }
-  
-  @media (min-width: 700px) {
-    .ModalVideoContent {
-      padding: 20px 20px 20px 20px;
-      width: auto;
-      height: fit-content;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 5px 3px 15px 15px rgba(0, 0, 0, 0.12);
-      margin: auto 0;
-      overflow: scroll;
-      animation-name: animatetop;
-      transition: all 2s ease-in;
-    }
+  to {
+    margin: auto 0;
   }
-  
-  
-  
-  @keyframes animatetop {
-      from {
-          margin-left: -30000000px;
-        }
-        to {
-          margin: auto 0;
-        }
-  }
-  
+}

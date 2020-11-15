@@ -59,6 +59,7 @@ const VideoMenu = () => {
                 snippet
             }
         })
+        console.log(state.videoId)
     }
     const addVideoClick = (event) => {
         openModal()
@@ -143,11 +144,12 @@ const VideoMenu = () => {
                                 editThisVideo={editThisVideo}
                                 handleDelete={handleDelete}
                                 videos={videos}
+                                onVideoSelected={onVideoSelected}
                             />
                         </div>
-                        {/* <div>
+                        <div>
                             <VideoPlayer videoId={state.videoId} />
-                        </div> */}
+                        </div>
                         {showDialog ? <Modal>
                             <VideoModal
                                 closeModal={closeModal}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
 import GenericButton from '../Generic/GenericButton'
+import './VideoModal.scss'
 
 const VideoModal = ({ closeModal, error, state, handleChange, handleEditVideo, modalSent }) => {
     const [edit, setEdit] = useState(false)
@@ -12,7 +13,7 @@ const VideoModal = ({ closeModal, error, state, handleChange, handleEditVideo, m
     }, [])
 
     return (
-        <div className='ModalVideoContent'>
+        <div className='ModalVideoContainer'>
             <CloseModalButton onClick={closeModal} />
             <h4 style={{ textAlign: 'center' }}>Completa los campos</h4>
             <form onSubmit={edit ? handleEditVideo : modalSent}>
@@ -46,6 +47,7 @@ const VideoModal = ({ closeModal, error, state, handleChange, handleEditVideo, m
                             onChange={handleChange}
                         ></textarea>
                     </div>
+                    <br/>
                     <GenericButton
                         type='button'
                         text='Guardar'
