@@ -65,7 +65,6 @@ const Album = ({ images, setImages, addImageClick, handleDelete, editThisImage }
                     </div>
 
                 </div>
-                {/* {dateImages.map(image => <Image image={image} key={image.id} handleDelete={handleDelete} editThisImage={editThisImage} />)} */}
                 {currentPageData}
             </div>
             <ReactPaginate
