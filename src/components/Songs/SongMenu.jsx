@@ -15,6 +15,8 @@ function SongMenu() {
     const [matchSong, setMatchSong] = useState([])
     const [form, setForm] = useState(false)
     const [fav, setFav] = useState([])
+    const [decade, setDecade] = useState('all')
+    const [favFiltered, setFavFiltered] = useState([])
     const [snackSavedOpen, setSnackSavedOpen] = useState(false)
     const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [loaded, setLoaded] = useState(false)
@@ -23,11 +25,21 @@ function SongMenu() {
         window.scrollTo(0, 0)
         getSongs()
             .then(data => {
-                setFav(data)   
+                setFav(data)
+                setFavFiltered(data)  
             })
             .then(() => setLoaded(true))
             .catch(err => console.log(err))
     }, [])
+
+    useEffect(() => {
+        if (decade === 'all') {
+            setFavFiltered(fav)
+        } else {
+            const songDecade = fav.filter(song => song.decade === decade)
+            setFavFiltered(songDecade)
+        }
+    }, [decade])
 
     useEffect(() => {
         getSongsFromSpotify(search)
@@ -102,7 +114,7 @@ function SongMenu() {
                         <SongSearch matchSong={matchSong} handleOpen={handleOpen} addFav={addFav} form={form} handleChange={handleChange} search={search} />
                     </div>
                     <div className='songSearchDiv'>
-                        <SongFav fav={fav} handleDeleteSong={handleDeleteSong} />
+                        <SongFav favFiltered={favFiltered} handleDeleteSong={handleDeleteSong} setDecade={setDecade} decade={decade} />
                     </div>
                 </div></>
                 :

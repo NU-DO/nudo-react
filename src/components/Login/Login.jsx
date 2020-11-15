@@ -86,13 +86,15 @@ const LogIn = (props) => {
             <form onSubmit={(e) => handleSubmit(e)}>
               <div className='LogInFormContainer'>
                 <div class='form-group'>
-                  <label for='exampleInputEmail1'>Correo electrónico</label>
+                  <label htmlFor='exampleInputEmail1'>Correo electrónico</label>
                   <input type='email'
                     class={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
                     id='email'
                     name='email'
                     aria-describedby='emailHelp'
-                    onChange={handleChange} />
+                    onChange={handleChange}
+                    required
+                  />
                   {state.error ?
                     <div class='invalid-feedback animate__animated animate__shakeX'>
                       Email o contraseña incorrecta
@@ -101,15 +103,17 @@ const LogIn = (props) => {
                   }
                 </div>
                 <div class='form-group'>
-                  <label for='exampleInputPassword1'>Contraseña</label>
+                  <label htmlFor='exampleInputPassword1'>Contraseña</label>
                   <input
                     type='password'
                     class={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
                     id='password'
                     name='password'
-                    onChange={handleChange} />
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
-                <small class='form-text text-muted LogInText' for='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{ color: '#839672' }}>Regístrate</Link></small>
+                <small class='form-text text-muted LogInText' htmlFor='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{ color: '#839672' }}>Regístrate</Link></small>
               </div>
               <div className='LogInButton'>
                 <GenericButton text='Entrar' />

@@ -68,7 +68,7 @@ const NudoDrawer = () => {
             </div>
             <List>
                 {routesRedirect.map((text, index) => (
-                    <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: 'none', color: 'black' }}>
+                    <Link to={`/${text.toLowerCase()}`} style={{ textDecoration: 'none', color: 'black' }} key={index}>
                         <div>
                             <ListItem button key={text}>
                                 <ListItemIcon>{index === 0 ? <PhotoLibraryIcon /> :

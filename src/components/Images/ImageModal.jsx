@@ -30,6 +30,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             name='title'
                             value={state.title}
                             onChange={handleChange}
+                            required
                         />
                         {error?.title ?
                             <div class='invalid-feedback animate__animated animate__shakeX'>
@@ -53,11 +54,13 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                         <br />
                         <label>Año</label>
                         <input
+                            type='number'
                             id='date'
                             name='date'
                             className={`form-control ${error?.date ? `is-invalid animate__animated animate__shakeX` : null}`}
                             value={state.date}
                             onChange={handleChange}
+                            required
                         />
                         {error?.date ?
                             <div class='invalid-feedback animate__animated animate__shakeX'>
@@ -75,6 +78,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             className='form-control-file'
                             onChange={(e) => handleFileUpload(e)}
                             placeholder='Selecciona un archivo'
+                            required
                         />
                     </div> : null}
                     <div>

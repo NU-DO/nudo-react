@@ -68,14 +68,16 @@ const SignIn = () => {
                         <form onSubmit={(e) => handleSubmit(e)}>
                             <div className='SignInFormContainer'>
                                 <div class='form-group'>
-                                    <label for='exampleInputEmail1'>Nombre de usuario</label>
+                                    <label htmlFor='exampleInputEmail1'>Nombre de usuario</label>
                                     <input type='text'
                                         class={`form-control ${state.error?.username ? `is-invalid animate__animated animate__shakeX` : null}`}
                                         id='username'
                                         name='username'
                                         aria-describedby='emailHelp'
                                         value={state.data?.username}
-                                        onChange={handleChange} />
+                                        onChange={handleChange} 
+                                        required    
+                                        />
 
                                     {state.error?.username ?
                                         <div class='invalid-feedback animate__animated animate__shakeX'>
@@ -85,14 +87,16 @@ const SignIn = () => {
                                     }
                                 </div>
                                 <div class='form-group'>
-                                    <label for='exampleInputEmail1'>Correo electrónico</label>
+                                    <label htmlFor='exampleInputEmail1'>Correo electrónico</label>
                                     <input type='email'
                                         class={`form-control ${state.error?.email ? `is-invalid animate__animated animate__shakeX` : null}`}
                                         id='email'
                                         name='email'
                                         aria-describedby='emailHelp'
                                         value={state.data?.email}
-                                        onChange={handleChange} />
+                                        onChange={handleChange} 
+                                        required    
+                                        />
                                     {state.error?.email ?
                                         <div class='invalid-feedbackanimate__animated animate__shakeX'>
                                             {state.error.email}
@@ -101,14 +105,17 @@ const SignIn = () => {
                                     }
                                 </div>
                                 <div class='form-group'>
-                                    <label for='exampleInputPassword1'>Contraseña</label>
+                                    <label htmlFor='exampleInputPassword1'>Contraseña</label>
                                     <input
                                         type='password'
                                         class={`form-control ${state.error?.password ? `is-invalid animate__animated animate__shakeX` : null}`}
                                         id='password'
                                         name='password'
                                         value={state.data?.password}
-                                        onChange={handleChange} />
+                                        onChange={handleChange} 
+                                        required
+                                        minLength='8'    
+                                        />
                                     {state.error?.password ?
                                         <div class='invalid-feedback animate__animated animate__shakeX'>
                                             {state.error.password}

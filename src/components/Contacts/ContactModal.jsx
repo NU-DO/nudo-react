@@ -25,12 +25,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                     <div className='form-row'>
                         <div className='form-group col-8 '>
                             <label for='exampleFormControlInput1'>Nombre</label>
-                            <input type='text'
+                            <input 
+                                type='text'
                                 className={`form-control ${error?.name ? `is-invalid animate__animated animate__shakeX` : null}`}
                                 id='exampleFormControlInput1'
                                 name='name'
                                 value={tempState.name}
                                 onChange={handleChange}
+                                required
                             />
                             {error?.name ?
                                 <div class='invalid-feedback animate__animated animate__shakeX'>
@@ -41,12 +43,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         </div>
                         <div className='form-group col-4'>
                             <label for='exampleFormControlInput1'>Relación</label>
-                            <input type='text'
+                            <input 
+                                type='text'
                                 className={`form-control ${error?.role ? `is-invalid animate__animated animate__shakeX` : null}`}
                                 id='relación'
                                 name='role'
                                 value={tempState.role}
                                 onChange={handleChange}
+                                required
                             />
                             {error?.role ?
                                 <div class='invalid-feedback animate__animated animate__shakeX'>
@@ -59,7 +63,8 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
 
                     <div className='form-group'>
                         <label for='exampleFormControlInput1'>Dirección</label>
-                        <input type='text'
+                        <input 
+                            type='text'
                             className='form-control'
                             id='address'
                             name='address'
@@ -70,7 +75,8 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                     <div className='form-row'>
                         <div className='form-group col-4 col-md-4'>
                             <label for='exampleFormControlInput1'>Email</label>
-                            <input type='email'
+                            <input 
+                                type='email'
                                 className={`form-control ${error?.email ? `is-invalid animate__animated animate__shakeX` : null}`}
                                 id='email'
                                 name='email'
@@ -86,7 +92,8 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         </div>
                         <div className='form-group col-4 col-md-4'>
                             <label for='exampleFormControlInput1'>Teléfono</label>
-                            <input type='text'
+                            <input 
+                                type='text'
                                 className={`form-control ${error?.phone ? `is-invalid animate__animated animate__shakeX` : null}`}
                                 id='phone'
                                 name='phone'
@@ -102,7 +109,8 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         </div>
                         <div className='form-group col-4'>
                             <label for='exampleFormControlInput1'>Cumpleaños</label>
-                            <input type='text'
+                            <input 
+                                type='text'
                                 className='form-control'
                                 id='birthday'
                                 name='birthday'

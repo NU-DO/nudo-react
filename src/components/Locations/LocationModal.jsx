@@ -27,6 +27,7 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
                             name='name'
                             onChange={handleChange}
                             value={tempCoordenates.name}
+                            required
                         />
                         {error?.name ?
                             <div class='invalid-feedback animate__animated animate__shakeX'>
