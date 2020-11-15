@@ -32,7 +32,7 @@ const ContactMenu = () => {
         window.scrollTo(0, 0)
         getContacts()
             .then(contacts => {
-                setContacts(contacts)
+                setContacts(contacts.sort((a, b) => ('' + a.name).localeCompare(b.name)))
                 setLoaded(true)
             })
             .catch(err => console.log(err))
@@ -44,6 +44,7 @@ const ContactMenu = () => {
 
     useEffect(() => {
         const match = contacts.filter(contact => contact.name.toLowerCase().includes(search.search))
+            .sort((a, b) => ('' + a.name).localeCompare(b.name))
         setSearchedContacts(match)
     }, [search])
 
