@@ -8,12 +8,14 @@ import Modal from '../Generic/Modal'
 import { getVideos, createVideo, deleteVideo, editVideo } from '../../services/Api'
 import youTubeApi from '../../services/YouTubeService'
 import './VideoMenu.scss'
+import ModalDark from '../Generic/ModalDark'
 
 const VideoMenu = () => {
     const [videos, setVideos] = useState([])
     const [videosYT, setVideosYT] = useState([])
     const [loaded, setLoaded] = useState(false)
     const [showDialog, setShowDialog] = useState(false)
+    const [showPlayer, setShowPlayer] = useState(false)
     const [flagData, setFlagData] = useState(false)
     const [title, setTitle] = useState('')
     const [state, setState] = useState({})
@@ -31,6 +33,8 @@ const VideoMenu = () => {
 
     const openModal = () => setShowDialog(true)
     const closeModal = () => setShowDialog(false)
+    const openDarkModal = () => setShowPlayer(true)
+    const closeDarkModal = () => setShowPlayer(false)
 
     const handleChangeSearch = (e) => setTitle(e.target.value)
 
@@ -46,6 +50,7 @@ const VideoMenu = () => {
             }
         })
             .then(response => {
+               
                 setVideosYT(response.data.items)
                 setFlagData(true)
             })
@@ -55,12 +60,22 @@ const VideoMenu = () => {
         setState((prev) => {
             return {
                 ...prev,
-                videoId: videoId.videoId,
+                videoId: videoId.videoId || videoId,
                 snippet
             }
         })
-        console.log(state.videoId)
+        
     }
+
+    const playVideo = (video) => {
+        if (video.description) {
+            onVideoSelected(video.videoId, video.snippet)
+        } else {
+            onVideoSelected(video.videoId.videoId, video.snippet)
+        }  
+        openDarkModal()
+    }
+
     const addVideoClick = (event) => {
         openModal()
     }
@@ -144,12 +159,21 @@ const VideoMenu = () => {
                                 editThisVideo={editThisVideo}
                                 handleDelete={handleDelete}
                                 videos={videos}
-                                onVideoSelected={onVideoSelected}
+                                playVideo={playVideo}
                             />
                         </div>
                         <div>
-                            <VideoPlayer videoId={state.videoId} />
+                            {showPlayer && (
+                                <ModalDark>
+                                    <VideoPlayer
+                                        videoId={state.videoId}
+                                        closeDarkModal={closeDarkModal}
+                                    />
+                                </ModalDark>
+
+                            )}
                         </div>
+
                         {showDialog ? <Modal>
                             <VideoModal
                                 closeModal={closeModal}

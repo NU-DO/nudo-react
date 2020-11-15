@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './Modal.scss'
+import './ModalDark.scss'
 
 const ModalDarkContent = (props) => {
 
     return (
-        <div className='ModalOverlay'>
+        <div className='ModalDarkOverlay'>
             {props.children}
         </div>
     )

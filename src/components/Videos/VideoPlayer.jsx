@@ -1,7 +1,8 @@
 import React from 'react'
+import CloseModalButton from '../Generic/CloseModalButton'
 import './Video.scss'
 
-const Videoplayer = ({ videoId }) => {
+const Videoplayer = ({ videoId, closeDarkModal }) => {
     if (!videoId) {
         return (
             <p style={{ textAlign: 'center', fontSize: '18px', fontWeight: 'bold' }}>
@@ -9,8 +10,10 @@ const Videoplayer = ({ videoId }) => {
             </p>
         )
     }
+
     return (
         <div className='VideoPlayer'>
+            <CloseModalButton onClick={closeDarkModal} />
             <iframe
                 title={videoId}
                 width='640'

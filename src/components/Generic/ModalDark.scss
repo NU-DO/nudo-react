@@ -1,4 +1,4 @@
-.ModalOverlay {
+.ModalDarkOverlay {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -6,7 +6,7 @@
     left: 50%;
     z-index: 999999999999;
     transform: translate(-50%, -50%);
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(255,255,255, 0.9);
     display: flex;
     justify-content: center;
     animation-name: fadeIn;
@@ -15,7 +15,7 @@
   
   @keyframes fadeIn {
       from  {background-color: transparent;}
-      to {background-color: rgba(0,0,0,0.8);;}
+      to {background-color:rgba(255,255,255, 0.9);}
     }
   
   
