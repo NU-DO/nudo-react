@@ -9,56 +9,81 @@
     justify-content: flex-start;
     width: 340px;
     position: relative;
+
     audio {
         filter: sepia(0%) saturate(10%) grayscale(0.3) contrast(99%) invert(10%);
         width: 100px;
         height: 25px;
     }
+
     .albumImage {
         width: 60px;
         height: 60px;
         border-radius: 50%;
     }
+
     .songName {
         margin: 10px 0 0 0;
         font-size: 12px;
     }
+
     .songArtist {
         font-size: 10px;
         color: rgb(112, 109, 109);
         padding: 5px;
     }
+
     .songCardInfo {
         display: flex;
         padding-left: 8px;
         align-items: center;
         justify-content: center;
     }
+
     .songText {
         width: 120px;
     }
+
     .addButton {
         color: black;
         font-size: 42px;
         margin-top: -8px;
         margin-left: 12px;
+
         &:hover {
             cursor: pointer;
         }
     }
+
     .addSongForm {
         display: flex;
+
         &:hover {
             cursor: pointer;
         }
     }
+
     .absolute {
         position: absolute;
-        border-radius: 5px;
+        right: 23px;
+        top: 85px;
+        background-color: white;
+        width: 400px;
+        border-radius: 10px 0 10px 10px;
+        padding: 5px 10px;
+        width: 275px;
         margin-left: 13px;
         margin-top: -50px;
         z-index: 10;
+        display: flex;
+        flex-direction: column;
+
+        .absoluteBtn {
+            display: flex;
+            justify-content: space-around;
+        }
     }
+
     .songsDeleteIcon {
         margin: 23px;
 
@@ -71,18 +96,23 @@
 .fifties {
     border-left: 4px solid yellow;
 }
+
 .sixties {
     border-left: 4px solid green;
 }
+
 .seventies {
     border-left: 4px solid red;
 }
+
 .eighties {
     border-left: 4px solid purple;
 }
+
 .nineties {
     border-left: 4px solid black;
 }
+
 .current {
     border-left: 4px solid blue;
 }
@@ -97,39 +127,47 @@
         display: flex;
         justify-content: flex-start;
         width: 500px;
+
         audio {
             filter: sepia(0%) saturate(10%) grayscale(0.3) contrast(99%) invert(10%);
             width: 200px;
             height: 25px;
         }
+
         .albumImage {
             width: 60px;
             height: 60px;
             border-radius: 50%;
         }
+
         .songName {
             margin: 10px 0 0 0;
             font-size: 12px;
         }
+
         .songArtist {
             font-size: 10px;
             color: rgb(112, 109, 109);
             padding: 5px;
         }
+
         .songCardInfo {
             display: flex;
             padding-left: 8px;
             align-items: center;
             justify-content: center;
         }
+
         .songText {
             width: 150px;
         }
+
         .absolute {
             position: absolute;
-            border-radius: 5px;
             margin-left: 13px;
             margin-top: -50px;
+            right: 53px;
+            top: 92px;
         }
     }
 }

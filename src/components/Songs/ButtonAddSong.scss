@@ -1,10 +1,13 @@
 .ButtonAddSong {
+    margin-top: -5px;
     margin-bottom: 2px;
-    font-size: 10px;
+    font-size: 12px;
     color: white;
-    background-color: #EF7E93;
-    border-radius: 8px;
+    background-color:  #839672;
+    border-radius: 10px;
+    width: 35px;
     padding: 5px 2px;
+    text-align: center;
     
     &:hover {
         cursor: pointer;

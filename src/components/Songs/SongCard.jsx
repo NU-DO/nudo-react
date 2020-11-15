@@ -48,12 +48,15 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong
                         <div className='addButton' onClick={() => handleOpen(song.id)}>+</div>
                         {form === song.id ?
                             <div className='absolute'>
-                                <ButtonAddSong decade="50's" addFav={addFav} song={song} />
-                                <ButtonAddSong decade="60's" addFav={addFav} song={song} />
-                                <ButtonAddSong decade="70's" addFav={addFav} song={song} />
-                                <ButtonAddSong decade="80's" addFav={addFav} song={song} />
-                                <ButtonAddSong decade="90's" addFav={addFav} song={song} />
-                                <ButtonAddSong decade="00's" addFav={addFav} song={song} />
+                                <p>Elige una década:</p>
+                                <div className='absoluteBtn'>
+                                    <ButtonAddSong decade="50's" addFav={addFav} song={song} />
+                                    <ButtonAddSong decade="60's" addFav={addFav} song={song} />
+                                    <ButtonAddSong decade="70's" addFav={addFav} song={song} />
+                                    <ButtonAddSong decade="80's" addFav={addFav} song={song} />
+                                    <ButtonAddSong decade="90's" addFav={addFav} song={song} />
+                                    <ButtonAddSong decade="00's" addFav={addFav} song={song} />
+                                </div>
                             </div>
                             : null}
                     </div>
