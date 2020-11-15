@@ -92,7 +92,9 @@ const LogIn = (props) => {
                     id='email'
                     name='email'
                     aria-describedby='emailHelp'
-                    onChange={handleChange} />
+                    onChange={handleChange}
+                    required
+                  />
                   {state.error ?
                     <div class='invalid-feedback animate__animated animate__shakeX'>
                       Email o contraseña incorrecta
@@ -107,7 +109,9 @@ const LogIn = (props) => {
                     class={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
                     id='password'
                     name='password'
-                    onChange={handleChange} />
+                    onChange={handleChange}
+                    required
+                  />
                 </div>
                 <small class='form-text text-muted LogInText' htmlFor='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{ color: '#839672' }}>Regístrate</Link></small>
               </div>
