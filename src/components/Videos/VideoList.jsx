@@ -1,20 +1,25 @@
 import React from 'react'
 import VideoSearchForm from './VideoSearchForm'
 import Video from './Video'
+import './VideoList.scss'
 
-const VideoList = ({ data, onVideoSelected, handleChangeSearch, handleSubmit, addVideoClick, title, videosYT }) => {
+const VideoList = ({ data, flagData, onVideoSelected, handleChangeSearch, handleSubmit, addVideoClick, title, videosYT }) => {
+
   return (
     <div className='VideoList'>
-       <VideoSearchForm 
-          handleChangeSearch={handleChangeSearch} 
-          handleSubmit={handleSubmit} 
-          title={title} 
-        />
+      <VideoSearchForm
+        handleChangeSearch={handleChangeSearch}
+        handleSubmit={handleSubmit}
+        title={title}
+      />
+      {flagData && (
         <div className='video-list'>
-          <div style={{ padding: '20px 0' }}>
+          <div>
             <Video data={data} onVideoSelected={onVideoSelected} addVideoClick={addVideoClick} videosYT={videosYT} />
           </div>
         </div>
+      )}
+
     </div>
   )
 }

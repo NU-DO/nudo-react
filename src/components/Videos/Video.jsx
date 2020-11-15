@@ -14,9 +14,9 @@ const Video = ({ onVideoSelected, videosYT, addVideoClick }) => {
                 <div>
                     <p className="VideoCardTitle">{snippet.title}</p>
                 </div>
-                <button onClick={() => addVideoClick()}>
+                <div className='AddVideo' onClick={() => addVideoClick()}>
                     +
-                </button>
+                </div>
             </div>
         )
     })
