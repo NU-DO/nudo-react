@@ -52,10 +52,10 @@ const Dashboard = () => {
                 <DCard
                     action='Mira'
                     textHead='Videos'
-                    img='https://www.carena.org/wp-content/uploads/memories.jpg'
-                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-Imagenes_dudrsk.svg'
+                    img='https://res.cloudinary.com/difhe4gl3/image/upload/v1605476808/NUDO/assets/tv-540x540_ntvpyb.jpg'
+                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1605476909/NUDO/assets/Dashboard-icons/Recurso_18_zgdpsa.svg'
                     link='videos'
-                    textBody='¿Recuerdas aquel concierto? pues esta sección es ideal para guardar esos recuerdos y añadir los comentarios que quieras.'
+                    textBody='¿Recuerdas aquel video de la fiesta de cumpleaños? Aqúi podrás guardar esos recuerdos y añadir los comentarios que quieras.'
                 />
                 <DCard
                     action='Vida'

@@ -12,7 +12,7 @@ const SongFav = ({ favFiltered, handleDeleteSong, setDecade, decade }) => {
 
     return (
         <div className='maxWidth'>
-            <h4 className='py-3'>Canciones Favoritas</h4>
+            <h4 className='py-3 pl-3'>Canciones Favoritas</h4>
             <SongFavFilter setDecade={setDecade} decade={decade}/>
             <div className='songFavContainer'>
                 {!favFiltered.length ? <p>No coincide ningún fav</p> :

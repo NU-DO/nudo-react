@@ -5,7 +5,7 @@ const SongFavFilter = ({ setDecade, decade }) => {
     
     return (
         <div className='SongFavFilter'>
-            <h5 className='SongFavFilterHeader'>Filtra por decada:</h5>
+            <p className='SongFavFilterHeader pl-3 pr-2'>Filtra por decada:</p>
             <select onClick={(e) => setDecade(e.target.value)} className="custom-select selectMenu">
                 <option value='all'>Todas</option>
                 <option value="50's">50's</option>

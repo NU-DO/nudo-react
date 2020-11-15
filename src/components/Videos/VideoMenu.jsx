@@ -9,6 +9,7 @@ import { getVideos, createVideo, deleteVideo, editVideo } from '../../services/A
 import youTubeApi from '../../services/YouTubeService'
 import './VideoMenu.scss'
 import ModalDark from '../Generic/ModalDark'
+import ComponentHeader from '../Generic/ComponentHeader'
 
 const VideoMenu = () => {
     const [videos, setVideos] = useState([])
@@ -50,7 +51,7 @@ const VideoMenu = () => {
             }
         })
             .then(response => {
-               
+
                 setVideosYT(response.data.items)
                 setFlagData(true)
             })
@@ -64,7 +65,7 @@ const VideoMenu = () => {
                 snippet
             }
         })
-        
+
     }
 
     const playVideo = (video) => {
@@ -72,7 +73,7 @@ const VideoMenu = () => {
             onVideoSelected(video.videoId, video.snippet)
         } else {
             onVideoSelected(video.videoId.videoId, video.snippet)
-        }  
+        }
         openDarkModal()
     }
 
@@ -139,6 +140,11 @@ const VideoMenu = () => {
 
     return (
         <div className='NudoMap'>
+            <ComponentHeader
+                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1605476909/NUDO/assets/Dashboard-icons/Recurso_18_zgdpsa.svg'
+                title='Videos'
+                description='Busca tus videos favoritos de YouTube y guardalos en Nudo. Para tener a mano siempre'
+            />
             <div className='YoutubeComponentContainer'>
                 {loaded ?
                     <>
