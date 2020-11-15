@@ -27,6 +27,7 @@ const VideoModal = ({ closeModal, error, state, handleChange, handleEditVideo, m
                             name='title'
                             value={state.title}
                             onChange={handleChange}
+                            required
                         />
                         {error?.title ?
                             <div class='invalid-feedback animate__animated animate__shakeX'>

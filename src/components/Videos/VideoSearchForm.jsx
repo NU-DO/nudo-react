@@ -5,7 +5,7 @@ const VideoSearcher = ({ handleChangeSearch, handleSubmit, title }) => {
     
     return (
         <form onSubmit={handleSubmit}>
-            <label htmlFor="youtubeSearcher">Busca un video:</label>
+            <label htmlFor='youtubeSearcher'>Busca un video:</label>
             <InputText
                 id='youtubeSearcher'
                 type='text'

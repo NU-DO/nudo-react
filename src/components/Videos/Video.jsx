@@ -1,5 +1,5 @@
-import React from "react";
-import "./Video.scss";
+import React from "react"
+import "./Video.scss"
 
 const Video = ({ onVideoSelected, videosYT, addVideoClick }) => {
     const allVideos = videosYT.map(({ snippet, id }, index) => {
@@ -20,9 +20,10 @@ const Video = ({ onVideoSelected, videosYT, addVideoClick }) => {
             </div>
         )
     })
+    
     return (
         <div>
-        { allVideos }
+            { allVideos}
         </div>
     )
 }
