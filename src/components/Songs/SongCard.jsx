@@ -4,35 +4,35 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import './SongCard.scss'
 
 const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong }) => {
-    const [decade, setDecade] = useState('')
+    const [decadeCard, setDecadeCard] = useState('')
 
     useEffect(() => {
         switch (song.decade) {
             case "50's":
-                setDecade('fifties')
+                setDecadeCard('fifties')
                 break;
             case "60's":
-                setDecade('sixties')
+                setDecadeCard('sixties')
                 break;
             case "70's":
-                setDecade('seventies')
+                setDecadeCard('seventies')
                 break;
             case "80's":
-                setDecade('eighties')
+                setDecadeCard('eighties')
                 break;
             case "90's":
-                setDecade('nineties')
+                setDecadeCard('nineties')
                 break;
             case "00's":
-                setDecade('current')
+                setDecadeCard('current')
                 break;
             default:
-                setDecade('')
+                setDecadeCard('')
         }
     }, [song])
 
     return (
-        <div className={`SongCard ${decade}`}>
+        <div className={`SongCard ${decadeCard}`}>
             <img
                 className='albumImage'
                 src={typeSearch ? song.album.images[0].url : song.image}
