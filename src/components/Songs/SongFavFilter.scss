@@ -1,7 +1,14 @@
 .SongFavFilter {
     display: flex;
+    align-items: baseline;
     margin: 0 0 0px 0;
 
+    .SongFavFilterHeader{
+        margin-right: 20px
+    }
+    .selectMenu{
+        width: 150px;
+    }
     .filterButton {
         padding: 5px 10px;
         border-radius: 5px;
