@@ -45,9 +45,12 @@ const HistoryMenu = () => {
     }]
 
     return (
-        <div style={{ width: "100%", height: "400px", paddingLeft: '20px' }}>
+        <div style={{ width: "100%", height: "100%", paddingLeft: '20px' }}>
             <Chrono
                 items={items}
+                mode={ "VERTICAL_ALTERNATING"}
+                slideshow
+                slideItemDuration={1000}
                 scrollable={{ scrollbar: true }}
             // theme={{ primary: "red", secondary: "blue", cardBgColor: "yellow", cardForeColor: "violet" }}
             />
