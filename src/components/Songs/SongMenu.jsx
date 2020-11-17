@@ -51,6 +51,10 @@ function SongMenu() {
             .catch(err => console.log(err))
     }, [search])
 
+    useEffect(() => {
+        setFavFiltered(fav)
+    }, [fav])
+
     const handleSavedSnack = () => setSnackSavedOpen(true)
     const handleDeleteSnack = () => setSnackDeleteOpen(true)
     const handleCloseSavedSnack = (event, reason) => {
