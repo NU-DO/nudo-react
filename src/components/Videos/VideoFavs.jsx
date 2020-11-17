@@ -26,7 +26,7 @@ const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
         .map((video, index) => {
             return (
                 <div className='VideoCardFav' key={index} >
-                    <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1605477175/NUDO/assets/Recurso_19_bpiczh.svg' className='PlayIconVideo' onClick={() => playVideo(video)} />
+                    <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1605477175/NUDO/assets/Recurso_19_bpiczh.svg' alt='logo' className='PlayIconVideo' onClick={() => playVideo(video)} />
                     <img src={video.snippet} className='VideoCardFavImage' onClick={() => playVideo(video)} alt='recorte de vídeo' />
                     <h5>{video.title}</h5>
                     <p> Descripción: {video.description}</p>

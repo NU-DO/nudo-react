@@ -10,9 +10,10 @@ import SongMenu from './components/Songs/SongMenu'
 import NudoMap from './components/Locations/NudoMap'
 import ImagesMenu from './components/Images/ImagesMenu'
 import ContactMenu from './components/Contacts/ContactMenu'
+import VideoMenu from './components/Videos/VideoMenu'
+import HistoryMenu from './components/History/HistoryMenu'
 import Game from './components/Games/Game'
 import StatisticsMenu from './components/Statistics/StatisticsMenu'
-import VideoMenu from './components/Videos/VideoMenu'
 import LandingPage from './components/LandingPage/LandingPage'
 import NotFound from './components/Generic/NotFound'
 import Footer from './components/Footer/Footer'
@@ -35,6 +36,7 @@ function App() {
             <AuthenticatedRoute exact path='/juegos' component={Game}/>
             <AuthenticatedRoute exact path='/contactos' component={ContactMenu}/>
             <AuthenticatedRoute exact path='/videos' component={VideoMenu}/>
+            <AuthenticatedRoute exact path='/historia' component={HistoryMenu}/>
             <AuthenticatedRoute exact path='/estadisticas' component={StatisticsMenu}/>
             <AuthenticatedRoute exact path='/' component={Dashboard}/> 
             <Route component={NotFound} />
