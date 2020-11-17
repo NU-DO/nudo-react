@@ -55,7 +55,7 @@ const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
         <div>
             <div className='AlbumRadioButtons d-flex ml-5'>
                 <label class='form-check-label mr-2' for='exampleRadios1'>
-                    Orden alfabético:
+                    Alfabético:
                         </label>
                 <div class='form-check'>
                     <input class='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setAlphabetlAscendent(titleVideos)} />

@@ -12,15 +12,14 @@ const Videoplayer = ({ videoId, closeDarkModal }) => {
     }
 
     return (
-        <div className='VideoPlayer'>
+        <div className='ModalPlayerContainer'>
             <div className='ContainerVideoPlayer'>
                 <CloseModalButton onClick={closeDarkModal} />
                 <iframe
                     title={videoId}
-                    width='640'
-                    height='360'
+                    width='auto'
+                    height='auto'
                     allowfullscreen='allowfullscreen'
-                    style={{ borderRadius: '10px' }}
                     className='video-iframe'
                     src={`https://www.youtube.com/embed/${videoId}`}
                 />

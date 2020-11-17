@@ -10,6 +10,8 @@ import youTubeApi from '../../services/YouTubeService'
 import './VideoMenu.scss'
 import ModalDark from '../Generic/ModalDark'
 import ComponentHeader from '../Generic/ComponentHeader'
+import { Snackbar } from '@material-ui/core'
+import AlertSnackBar from '../Generic/AlertSnackBar'
 
 const VideoMenu = () => {
     const [videos, setVideos] = useState([])
@@ -18,6 +20,9 @@ const VideoMenu = () => {
     const [showDialog, setShowDialog] = useState(false)
     const [showPlayer, setShowPlayer] = useState(false)
     const [flagData, setFlagData] = useState(false)
+    const [snackSavedOpen, setSnackSavedOpen] = useState(false)
+    const [snackEditOpen, setSnackEditOpen] = useState(false)
+    const [snackDeleteOpen, setSnackDeleteOpen] = useState(false)
     const [title, setTitle] = useState('')
     const [state, setState] = useState({})
     const [error, setError] = useState({})
@@ -37,6 +42,30 @@ const VideoMenu = () => {
     const openDarkModal = () => setShowPlayer(true)
     const closeDarkModal = () => setShowPlayer(false)
 
+    const handleSavedSnack = () => setSnackSavedOpen(true)
+    const handleEditSnack = () => setSnackEditOpen(true)
+    const handleDeleteSnack = () => setSnackDeleteOpen(true)
+    const handleCloseSavedSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+        setSnackSavedOpen(false)
+    }
+
+    const handleCloseEditSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+        setSnackEditOpen(false)
+    }
+
+    const handleCloseDeleteSnack = (event, reason) => {
+        if (reason === 'clickaway') {
+            return
+        }
+        setSnackDeleteOpen(false)
+    }
+
     const handleChangeSearch = (e) => setTitle(e.target.value)
 
     const handleSubmit = (e) => {
@@ -54,12 +83,12 @@ const VideoMenu = () => {
 
                 setVideosYT(response.data.items)
                 setFlagData(true)
-                
+
             })
     }
 
     const playVideo = (video) => {
-        
+
         console.log('entra', video)
         if (video.description) {
             console.log('heere video from API: ', video)
@@ -80,7 +109,7 @@ const VideoMenu = () => {
         })
     }
 
-   
+
 
     const addVideoClick = (event) => {
         openModal()
@@ -105,6 +134,9 @@ const VideoMenu = () => {
                 setState({})
                 closeModal()
                 setError({})
+                setVideosYT([])
+                setFlagData(false)
+                handleSavedSnack()
             })
             .catch(err => setError(err.response.data.errors))
     }
@@ -116,7 +148,7 @@ const VideoMenu = () => {
 
     const handleEditVideo = (event) => {
         event.preventDefault()
-        // handleEditSnack()
+        handleEditSnack()
         const body = {}
         body.title = state.title
         body.description = state.description
@@ -128,13 +160,13 @@ const VideoMenu = () => {
                 setState({})
                 closeModal()
                 setError({})
-                // handleEditSnack()
+                handleEditSnack()
             })
             .catch(err => setError(err.response.data.errors))
     }
 
     const handleDelete = (id) => {
-        // handleDeleteSnack()
+        handleDeleteSnack()
         deleteVideo(id)
             .then(() => {
                 getVideos()
@@ -200,6 +232,21 @@ const VideoMenu = () => {
                     :
                     <Spinner />
                 }
+                <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
+                    <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
+                        Video guardado correctamente!
+                 </AlertSnackBar>
+                </Snackbar>
+                <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
+                    <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
+                        Video editado correctamente!
+                 </AlertSnackBar>
+                </Snackbar>
+                <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
+                    <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
+                        Video Borrado correctamente!
+                 </AlertSnackBar>
+                </Snackbar>
             </div>
         </div>
 
