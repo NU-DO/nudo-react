@@ -18,7 +18,7 @@
       top: 14%;
       left: 32%;
       transition: all 0.2s linear;
-      opacity:0.7;
+      opacity: 0.7;
       &:hover {
         width: 120px;
         background-color: rgba(109, 245, 81, 0.5);
@@ -64,5 +64,15 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 700px) {
+  .ContainerVideoCardFav {
+    width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
 }

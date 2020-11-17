@@ -1,11 +1,14 @@
-.SearchVideoButton {
-    background-color: #839672;
-    border: none;
-    height: 38px;
-    margin-left: -2px;
-    border-radius: 0px 5px 5px 0px;
-    .LupaIcon {
-        width: 30px;
-    }
+.VideoSearcherInput {
+  width: 300px;
 }
 
+.SearchVideoButton {
+  background-color: #839672;
+  border: none;
+  height: 38px;
+  margin-left: -2px;
+  border-radius: 0px 5px 5px 0px;
+  .LupaIcon {
+    width: 30px;
+  }
+}

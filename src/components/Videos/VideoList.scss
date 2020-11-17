@@ -45,8 +45,9 @@
   box-shadow: 3px 12px 29px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   position: absolute;
-  top: 71px;
+  top: 39px;
+  z-index: 1;
   padding: 5px 5px;
-  height: 500px;
+  height: 439px;
   overflow: scroll;
 }

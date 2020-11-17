@@ -1,18 +1,18 @@
 import React from 'react'
-import './Video.scss'
 
-const Video = ({ onVideoSelected, videosYT, addVideoClick }) => {
-    const allVideos = videosYT.map(({ snippet, id }, index) => {
+
+const Video = ({ playVideo, videosYT, addVideoClick }) => {
+    const allVideos = videosYT.map((video, index) => {
         return (
             <div
                 className='VideoCard'
                 key={index}
-                onClick={() => onVideoSelected(id, snippet.thumbnails.high.url)}>
+                >
                 <div>
-                    <img src={snippet.thumbnails.high.url} key={index} className='VideoThumbnail' alt='recorte' />
+                    <img src={video.snippet.thumbnails.high.url} key={index} className='VideoThumbnail' alt='recorte' onClick={() => playVideo(video)}/>
                 </div>
                 <div>
-                    <p className='VideoCardTitle'>{snippet.title}</p>
+                    <p className='VideoCardTitle' onClick={() => playVideo(video)}>{video.snippet.title}</p>
                 </div>
                 <div className='AddVideo' onClick={() => addVideoClick()}>
                     +

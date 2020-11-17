@@ -1,6 +1,6 @@
 import React from 'react'
 import CloseModalButton from '../Generic/CloseModalButton'
-import './Video.scss'
+import './VideoPlayer.scss'
 
 const Videoplayer = ({ videoId, closeDarkModal }) => {
     if (!videoId) {
@@ -13,16 +13,18 @@ const Videoplayer = ({ videoId, closeDarkModal }) => {
 
     return (
         <div className='VideoPlayer'>
-            <CloseModalButton onClick={closeDarkModal} />
-            <iframe
-                title={videoId}
-                width='640'
-                height='360'
-                allowfullscreen='allowfullscreen'
-                style={{ borderRadius: '10px' }}
-                className='video-iframe'
-                src={`https://www.youtube.com/embed/${videoId}`}
-            />
+            <div className='ContainerVideoPlayer'>
+                <CloseModalButton onClick={closeDarkModal} />
+                <iframe
+                    title={videoId}
+                    width='640'
+                    height='360'
+                    allowfullscreen='allowfullscreen'
+                    style={{ borderRadius: '10px' }}
+                    className='video-iframe'
+                    src={`https://www.youtube.com/embed/${videoId}`}
+                />
+            </div>
         </div>
     )
 }

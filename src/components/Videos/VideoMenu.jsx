@@ -54,28 +54,33 @@ const VideoMenu = () => {
 
                 setVideosYT(response.data.items)
                 setFlagData(true)
+                
             })
+    }
+
+    const playVideo = (video) => {
+        
+        console.log('entra', video)
+        if (video.description) {
+            console.log('heere video from API: ', video)
+            onVideoSelected(video.videoId, video.snippet)
+        } else {
+            onVideoSelected(video.id.videoId, video.snippet.thumbnails.high.url)
+        }
+        openDarkModal()
     }
 
     const onVideoSelected = (videoId, snippet) => {
         setState((prev) => {
             return {
                 ...prev,
-                videoId: videoId.videoId || videoId,
+                videoId: videoId,
                 snippet
             }
         })
-
     }
 
-    const playVideo = (video) => {
-        if (video.description) {
-            onVideoSelected(video.videoId, video.snippet)
-        } else {
-            onVideoSelected(video.videoId.videoId, video.snippet)
-        }
-        openDarkModal()
-    }
+   
 
     const addVideoClick = (event) => {
         openModal()
@@ -150,7 +155,7 @@ const VideoMenu = () => {
                     <>
                         <div className='SearchVideoInput'>
                             <VideoList
-                                onVideoSelected={onVideoSelected}
+                                playVideo={playVideo}
                                 data={state.videoMetaInfo}
                                 flagData={flagData}
                                 handleChangeSearch={handleChangeSearch}

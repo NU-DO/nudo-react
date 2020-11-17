@@ -3,7 +3,7 @@ import VideoSearchForm from './VideoSearchForm'
 import Video from './Video'
 import './VideoList.scss'
 
-const VideoList = ({ flagData, onVideoSelected, handleChangeSearch, handleSubmit, addVideoClick, title, videosYT }) => {
+const VideoList = ({ flagData, playVideo, handleChangeSearch, handleSubmit, addVideoClick, title, videosYT }) => {
 
   return (
     <div className='VideoList'>
@@ -15,7 +15,7 @@ const VideoList = ({ flagData, onVideoSelected, handleChangeSearch, handleSubmit
       {flagData && (
         <div className='video-list'>
           <div>
-            <Video onVideoSelected={onVideoSelected} addVideoClick={addVideoClick} videosYT={videosYT} />
+            <Video playVideo={playVideo} addVideoClick={addVideoClick} videosYT={videosYT} />
           </div>
         </div>
       )}
