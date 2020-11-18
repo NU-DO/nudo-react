@@ -25,6 +25,7 @@
     "react-bootstrap": "^1.4.0",
     "react-chrono": "^1.7.6",
     "react-dom": "^16.14.0",
+    "react-multi-form": "^1.0.5",
     "react-paginate": "^6.5.0",
     "react-rotating-text": "^1.4.1",
     "react-router-dom": "^5.2.0",
