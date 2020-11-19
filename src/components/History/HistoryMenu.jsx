@@ -1,21 +1,27 @@
-import React, { useState } from "react"
-import ComponentHeader from "../Generic/ComponentHeader"
+import React, { useState, useEffect } from 'react'
+import ComponentHeader from '../Generic/ComponentHeader'
 import MemoryForm from './Forms/MemoyForm'
 import LocationMemoryForm from './Forms/LocationMemoryForm'
 import ImagesMemoryForm from './Forms/ImagesMemoryForm'
 import ContactsMemoryForm from './Forms/ContactsMemoryForm'
 import CongratulationsMemoryForm from './Forms/CongratulationsMemoryForm'
-import SongsMemoryForm from "./Forms/SongsMemoryForm"
-import VideosMemoryForm from "./Forms/VideosMemoryForm"
-import { Chrono } from "react-chrono"
+import SongsMemoryForm from './Forms/SongsMemoryForm'
+import VideosMemoryForm from './Forms/VideosMemoryForm'
+import { getEvents, createEvent, deleteEvent, editEvent } from '../../services/Api'
+import { Chrono } from 'react-chrono'
 import { MultiStepForm, Step } from 'react-multi-form'
 import './HistoryMenu.scss'
+
 
 
 const HistoryMenu = () => {
 
     const [showForm, setShowForm] = useState(false)
     const [active, setActive] = React.useState(1)
+
+    useEffect(() => {
+        getEvents()
+    }, [])
 
     const steps = [
         { index: 'Recuerdo', component: <MemoryForm /> },
@@ -25,11 +31,11 @@ const HistoryMenu = () => {
         { name: 'Contactos', component: <ContactsMemoryForm /> },
         { name: 'Videos', component: <VideosMemoryForm /> },
         { name: 'Enhorabuena', component: <CongratulationsMemoryForm /> },
-    ];
+    ]
 
     const items = [{
-        title: "May 1940",
-        cardTitle: "Dunkirk",
+        title: 'May 1940',
+        cardTitle: 'Dunkirk',
         cardSubtitle: `Barque black spot me Cat o'nine tails `,
         cardDetailedText: `Barque black spot me Cat o'nine tails Sink me aye barkadeer yardarm splice the main brace mizzen. Tack gunwalls pinnace mutiny lass holystone barque fire ship crimp lee. Fore rope's end gaff booty execution dock scallywag cog nipper keelhaul pirate.
 
@@ -37,61 +43,61 @@ const HistoryMenu = () => {
         
         Lad hang the jib lugsail Chain Shot heave to cog broadside haul wind man-of-war brig. Interloper lass parley Sink me man-of-war lanyard tack landlubber or just lubber Letter of Marque reef. Black jack port deadlights gaff brigantine stern hearties fore topsail pinnace.`,
         media: {
-            type: "IMAGE",
+            type: 'IMAGE',
             source: {
-                url: "https://www.gettyimages.es/gi-resources/images/500px/983801190.jpg"
+                url: 'https://www.gettyimages.es/gi-resources/images/500px/983801190.jpg'
             }
         }
     }, {
-        title: "May 1940",
-        cardTitle: "Dunkirk",
-        cardSubtitle: "Men of the British Expeditionary Force (BEF) wade out to..",
+        title: 'May 1940',
+        cardTitle: 'Dunkirk',
+        cardSubtitle: 'Men of the British Expeditionary Force (BEF) wade out to..',
         media: {
-            type: "IMAGE",
+            type: 'IMAGE',
             source: {
-                url: "https://www.gettyimages.es/gi-resources/images/frontdoor/editorial/Velo/GettyImages-Velo-1088643550.jpg"
+                url: 'https://www.gettyimages.es/gi-resources/images/frontdoor/editorial/Velo/GettyImages-Velo-1088643550.jpg'
             }
         }
     }, {
-        title: "May 1940",
-        cardTitle: "Dunkirk",
-        cardSubtitle: "Men of the British Expeditionary Force (BEF) wade out to..",
+        title: 'May 1940',
+        cardTitle: 'Dunkirk',
+        cardSubtitle: 'Men of the British Expeditionary Force (BEF) wade out to..',
         media: {
-            type: "IMAGE",
+            type: 'IMAGE',
             source: {
-                url: "https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg"
+                url: 'https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg'
             }
         }
     }, {
-        title: "May 1940",
-        cardTitle: "Dunkirk",
-        cardSubtitle: "Men of the British Expeditionary Force (BEF) wade out to..",
+        title: 'May 1940',
+        cardTitle: 'Dunkirk',
+        cardSubtitle: 'Men of the British Expeditionary Force (BEF) wade out to..',
         media: {
-            type: "IMAGE",
+            type: 'IMAGE',
             source: {
-                url: "https://www.filmibeat.com/ph-big/2019/07/ismart-shankar_156195627930.jpg"
+                url: 'https://www.filmibeat.com/ph-big/2019/07/ismart-shankar_156195627930.jpg'
             }
         }
     },
     {
-        title: "May 1940",
-        cardTitle: "Dunkirk",
-        cardSubtitle: "Men of the British Expeditionary Force (BEF) wade out to..",
+        title: 'May 1940',
+        cardTitle: 'Dunkirk',
+        cardSubtitle: 'Men of the British Expeditionary Force (BEF) wade out to..',
         media: {
-            type: "IMAGE",
+            type: 'IMAGE',
             source: {
-                url: "https://media3.s-nbcnews.com/j/newscms/2019_41/3047866/191010-japan-stalker-mc-1121_06b4c20bbf96a51dc8663f334404a899.fit-760w.JPG"
+                url: 'https://media3.s-nbcnews.com/j/newscms/2019_41/3047866/191010-japan-stalker-mc-1121_06b4c20bbf96a51dc8663f334404a899.fit-760w.JPG'
             }
         }
     },
     {
-        title: "May 1940",
-        cardTitle: "Dunkirk",
-        cardSubtitle: "Men of the British Expeditionary Force (BEF) wade out to..",
+        title: 'May 1940',
+        cardTitle: 'Dunkirk',
+        cardSubtitle: 'Men of the British Expeditionary Force (BEF) wade out to..',
         media: {
-            type: "IMAGE",
+            type: 'IMAGE',
             source: {
-                url: "https://static.addtoany.com/images/dracaena-cinnabari.jpg"
+                url: 'https://static.addtoany.com/images/dracaena-cinnabari.jpg'
             }
         }
     },]
@@ -156,12 +162,12 @@ const HistoryMenu = () => {
             <div className='ContainerHistoryTimeline'>
                 <Chrono
                     items={items}
-                    mode={"VERTICAL_ALTERNATING"}
+                    mode={'VERTICAL_ALTERNATING'}
                     slideShow
                     flipLayout={true}
                     slideItemDuration={3000}
                     scrollable={{ scrollbar: true }}
-                    theme={{ primary: "#839672", secondary: "#EFEFE1", cardBgColor: "white", cardForeColor: "black" }}
+                    theme={{ primary: '#839672', secondary: '#EFEFE1', cardBgColor: 'white', cardForeColor: 'black' }}
                 />
             </div>
         </div>

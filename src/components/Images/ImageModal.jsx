@@ -33,7 +33,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             required
                         />
                         {error?.title ?
-                            <div class='invalid-feedback animate__animated animate__shakeX'>
+                            <div className='invalid-feedback animate__animated animate__shakeX'>
                                 {error.title}
                             </div>
                             : null
@@ -63,7 +63,7 @@ const ImageModal = ({ closeModal, modalSent, handleChange, handleFileUpload, han
                             required
                         />
                         {error?.date ?
-                            <div class='invalid-feedback animate__animated animate__shakeX'>
+                            <div className='invalid-feedback animate__animated animate__shakeX'>
                                 {error.date}
                             </div>
                             : null

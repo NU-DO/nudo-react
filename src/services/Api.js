@@ -126,6 +126,27 @@ export const editVideo = ( id, {...tempState}) => {
     .then((res) => res?.data)
 }
 
+export const getEvents = () => {
+  return http.get('/event')
+    .then(event => {
+      console.log('event', event);
+    })
+}
+
+export const createEvent = ({ title, description, eventId, snippet }) => {
+  return http.post('/event/new', { title, description, eventId, snippet })
+    .then((res) => res?.data)
+}
+
+export const deleteEvent = (eventId) => {
+  return http.delete(`/event/${eventId}/delete`, { eventId })
+}
+
+export const editEvent = ( id, {...tempState}) => {
+  return http.patch(`/event/${id}/edit`, {...tempState})
+    .then((res) => res?.data)
+}
+
 export const handleUpload = (theFile) => {
   return http.post('/upload', theFile)
 }

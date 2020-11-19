@@ -54,18 +54,18 @@ const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
     return (
         <div>
             <div className='AlbumRadioButtons d-flex ml-5'>
-                <label class='form-check-label mr-2' for='exampleRadios1'>
+                <label className='form-check-label mr-2' htmlFor='exampleRadios1'>
                     Alfabético:
                         </label>
-                <div class='form-check'>
-                    <input class='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setAlphabetlAscendent(titleVideos)} />
-                    <label class='form-check-label mr-2' for='exampleRadios1'>
+                <div className='form-check'>
+                    <input className='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setAlphabetlAscendent(titleVideos)} />
+                    <label className='form-check-label mr-2' htmlFor='exampleRadios1'>
                         Ascendente
                         </label>
                 </div>
-                <div class='form-check'>
-                    <input class='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setAlphabetlDescendent(titleVideos)} />
-                    <label class='form-check-label' for='exampleRadios1'>
+                <div className='form-check'>
+                    <input className='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setAlphabetlDescendent(titleVideos)} />
+                    <label className='form-check-label' htmlFor='exampleRadios1'>
                         Descendente
                         </label>
                 </div>

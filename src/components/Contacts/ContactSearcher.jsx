@@ -6,9 +6,9 @@ const ContactSeacher = ({ handleSearch, search }) => {
     return (
         <div className='ContactSearcher'>
             <form method='GET'>
-                <div class='form-group'>
+                <div className='form-group'>
                   <input type='email'
-                    class='form-control'
+                    className='form-control'
                     id='searchSong'
                     placeholder='Busca un contacto'
                     name='search'

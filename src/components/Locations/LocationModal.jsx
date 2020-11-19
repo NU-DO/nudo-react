@@ -19,7 +19,7 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
                 <div className='ModalLocationContainer'>
                     <h4 className='text-center'>Completa los campos</h4>
                     <div className='form-group'>
-                        <label for='name'>Nombre</label>
+                        <label htmlFor='name'>Nombre</label>
                         <input
                             type='text'
                             className={`form-control ${error?.name ? `is-invalid animate__animated animate__shakeX` : null}`}
@@ -30,14 +30,14 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
                             required
                         />
                         {error?.name ?
-                            <div class='invalid-feedback animate__animated animate__shakeX'>
+                            <div className='invalid-feedback animate__animated animate__shakeX'>
                                 {error.name}
                             </div>
                             : null
                         }
                     </div>
                     <div className='form-group'>
-                        <label for='name'>Descripción</label>
+                        <label htmlFor='name'>Descripción</label>
                         <textarea
                             type='text'
                             className={`form-control`}

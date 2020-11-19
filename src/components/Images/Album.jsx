@@ -47,18 +47,18 @@ const Album = ({ images, setImages, addImageClick, handleDelete, editThisImage }
                             onClick={addImageClick} />
                     </div>
                     <div className='AlbumRadioButtons'>
-                        <label class='form-check-label mr-2' for='exampleRadios1'>
+                        <label className='form-check-label mr-2' htmlFor='exampleRadios1'>
                             Cronológico:
                         </label>
-                        <div class='form-check'>
-                            <input class='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setCronologicalAscendent(dateImages)} />
-                            <label class='form-check-label mr-2' for='exampleRadios1'>
+                        <div className='form-check'>
+                            <input className='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setCronologicalAscendent(dateImages)} />
+                            <label className='form-check-label mr-2' htmlFor='exampleRadios1'>
                                 Ascendente
                         </label>
                         </div>
-                        <div class='form-check'>
-                            <input class='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setCronologicalDescendent(dateImages)} />
-                            <label class='form-check-label' for='exampleRadios1'>
+                        <div className='form-check'>
+                            <input className='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setCronologicalDescendent(dateImages)} />
+                            <label className='form-check-label' htmlFor='exampleRadios1'>
                                 Descendente
                         </label>
                         </div>

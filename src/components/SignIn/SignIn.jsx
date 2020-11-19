@@ -67,10 +67,10 @@ const SignIn = () => {
                     <div className='SignInForm'>
                         <form onSubmit={(e) => handleSubmit(e)}>
                             <div className='SignInFormContainer'>
-                                <div class='form-group'>
+                                <div className='form-group'>
                                     <label htmlFor='exampleInputEmail1'>Nombre de usuario</label>
                                     <input type='text'
-                                        class={`form-control ${state.error?.username ? `is-invalid animate__animated animate__shakeX` : null}`}
+                                        className={`form-control ${state.error?.username ? `is-invalid animate__animated animate__shakeX` : null}`}
                                         id='username'
                                         name='username'
                                         aria-describedby='emailHelp'
@@ -80,16 +80,16 @@ const SignIn = () => {
                                         />
 
                                     {state.error?.username ?
-                                        <div class='invalid-feedback animate__animated animate__shakeX'>
+                                        <div className='invalid-feedback animate__animated animate__shakeX'>
                                             {state.error.username}
                                         </div>
                                         : null
                                     }
                                 </div>
-                                <div class='form-group'>
+                                <div className='form-group'>
                                     <label htmlFor='exampleInputEmail1'>Correo electrónico</label>
                                     <input type='email'
-                                        class={`form-control ${state.error?.email ? `is-invalid animate__animated animate__shakeX` : null}`}
+                                        className={`form-control ${state.error?.email ? `is-invalid animate__animated animate__shakeX` : null}`}
                                         id='email'
                                         name='email'
                                         aria-describedby='emailHelp'
@@ -98,17 +98,17 @@ const SignIn = () => {
                                         required    
                                         />
                                     {state.error?.email ?
-                                        <div class='invalid-feedbackanimate__animated animate__shakeX'>
+                                        <div className='invalid-feedbackanimate__animated animate__shakeX'>
                                             {state.error.email}
                                         </div>
                                         : null
                                     }
                                 </div>
-                                <div class='form-group'>
+                                <div className='form-group'>
                                     <label htmlFor='exampleInputPassword1'>Contraseña</label>
                                     <input
                                         type='password'
-                                        class={`form-control ${state.error?.password ? `is-invalid animate__animated animate__shakeX` : null}`}
+                                        className={`form-control ${state.error?.password ? `is-invalid animate__animated animate__shakeX` : null}`}
                                         id='password'
                                         name='password'
                                         value={state.data?.password}
@@ -117,7 +117,7 @@ const SignIn = () => {
                                         minLength='8'    
                                         />
                                     {state.error?.password ?
-                                        <div class='invalid-feedback animate__animated animate__shakeX'>
+                                        <div className='invalid-feedback animate__animated animate__shakeX'>
                                             {state.error.password}
                                         </div>
                                         : null

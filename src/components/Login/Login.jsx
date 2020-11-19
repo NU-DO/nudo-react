@@ -85,10 +85,10 @@ const LogIn = (props) => {
           <div className='LogInForm'>
             <form onSubmit={(e) => handleSubmit(e)}>
               <div className='LogInFormContainer'>
-                <div class='form-group'>
+                <div className='form-group'>
                   <label htmlFor='exampleInputEmail1'>Correo electrónico</label>
                   <input type='email'
-                    class={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
+                    className={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
                     id='email'
                     name='email'
                     aria-describedby='emailHelp'
@@ -96,24 +96,24 @@ const LogIn = (props) => {
                     required
                   />
                   {state.error ?
-                    <div class='invalid-feedback animate__animated animate__shakeX'>
+                    <div className='invalid-feedback animate__animated animate__shakeX'>
                       Email o contraseña incorrecta
                 </div>
                     : null
                   }
                 </div>
-                <div class='form-group'>
+                <div className='form-group'>
                   <label htmlFor='exampleInputPassword1'>Contraseña</label>
                   <input
                     type='password'
-                    class={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
+                    className={`form-control ${state.error ? `is-invalid animate__animated animate__shakeX` : null}`}
                     id='password'
                     name='password'
                     onChange={handleChange}
                     required
                   />
                 </div>
-                <small class='form-text text-muted LogInText' htmlFor='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{ color: '#839672' }}>Regístrate</Link></small>
+                <small className='form-text text-muted LogInText' htmlFor='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{ color: '#839672' }}>Regístrate</Link></small>
               </div>
               <div className='LogInButton'>
                 <GenericButton text='Entrar' />

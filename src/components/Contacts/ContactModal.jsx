@@ -24,7 +24,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                 <div className='ContactModalContainer'>
                     <div className='form-row'>
                         <div className='form-group col-8 '>
-                            <label for='exampleFormControlInput1'>Nombre</label>
+                            <label htmlFor='exampleFormControlInput1'>Nombre</label>
                             <input 
                                 type='text'
                                 className={`form-control ${error?.name ? `is-invalid animate__animated animate__shakeX` : null}`}
@@ -35,14 +35,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 required
                             />
                             {error?.name ?
-                                <div class='invalid-feedback animate__animated animate__shakeX'>
+                                <div className='invalid-feedback animate__animated animate__shakeX'>
                                     {error.name}
                                 </div>
                                 : null
                             }
                         </div>
                         <div className='form-group col-4'>
-                            <label for='exampleFormControlInput1'>Relación</label>
+                            <label htmlFor='exampleFormControlInput1'>Relación</label>
                             <input 
                                 type='text'
                                 className={`form-control ${error?.role ? `is-invalid animate__animated animate__shakeX` : null}`}
@@ -53,7 +53,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 required
                             />
                             {error?.role ?
-                                <div class='invalid-feedback animate__animated animate__shakeX'>
+                                <div className='invalid-feedback animate__animated animate__shakeX'>
                                     {error.role}
                                 </div>
                                 : null
@@ -62,7 +62,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                     </div>
 
                     <div className='form-group'>
-                        <label for='exampleFormControlInput1'>Dirección</label>
+                        <label htmlFor='exampleFormControlInput1'>Dirección</label>
                         <input 
                             type='text'
                             className='form-control'
@@ -74,7 +74,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                     </div>
                     <div className='form-row'>
                         <div className='form-group col-4 col-md-4'>
-                            <label for='exampleFormControlInput1'>Email</label>
+                            <label htmlFor='exampleFormControlInput1'>Email</label>
                             <input 
                                 type='email'
                                 className={`form-control ${error?.email ? `is-invalid animate__animated animate__shakeX` : null}`}
@@ -84,14 +84,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 onChange={handleChange}
                             />
                             {error?.email ?
-                                <div class='invalid-feedback animate__animated animate__shakeX'>
+                                <div className='invalid-feedback animate__animated animate__shakeX'>
                                     {error.email}
                                 </div>
                                 : null
                             }
                         </div>
                         <div className='form-group col-4 col-md-4'>
-                            <label for='exampleFormControlInput1'>Teléfono</label>
+                            <label htmlFor='exampleFormControlInput1'>Teléfono</label>
                             <input 
                                 type='text'
                                 className={`form-control ${error?.phone ? `is-invalid animate__animated animate__shakeX` : null}`}
@@ -101,14 +101,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 onChange={handleChange}
                             />
                             {error?.phone ?
-                                <div class='invalid-feedback animate__animated animate__shakeX'>
+                                <div className='invalid-feedback animate__animated animate__shakeX'>
                                     {error.phone}
                                 </div>
                                 : null
                             }
                         </div>
                         <div className='form-group col-4'>
-                            <label for='exampleFormControlInput1'>Cumpleaños</label>
+                            <label htmlFor='exampleFormControlInput1'>Cumpleaños</label>
                             <input 
                                 type='text'
                                 className='form-control'
@@ -120,7 +120,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         </div>
                     </div>
                     <div className='form-group'>
-                        <label for='description'>Descripción</label>
+                        <label htmlFor='description'>Descripción</label>
                         <textarea
                             className='form-control'
                             id='description'
@@ -131,7 +131,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                     </div>
                     {!edit ?
                         <div className='form-group'>
-                            <label for='file'>Foto</label>
+                            <label htmlFor='file'>Foto</label>
                             <input
                                 type='file'
                                 className='form-control-file'
