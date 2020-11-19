@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 const ContactsMemoryForm = () => {
     return (
         <div>
             Contact Form
         </div>
-    );
-};
+    )
+}
 
-export default ContactsMemoryForm;
+export default ContactsMemoryForm
