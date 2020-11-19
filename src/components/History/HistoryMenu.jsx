@@ -1,37 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import HistoryTimeline from './HistoryTimeline'
+import GeneralMemoryForm from './Forms/GeneralMemoryForm'
 import ComponentHeader from '../Generic/ComponentHeader'
-import MemoryForm from './Forms/MemoyForm'
-import LocationMemoryForm from './Forms/LocationMemoryForm'
-import ImagesMemoryForm from './Forms/ImagesMemoryForm'
-import ContactsMemoryForm from './Forms/ContactsMemoryForm'
-import CongratulationsMemoryForm from './Forms/CongratulationsMemoryForm'
-import SongsMemoryForm from './Forms/SongsMemoryForm'
-import VideosMemoryForm from './Forms/VideosMemoryForm'
 import { getEvents, createEvent, deleteEvent, editEvent } from '../../services/Api'
-import { Chrono } from 'react-chrono'
-import { MultiStepForm, Step } from 'react-multi-form'
 import './HistoryMenu.scss'
 
-
-
 const HistoryMenu = () => {
-
     const [showForm, setShowForm] = useState(false)
-    const [active, setActive] = React.useState(1)
-
+    
     useEffect(() => {
         getEvents()
     }, [])
-
-    const steps = [
-        { index: 'Recuerdo', component: <MemoryForm /> },
-        { name: 'Localización', component: <LocationMemoryForm /> },
-        { name: 'Fotos', component: <ImagesMemoryForm /> },
-        { name: 'Música', component: <SongsMemoryForm /> },
-        { name: 'Contactos', component: <ContactsMemoryForm /> },
-        { name: 'Videos', component: <VideosMemoryForm /> },
-        { name: 'Enhorabuena', component: <CongratulationsMemoryForm /> },
-    ]
 
     const items = [{
         title: 'May 1940',
@@ -121,54 +100,13 @@ const HistoryMenu = () => {
             <button onClick={handleShowMemoryForm}>Crea un recuerdo</button>
             {showForm && (
                 <div className='ContainerMemoryForm'>
-                    <MultiStepForm activeStep={active}>
-                        <Step label='Memory'>
-                            <MemoryForm />
-                        </Step>
-                        <Step label='contacts'>
-                            <ContactsMemoryForm />
-                        </Step>
-                        <Step label='Images'>
-                            <ImagesMemoryForm />
-                        </Step>
-                        <Step label='Locations'>
-                            <LocationMemoryForm />
-                        </Step>
-                        <Step label='Songs'>
-                            <SongsMemoryForm />
-                        </Step>
-                        <Step label='Videos'>
-                            <VideosMemoryForm />
-                        </Step>
-                        <Step label='Congratulations'>
-                            <CongratulationsMemoryForm />
-                        </Step>
-                    </MultiStepForm>
-                    {active !== 1 && (
-                        <button onClick={() => setActive(active - 1)}>Previous</button>
-                    )}
-                    {active !== 7 && (
-                        <button
-                            onClick={() => setActive(active + 1)}
-                            style={{ float: 'right' }}
-                        >
-                            Next
-                        </button>
-                    )}
+                    <GeneralMemoryForm />
                 </div>
 
             )}
 
             <div className='ContainerHistoryTimeline'>
-                <Chrono
-                    items={items}
-                    mode={'VERTICAL_ALTERNATING'}
-                    slideShow
-                    flipLayout={true}
-                    slideItemDuration={3000}
-                    scrollable={{ scrollbar: true }}
-                    theme={{ primary: '#839672', secondary: '#EFEFE1', cardBgColor: 'white', cardForeColor: 'black' }}
-                />
+                <HistoryTimeline items={items} />
             </div>
         </div>
 
