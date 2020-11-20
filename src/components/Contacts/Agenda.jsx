@@ -21,4 +21,4 @@ const Agenda = ({ contacts, handleSelect, handleSearch, search }) => {
     )
 }
 
-export default Agenda
+export default Agenda 

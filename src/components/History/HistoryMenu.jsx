@@ -5,6 +5,94 @@ import ComponentHeader from '../Generic/ComponentHeader'
 import { getEvents, createEvent, deleteEvent, editEvent } from '../../services/Api'
 import './HistoryMenu.scss'
 
+// const createDefaultEvents = (id) => {
+//   const event1 = new Event({
+//     title: 'Llegada del hombre a la luna',
+//     year: 1969,
+//     description: 'La humanidad da un pequeño gran paso',
+//     images: ['https://www.nationalgeographic.com.es/medio/2016/07/20/apolo-bandera-astronautas_2701a04d.jpg'],
+//     playlist: {
+//       name: 'La Cabalgata De Las Valkirias - De La Opera "La Valkiria"',
+//       url: 'https://p.scdn.co/mp3-preview/83bd529171d817ad274c0c13da19181092cdb7f8?cid=d37f1f747425408d87a3df7bfbf54045',
+//       image: 'https://i.scdn.co/image/ab67616d0000b2739cb08a2f9804ac4103231eca'
+//     },
+//     location: { name: 'La luna', description: 'Un lugar especial' },
+//     contacts: [
+//       { photo: 'https://www.milenio.com/uploads/media/2019/07/19/neil-armstrong-murio-en-a_0_184_1041_648.jpg' },
+//       { photo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Michael_Collins_%28S69-31742%2C_restoration%29_%28cropped%29.jpg' },
+//       { photo: 'https://www.guideposts.org/sites/guideposts.org/files/styles/bynder_webimage/public/story/buzz_aldrin_marquee.jpg' }
+//     ],
+//     video: {
+//       videoId: 'q1GA71TeZik',
+//       snippet: 'https://i.ytimg.com/vi/q1GA71TeZik/hqdefault.jpg',
+//     },
+//   })
+
+//   const event2 = new Event({
+//     title: 'Constitución Española',
+//     year: 1978,
+//     description: 'Nueva era. Democracia.',
+//     images: ['https://lh3.googleusercontent.com/proxy/DDtUKQoFjhBQj6ovWC7AEF53zBzjEBmam8R4afq_5kVcUfRPvJygM4252Wj5AZ9dYtlOE3rtPnsRX2zJt0jHUezaRQ3hPKxFC_7qB0j7otNKcg'],
+//     playlist: {
+//       name: 'Cantares',
+//       url: 'https://p.scdn.co/mp3-preview/9ee94692b4768a2778332dee9c32a8538338e8d8?cid=d37f1f747425408d87a3df7bfbf54045',
+//       image: 'https://i.scdn.co/image/ab67616d0000b27341500ef6271359321090acfd'
+//     },
+//     location: { name: 'Las Cortes', description: 'Madrid' },
+//     contacts: [
+//       { photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/%28Peces-Barba%29_Felipe_Gonz%C3%A1lez_junto_al_presidente_del_Senado_y_el_presidente_del_Congreso_%28cropped%29.jpeg/220px-%28Peces-Barba%29_Felipe_Gonz%C3%A1lez_junto_al_presidente_del_Senado_y_el_presidente_del_Congreso_%28cropped%29.jpeg' },
+//     ],
+//     video: {
+//       videoId: 'MSuX5I2KrUo',
+//       snippet: 'https://i.ytimg.com/vi/MSuX5I2KrUo/hqdefault.jpg',
+//     },
+//   })
+
+//   const event3 = new Event({
+//     title: 'Llegada del hombre a la luna',
+//     year: 1969,
+//     description: 'La humanidad da un pequeño gran paso',
+//     images: ['https://www.nationalgeographic.com.es/medio/2016/07/20/apolo-bandera-astronautas_2701a04d.jpg'],
+//     playlist: {
+//       name: 'La Cabalgata De Las Valkirias - De La Opera "La Valkiria"',
+//       url: 'https://p.scdn.co/mp3-preview/83bd529171d817ad274c0c13da19181092cdb7f8?cid=d37f1f747425408d87a3df7bfbf54045',
+//       image: 'https://i.scdn.co/image/ab67616d0000b2739cb08a2f9804ac4103231eca'
+//     },
+//     location: { name: 'La luna', description: 'Un lugar especial' },
+//     contacts: [
+//       { photo: 'https://www.milenio.com/uploads/media/2019/07/19/neil-armstrong-murio-en-a_0_184_1041_648.jpg' },
+//       { photo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Michael_Collins_%28S69-31742%2C_restoration%29_%28cropped%29.jpg' },
+//       { photo: 'https://www.guideposts.org/sites/guideposts.org/files/styles/bynder_webimage/public/story/buzz_aldrin_marquee.jpg' }
+//     ],
+//     video: {
+//       videoId: 'q1GA71TeZik',
+//       snippet: 'https://i.ytimg.com/vi/q1GA71TeZik/hqdefault.jpg',
+//     },
+//   })
+
+//   const event4 = new Event({
+//     title: 'Llegada del hombre a la luna',
+//     year: 1969,
+//     description: 'La humanidad da un pequeño gran paso',
+//     images: ['https://www.nationalgeographic.com.es/medio/2016/07/20/apolo-bandera-astronautas_2701a04d.jpg'],
+//     playlist: {
+//       name: 'La Cabalgata De Las Valkirias - De La Opera "La Valkiria"',
+//       url: 'https://p.scdn.co/mp3-preview/83bd529171d817ad274c0c13da19181092cdb7f8?cid=d37f1f747425408d87a3df7bfbf54045',
+//       image: 'https://i.scdn.co/image/ab67616d0000b2739cb08a2f9804ac4103231eca'
+//     },
+//     location: { name: 'La luna', description: 'Un lugar especial' },
+//     contacts: [
+//       { photo: 'https://www.milenio.com/uploads/media/2019/07/19/neil-armstrong-murio-en-a_0_184_1041_648.jpg' },
+//       { photo: 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Michael_Collins_%28S69-31742%2C_restoration%29_%28cropped%29.jpg' },
+//       { photo: 'https://www.guideposts.org/sites/guideposts.org/files/styles/bynder_webimage/public/story/buzz_aldrin_marquee.jpg' }
+//     ],
+//     video: {
+//       videoId: 'q1GA71TeZik',
+//       snippet: 'https://i.ytimg.com/vi/q1GA71TeZik/hqdefault.jpg',
+//     },
+//   })
+// }
+
 const HistoryMenu = () => {
     const [showForm, setShowForm] = useState(false)
     
@@ -100,9 +188,11 @@ const HistoryMenu = () => {
             <button onClick={handleShowMemoryForm}>Crea un recuerdo</button>
             {showForm && (
                 <div className='ContainerMemoryForm'>
-                    <GeneralMemoryForm />
+                    <GeneralMemoryForm 
+                        createEvent={createEvent}
+                        getEvents={getEvents}
+                    />
                 </div>
-
             )}
 
             <div className='ContainerHistoryTimeline'>

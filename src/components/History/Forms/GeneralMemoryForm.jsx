@@ -7,32 +7,81 @@ import CongratulationsMemoryForm from './CongratulationsMemoryForm'
 import SongsMemoryForm from './SongsMemoryForm'
 import VideosMemoryForm from './VideosMemoryForm'
 import { MultiStepForm, Step } from 'react-multi-form'
+import { createEvent, getEvents } from '../../../services/Api'
 
 const GeneralMemoryForm = () => {
     const [active, setActive] = useState(1)
+    const [stateForm, setStateForm] = useState({})
+    const [myEvents, setMyEvents] = useState({})
+    const [error, setError] = useState({})
+    
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setStateForm(prev => {
+            return {
+                ...prev,
+                [name]: name === 'year' ? parseInt(value) : value
+            }
+        })
+    }
+
+    const modalSent = (event) => {
+        event.preventDefault()
+        console.log(stateForm)
+        createEvent(stateForm)
+            .then(() => {
+                getEvents()
+                    .then(events => setMyEvents(events))
+                console.log(myEvents)
+                setStateForm({})
+                // closeModal()
+                // setError({})
+                // handleSavedSnack()
+            })
+            .catch(err => setError(err.response.data.errors))
+    }
 
     return (
         <div>
             <MultiStepForm activeStep={active}>
-                <Step label='Memory'>
-                    <MemoryForm />
+                <Step label='Recuerdo'>
+                    <MemoryForm
+                        handleChange={handleChange}
+                        modalSent={modalSent}
+                    />
                 </Step>
-                <Step label='contacts'>
-                    <ContactsMemoryForm />
+                <Step label='Contactos'>
+                    <ContactsMemoryForm
+                        stateForm={stateForm}
+                        setStateForm={setStateForm}
+                    />
                 </Step>
-                <Step label='Images'>
-                    <ImagesMemoryForm />
+                <Step label='Imagenes'>
+                    <ImagesMemoryForm
+                        stateForm={stateForm}
+                        setStateForm={setStateForm}
+                    />
                 </Step>
-                <Step label='Locations'>
-                    <LocationMemoryForm />
+                <Step label='Localizaciones'>
+                    <LocationMemoryForm
+                        stateForm={stateForm}
+                        setStateForm={setStateForm}
+                    />
                 </Step>
-                <Step label='Songs'>
-                    <SongsMemoryForm />
+                <Step label='Canciones'>
+                    <SongsMemoryForm
+                        stateForm={stateForm}
+                        setStateForm={setStateForm}
+                    />
                 </Step>
                 <Step label='Videos'>
-                    <VideosMemoryForm />
+                    <VideosMemoryForm
+                        stateForm={stateForm}
+                        setStateForm={setStateForm}
+                    />
                 </Step>
-                <Step label='Congratulations'>
+                <Step label='Enhorabuena'>
                     <CongratulationsMemoryForm />
                 </Step>
             </MultiStepForm>

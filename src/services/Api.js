@@ -133,8 +133,8 @@ export const getEvents = () => {
     })
 }
 
-export const createEvent = ({ title, description, eventId, snippet }) => {
-  return http.post('/event/new', { title, description, eventId, snippet })
+export const createEvent = ({ title, description, year, contacts, image, location, song, video }) => {
+  return http.post('/event/new', { title, description, year, contacts, image, location, song, video})
     .then((res) => res?.data)
 }
 
