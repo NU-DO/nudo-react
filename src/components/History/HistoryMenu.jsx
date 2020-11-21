@@ -57,7 +57,8 @@ const defaultEvents = [{
     playlist: {
         name: 'La Macarena',
         url: 'https://p.scdn.co/mp3-preview/3d5cc449365bc428be4082d94a3bb1ac87e03d00?cid=d37f1f747425408d87a3df7bfbf54045',
-        image: 'https://i.scdn.co/image/ab67616d0000b2739703f5d0504b3581cbbb586b'
+        image: 'https://i.scdn.co/image/ab67616d0000b2739703f5d0504b3581cbbb586b',
+        artists: [{name: 'Los del Río'}]
     },
     location: { name: 'Barcelona', description: 'Gran Ciudad' },
     contacts: [
@@ -78,7 +79,8 @@ const defaultEvents = [{
     playlist: {
         name: 'Un año más - Mecano',
         url: 'https://p.scdn.co/mp3-preview/e2b0b492c6194f2ee332d752cb7a28a560ca7253?cid=d37f1f747425408d87a3df7bfbf54045',
-        image: 'https://i.scdn.co/image/ab67616d0000b273a10f5f16b750ec7435d01aa8'
+        image: 'https://i.scdn.co/image/ab67616d0000b273a10f5f16b750ec7435d01aa8',
+        artists: [{name: 'Mecano'}]
     },
     location: { name: 'Puerta del Sol', description: 'Madrid y el mundo entero' },
     contacts: [

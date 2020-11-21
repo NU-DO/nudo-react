@@ -3,7 +3,7 @@ import ButtonAddSong from './ButtonAddSong'
 import DeleteIcon from '@material-ui/icons/Delete'
 import './SongCard.scss'
 
-const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong }) => {
+const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong, fromEvent }) => {
     const [decadeCard, setDecadeCard] = useState('')
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong
                             </div>
                             : null}
                     </div>
-                    : <div onClick={() => handleDeleteSong(song.id)}><DeleteIcon className='songsDeleteIcon' /></div>}
+                    : fromEvent ? null : <div onClick={() => handleDeleteSong(song.id)}><DeleteIcon className='songsDeleteIcon' /></div>}
             </div>
         </div>
     )
