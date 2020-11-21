@@ -27,6 +27,7 @@ const GeneralMemoryForm = ({ setSavedEvents }) => {
 
     const modalSent = (event) => {
         event.preventDefault()
+        console.log('Aqui', stateForm)
         createEvent(stateForm)
             .then(() => {
                 getEvents()

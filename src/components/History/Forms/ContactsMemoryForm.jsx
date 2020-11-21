@@ -16,7 +16,6 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
             .then(contacts => {
                 setMyContacts(contacts.sort((a, b) => ('' + a.name).localeCompare(b.name)))
                 setLoaded(true)
-                console.log(myContacts)
             })
             .catch(err => console.log(err))
     }, [])

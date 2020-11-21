@@ -40,7 +40,6 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
             }
         })
         setFavLoaded(true)
-        console.log({stateForm}) 
     }
 
     return (
@@ -52,7 +51,7 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
                 {loaded && searchedSongs.map((song, index) => {
                     return (
                         <div className='MemorySongsCard' key={index} onClick={() => handleSelectSong(song)}>
-                        <SongCard song={song} fromEvent={true} />
+                            <SongCard song={song} fromEvent={true} />
                         </div>
                     )
                 })}
