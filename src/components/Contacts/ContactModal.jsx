@@ -4,12 +4,9 @@ import GenericButton from '../Generic/GenericButton'
 import { Spinner } from 'react-bootstrap'
 import './ContactModal.scss'
 
-
-
 const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, handleEditContact, modalSent, imageLoad, error }) => {
     const [edit, setEdit] = useState(false)
     
-
     useEffect(() => {
         if (tempState.id) {
             setEdit(true)
