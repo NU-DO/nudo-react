@@ -21,11 +21,11 @@ const EventDetailModal = ({ selected, setSelected, closeModal }) => {
                 {selected.image && <img src={selected.image?.url} className='eventImage' alt={selected.title} />}
                 <div className='songAndContact'>
                     {selected.playlist && <SongCard song={selected.playlist} fromEvent={true} />}
-                    {selected.contacts.length && <div><PeopleAltIcon className='contactCardIcon' />
+                    {selected.contacts.length ? <div><PeopleAltIcon className='contactCardIcon' />
                         {selected.contacts.map((contact, index) => {
                             return <img key={index} className='avatarEvent' src={contact.photo} alt='foto de contacto' />
                         })}
-                    </div>}
+                    </div> : null}
                 </div>
             </div>
             <div className='eventVideoContainer'>
