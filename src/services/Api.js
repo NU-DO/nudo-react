@@ -128,9 +128,6 @@ export const editVideo = ( id, {...tempState}) => {
 
 export const getEvents = () => {
   return http.get('/event')
-    .then(event => {
-      console.log('event', event);
-    })
 }
 
 export const createEvent = ({ title, description, year, contacts, image, location, song, video }) => {
