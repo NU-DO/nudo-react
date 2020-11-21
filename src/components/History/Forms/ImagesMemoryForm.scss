@@ -1,0 +1,49 @@
+.MemoryImagesContainer {
+    display: flex;
+    justify-content: space-evenly;
+  .MyImagesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 300px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 286px;
+    margin-bottom: 22px;
+    .MemoryImageCard {
+      height: 200px;
+      width: 400px;
+      margin: 20px 14px 18px 0;
+      background-color: #f8f8f8;
+      -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: all 0.2s linear;
+      &:hover {
+        transform: scale(1.01);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+      }
+      & img {
+        height: 200px;
+        padding: 10px;
+      }
+      & p {
+        padding: 10px;
+      }
+    }
+  }
+  .PortraitSelectedImage {
+    height: 250px;
+    width: fit-content;
+    margin: 20px 14px 18px 0;
+    background-color: #f8f8f8;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    & img {
+        height: 250px;
+        padding: 10px;
+    }
+  }
+}

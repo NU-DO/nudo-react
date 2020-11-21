@@ -1,0 +1,31 @@
+.MemoryLocationsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    .MyLocationsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: right;
+        width: 300px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        height: 286px;
+        margin-bottom: 22px;
+        .MemoryLocationsCard {
+            display: flex;
+            align-items: center;
+            width: 250px;
+            height: 150px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 4px 0px rgba(85, 85, 85, 0.2);
+            & img {
+                margin: 0 10px 0 10px;
+                padding: 10px 0px;
+                width: 30px;
+            }
+            & p {
+                padding-top: 14px;
+            }
+        }
+    }
+}

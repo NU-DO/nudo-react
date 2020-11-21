@@ -1,7 +1,52 @@
 .ContactsMemoryContainer {
-    
-    .ContactsFromDB {
-        display: flex;
-        flex-direction: column;
+  display: flex;
+  justify-content: space-around;
+  .ContactsFromDB {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    .AgendaFromDB {
+      height: 300px;
+      overflow: scroll;
+      border-radius: 10px;
     }
+  }
+  .SelectedContacts {
+    display: flex;
+    flex-direction: column;
+    .SelectedContactsContainer {
+        height: 300px;
+        overflow: scroll;
+        border-radius: 10px;
+        margin-top: 30px;
+    }
+    .ContactAdded {
+      border-radius: 5px;
+      padding-left: 0px;
+      padding: 5px;
+      margin: 3px;
+      box-shadow: 0px 0px 4px 0px rgba(85, 85, 85, 0.2);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 300px;
+      height: 80px;
+      
+      .contactSmAdded {
+        width: 90%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .contactPhotoAdded {
+            margin: 0px 16px 0 12px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+        .nameHeaderAdded {
+            margin: 3px 0 0 0;
+        }
+      }
+    }
+  }
 }

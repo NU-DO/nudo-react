@@ -97,6 +97,7 @@ const HistoryMenu = () => {
     const [showForm, setShowForm] = useState(false)
     
     useEffect(() => {
+        window.scrollTo(0, 0)
         getEvents()
     }, [])
 
