@@ -71,10 +71,10 @@ const VideosMemoryForm = ({ stateForm, setStateForm }) => {
                         {favLoaded && (
                             <div className='VideoCard' >
                                 <div>
-                                    <img src={stateForm.video.snippet} className='VideoThumbnail' alt='recorte' />
+                                    <img src={stateForm.video?.snippet} className='VideoThumbnail' alt='recorte' />
                                 </div>
                                 <div>
-                                    <p className='VideoCardTitle' >{stateForm.video.title}</p>
+                                    <p className='VideoCardTitle' >{stateForm.video?.title}</p>
                                 </div>
                             </div>
                         )}

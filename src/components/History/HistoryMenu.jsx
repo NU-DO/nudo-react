@@ -95,10 +95,12 @@ const defaultEvents = [{
 
 const HistoryMenu = () => {
     const [showForm, setShowForm] = useState(false)
+    const [stateForm, setStateForm] = useState({})
     const [savedEvents, setSavedEvents] = useState(defaultEvents)
     const [selected, setSelected] = useState({})
     const [showDialog, setShowDialog] = useState(false)
     const [loaded, setLoaded] = useState(false)
+    const [error, setError] = useState({})
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -128,6 +130,21 @@ const HistoryMenu = () => {
         setShowForm(false)
     }
 
+    const modalSent = (event) => {
+        event.preventDefault()
+        setShowDialog(false)
+        createEvent(stateForm)
+            .then(() => {
+                getEvents()
+                    .then(events => setSavedEvents(events))
+                setStateForm({})
+                // closeModal()
+                // setError({})
+                // handleSavedSnack()
+            })
+            .catch(err => setError(err))
+    }
+
     return (
         <div className='NudoMap'>
             <ComponentHeader
@@ -138,10 +155,10 @@ const HistoryMenu = () => {
             <button onClick={handleShowMemoryForm}>Crea un recuerdo</button>
             {showForm && (
                 <div className='ContainerMemoryForm'>
-                    <GeneralMemoryForm
-                        createEvent={createEvent}
-                        getEvents={getEvents}
-                        setSavedEvents={setSavedEvents}
+                    <GeneralMemoryForm 
+                        setStateForm={setStateForm} 
+                        stateForm={stateForm}
+                        modalSent={modalSent}
                     />
                 </div>
             )}
