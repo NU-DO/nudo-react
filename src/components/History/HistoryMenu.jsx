@@ -16,7 +16,7 @@ const defaultEvents = [{
         name: 'La Cabalgata De Las Valkirias - De La Opera "La Valkiria"',
         url: 'https://p.scdn.co/mp3-preview/83bd529171d817ad274c0c13da19181092cdb7f8?cid=d37f1f747425408d87a3df7bfbf54045',
         image: 'https://i.scdn.co/image/ab67616d0000b2739cb08a2f9804ac4103231eca',
-        artists: [{name: 'Wagner'}]
+        artists: [{ name: 'Wagner' }]
     },
     location: { name: 'La luna', description: 'Un lugar especial' },
     contacts: [
@@ -38,7 +38,7 @@ const defaultEvents = [{
         name: 'Cantares',
         url: 'https://p.scdn.co/mp3-preview/9ee94692b4768a2778332dee9c32a8538338e8d8?cid=d37f1f747425408d87a3df7bfbf54045',
         image: 'https://i.scdn.co/image/ab67616d0000b27341500ef6271359321090acfd',
-        artists: [{name: 'Joan Manuel Serrat'}]
+        artists: [{ name: 'Joan Manuel Serrat' }]
     },
     location: { name: 'Las Cortes', description: 'Madrid' },
     contacts: [
@@ -58,7 +58,7 @@ const defaultEvents = [{
         name: 'La Macarena',
         url: 'https://p.scdn.co/mp3-preview/3d5cc449365bc428be4082d94a3bb1ac87e03d00?cid=d37f1f747425408d87a3df7bfbf54045',
         image: 'https://i.scdn.co/image/ab67616d0000b2739703f5d0504b3581cbbb586b',
-        artists: [{name: 'Los del Río'}]
+        artists: [{ name: 'Los del Río' }]
     },
     location: { name: 'Barcelona', description: 'Gran Ciudad' },
     contacts: [
@@ -80,7 +80,7 @@ const defaultEvents = [{
         name: 'Un año más - Mecano',
         url: 'https://p.scdn.co/mp3-preview/e2b0b492c6194f2ee332d752cb7a28a560ca7253?cid=d37f1f747425408d87a3df7bfbf54045',
         image: 'https://i.scdn.co/image/ab67616d0000b273a10f5f16b750ec7435d01aa8',
-        artists: [{name: 'Mecano'}]
+        artists: [{ name: 'Mecano' }]
     },
     location: { name: 'Puerta del Sol', description: 'Madrid y el mundo entero' },
     contacts: [

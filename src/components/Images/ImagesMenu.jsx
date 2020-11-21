@@ -170,8 +170,8 @@ const ImagesMenu = () => {
                             error={error}
                         />
                     </Modal>
-                    : null}
-                </> : 
+                        : null}
+                </> :
                 <Spinner />
             }
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>

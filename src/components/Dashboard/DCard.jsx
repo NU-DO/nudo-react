@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './DCard.scss'
 
 const DCard = ({ img, textHead, textBody, nudoIcon, link, action }) => {
-    
+
     return (
         <>
             <Link to={link} style={{ textDecoration: 'none', color: 'white' }}>

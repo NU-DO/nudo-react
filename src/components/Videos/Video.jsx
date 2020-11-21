@@ -6,9 +6,9 @@ const Video = ({ playVideo, videosYT, addVideoClick }) => {
             <div
                 className='VideoCard'
                 key={index}
-                >
+            >
                 <div>
-                    <img src={video.snippet.thumbnails.high.url} key={index} className='VideoThumbnail' alt='recorte' onClick={() => playVideo(video)}/>
+                    <img src={video.snippet.thumbnails.high.url} key={index} className='VideoThumbnail' alt='recorte' onClick={() => playVideo(video)} />
                 </div>
                 <div>
                     <p className='VideoCardTitle' onClick={() => playVideo(video)}>{video.snippet.title}</p>

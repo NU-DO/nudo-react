@@ -62,9 +62,9 @@ const MemoryGame = ({ options, setOptions, highScore, setHighScore, score, setSc
     const newGame = () => {
         const gameLength = game.length
         setOptions(null)
-            setTimeout(() => {
-              setOptions(gameLength)
-            }, 5)
+        setTimeout(() => {
+            setOptions(gameLength)
+        }, 5)
         sendScore(score, level)
         setScore(1000)
         closeModal()
@@ -116,7 +116,7 @@ const MemoryGame = ({ options, setOptions, highScore, setHighScore, score, setSc
                         />
                     </div>
                 ))}
-                {showDialog ? <Modal> 
+                {showDialog ? <Modal>
                     <GameModal
                         closeModal={closeModal}
                         newGame={newGame}
@@ -124,7 +124,7 @@ const MemoryGame = ({ options, setOptions, highScore, setHighScore, score, setSc
                         score={score}
                     />
                 </Modal>
-                : null}
+                    : null}
             </div>
 
         )

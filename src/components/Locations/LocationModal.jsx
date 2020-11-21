@@ -11,10 +11,10 @@ const LocationModal = ({ closeModal, modalSent, handleEditLocation, handleChange
             setEdit(true)
         }
     }, [])
-    
+
     return (
         <div className='ModalContent'>
-         <CloseModalButton onClick={closeModal} />
+            <CloseModalButton onClick={closeModal} />
             <form onSubmit={edit ? handleEditLocation : modalSent}>
                 <div className='ModalLocationContainer'>
                     <h4 className='text-center'>Completa los campos</h4>

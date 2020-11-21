@@ -23,7 +23,7 @@ const SignIn = () => {
         event.preventDefault()
         signin(state.data)
             .then(user => {
-                setRedirect(true) 
+                setRedirect(true)
             })
             .catch(err => {
                 setState((prev) => {
@@ -60,7 +60,7 @@ const SignIn = () => {
                 </div>
                 <div className='SignInContainer'>
                     <div className='SignInNudoIcon'>
-                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-signin_ekelsq.svg' alt='login rock and roll'/>
+                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-signin_ekelsq.svg' alt='login rock and roll' />
                     </div>
                     <div className='SignInImage'>
                     </div>
@@ -75,9 +75,9 @@ const SignIn = () => {
                                         name='username'
                                         aria-describedby='emailHelp'
                                         value={state.data?.username}
-                                        onChange={handleChange} 
-                                        required    
-                                        />
+                                        onChange={handleChange}
+                                        required
+                                    />
 
                                     {state.error?.username ?
                                         <div className='invalid-feedback animate__animated animate__shakeX'>
@@ -94,9 +94,9 @@ const SignIn = () => {
                                         name='email'
                                         aria-describedby='emailHelp'
                                         value={state.data?.email}
-                                        onChange={handleChange} 
-                                        required    
-                                        />
+                                        onChange={handleChange}
+                                        required
+                                    />
                                     {state.error?.email ?
                                         <div className='invalid-feedbackanimate__animated animate__shakeX'>
                                             {state.error.email}
@@ -112,10 +112,10 @@ const SignIn = () => {
                                         id='password'
                                         name='password'
                                         value={state.data?.password}
-                                        onChange={handleChange} 
+                                        onChange={handleChange}
                                         required
-                                        minLength='8'    
-                                        />
+                                        minLength='8'
+                                    />
                                     {state.error?.password ?
                                         <div className='invalid-feedback animate__animated animate__shakeX'>
                                             {state.error.password}
@@ -135,8 +135,8 @@ const SignIn = () => {
                 <Redirect to={{
                     pathname: '/login',
                     state: { fromSignin: redirect }
-                }}/>
-                : null }
+                }} />
+                : null}
         </div>
     )
 }

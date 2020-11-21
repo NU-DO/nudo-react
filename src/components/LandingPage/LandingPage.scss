@@ -1,21 +1,26 @@
 .HeaderCTA {
   padding: 40px 0 20px 0;
   height: auto;
-  & > img {
+
+  &>img {
     width: 0px;
     height: auto;
     z-index: 1;
   }
+
   .TextCTA {
     margin: 20px;
     width: auto;
     color: black;
+
     & h1 {
       font-weight: bold;
     }
+
     & p {
       font-size: 24px;
     }
+
     & button {
       border: none;
       background-color: #839672;
@@ -33,6 +38,7 @@
   justify-content: center;
   align-items: center;
   height: auto;
+
   & button {
     border: none;
     background-color: #839672;
@@ -42,12 +48,14 @@
     margin-top: 23px;
   }
 }
+
 .FirstAmoeba {
   margin-top: 30px;
   width: 300px;
   height: 300px;
   position: relative;
 }
+
 .macbookNudo {
   position: absolute;
   top: 5%;
@@ -57,6 +65,7 @@
   height: 200px;
   background-size: cover;
 }
+
 .LandingPartTwoText {
   margin: -10px 20px;
   width: auto;
@@ -70,12 +79,14 @@
   width: auto;
   height: auto;
   margin: 20px;
+
   .SecondAmoeba {
     position: relative;
     margin-top: 60px;
     width: 300px;
     height: 300px;
   }
+
   .oldRadio {
     background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604503759/NUDO/assets/Landing%20Page/RAdioFinal_xzqtp2.png);
     background-repeat: no-repeat;
@@ -86,10 +97,12 @@
     height: 200px;
     background-size: cover;
   }
+
   .LandingPartThreeText {
     margin: 30px 20px;
     width: auto;
   }
+
   & button {
     border: none;
     background-color: #839672;
@@ -99,6 +112,7 @@
     margin-top: 23px;
   }
 }
+
 .LandingPartFour {
   display: flex;
   flex-direction: column-reverse;
@@ -107,12 +121,14 @@
   width: auto;
   height: auto;
   margin: 0px 20px 0px 20px;
+
   .ThirdAmoeba {
     margin-top: 60px;
     width: 300px;
     height: 300px;
     position: relative;
   }
+
   .oldLomo {
     background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604504772/NUDO/assets/Landing%20Page/cosina_kn3b98.png);
     background-repeat: no-repeat;
@@ -122,10 +138,12 @@
     height: 205px;
     background-size: cover;
   }
+
   .LandingPartFourText {
     margin: -40px 20px 80px 20px;
     width: auto;
   }
+
   & button {
     border: none;
     background-color: #839672;
@@ -137,17 +155,18 @@
 }
 
 .react-rotating-text-cursor {
-  animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s
-    infinite;
+  animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
 }
 
 @keyframes blinking-cursor {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -158,23 +177,28 @@
     padding: 0px 0 20px 0;
     position: relative;
     height: auto;
-    & > img {
+
+    &>img {
       width: 100vw;
       height: auto;
       z-index: 1;
     }
+
     .TextCTA {
       position: absolute;
       width: 500px;
       color: white;
       top: 20%;
       left: 15%;
+
       & h1 {
         font-weight: bold;
       }
+
       & p {
         font-size: 26px;
       }
+
       & button {
         border: none;
         background-color: #839672;
@@ -195,6 +219,7 @@
     height: 300px;
     position: relative;
     margin-top: 200px;
+
     & button {
       border: none;
       background-color: #839672;
@@ -210,6 +235,7 @@
     height: 500px;
     position: relative;
   }
+
   .macbookNudo {
     background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604490108/NUDO/assets/Landing%20Page/macbook-nudo-main_nylgyg.png);
     position: absolute;
@@ -220,6 +246,7 @@
     height: 450px;
     background-size: cover;
   }
+
   .LandingPartTwoText {
     margin: 0px 30px 45px 85px;
     width: 36%;
@@ -234,10 +261,12 @@
     height: 600px;
     position: relative;
     margin: 0 0 0 0;
+
     .SecondAmoeba {
       width: 400px;
       height: 400px;
     }
+
     .oldRadio {
       background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604503759/NUDO/assets/Landing%20Page/RAdioFinal_xzqtp2.png);
       position: absolute;
@@ -248,10 +277,12 @@
       height: 373px;
       background-size: cover;
     }
+
     .LandingPartThreeText {
       margin: 30px 30px 30px 85px;
       width: 36%;
     }
+
     & button {
       border: none;
       background-color: #839672;
@@ -261,6 +292,7 @@
       margin-top: 23px;
     }
   }
+
   .LandingPartFour {
     display: flex;
     flex-direction: row;
@@ -270,11 +302,13 @@
     height: 450px;
     position: relative;
     margin: 0 0 0 -36px;
+
     .ThirdAmoeba {
       width: 553px;
       height: 400px;
       margin-right: 0px;
     }
+
     .oldLomo {
       background-image: url(https://res.cloudinary.com/difhe4gl3/image/upload/v1604504772/NUDO/assets/Landing%20Page/cosina_kn3b98.png);
       position: absolute;
@@ -285,10 +319,12 @@
       height: 395px;
       background-size: cover;
     }
+
     .LandingPartFourText {
       margin: 30px 30px 30px 85px;
       width: 36%;
     }
+
     & button {
       border: none;
       background-color: #839672;
@@ -300,17 +336,18 @@
   }
 
   .react-rotating-text-cursor {
-    animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s
-      infinite;
+    animation: blinking-cursor 0.8s cubic-bezier(0.68, 0.01, 0.01, 0.99) 0s infinite;
   }
 
   @keyframes blinking-cursor {
     0% {
       opacity: 0;
     }
+
     50% {
       opacity: 1;
     }
+
     100% {
       opacity: 0;
     }

@@ -55,7 +55,7 @@ const VideoModal = ({ closeModal, error, state, handleChange, handleEditVideo, m
                             : null
                         }
                     </div>
-                    <br/>
+                    <br />
                     <GenericButton
                         type='button'
                         text='Guardar'

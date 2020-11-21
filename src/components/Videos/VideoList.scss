@@ -1,6 +1,7 @@
 .VideoList {
   width: 300px;
   position: relative;
+
   .VideoCard {
     display: flex;
     align-items: center;
@@ -8,6 +9,7 @@
     margin: 3px 0;
     box-shadow: 3px 3px 11px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+
     .AddVideo {
       float: right;
       font-size: 16px;
@@ -17,6 +19,7 @@
       padding: 0 8px;
       cursor: pointer;
       transition: all 0.2s linear;
+
       &:hover {
         background-color: #839672;
         color: white;
@@ -39,6 +42,7 @@
     font-size: 12px;
   }
 }
+
 .video-list {
   background-color: white;
   border: 1px solid grey;

@@ -75,8 +75,8 @@ const NudoDrawer = () => {
                                     index === 1 ? <MusicNoteIcon /> :
                                         index === 2 ? <ContactsIcon /> :
                                             index === 3 ? <LocationOnIcon /> :
-                                                    index === 4 ? <EventIcon /> :
-                                                        index === 5 ? <SportsEsportsIcon /> : <EqualizerIcon />}
+                                                index === 4 ? <EventIcon /> :
+                                                    index === 5 ? <SportsEsportsIcon /> : <EqualizerIcon />}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItem>
@@ -96,18 +96,18 @@ const NudoDrawer = () => {
         </div>
     )
 
-return (
-    <div>
-        {['hamMenu'].map((anchor) => (
-            <React.Fragment key={anchor}>
-                <MenuIcon onClick={toggleDrawer(anchor, true)} />
-                <Drawer anchor={`/${anchor.toLowerCase()}`} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                    {list(anchor)}
-                </Drawer>
-            </React.Fragment>
-        ))}
-    </div>
-)
+    return (
+        <div>
+            {['hamMenu'].map((anchor) => (
+                <React.Fragment key={anchor}>
+                    <MenuIcon onClick={toggleDrawer(anchor, true)} />
+                    <Drawer anchor={`/${anchor.toLowerCase()}`} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+                        {list(anchor)}
+                    </Drawer>
+                </React.Fragment>
+            ))}
+        </div>
+    )
 }
 
 export default NudoDrawer

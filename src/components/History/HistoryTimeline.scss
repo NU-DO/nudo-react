@@ -1,0 +1,11 @@
+.eventDetailButton {
+    color: #839672;
+    width: 100%;
+    text-align: end;
+    cursor: pointer;
+
+    &:hover {
+        color: #b2c4a2;
+        transition: 0.5s;
+    }
+}

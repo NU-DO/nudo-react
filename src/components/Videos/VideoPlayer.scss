@@ -1,14 +1,14 @@
 .ModalPlayerContainer {
-    position: relative;
-    width: auto;
-    height: fit-content;
-    border-radius: 10px;
-    margin: auto 0;
-  }
+  position: relative;
+  width: auto;
+  height: fit-content;
+  border-radius: 10px;
+  margin: auto 0;
+}
 
 
 .ContainerVideoPlayer {
-    position: relative;
+  position: relative;
 }
 
 .video-iframe {
@@ -25,8 +25,8 @@
 }
 
 @media (max-width: 700px) {
-    .video-iframe {
-        width: auto;
-        height: auto;
-      }
+  .video-iframe {
+    width: auto;
+    height: auto;
+  }
 }

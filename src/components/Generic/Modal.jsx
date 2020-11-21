@@ -12,7 +12,7 @@ const ModalContent = (props) => {
 }
 
 const Modal = (props) => {
-    
+
     return (
         ReactDOM.createPortal(<ModalContent {...props} />, document.getElementById('root'))
     )

@@ -6,7 +6,7 @@ import './ContactModal.scss'
 
 const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, handleEditContact, modalSent, imageLoad, error }) => {
     const [edit, setEdit] = useState(false)
-    
+
     useEffect(() => {
         if (tempState.id) {
             setEdit(true)
@@ -22,7 +22,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                     <div className='form-row'>
                         <div className='form-group col-8 '>
                             <label htmlFor='exampleFormControlInput1'>Nombre</label>
-                            <input 
+                            <input
                                 type='text'
                                 className={`form-control ${error?.name ? `is-invalid animate__animated animate__shakeX` : null}`}
                                 id='exampleFormControlInput1'
@@ -40,7 +40,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         </div>
                         <div className='form-group col-4'>
                             <label htmlFor='exampleFormControlInput1'>Relación</label>
-                            <input 
+                            <input
                                 type='text'
                                 className={`form-control ${error?.role ? `is-invalid animate__animated animate__shakeX` : null}`}
                                 id='relación'
@@ -60,7 +60,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
 
                     <div className='form-group'>
                         <label htmlFor='exampleFormControlInput1'>Dirección</label>
-                        <input 
+                        <input
                             type='text'
                             className='form-control'
                             id='address'
@@ -72,7 +72,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                     <div className='form-row'>
                         <div className='form-group col-4 col-md-4'>
                             <label htmlFor='exampleFormControlInput1'>Email</label>
-                            <input 
+                            <input
                                 type='email'
                                 className={`form-control ${error?.email ? `is-invalid animate__animated animate__shakeX` : null}`}
                                 id='email'
@@ -89,7 +89,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         </div>
                         <div className='form-group col-4 col-md-4'>
                             <label htmlFor='exampleFormControlInput1'>Teléfono</label>
-                            <input 
+                            <input
                                 type='text'
                                 className={`form-control ${error?.phone ? `is-invalid animate__animated animate__shakeX` : null}`}
                                 id='phone'
@@ -106,7 +106,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                         </div>
                         <div className='form-group col-4'>
                             <label htmlFor='exampleFormControlInput1'>Cumpleaños</label>
-                            <input 
+                            <input
                                 type='text'
                                 className='form-control'
                                 id='birthday'
@@ -146,7 +146,7 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 text='Guardar'
                             />
                             <div>
-                                {imageLoad &&  <Spinner animation="border" style={{ color: '#B73551'}} />}
+                                {imageLoad && <Spinner animation="border" style={{ color: '#B73551' }} />}
                                 {tempState.photo && <img src={tempState.photo} style={{ width: '100px', marginLeft: '10px' }} alt='cargando' className='rounded-circle' />}
                                 {tempState.photo && <p className='text-center text-muted'>Imagen actual</p>}
                             </div>

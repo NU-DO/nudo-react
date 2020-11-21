@@ -2,7 +2,7 @@ import React from 'react'
 import InputText from '../Generic/InputText'
 
 const SongSearcher = ({ handleChange, search }) => {
-    
+
     return (
         <form method='GET'>
             <InputText

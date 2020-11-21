@@ -31,7 +31,7 @@ export const activate = (id, token) => {
 export const logout = () => http.post('/logout')
 
 export const getSongsFromSpotify = ({ search }) => {
-  return http.post('/songsSpotify', {search})
+  return http.post('/songsSpotify', { search })
 }
 
 export const createSong = ({ name, url, artists, decade, album }) => {
@@ -59,8 +59,8 @@ export const deleteLocation = (locationId) => {
   return http.delete(`/location/${locationId}/delete`, { locationId })
 }
 
-export const editLocation = (locationId, {name, description}) => {
-  return http.patch(`/location/${locationId}/edit`, {name, description})
+export const editLocation = (locationId, { name, description }) => {
+  return http.patch(`/location/${locationId}/edit`, { name, description })
     .then((res) => res?.data)
 }
 
@@ -68,7 +68,7 @@ export const getScores = () => {
   return http.get('/gamescore')
 }
 
-export const newScore = ({score, level}) => {
+export const newScore = ({ score, level }) => {
   return http.post('/gamescore/new', { score, level })
 }
 
@@ -79,13 +79,13 @@ export const getImages = () => {
 export const createImage = ({ title, description, date, url }) => {
   return http.post('/image/new', { title, description, date, url })
     .then((res) => res?.data)
-} 
+}
 
 export const deleteImage = (imageId) => {
   return http.delete(`/image/${imageId}/delete`, { imageId })
 }
 
-export const editImage = ( id, {title, date, description}) => {
+export const editImage = (id, { title, date, description }) => {
   return http.patch(`/image/${id}/edit`, { title, date, description })
     .then((res) => res?.data)
 }
@@ -103,8 +103,8 @@ export const deleteContact = (contactId) => {
   return http.delete(`/contact/${contactId}/delete`, { contactId })
 }
 
-export const editContact = ( id, {...tempState}) => {
-  return http.patch(`/contact/${id}/edit`, {...tempState})
+export const editContact = (id, { ...tempState }) => {
+  return http.patch(`/contact/${id}/edit`, { ...tempState })
     .then((res) => res?.data)
 }
 
@@ -121,8 +121,8 @@ export const deleteVideo = (videoId) => {
   return http.delete(`/video/${videoId}/delete`, { videoId })
 }
 
-export const editVideo = ( id, {...tempState}) => {
-  return http.patch(`/video/${id}/edit`, {...tempState})
+export const editVideo = (id, { ...tempState }) => {
+  return http.patch(`/video/${id}/edit`, { ...tempState })
     .then((res) => res?.data)
 }
 
@@ -131,7 +131,7 @@ export const getEvents = () => {
 }
 
 export const createEvent = ({ title, description, year, contacts, image, location, song, video }) => {
-  return http.post('/event/new', { title, description, year, contacts, image, location, song, video})
+  return http.post('/event/new', { title, description, year, contacts, image, location, song, video })
     .then((res) => res?.data)
 }
 
@@ -139,8 +139,8 @@ export const deleteEvent = (eventId) => {
   return http.delete(`/event/${eventId}/delete`, { eventId })
 }
 
-export const editEvent = ( id, {...tempState}) => {
-  return http.patch(`/event/${id}/edit`, {...tempState})
+export const editEvent = (id, { ...tempState }) => {
+  return http.patch(`/event/${id}/edit`, { ...tempState })
     .then((res) => res?.data)
 }
 

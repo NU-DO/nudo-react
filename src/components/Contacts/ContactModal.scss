@@ -15,6 +15,7 @@
   from {
     margin-left: -3000px;
   }
+
   to {
     margin: auto 0;
   }
@@ -38,10 +39,11 @@
 
 
 @keyframes animatetop {
-    from {
-        margin-left: -3000px;
-      }
-      to {
-        margin: auto 0;
-      }
+  from {
+    margin-left: -3000px;
+  }
+
+  to {
+    margin: auto 0;
+  }
 }

@@ -12,7 +12,7 @@ const ModalDarkContent = (props) => {
 }
 
 const ModalDark = (props) => {
-    
+
     return (
         ReactDOM.createPortal(<ModalDarkContent {...props} />, document.getElementById('root'))
     )

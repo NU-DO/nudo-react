@@ -10,7 +10,7 @@ const Contact = ({ contact, handleSelect }) => {
                     className='contactPhoto'
                     src={contact.photo}
                     alt={contact.name} />
-                    <p className='nameHeader'>{contact.name}<span><small>  {contact.role}</small></span></p>
+                <p className='nameHeader'>{contact.name}<span><small>  {contact.role}</small></span></p>
             </div>
             <div className='detailsButton'>></div>
         </div>

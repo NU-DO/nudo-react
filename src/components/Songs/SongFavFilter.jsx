@@ -2,7 +2,7 @@ import React from 'react'
 import './SongFavFilter.scss'
 
 const SongFavFilter = ({ setDecade, decade }) => {
-    
+
     return (
         <div className='SongFavFilter'>
             <p className='SongFavFilterHeader pl-3 pr-2'>Filtra por decada:</p>
