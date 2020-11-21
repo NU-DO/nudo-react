@@ -133,6 +133,7 @@ const HistoryMenu = () => {
     const modalSent = (event) => {
         event.preventDefault()
         setShowDialog(false)
+
         createEvent(stateForm)
             .then(() => {
                 getEvents()
