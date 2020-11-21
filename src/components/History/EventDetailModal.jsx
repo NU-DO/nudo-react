@@ -22,8 +22,8 @@ const EventDetailModal = ({ selected, setSelected, closeModal }) => {
                 <div className='songAndContact'>
                     {selected.playlist && <SongCard song={selected.playlist} fromEvent={true} />}
                     {selected.contacts.length && <div><PeopleAltIcon className='contactCardIcon' />
-                        {selected.contacts.map(contact => {
-                            return <img key={contact.id} className='avatarEvent' src={contact.photo} alt='foto de contacto' />
+                        {selected.contacts.map((contact, index) => {
+                            return <img key={index} className='avatarEvent' src={contact.photo} alt='foto de contacto' />
                         })}
                     </div>}
                 </div>
