@@ -1,0 +1,21 @@
+.ModalContent {
+    position: relative;
+    padding: 40px;
+    width: auto;
+    height: fit-content;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 3px 15px 15px rgba(0, 0, 0, 0.12);
+    margin: auto 0;
+    animation-name: animatetop;
+    transition: all 5s ease;
+  }
+  
+  @keyframes animatetop {
+    from {
+      margin-left: -3000px;
+    }
+    to {
+      margin: auto 0;
+    }
+  }

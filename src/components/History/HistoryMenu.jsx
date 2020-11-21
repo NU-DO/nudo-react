@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import HistoryTimeline from './HistoryTimeline'
+import EventDetailModal from './EventDetailModal'
 import GeneralMemoryForm from './Forms/GeneralMemoryForm'
 import ComponentHeader from '../Generic/ComponentHeader'
+import Modal from '../Generic/Modal'
 import { getEvents, createEvent, deleteEvent, editEvent } from '../../services/Api'
 import './HistoryMenu.scss'
 
@@ -13,7 +15,8 @@ const defaultEvents = [{
     playlist: {
         name: 'La Cabalgata De Las Valkirias - De La Opera "La Valkiria"',
         url: 'https://p.scdn.co/mp3-preview/83bd529171d817ad274c0c13da19181092cdb7f8?cid=d37f1f747425408d87a3df7bfbf54045',
-        image: 'https://i.scdn.co/image/ab67616d0000b2739cb08a2f9804ac4103231eca'
+        image: 'https://i.scdn.co/image/ab67616d0000b2739cb08a2f9804ac4103231eca',
+        artists: [{name: 'Wagner'}]
     },
     location: { name: 'La luna', description: 'Un lugar especial' },
     contacts: [
@@ -34,7 +37,8 @@ const defaultEvents = [{
     playlist: {
         name: 'Cantares',
         url: 'https://p.scdn.co/mp3-preview/9ee94692b4768a2778332dee9c32a8538338e8d8?cid=d37f1f747425408d87a3df7bfbf54045',
-        image: 'https://i.scdn.co/image/ab67616d0000b27341500ef6271359321090acfd'
+        image: 'https://i.scdn.co/image/ab67616d0000b27341500ef6271359321090acfd',
+        artists: [{name: 'Joan Manuel Serrat'}]
     },
     location: { name: 'Las Cortes', description: 'Madrid' },
     contacts: [
@@ -91,6 +95,7 @@ const HistoryMenu = () => {
     const [showForm, setShowForm] = useState(false)
     const [savedEvents, setSavedEvents] = useState(defaultEvents)
     const [selected, setSelected] = useState({})
+    const [showDialog, setShowDialog] = useState(false)
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
@@ -103,7 +108,15 @@ const HistoryMenu = () => {
             .then(() => setLoaded(true))
     }, [])
 
-    useEffect(() =>{console.log(selected)},[selected])
+    const handleSelect = (event) => {
+        setSelected(event)
+        setShowDialog(true)
+    }
+
+    const closeModal = () => {
+        setShowDialog(false)
+        setSelected({})
+    }
 
     const handleShowMemoryForm = () => {
         setShowForm(true)
@@ -131,8 +144,18 @@ const HistoryMenu = () => {
             )}
 
             <div className='ContainerHistoryTimeline'>
-                {loaded && <HistoryTimeline savedEvents={savedEvents} setSelected={setSelected} />}
+                {loaded && <HistoryTimeline savedEvents={savedEvents} handleSelect={handleSelect} />}
             </div>
+
+            {showDialog ?
+                <Modal>
+                    <EventDetailModal
+                        closeModal={closeModal}
+                        selected={selected}
+                        setSelected={setSelected}
+                    />
+                </Modal>
+                : null}
         </div>
 
     )

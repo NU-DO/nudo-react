@@ -51,7 +51,7 @@ const ContactMenu = () => {
     const handleSearch = (e) => {
         setSearch({ search: e.target.value.toLowerCase() })
     }
-    
+
     const handleSavedSnack = () => setSnackSavedOpen(true)
     const handleEditSnack = () => setSnackEditOpen(true)
     const handleDeleteSnack = () => setSnackDeleteOpen(true)
@@ -193,18 +193,19 @@ const ContactMenu = () => {
                             />
 
                         </div>
-                        {showDialog ? <Modal>
-                            <ContactModal
-                                closeModal={closeModal}
-                                tempState={tempState}
-                                handleChange={handleChange}
-                                handleFileUpload={handleFileUpload}
-                                handleEditContact={handleEditContact}
-                                imageLoad={imageLoad}
-                                modalSent={modalSent}
-                                error={error}
-                            />
-                        </Modal>
+                        {showDialog ?
+                            <Modal>
+                                <ContactModal
+                                    closeModal={closeModal}
+                                    tempState={tempState}
+                                    handleChange={handleChange}
+                                    handleFileUpload={handleFileUpload}
+                                    handleEditContact={handleEditContact}
+                                    imageLoad={imageLoad}
+                                    modalSent={modalSent}
+                                    error={error}
+                                />
+                            </Modal>
                             : null}
                     </div>
                 </> :
