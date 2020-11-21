@@ -2,7 +2,7 @@ import React from 'react'
 import './StatisticsFavFilter.scss'
 
 const StatisticsFavFilter = ({ setFocus }) => {
-    
+
     return (
         <div className='StatisticsFavFilter'>
             <div className='filterButton' onClick={() => setFocus('total')}>Total</div>

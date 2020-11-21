@@ -80,18 +80,13 @@ const VideoMenu = () => {
             }
         })
             .then(response => {
-
                 setVideosYT(response.data.items)
                 setFlagData(true)
-
             })
     }
 
     const playVideo = (video) => {
-
-        console.log('entra', video)
         if (video.description) {
-            console.log('heere video from API: ', video)
             onVideoSelected(video.videoId, video.snippet)
         } else {
             onVideoSelected(video.id.videoId, video.snippet.thumbnails.high.url)
@@ -109,10 +104,9 @@ const VideoMenu = () => {
         })
     }
 
-
-
-    const addVideoClick = (event) => {
+    const addVideoClick = (video) => {
         openModal()
+        onVideoSelected(video.id.videoId, video.snippet.thumbnails.high.url)
     }
 
     const handleChange = (event) => {
@@ -125,7 +119,7 @@ const VideoMenu = () => {
         })
     }
 
-    const modalSent = (event) => {
+    const modalSent = (event, video) => {
         event.preventDefault()
         createVideo(state)
             .then(() => {

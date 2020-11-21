@@ -7,15 +7,15 @@ const ContactSeacher = ({ handleSearch, search }) => {
         <div className='ContactSearcher'>
             <form method='GET'>
                 <div className='form-group'>
-                  <input type='email'
-                    className='form-control'
-                    id='searchSong'
-                    placeholder='Busca un contacto'
-                    name='search'
-                    aria-describedby='emailHelp'
-                    value={search.search}
-                    onChange={handleSearch} />
-                  </div>
+                    <input type='email'
+                        className='form-control'
+                        id='searchSong'
+                        placeholder='Busca un contacto'
+                        name='search'
+                        aria-describedby='emailHelp'
+                        value={search.search}
+                        onChange={handleSearch} />
+                </div>
             </form>
         </div>
     )

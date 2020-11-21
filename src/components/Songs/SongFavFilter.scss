@@ -1,21 +1,23 @@
 .SongFavFilter {
     display: flex;
     align-items: baseline;
-    margin: 0 0  24px;
+    margin: 0 0 24px;
 
-    .SongFavFilterHeader{
+    .SongFavFilterHeader {
         margin-right: 0 20px 0 24px
     }
-    .selectMenu{
+
+    .selectMenu {
         width: 150px;
     }
+
     .filterButton {
         padding: 5px 10px;
         border-radius: 5px;
         margin: 3px;
         color: white;
         font-size: 12px;
-    
+
         &:hover {
             cursor: pointer;
         }

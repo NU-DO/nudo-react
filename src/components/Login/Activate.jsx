@@ -5,7 +5,7 @@ import { activate } from '../../services/Api'
 const Activate = (props) => {
     const [activated, setActivated] = useState(false)
     const fromMail = true
-    
+
     useEffect(() => {
         activate(props.match.params.id, props.match.params.token)
             .then(setActivated(true))
@@ -13,14 +13,14 @@ const Activate = (props) => {
 
     return (
         <div>
-            {activated ? 
+            {activated ?
                 <Redirect to={{
                     pathname: '/login',
                     state: { fromMail: fromMail }
-                }}/>  : 
+                }} /> :
                 null
             }
-        </div> 
+        </div>
     )
 }
 

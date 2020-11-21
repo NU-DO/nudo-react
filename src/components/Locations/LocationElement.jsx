@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 const LocationElement = ({ marker, zoomToMarker, deleteMarker, onEdit, i }) => {
     const classes = useStyles()
-    
+
     return (
         <li key={i} className='noBullet'>
             <div className={classes.root}>
@@ -62,20 +62,20 @@ const LocationElement = ({ marker, zoomToMarker, deleteMarker, onEdit, i }) => {
                         id='panel1c-header'
                     >
                         <div className={classes.column}>
-                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png' alt='Marker nudo icon' className='LocationElementMarker'/>
+                            <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png' alt='Marker nudo icon' className='LocationElementMarker' />
                             <Typography className={classes.heading}>{marker.name}</Typography>
                         </div>
                     </AccordionSummary>
                     <AccordionDetails className={classes.details}>
                         <Typography variant='caption'>
-                           <p><b>Descripción: </b></p>{marker.description}
+                            <p><b>Descripción: </b></p>{marker.description}
                         </Typography>
                     </AccordionDetails>
-                    <Divider variant='middle'/>
+                    <Divider variant='middle' />
                     <AccordionActions>
-                        <ZoomInIcon onClick={() => zoomToMarker(marker.lat, marker.lng)} style={{cursor: 'pointer'}}/>
-                        <EditIcon onClick={() => {onEdit(marker)}} style={{cursor: 'pointer'}}/>
-                        <DeleteIcon onClick={() =>  deleteMarker(marker.id)} style={{cursor: 'pointer'}}/>
+                        <ZoomInIcon onClick={() => zoomToMarker(marker.lat, marker.lng)} style={{ cursor: 'pointer' }} />
+                        <EditIcon onClick={() => { onEdit(marker) }} style={{ cursor: 'pointer' }} />
+                        <DeleteIcon onClick={() => deleteMarker(marker.id)} style={{ cursor: 'pointer' }} />
                     </AccordionActions>
                 </Accordion>
             </div>

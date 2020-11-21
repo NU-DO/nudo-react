@@ -47,9 +47,9 @@ const MenuAppBar = () => {
                         aria-label='menu'>
                         <Drawer />
                     </IconButton>
-                    : 
-                    <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
-                    <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan' >Registrate</span> </Link></>
+                        :
+                        <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
+                            <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan' >Registrate</span> </Link></>
                     }
                 </div>
 

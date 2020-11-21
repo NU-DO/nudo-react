@@ -26,7 +26,7 @@ function SongMenu() {
         getSongs()
             .then(data => {
                 setFav(data)
-                setFavFiltered(data)  
+                setFavFiltered(data)
             })
             .then(() => setLoaded(true))
             .catch(err => console.log(err))
@@ -113,14 +113,14 @@ function SongMenu() {
                     title='Canciones'
                     description='Busca tus canciones favoritas de siempre y guardalas en Nudo. Disfruta, baila, recuerda.'
                 />
-                <div className='splitted'>
-                    <div className='songSearchDiv'>
-                        <SongSearch matchSong={matchSong} handleOpen={handleOpen} addFav={addFav} form={form} handleChange={handleChange} search={search} />
-                    </div>
-                    <div className='songSearchDiv'>
-                        <SongFav favFiltered={favFiltered} handleDeleteSong={handleDeleteSong} setDecade={setDecade} decade={decade} />
-                    </div>
-                </div></>
+                    <div className='splitted'>
+                        <div className='songSearchDiv'>
+                            <SongSearch matchSong={matchSong} handleOpen={handleOpen} addFav={addFav} form={form} handleChange={handleChange} search={search} />
+                        </div>
+                        <div className='songSearchDiv'>
+                            <SongFav favFiltered={favFiltered} handleDeleteSong={handleDeleteSong} setDecade={setDecade} decade={decade} />
+                        </div>
+                    </div></>
                 :
                 <Spinner />
             }

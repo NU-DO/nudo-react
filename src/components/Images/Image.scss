@@ -7,26 +7,31 @@
   -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.2s linear;
+
   &:hover {
     transform: scale(1.01);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     cursor: pointer;
   }
+
   .PolaroidCardImgContainer {
     margin-left: 10px;
     height: 250px;
     width: 260px;
     overflow: hidden;
   }
+
   .PolaroidCardImg {
     margin: 15px 14px 0 0px;
     width: 300px;
   }
+
   .PolaroidCardTitle {
     color: #333333;
     font-size: 14px;
     margin: 20px 0 0 20px;
   }
+
   .PolaroidCardDate {
     color: #636367;
     font-size: 12px;

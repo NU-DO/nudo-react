@@ -1,16 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Chrono } from 'react-chrono'
+import './HistoryTimeline.scss'
 
-const HistoryTimeline = ( {items} ) => {
+const HistoryTimeline = ({ savedEvents, handleSelect }) => {
+    const [eventsWithFormat, setEventsWithFormat] = useState([])
+
+    useEffect(() => {
+        const formatted = savedEvents.sort((a, b) => {
+            return a.year - b.year
+        }).map(event => {
+            return {
+                title: event.year,
+                cardTitle: event.title,
+                cardSubtitle: <div>{event.description}<div className='eventDetailButton' onClick={() => handleSelect(event)}>+Detalle</div></div>,
+                media: {
+                    type: "IMAGE",
+                    source: {
+                        url: event.image?.url
+                    }
+                }
+            }
+        })
+        setEventsWithFormat(formatted)
+    }, [savedEvents.length])
+
     return (
+        eventsWithFormat.length &&
         <Chrono
-            items={items}
+            items={eventsWithFormat}
             mode={'VERTICAL_ALTERNATING'}
             slideShow
             flipLayout={true}
             slideItemDuration={3000}
             scrollable={{ scrollbar: true }}
-            theme={{ primary: '#839672', secondary: '#EFEFE1', cardBgColor: 'white', cardForeColor: 'black' }}
+            theme={{ primary: '#839672', secondary: '#f7a7b6', cardBgColor: 'white', cardForeColor: 'black' }}
         />
     )
 }

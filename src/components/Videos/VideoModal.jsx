@@ -42,13 +42,20 @@ const VideoModal = ({ closeModal, error, state, handleChange, handleEditVideo, m
                         <label>Descripción</label>
                         <textarea
                             id='descripcion'
-                            className='form-control'
+                            className={`form-control ${error?.description ? `is-invalid animate__animated animate__shakeX` : null}`}
                             name='description'
                             value={state.description}
                             onChange={handleChange}
+                            required
                         ></textarea>
+                        {error?.description ?
+                            <div className='invalid-feedback animate__animated animate__shakeX'>
+                                {error.title}
+                            </div>
+                            : null
+                        }
                     </div>
-                    <br/>
+                    <br />
                     <GenericButton
                         type='button'
                         text='Guardar'

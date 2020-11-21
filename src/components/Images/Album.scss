@@ -11,35 +11,43 @@
   align-items: center;
   flex-wrap: wrap;
   position: relative;
+
   .ContainerAlbumButtons {
     position: absolute;
     top: 20px;
     left: 13%;
     display: flex;
     align-items: center;
+
     .ImageGenericButton {
       display: none;
     }
   }
+
   .AlbumRadioButtons {
     display: flex;
   }
+
   .PolaroidCRUDButtons {
     display: flex;
     justify-content: flex-end;
     margin: 12px 12px 0 0;
+
     .PolaroidEditButton {
       color: #839672;
       transition: all 0.2s linear;
       margin-right: 10px;
+
       &:hover {
         font-size: 35px;
         color: #919d87;
       }
     }
+
     .PolaroidDeleteButton {
       color: #f89677;
       transition: all 0.2s linear;
+
       &:hover {
         font-size: 35px;
         color: #e13400;
@@ -47,6 +55,7 @@
     }
   }
 }
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -90,14 +99,17 @@
     align-items: center;
     flex-wrap: wrap;
     position: relative;
+
     .ContainerAlbumButtons {
       position: absolute;
       top: 20px;
       left: auto;
+
       .ImageGenericButton {
         display: block;
       }
     }
+
     .AlbumRadioButtons {
       display: flex;
       align-items: center;
@@ -107,6 +119,7 @@
     }
   }
 }
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -121,6 +134,7 @@
   border: 1px solid #839672;
   color: #839672;
   text-decoration: none;
+
   &:hover {
     text-decoration: none;
     color: #ef7e93;

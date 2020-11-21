@@ -10,9 +10,11 @@
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
+
   .songSearchDiv {
     width: 300px;
   }
+
   .songFavDiv {
     width: 300px;
   }
@@ -49,19 +51,22 @@
 
 @media (min-width: 700px) {
   .splitted {
-      padding: 15px 15px;
+    padding: 15px 15px;
     box-shadow: 0px 0px 12px 0px rgba(85, 85, 85, 0.281);
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+
     .songSearchDiv {
       width: 600px;
     }
+
     .songFavDiv {
       width: 600px;
     }
   }
+
   .songFavContainer {
     padding-top: 20px;
     height: 500px;

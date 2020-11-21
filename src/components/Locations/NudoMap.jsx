@@ -6,13 +6,12 @@ import LocationDetails from './LocationDetails'
 import Spinner from '../Generic/Spinner'
 import ComponentHeader from '../Generic/ComponentHeader'
 import AlertSnackBar from '../Generic/AlertSnackBar'
-import Modal from '../Generic/Modal' 
+import Modal from '../Generic/Modal'
 import { createLocation, getLocations, deleteLocation, editLocation } from '../../services/Api'
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
 import '@reach/combobox/styles.css'
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
-import MapStyles from './MapStyles'
 import './NudoMap.scss'
 
 const mapContainerStyle = {
@@ -24,7 +23,6 @@ const center = {
     lng: -3.74922,
 }
 const options = {
-    styles: MapStyles,
     disableDefaultUI: false,
     zoomControl: true,
 }
@@ -227,7 +225,7 @@ const NudoMap = () => {
                     </div>
                     <div className='col col-lg-4 d-none d-lg-block'>
                         <h3>Mis Localizaciones:</h3>
-                        
+
                         <LocationList
                             searchedMarkers={searchedMarkers}
                             zoomToMarker={zoomToMarker}
@@ -252,7 +250,7 @@ const NudoMap = () => {
                     </div>
                 </div>
             </div>
-            {showDialog ? <Modal> 
+            {showDialog ? <Modal>
                 <LocationModal
                     closeModal={closeModal}
                     modalSent={modalSent}
@@ -261,7 +259,7 @@ const NudoMap = () => {
                     tempCoordenates={tempCoordenates}
                     error={error}
                 />
-                </Modal>
+            </Modal>
                 : null}
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                 <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>

@@ -3,6 +3,7 @@
   position: sticky;
   background-color: white;
   margin-top: -91px;
+
   .NudoHeaderLeft {
     display: flex;
     flex-direction: row;
@@ -10,8 +11,9 @@
 
     .NudoHeaderSpan {
       margin: 19px 0 0 0px;
+
       &:hover {
-          color:#839672;
+        color: #839672;
       }
     }
   }
@@ -19,6 +21,7 @@
   .NudoHeaderIcon {
     width: 9em;
   }
+
   .NudoHeaderLogo {
     margin: 10px;
   }

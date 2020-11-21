@@ -3,7 +3,7 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocom
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption } from '@reach/combobox'
 
 const SearchMap = ({ panTo }) => {
-  const { 
+  const {
     ready,
     value,
     suggestions: { status, data },

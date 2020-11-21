@@ -1,8 +1,8 @@
 import React from 'react'
 import './GenericButton.scss'
 
-const GenericButton = ({text, onClick}) => {
-    
+const GenericButton = ({ text, onClick }) => {
+
     return (
         <div>
             <button className='GenericButton' onClick={onClick}>{text}</button>

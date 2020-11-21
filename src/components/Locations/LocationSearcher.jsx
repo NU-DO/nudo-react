@@ -5,15 +5,15 @@ const LocationSearcher = ({ handleSearch, search }) => {
         <div>
             <form method='GET'>
                 <div className='form-group'>
-                  <input type='text'
-                    className='form-control'
-                    id='searchlocation'
-                    placeholder='Busca una localización'
-                    name='search'
-                    aria-describedby='Location'
-                    value={search.search}
-                    onChange={handleSearch} />
-                  </div>
+                    <input type='text'
+                        className='form-control'
+                        id='searchlocation'
+                        placeholder='Busca una localización'
+                        name='search'
+                        aria-describedby='Location'
+                        value={search.search}
+                        onChange={handleSearch} />
+                </div>
             </form>
         </div>
     );

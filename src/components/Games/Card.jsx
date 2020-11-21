@@ -27,10 +27,11 @@ const Card = ({
                 setFlippedCount(flippedCount + 1)
                 setScore(prev => {
                     if (prev > 0) {
-                        return prev -15
+                        return prev - 15
                     } else {
                         return prev = 0
-                    }})
+                    }
+                })
                 setFlippedIndexes([])
             }, 1000)
         } else if (flippedIndexes[2] === false && id === 0) {
