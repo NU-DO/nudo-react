@@ -11,7 +11,7 @@ const HistoryTimeline = ({ savedEvents }) => {
                 return {
                     title: event.year,
                     cardTitle: event.title,
-                    cardSubtitle: event.description,
+                    cardSubtitle: <div>{event.description}<button>Detalle</button></div>,
                     media: {
                         type: "IMAGE",
                         source: {
