@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Chrono } from 'react-chrono'
 
-const HistoryTimeline = ({ savedEvents }) => {
+const HistoryTimeline = ({ savedEvents, setSelected }) => {
     const [eventsWithFormat, setEventsWithFormat] = useState([])
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const HistoryTimeline = ({ savedEvents }) => {
                 return {
                     title: event.year,
                     cardTitle: event.title,
-                    cardSubtitle: <div>{event.description}<button>Detalle</button></div>,
+                    cardSubtitle: <div>{event.description}<button onClick={() => setSelected(event)}>Detalle</button></div>,
                     media: {
                         type: "IMAGE",
                         source: {
@@ -22,10 +22,6 @@ const HistoryTimeline = ({ savedEvents }) => {
             })
         setEventsWithFormat(formatted)
     }, [savedEvents.length])
-
-    useEffect(() => {
-        console.log(eventsWithFormat);
-    }, [eventsWithFormat])
 
     return (
         eventsWithFormat.length &&

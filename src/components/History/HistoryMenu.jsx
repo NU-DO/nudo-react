@@ -90,6 +90,7 @@ const defaultEvents = [{
 const HistoryMenu = () => {
     const [showForm, setShowForm] = useState(false)
     const [savedEvents, setSavedEvents] = useState(defaultEvents)
+    const [selected, setSelected] = useState({})
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
@@ -101,6 +102,8 @@ const HistoryMenu = () => {
             }))
             .then(() => setLoaded(true))
     }, [])
+
+    useEffect(() =>{console.log(selected)},[selected])
 
     const handleShowMemoryForm = () => {
         setShowForm(true)
@@ -128,7 +131,7 @@ const HistoryMenu = () => {
             )}
 
             <div className='ContainerHistoryTimeline'>
-                {loaded && <HistoryTimeline savedEvents={savedEvents} />}
+                {loaded && <HistoryTimeline savedEvents={savedEvents} setSelected={setSelected} />}
             </div>
         </div>
 
