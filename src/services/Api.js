@@ -130,8 +130,10 @@ export const getEvents = () => {
   return http.get('/event')
 }
 
-export const createEvent = ({ title, description, year, contacts, image, location, song, video }) => {
-  return http.post('/event/new', { title, description, year, contacts, image, location, song, video })
+//Añadir contacts
+
+export const createEvent = ({ title, description, year, image, location, song, video }) => {
+  return http.post('/event/new', { title, description, year, image: image.id, location: location.id, song: song.id, video: video.id })
     .then((res) => res?.data)
 }
 

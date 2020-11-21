@@ -1,8 +1,8 @@
 import React from 'react'
 
-const CongratulationsMemoryForm = () => {
+const CongratulationsMemoryForm = ( { modalSent }) => {
     return (
-        <div>
+        <div onClick={modalSent}>
             Congratulations!
         </div>
     )

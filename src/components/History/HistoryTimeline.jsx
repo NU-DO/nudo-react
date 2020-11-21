@@ -39,5 +39,3 @@ const HistoryTimeline = ({ savedEvents, handleSelect }) => {
 }
 
 export default HistoryTimeline
-
-

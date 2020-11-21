@@ -1,18 +1,17 @@
 import React from 'react'
 import './ContactSearcher.scss'
 
-const ContactSeacher = ({ handleSearch, search }) => {
+const ContactSeacher = ({ handleSearch, search, placeholder }) => {
 
     return (
         <div className='ContactSearcher'>
             <form method='GET'>
                 <div className='form-group'>
-                    <input type='email'
+                    <input type='text'
                         className='form-control'
                         id='searchSong'
-                        placeholder='Busca un contacto'
+                        placeholder={placeholder}
                         name='search'
-                        aria-describedby='emailHelp'
                         value={search.search}
                         onChange={handleSearch} />
                 </div>

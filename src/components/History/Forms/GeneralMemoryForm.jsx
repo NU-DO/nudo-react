@@ -1,20 +1,19 @@
 import React, { useState } from 'react'
-import MemoryForm from './MemoyForm'
+import MemoryForm from './MemoryForm'
 import LocationMemoryForm from './LocationMemoryForm'
 import ImagesMemoryForm from './ImagesMemoryForm'
 import ContactsMemoryForm from './ContactsMemoryForm'
 import CongratulationsMemoryForm from './CongratulationsMemoryForm'
 import SongsMemoryForm from './SongsMemoryForm'
 import VideosMemoryForm from './VideosMemoryForm'
-import { MultiStepForm, Step } from 'react-multi-form'
 import { createEvent, getEvents } from '../../../services/Api'
+import { MultiStepForm, Step } from 'react-multi-form'
 
-const GeneralMemoryForm = () => {
+const GeneralMemoryForm = ({ setSavedEvents }) => {
     const [active, setActive] = useState(1)
     const [stateForm, setStateForm] = useState({})
-    const [myEvents, setMyEvents] = useState({})
     const [error, setError] = useState({})
-    
+
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -28,12 +27,10 @@ const GeneralMemoryForm = () => {
 
     const modalSent = (event) => {
         event.preventDefault()
-        console.log(stateForm)
         createEvent(stateForm)
             .then(() => {
                 getEvents()
-                    .then(events => setMyEvents(events))
-                console.log(myEvents)
+                    .then(events => setSavedEvents(events))
                 setStateForm({})
                 // closeModal()
                 // setError({})
@@ -82,7 +79,9 @@ const GeneralMemoryForm = () => {
                     />
                 </Step>
                 <Step label='Enhorabuena'>
-                    <CongratulationsMemoryForm />
+                    <CongratulationsMemoryForm
+                        modalSent={modalSent}
+                    />
                 </Step>
             </MultiStepForm>
             {active !== 1 && (

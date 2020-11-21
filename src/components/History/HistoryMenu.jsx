@@ -141,6 +141,7 @@ const HistoryMenu = () => {
                     <GeneralMemoryForm
                         createEvent={createEvent}
                         getEvents={getEvents}
+                        setSavedEvents={setSavedEvents}
                     />
                 </div>
             )}

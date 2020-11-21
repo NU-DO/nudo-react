@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { getContacts } from '../../../services/Api'
 import ContactSeacher from '../../Contacts/ContactSearcher'
+import { getContacts } from '../../../services/Api'
 import './ContactsMemoryForm.scss'
 
 const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
-
     const [myContacts, setMyContacts] = useState([])
     const [loaded, setLoaded] = useState(false)
     const [searchedContacts, setSearchedContacts] = useState([])
@@ -20,7 +19,6 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
                 console.log(myContacts)
             })
             .catch(err => console.log(err))
-
     }, [])
 
     useEffect(() => {
@@ -47,7 +45,6 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
                 }
             }
         })
-        console.log('contact added to state: ', stateForm)
     }
 
     const handleSearchContact = (e) => {
@@ -61,7 +58,6 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
                contacts: [...prev.contacts.filter(contact => contact.id !== contactID)]
            }
        })
-       console.log('contact deleted: ', stateForm)
     }
 
     return (
@@ -72,7 +68,7 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
             {loaded && (
                 <div className='ContactsMemoryContainer'>
                     <div className='ContactsFromDB'>
-                        <ContactSeacher handleSearch={handleSearchContact} search={search} />
+                        <ContactSeacher handleSearch={handleSearchContact} search={search} placeholder='Busca un contacto' />
                         <div className='AgendaFromDB'>
                             {searchedContacts.map((contact, index) => (
                                 <div className='Contact' onClick={() => handleSelectContact(contact)} key={index}>

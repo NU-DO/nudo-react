@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { useAuthContext } from '../../../contexts/AuthContext'
 
-const MemoyForm = ({handleChange, modalSent}) => {
-
+const MemoyForm = ({ handleChange }) => {
     const [error, setError] = useState({})
 
     return (
         <div className='ContainerMemoryForm'>
-            <form onSubmit={modalSent}>
+            <form>
                 <div className='row'>
                     <div className='col-8'>
                         <label htmlFor='memoryForm'>Escribe un título</label>
@@ -56,7 +55,6 @@ const MemoyForm = ({handleChange, modalSent}) => {
                             rows='3'></textarea>
                     </div>
                 </div>
-                <button className='btn btn-primary' tye='submit'>Submit</button>
             </form>
         </div>
     )
