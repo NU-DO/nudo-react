@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const Video = ({ playVideo, videosYT, addVideoClick }) => {
     const allVideos = videosYT.map((video, index) => {
         return (
@@ -14,7 +13,7 @@ const Video = ({ playVideo, videosYT, addVideoClick }) => {
                 <div>
                     <p className='VideoCardTitle' onClick={() => playVideo(video)}>{video.snippet.title}</p>
                 </div>
-                <div className='AddVideo' onClick={() => addVideoClick()}>
+                <div className='AddVideo' onClick={() => addVideoClick(video)}>
                     +
                 </div>
             </div>

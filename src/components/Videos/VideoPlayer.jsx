@@ -19,7 +19,7 @@ const Videoplayer = ({ videoId, closeDarkModal }) => {
                     title={videoId}
                     width='auto'
                     height='auto'
-                    allowfullscreen='allowfullscreen'
+                    allowFullScreen='allowfullscreen'
                     className='video-iframe'
                     src={`https://www.youtube.com/embed/${videoId}`}
                 />

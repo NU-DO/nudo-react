@@ -95,9 +95,12 @@ import './HistoryMenu.scss'
 
 const HistoryMenu = () => {
     const [showForm, setShowForm] = useState(false)
+    const [savedEvents, setSavedEvents] = useState([])
     
     useEffect(() => {
+        window.scrollTo(0, 0)
         getEvents()
+            .then(events => setSavedEvents(events))
     }, [])
 
     const items = [{
