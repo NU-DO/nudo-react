@@ -1,14 +1,26 @@
+.ButtonMemoryForm {
+  width: 120px;
+  padding: 8px;
+  margin: 0px 8px;
+  border-radius: 10px;
+  border: none;
+  background-color: #839672;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
 
-    .ContainerHistoryTimeline {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 800px;
-        height: 1000px;
-        padding: 30px;
-    }
+  &:hover {
+    background-color: #94a981;
+    transition: 0.5s;
+  }
+}
 
-    .ContainerMemoryForm {
-        width: 1000px;
-        padding: 30px 20px;
-    }
+.ContainerHistoryTimeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 1000px;
+  padding: 30px;
+}

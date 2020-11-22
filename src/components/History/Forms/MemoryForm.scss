@@ -1,4 +1,29 @@
 .ContainerMemoryForm {
     width: 90%;
-    max-height: 400px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0;
+    .InputsMemoryForm {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        .FirstInputsMemory {
+            width: 300px;
+        }
+    }
+    .ContainerWelcomeMemory {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        & img {
+            width: 100px;
+        }
+        & h5 {
+            padding-top:10px;
+        }
+    }
 }

@@ -7,6 +7,7 @@ import CongratulationsMemoryForm from './CongratulationsMemoryForm'
 import SongsMemoryForm from './SongsMemoryForm'
 import VideosMemoryForm from './VideosMemoryForm'
 import { MultiStepForm, Step } from 'react-multi-form'
+import './GeneralMemoryForm.scss'
 
 const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent }) => {
     const [active, setActive] = useState(1)
@@ -22,7 +23,7 @@ const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent }) => {
     }
 
     return (
-        <div>
+        <div className='MultiStepContainer'>
             <MultiStepForm activeStep={active}>
                 <Step label='Recuerdo'>
                     <MemoryForm
@@ -66,14 +67,14 @@ const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent }) => {
                 </Step>
             </MultiStepForm>
             {active !== 1 && (
-                <button onClick={() => setActive(active - 1)}>Previous</button>
+                <button onClick={() => setActive(active - 1)}>Anterior</button>
             )}
             {active !== 7 && (
                 <button
                     onClick={() => setActive(active + 1)}
                     style={{ float: 'right' }}
                 >
-                    Next
+                    Siguiente
                 </button>
             )}
         </div>

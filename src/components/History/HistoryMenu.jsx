@@ -152,9 +152,9 @@ const HistoryMenu = () => {
                 description='En esta seción podrás crear y organizar tus recuerdos cronológicamente en una linea del tiempo. Todas las ventajas de NUDO en una sola sección.'
                 nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
             />
-            <button onClick={handleShowMemoryForm}>Crea un recuerdo</button>
+            <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>Crea un recuerdo</button>
             {showForm && (
-                <div className='ContainerMemoryForm'>
+                <div className=''>
                     <GeneralMemoryForm 
                         setStateForm={setStateForm} 
                         stateForm={stateForm}
