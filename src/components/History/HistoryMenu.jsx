@@ -12,7 +12,7 @@ import './HistoryMenu.scss'
 const defaultEvents = [{
     title: 'Llegada del hombre a la luna',
     year: 1969,
-    description: 'La humanidad da un pequeño gran paso',
+    description: 'I love cheese, especially cheesecake goat. Cauliflower cheese cheesy grin queso mozzarella say cheese stilton danish fontina chalk and cheese. Fromage frais who moved my cheese emmental rubber cheese airedale airedale blue castello cheese slices. Monterey jack cow cheesy grin macaroni cheese cheesy grin cheese on toast airedale pecorino. Fondue hard cheese fondue hard cheese cauliflower cheese boursin blue castello pecorino. Squirty cheese pecorino.',
     image: { url: 'https://www.nationalgeographic.com.es/medio/2016/07/20/apolo-bandera-astronautas_2701a04d.jpg' },
     playlist: {
         name: 'La Cabalgata De Las Valkirias - De La Opera "La Valkiria"',

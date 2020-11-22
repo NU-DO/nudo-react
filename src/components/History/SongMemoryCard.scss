@@ -1,0 +1,96 @@
+.SongMemoryCard {
+    background-color: #DBDBDB;
+    border-radius: 5px;
+    padding-left: 0px;
+    padding: 5px;
+    margin: 3px;
+    box-shadow: 0px 0px 12px 0px rgba(85, 85, 85, 0.281);
+    display: flex;
+    justify-content: flex-start;
+    width: 340px;
+    position: relative;
+
+    audio {
+        filter: sepia(0%) saturate(10%) grayscale(0.3) contrast(99%) invert(10%);
+        width: 100px;
+        height: 25px;
+    }
+
+    .MemoryAlbumImage {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    .songMemoryName {
+        margin: 10px 0 0 0;
+        font-size: 12px;
+    }
+
+    .songMemoryArtist {
+        font-size: 10px;
+        color: rgb(112, 109, 109);
+        padding: 5px;
+    }
+
+    .songMemoryCardInfo {
+        display: flex;
+        padding-left: 8px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .songMemoryText {
+        width: 120px;
+    }
+}
+
+
+
+@media (min-width: 700px) {
+    .SongMemoryCard {
+        background-color: #DBDBDB;
+        border-radius: 5px;
+        padding: 12px 0 0 5px;
+        margin: 3px;
+        box-shadow: 0px 0px 12px 0px rgba(85, 85, 85, 0.281);
+        display: flex;
+        justify-content: flex-start;
+        width: 327px;
+
+        audio {
+            filter: sepia(0%) saturate(10%) grayscale(0.3) contrast(99%) invert(10%);
+            width: 100px;
+            height: 25px;
+        }
+
+        .MemoryAlbumImage {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+
+        .songMemoryName {
+            margin: 10px 0 0 0;
+            font-size: 12px;
+        }
+
+        .songMemoryArtist {
+            font-size: 10px;
+            color: rgb(112, 109, 109);
+            padding: 5px;
+        }
+
+        .songMemoryCardInfo {
+            display: flex;
+            padding-left: 8px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .songMemoryText {
+            width: 150px;
+        }
+
+    }
+}
