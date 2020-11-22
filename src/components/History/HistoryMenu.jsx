@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import HistoryTimeline from './HistoryTimeline'
 import EventDetailModal from './EventDetailModal'
 import GeneralMemoryForm from './Forms/GeneralMemoryForm'
@@ -103,6 +104,8 @@ const HistoryMenu = () => {
     const [loaded, setLoaded] = useState(false)
     const [error, setError] = useState({})
 
+    const history = useHistory()
+
     useEffect(() => {
         window.scrollTo(0, 0)
         getEvents()
@@ -130,20 +133,18 @@ const HistoryMenu = () => {
     const handleCloseMemoryForm = () => {
         setShowForm(false)
         setStateForm({})
+        setError({})
     }
 
     const modalSent = (event) => {
         event.preventDefault()
-        // createEvent(stateForm)
-        //     .then(() => {
-        //         getEvents()
-        //             .then(events => setSavedEvents(events))
-        //         setStateForm({})
-        //         // setError({})
-        //         // handleSavedSnack()
-        //     })
-        //     .catch(err => setError(err))
-        handleCloseMemoryForm()
+        createEvent(stateForm)
+            .then(() => {
+                getEvents()
+                    .then(events => setSavedEvents(events))
+                    .then(() => history.go(0))
+            })
+            .catch(err => setError(err))
     }
 
     return (
