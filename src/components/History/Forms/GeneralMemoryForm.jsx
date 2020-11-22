@@ -10,7 +10,7 @@ import CloseModalButton from '../../Generic/CloseModalButton'
 import { MultiStepForm, Step } from 'react-multi-form'
 import './GeneralMemoryForm.scss'
 
-const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent, handleCloseMemoryForm }) => {
+const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent, handleCloseMemoryForm, error }) => {
     const [active, setActive] = useState(1)
 
     const handleChange = (event) => {
@@ -26,10 +26,11 @@ const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent, handleCloseMemo
     return (
         <div className='MultiStepContainer'>
             <CloseModalButton onClick={() => handleCloseMemoryForm()} />
-            <MultiStepForm activeStep={active}>
+            <MultiStepForm activeStep={active} accentColor='#839672' >
                 <Step label='Recuerdo'>
                     <MemoryForm
                         handleChange={handleChange}
+                        error={error}
                     />
                 </Step>
                 <Step label='Contactos'>

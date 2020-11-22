@@ -50,7 +50,7 @@ const ImagesMemoryForm = ({ stateForm, setStateForm }) => {
                     {loaded && searchedImages.map((image, index) => {
                         return (
                             <div className='MemoryImageCard' key={index} onClick={() => handleSelectImage(image)}>
-                                <img src={image.url} />
+                                <img src={image.url} alt={image.title} />
                                 <p>{image.title}</p>
                             </div>
                         )
@@ -62,7 +62,7 @@ const ImagesMemoryForm = ({ stateForm, setStateForm }) => {
                     <h5 className='py-3'>Imagen seleccionada:</h5>
                     {favLoaded && (
                         <div className='PortraitSelectedImage'>
-                            <img src={stateForm.image.url} />
+                            <img src={stateForm.image.url} alt={stateForm.image.title} />
                         </div>
                     )}
 

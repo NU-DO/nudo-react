@@ -29,16 +29,19 @@ const EventDetailModal = ({ selected, setSelected, closeModal, handleDelete }) =
                     </div> : null}
                 </div>
             </div>
-            <div className='eventVideoContainer'>
-                <iframe
-                    title={selected.video.videoId}
-                    width='auto'
-                    height='auto'
-                    allowFullScreen='allowfullscreen'
-                    className='video-iframe videoEvent'
-                    src={`https://www.youtube.com/embed/${selected.video.videoId}`}
-                />
-            </div>
+            {selected.video ? 
+                <div className='eventVideoContainer'>
+                    <iframe
+                        title={selected.video.videoId}
+                        width='auto'
+                        height='auto'
+                        allowFullScreen='allowfullscreen'
+                        className='video-iframe videoEvent'
+                        src={`https://www.youtube.com/embed/${selected.video.videoId}`}
+                    />
+                </div>
+            : null
+            }
             <div className='CardFavCRUDButtons'>
                 <DeleteIcon className='CardFavDeleteButton' onClick={() => handleDelete(selected.id)} />
             </div>

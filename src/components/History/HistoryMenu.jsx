@@ -170,6 +170,7 @@ const HistoryMenu = () => {
                             stateForm={stateForm}
                             modalSent={modalSent}
                             handleCloseMemoryForm={handleCloseMemoryForm}
+                            error={error}
                         />
                     </div>
                 )}
