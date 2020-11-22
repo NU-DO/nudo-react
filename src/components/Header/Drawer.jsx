@@ -18,6 +18,7 @@ import EventIcon from '@material-ui/icons/Event'
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports'
 import EqualizerIcon from '@material-ui/icons/Equalizer'
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom'
+import VideocamIcon from '@material-ui/icons/Videocam'
 import MenuIcon from '@material-ui/icons/Menu'
 import './Drawer.scss'
 
@@ -30,7 +31,7 @@ const useStyles = makeStyles({
     },
 })
 
-const routesRedirect = ['Imagenes', 'Canciones', 'Contactos', 'Localizaciones', 'Historia', 'Juegos', 'Estadisticas']
+const routesRedirect = ['Imagenes', 'Canciones', 'Contactos', 'Localizaciones', 'Videos', 'Historia', 'Juegos', 'Estadisticas']
 
 const NudoDrawer = () => {
     const { user, logout: logOut } = useAuthContext()
@@ -75,8 +76,10 @@ const NudoDrawer = () => {
                                     index === 1 ? <MusicNoteIcon /> :
                                         index === 2 ? <ContactsIcon /> :
                                             index === 3 ? <LocationOnIcon /> :
-                                                index === 4 ? <EventIcon /> :
-                                                    index === 5 ? <SportsEsportsIcon /> : <EqualizerIcon />}
+                                                index === 4 ? <VideocamIcon /> :
+                                                    index === 5 ? <EventIcon /> :
+                                                        index === 6 ? <SportsEsportsIcon /> : 
+                                                            <EqualizerIcon />}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />
                             </ListItem>

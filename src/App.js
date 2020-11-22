@@ -30,13 +30,13 @@ function App() {
           <NotAuthenticatedRoute exact path='/login' component={Login} />
           <NotAuthenticatedRoute exact path='/user/:id/activate/:token' component={Activate} />
           <NotAuthenticatedRoute exact path='/signin' component={Signin} />
+          <AuthenticatedRoute exact path='/imagenes' component={ImagesMenu} />
           <AuthenticatedRoute exact path='/canciones' component={SongMenu} />
           <AuthenticatedRoute exact path='/localizaciones' component={NudoMap} />
-          <AuthenticatedRoute exact path='/imagenes' component={ImagesMenu} />
-          <AuthenticatedRoute exact path='/juegos' component={Game} />
           <AuthenticatedRoute exact path='/contactos' component={ContactMenu} />
           <AuthenticatedRoute exact path='/videos' component={VideoMenu} />
           <AuthenticatedRoute exact path='/historia' component={HistoryMenu} />
+          <AuthenticatedRoute exact path='/juegos' component={Game} />
           <AuthenticatedRoute exact path='/estadisticas' component={StatisticsMenu} />
           <AuthenticatedRoute exact path='/' component={Dashboard} />
           <Route component={NotFound} />
