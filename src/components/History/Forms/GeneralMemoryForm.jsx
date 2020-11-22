@@ -70,14 +70,15 @@ const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent, handleCloseMemo
                 </Step>
             </MultiStepForm>
             {active !== 1 && (
-                <button onClick={() => setActive(active - 1)}>Anterior</button>
+                <button onClick={() => setActive(active - 1)} className='MultiFormNavigation'><b>&lt;</b> Anterior</button>
             )}
             {active !== 7 && (
                 <button
                     onClick={() => setActive(active + 1)}
                     style={{ float: 'right' }}
+                    className='MultiFormNavigation'
                 >
-                    Siguiente
+                    Siguiente <b>&gt;</b>
                 </button>
             )}
         </div>

@@ -51,30 +51,30 @@ const VideosMemoryForm = ({ stateForm, setStateForm }) => {
                         {loaded && searchedVideos.map((video, index) => {
                             return (
                                 <div
-                                    className='VideoCard'
+                                    className='MemoryVideoCard'
                                     key={index}
                                 >
                                     <div>
-                                        <img src={video.snippet} key={index} className='VideoThumbnail' alt='recorte' onClick={() => handleSelectVideo(video)} />
+                                        <img src={video.snippet} key={index} className='MemoryVideoThumbnail' alt='recorte' onClick={() => handleSelectVideo(video)} />
                                     </div>
                                     <div>
-                                        <p className='VideoCardTitle' >{video.title}</p>
+                                        <p className='MemoryVideoCardTitle' >{video.title}</p>
                                     </div>
                                 </div>
                             )
                         })}
                     </div>
                 </div>
-                <div className='MemorySelectedImage'>
+                <div className='MemorySelectedVideo'>
                     <div>
                         <h5 className='py-3'>Video seleccionado:</h5>
                         {favLoaded && (
-                            <div className='VideoCard' >
+                            <div className='SelectedVideoCard' >
                                 <div>
-                                    <img src={stateForm.video?.snippet} className='VideoThumbnail' alt='recorte' />
+                                    <img src={stateForm.video?.snippet} className='SelectedVideoThumbnail' alt='recorte' />
                                 </div>
                                 <div>
-                                    <p className='VideoCardTitle' >{stateForm.video?.title}</p>
+                                    <p className='SelectedVideoCardTitle' >{stateForm.video?.title}</p>
                                 </div>
                             </div>
                         )}

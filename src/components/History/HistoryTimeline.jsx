@@ -12,7 +12,7 @@ const HistoryTimeline = ({ savedEvents, handleSelect }) => {
             return {
                 title: event.year,
                 cardTitle: event.title,
-                cardSubtitle: <div>{event.description}<div className='eventDetailButton' onClick={() => handleSelect(event)}>+Detalle</div></div>,
+                cardSubtitle: <div className='eventDetailButton' onClick={() => handleSelect(event)}>+Detalle</div>,
                 media: {
                     type: "IMAGE",
                     source: {

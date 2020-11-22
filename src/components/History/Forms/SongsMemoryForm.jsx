@@ -64,12 +64,15 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
                     <h5 className='py-3'>Canción seleccionada:</h5>
                     {favLoaded && (
                         <div className='MemorySelectedLocations'>
-                            <SongCard song={stateForm.playlist} fromEvent={true} />
+                        <div className='MemorySongsCardSelected'>
+                                <img src={stateForm.playlist.image} alt={stateForm.playlist.name} />
+                                <p>{stateForm.playlist.name}</p>
+                            </div>
                         </div>
                     )}
                 </div>
             </div>
-            </div>
+        </div>
     )
 }
 

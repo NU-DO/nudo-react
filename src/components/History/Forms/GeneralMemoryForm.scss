@@ -6,20 +6,21 @@
   width: 900px;
   height: 520px;
   position: relative;
-  & button {
+   .MultiFormNavigation {
     width: 120px;
     padding: 8px;
     margin: 0px 8px;
     border-radius: 10px;
     border: none;
-    background-color: #839672;
-    font-size: 12px;
-    color: white;
+    background-color: white;
+    font-size: 16px;
+    color: black;
     cursor: pointer;
     transition: 0.5s;
 
     &:hover {
-      background-color: #94a981;
+      font-size: 18px;
+      color: #b73551;
       transition: 0.5s;
     }
 
