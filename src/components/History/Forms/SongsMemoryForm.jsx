@@ -16,7 +16,7 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
     useEffect(() => {
         getSongs()
             .then(songs => {
-                console.log({songs})
+                console.log({ songs })
                 setMySongs(songs)
                 setSearchedSongs(songs)
                 setLoaded(true)
@@ -45,31 +45,31 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
 
     return (
         <div className='MemorySongsContainer'>
-        <div>
-            <h5 className='py-3'>Elige una canción:</h5>
-            <ContactSeacher handleSearch={handleSearchSong} search={search} placeholder='Busca una Canción' />
-            <div className='MySongsContainer'>
-                {loaded && searchedSongs.map((song, index) => {
-                    return (
-                        <div className='MemorySongsCard' key={index} onClick={() => handleSelectSong(song)}>
-                            <img src={song.image} alt={song.name}/>
-                            <p>{song.name}</p>
-                        </div>
-                    )
-                })}
-            </div>
-        </div>
-        <div className='MySongsContainer'>
             <div>
-                <h5 className='py-3'>Canción seleccionada:</h5>
-                {favLoaded && (
-                    <div className='MemorySelectedLocations'>
-                        <SongCard song={stateForm.playlist} fromEvent={true} />
-                        </div>
-                )}
+                <h5 className='py-3'>Elige una canción:</h5>
+                <ContactSeacher handleSearch={handleSearchSong} search={search} placeholder='Busca una Canción' />
+                <div className='MySongsContainer'>
+                    {loaded && searchedSongs.map((song, index) => {
+                        return (
+                            <div className='MemorySongsCard' key={index} onClick={() => handleSelectSong(song)}>
+                                <img src={song.image} alt={song.name} />
+                                <p>{song.name}</p>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-        </div>
-    </div>
+            <div className='MySongsContainer'>
+                <div>
+                    <h5 className='py-3'>Canción seleccionada:</h5>
+                    {favLoaded && (
+                        <div className='MemorySelectedLocations'>
+                            <SongCard song={stateForm.playlist} fromEvent={true} />
+                        </div>
+                    )}
+                </div>
+            </div>
+            </div>
     )
 }
 

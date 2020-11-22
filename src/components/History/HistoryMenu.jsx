@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import HistoryTimeline from './HistoryTimeline'
 import EventDetailModal from './EventDetailModal'
 import GeneralMemoryForm from './Forms/GeneralMemoryForm'
 import ComponentHeader from '../Generic/ComponentHeader'
 import Modal from '../Generic/Modal'
-import { getEvents, createEvent, deleteEvent, editEvent } from '../../services/Api'
+import Spinner from '../Generic/Spinner'
+import { getEvents, createEvent, deleteEvent } from '../../services/Api'
 import './HistoryMenu.scss'
 
 const defaultEvents = [{
@@ -102,6 +104,8 @@ const HistoryMenu = () => {
     const [loaded, setLoaded] = useState(false)
     const [error, setError] = useState({})
 
+    const history = useHistory()
+
     useEffect(() => {
         window.scrollTo(0, 0)
         getEvents()
@@ -128,54 +132,66 @@ const HistoryMenu = () => {
 
     const handleCloseMemoryForm = () => {
         setShowForm(false)
+        setStateForm({})
+        setError({})
     }
 
     const modalSent = (event) => {
         event.preventDefault()
-
         createEvent(stateForm)
             .then(() => {
-                getEvents()
-                    .then(events => setSavedEvents(events))
-                setStateForm({})
-                // setError({})
-                // handleSavedSnack()
+                history.go(0)
             })
             .catch(err => setError(err))
-            closeModal()
+    }
+
+    const handleDelete = (id) => {
+        deleteEvent(id)
+            .then(() => {
+                history.go(0)
+            })
+            .catch(err => setError(err))
     }
 
     return (
         <div className='NudoMap'>
-            <ComponentHeader
-                title='Historia'
-                description='En esta seción podrás crear y organizar tus recuerdos cronológicamente en una linea del tiempo. Todas las ventajas de NUDO en una sola sección.'
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
-            />
-            <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>Crea un recuerdo</button>
-            {showForm && (
-                <div className=''>
-                    <GeneralMemoryForm 
-                        setStateForm={setStateForm} 
-                        stateForm={stateForm}
-                        modalSent={modalSent}
-                    />
+            {loaded ?
+                <>
+                <ComponentHeader
+                    title='Historia'
+                    description='En esta seción podrás crear y organizar tus recuerdos cronológicamente en una linea del tiempo. Todas las ventajas de NUDO en una sola sección.'
+                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
+                />
+                <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>Crea un recuerdo</button>
+                {showForm && (
+                    <div className=''>
+                        <GeneralMemoryForm 
+                            setStateForm={setStateForm} 
+                            stateForm={stateForm}
+                            modalSent={modalSent}
+                            handleCloseMemoryForm={handleCloseMemoryForm}
+                            error={error}
+                        />
+                    </div>
+                )}
+
+                <div className='ContainerHistoryTimeline'>
+                    <HistoryTimeline savedEvents={savedEvents} handleSelect={handleSelect} />
                 </div>
-            )}
 
-            <div className='ContainerHistoryTimeline'>
-                {loaded && <HistoryTimeline savedEvents={savedEvents} handleSelect={handleSelect} />}
-            </div>
-
-            {showDialog ?
-                <Modal>
-                    <EventDetailModal
-                        closeModal={closeModal}
-                        selected={selected}
-                        setSelected={setSelected}
-                    />
-                </Modal>
+                {showDialog ?
+                    <Modal>
+                        <EventDetailModal
+                            closeModal={closeModal}
+                            selected={selected}
+                            setSelected={setSelected}
+                            handleDelete={handleDelete}
+                        />
+                    </Modal>
                 : null}
+                </>
+            : <Spinner />
+            }
         </div>
 
     )

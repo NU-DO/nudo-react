@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+import GenericButton from '../../Generic/GenericButton'
 
 const CongratulationsMemoryForm = ( { modalSent }) => {
     return (
         <div onClick={modalSent}>
-            Congratulations!
+            <GenericButton text='Guardar Recuerdo' onClick={modalSent} />
         </div>
     )
 }

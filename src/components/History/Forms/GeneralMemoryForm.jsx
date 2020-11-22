@@ -6,10 +6,11 @@ import ContactsMemoryForm from './ContactsMemoryForm'
 import CongratulationsMemoryForm from './CongratulationsMemoryForm'
 import SongsMemoryForm from './SongsMemoryForm'
 import VideosMemoryForm from './VideosMemoryForm'
+import CloseModalButton from '../../Generic/CloseModalButton'
 import { MultiStepForm, Step } from 'react-multi-form'
 import './GeneralMemoryForm.scss'
 
-const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent }) => {
+const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent, handleCloseMemoryForm, error }) => {
     const [active, setActive] = useState(1)
 
     const handleChange = (event) => {
@@ -24,10 +25,12 @@ const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent }) => {
 
     return (
         <div className='MultiStepContainer'>
-            <MultiStepForm activeStep={active}>
+            <CloseModalButton onClick={() => handleCloseMemoryForm()} />
+            <MultiStepForm activeStep={active} accentColor='#839672' >
                 <Step label='Recuerdo'>
                     <MemoryForm
                         handleChange={handleChange}
+                        error={error}
                     />
                 </Step>
                 <Step label='Contactos'>
