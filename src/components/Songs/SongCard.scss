@@ -85,11 +85,11 @@
     }
 
     .songsDeleteIcon {
-        margin: 23px;
+        margin: 10px;
+    }
 
-        &:hover {
-            cursor: pointer;
-        }
+    &:hover {
+        cursor: pointer;
     }
 }
 
@@ -168,6 +168,10 @@
             margin-top: -50px;
             right: 53px;
             top: 92px;
+        }
+
+        .songsDeleteIcon {
+            margin: 23px;
         }
     }
 }

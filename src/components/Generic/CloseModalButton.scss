@@ -4,14 +4,9 @@
     right: 25px;
     color: rgb(165, 161, 161);
     margin: -20px -20px 0 0;
-}
+    cursor: pointer;
 
-@media (min-width: 700px) {
-    .CloseModalButton {
-        position: absolute;
-        top: 25px;
-        right: 25px;
-        color: rgb(165, 161, 161);
-        margin: -20px -20px 0 0;
+    &:hover {
+        color: rgb(100, 100, 100);
     }
 }

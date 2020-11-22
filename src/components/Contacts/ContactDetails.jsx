@@ -13,7 +13,9 @@ const Agenda = ({ selected, editThisContact, handleDelete, addContactClick }) =>
 
     return (
         <div className='ContactDetailsDiv'>
-            <GenericButton text='Nuevo Contacto' onClick={addContactClick} />
+            <div className='ContactGenericButton'>
+                <GenericButton text='Nuevo Contacto' onClick={addContactClick} />
+            </div>
             {selected ?
                 <div className='contactDetailsContainer'>
                     <div className='contactCard'>
