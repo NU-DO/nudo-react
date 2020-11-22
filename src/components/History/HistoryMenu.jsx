@@ -6,7 +6,7 @@ import GeneralMemoryForm from './Forms/GeneralMemoryForm'
 import ComponentHeader from '../Generic/ComponentHeader'
 import Modal from '../Generic/Modal'
 import Spinner from '../Generic/Spinner'
-import { getEvents, createEvent, deleteEvent, editEvent } from '../../services/Api'
+import { getEvents, createEvent, deleteEvent } from '../../services/Api'
 import './HistoryMenu.scss'
 
 const defaultEvents = [{
@@ -140,9 +140,15 @@ const HistoryMenu = () => {
         event.preventDefault()
         createEvent(stateForm)
             .then(() => {
-                getEvents()
-                    .then(events => setSavedEvents(events))
-                    .then(() => history.go(0))
+                history.go(0)
+            })
+            .catch(err => setError(err))
+    }
+
+    const handleDelete = (id) => {
+        deleteEvent(id)
+            .then(() => {
+                history.go(0)
             })
             .catch(err => setError(err))
     }
@@ -178,6 +184,7 @@ const HistoryMenu = () => {
                             closeModal={closeModal}
                             selected={selected}
                             setSelected={setSelected}
+                            handleDelete={handleDelete}
                         />
                     </Modal>
                 : null}

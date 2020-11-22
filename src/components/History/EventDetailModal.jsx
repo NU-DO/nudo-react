@@ -4,9 +4,10 @@ import SongCard from '../Songs/SongCard'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
 import EventIcon from '@material-ui/icons/Event'
 import PeopleAltIcon from '@material-ui/icons/PeopleAlt'
+import DeleteIcon from '@material-ui/icons/Delete'
 import './EventDetailModal.scss'
 
-const EventDetailModal = ({ selected, setSelected, closeModal }) => {
+const EventDetailModal = ({ selected, setSelected, closeModal, handleDelete }) => {
 
     return (
         <div className='ModalContentEvent animate__animated animate__bounceInDown'>
@@ -37,6 +38,9 @@ const EventDetailModal = ({ selected, setSelected, closeModal }) => {
                     className='video-iframe videoEvent'
                     src={`https://www.youtube.com/embed/${selected.video.videoId}`}
                 />
+            </div>
+            <div className='CardFavCRUDButtons'>
+                <DeleteIcon className='CardFavDeleteButton' onClick={() => handleDelete(selected.id)} />
             </div>
         </div>
     )

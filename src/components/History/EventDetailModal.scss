@@ -64,6 +64,33 @@
       border-radius: 10px;
     }
   }
+
+  .CardFavCRUDButtons {
+      display: flex;
+      justify-content: flex-end;
+      margin: 12px 12px 12px 0;
+
+      .CardFavEditButton {
+        color: #839672;
+        transition: all 0.2s linear;
+        margin-right: 10px;
+
+        &:hover {
+          font-size: 35px;
+          color: #919d87;
+        }
+      }
+
+      .CardFavDeleteButton {
+        color: #f89677;
+        transition: all 0.2s linear;
+
+        &:hover {
+          font-size: 35px;
+          color: #e13400;
+        }
+      }
+    }
 }
 
 @keyframes animatetop {
