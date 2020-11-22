@@ -128,21 +128,21 @@ const HistoryMenu = () => {
 
     const handleCloseMemoryForm = () => {
         setShowForm(false)
+        setStateForm({})
     }
 
     const modalSent = (event) => {
         event.preventDefault()
-
-        createEvent(stateForm)
-            .then(() => {
-                getEvents()
-                    .then(events => setSavedEvents(events))
-                setStateForm({})
-                // setError({})
-                // handleSavedSnack()
-            })
-            .catch(err => setError(err))
-            closeModal()
+        // createEvent(stateForm)
+        //     .then(() => {
+        //         getEvents()
+        //             .then(events => setSavedEvents(events))
+        //         setStateForm({})
+        //         // setError({})
+        //         // handleSavedSnack()
+        //     })
+        //     .catch(err => setError(err))
+        handleCloseMemoryForm()
     }
 
     return (
@@ -159,6 +159,7 @@ const HistoryMenu = () => {
                         setStateForm={setStateForm} 
                         stateForm={stateForm}
                         modalSent={modalSent}
+                        handleCloseMemoryForm={handleCloseMemoryForm}
                     />
                 </div>
             )}

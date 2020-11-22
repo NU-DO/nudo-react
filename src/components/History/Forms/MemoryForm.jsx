@@ -3,7 +3,6 @@ import { useAuthContext } from '../../../contexts/AuthContext'
 import './MemoryForm.scss'
 
 const MemoyForm = ({ handleChange }) => {
-
     const [error, setError] = useState({})
     const { user } = useAuthContext()
 
