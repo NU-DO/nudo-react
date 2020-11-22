@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import SongCard from '../../Songs/SongCard'
 import ContactSeacher from '../../Contacts/ContactSearcher'
 import { getSongs } from '../../../services/Api'
 import './SongsMemoryForm.scss'
