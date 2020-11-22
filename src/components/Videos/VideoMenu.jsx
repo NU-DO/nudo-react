@@ -168,17 +168,17 @@ const VideoMenu = () => {
             })
     }
 
-
     return (
         <div className='NudoMap'>
-            <ComponentHeader
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1605476909/NUDO/assets/Dashboard-icons/Recurso_18_zgdpsa.svg'
-                title='Videos'
-                description='Busca tus videos favoritos de YouTube y guardalos en Nudo. Para tener a mano siempre'
-            />
-            <div className='YoutubeComponentContainer'>
+            
                 {loaded ?
-                    <>
+                    <>  
+                    <ComponentHeader
+                        nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1605476909/NUDO/assets/Dashboard-icons/Recurso_18_zgdpsa.svg'
+                        title='Videos'
+                        description='Busca tus videos favoritos de YouTube y guardalos en Nudo. Para tener a mano siempre'
+                    />
+                    <div className='YoutubeComponentContainer'>
                         <div className='SearchVideoInput'>
                             <VideoList
                                 playVideo={playVideo}
@@ -222,9 +222,9 @@ const VideoMenu = () => {
                             />
                         </Modal>
                             : null}
+                    </div>
                     </>
-                    :
-                    <Spinner />
+                :<Spinner />
                 }
                 <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                     <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
@@ -240,10 +240,8 @@ const VideoMenu = () => {
                     <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
                         Video Borrado correctamente!
                  </AlertSnackBar>
-                </Snackbar>
-            </div>
+                </Snackbar> 
         </div>
-
     )
 }
 
