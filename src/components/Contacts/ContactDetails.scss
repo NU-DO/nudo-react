@@ -15,84 +15,100 @@
     width: 500px;
     margin: 18px auto;
     box-shadow: 0px 1px 6px 1px #ccc;
-    color: #666;
+    color: #666666;
     border-radius: 10px;
 
-    .contactCardHeader {
-      padding: 30px 0 10px;
-      background: linear-gradient(253deg, rgba(248, 150, 119, 1) 26%, rgba(242, 201, 209, 1) 100%);
-      border-radius: 10px 10px 0 0;
-      color: #fff;
-      position: relative;
-      text-align: center;
-
-      .contactCardTitle {
-        font-weight: bold;
-        font-size: 28px;
-      }
-
-      .contactCardSubtitle {
-        font-size: 14px;
-        margin: -6px 0px 0 0;
-      }
-
-      img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        position: absolute;
-        top: 30px;
-        left: 20px;
-      }
-
-      .card-title {
-        font-size: 35px;
-      }
+    a {
+      color: #666666;
+      text-decoration: none;
     }
 
-    .contactCardBody {
-      padding: 45px 20px 10px;
-
-      &>* {
-        padding-bottom: 10px;
-      }
-
-      .contactCardIcon {
-        margin-right: 5px;
-      }
-    }
-
-    .CRUDButtons {
+    .phoneInfo {
       display: flex;
-      justify-content: flex-end;
-      top: 15px;
-      right: 15px;
-      position: absolute;
-      cursor: pointer;
 
-      .editButton {
-        color: white;
-        transition: all 0.2s linear;
-        margin-right: 10px;
-
-        &:hover {
-          font-size: 35px;
-          color: #919d87;
-        }
+      .whatsappLogo {
+        width: 20px;
+        margin-left: 5px;
       }
+    }
+  }
 
-      .deleteButton {
-        color: white;
-        transition: all 0.2s linear;
 
-        &:hover {
-          font-size: 35px;
-          color: #e13400;
-        }
+  .contactCardHeader {
+    padding: 30px 0 10px;
+    background: linear-gradient(253deg, rgba(248, 150, 119, 1) 26%, rgba(242, 201, 209, 1) 100%);
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    position: relative;
+    text-align: center;
+
+    .contactCardTitle {
+      font-weight: bold;
+      font-size: 28px;
+    }
+
+    .contactCardSubtitle {
+      font-size: 14px;
+      margin: -6px 0px 0 0;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: absolute;
+      top: 30px;
+      left: 20px;
+    }
+
+    .card-title {
+      font-size: 35px;
+    }
+  }
+
+  .contactCardBody {
+    padding: 45px 20px 10px;
+
+    &>* {
+      padding-bottom: 10px;
+    }
+
+    .contactCardIcon {
+      margin-right: 5px;
+    }
+  }
+
+  .CRUDButtons {
+    display: flex;
+    justify-content: flex-end;
+    top: 15px;
+    right: 15px;
+    position: absolute;
+    cursor: pointer;
+
+    .editButton {
+      color: white;
+      transition: all 0.2s linear;
+      margin-right: 10px;
+
+      &:hover {
+        font-size: 35px;
+        color: #919d87;
+      }
+    }
+
+    .deleteButton {
+      color: white;
+      transition: all 0.2s linear;
+
+      &:hover {
+        font-size: 35px;
+        color: #e13400;
       }
     }
   }
 }
+
 
 @media (max-width: 700px) {
   .ContactDetailsDiv {
@@ -116,7 +132,7 @@
       width: 300px;
       margin: 18px auto;
       box-shadow: 0px 1px 6px 1px #ccc;
-      color: #666;
+      color: #666666;
       border-radius: 10px;
 
       .contactCardHeader {

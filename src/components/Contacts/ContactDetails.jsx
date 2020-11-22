@@ -29,11 +29,17 @@ const Agenda = ({ selected, editThisContact, handleDelete, addContactClick }) =>
                             <img src={selected.photo} className='contactPhoto' alt='contact' />
                         </div>
                         <div className='contactCardBody'>
-                            <p>{selected.description}</p>
-                            <p><PhoneEnabledIcon className='contactCardIcon' /> {selected.phone}</p>
-                            <p><EmailIcon className='contactCardIcon' /> {selected.email}</p>
-                            <p><HomeIcon className='contactCardIcon' /> {selected.address}</p>
-                            <p><CakeIcon className='contactCardIcon' /> {selected.birthday}</p>
+                            {selected.description && <p>{selected.description}</p>}
+                            {selected.phone && 
+                                <div className='phoneInfo' >
+                                    <p><PhoneEnabledIcon className='contactCardIcon' /><a href={`tel:${selected.phone}`}>{selected.phone} | </a></p>
+                                    <a href={`https://api.whatsapp.com/send?phone=34${selected.phone}`}><img className='whatsappLogo' src='https://res.cloudinary.com/difhe4gl3/image/upload/v1606068707/NUDO/assets/WaRecurso_1_aj2r27.svg' alt='whatsappLogo' /></a>
+                                </div>
+                                
+                            }
+                            {selected.email && <p><EmailIcon className='contactCardIcon' /> <a href={`mailto:${selected.email}`}>{selected.email}</a></p>}
+                            {selected.address && <p><HomeIcon className='contactCardIcon' /> {selected.address}</p>}
+                            {selected.birthday && <p><CakeIcon className='contactCardIcon' /> {selected.birthday}</p>}
                         </div>
                     </div>
                 </div>
