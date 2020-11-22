@@ -8,7 +8,7 @@ const SongSearch = ({ matchSong, handleOpen, addFav, form, handleChange, search 
 
     return (
         <div className='SongSearch'>
-            <div className='songSearcher'>
+            <div className='songSearcher songHeader'>
                 <SongSearcherForm handleChange={handleChange} search={search} />
             </div>
             <div className='songFavContainer'>
