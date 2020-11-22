@@ -4,6 +4,7 @@ import EventDetailModal from './EventDetailModal'
 import GeneralMemoryForm from './Forms/GeneralMemoryForm'
 import ComponentHeader from '../Generic/ComponentHeader'
 import Modal from '../Generic/Modal'
+import Spinner from '../Generic/Spinner'
 import { getEvents, createEvent, deleteEvent, editEvent } from '../../services/Api'
 import './HistoryMenu.scss'
 
@@ -147,36 +148,41 @@ const HistoryMenu = () => {
 
     return (
         <div className='NudoMap'>
-            <ComponentHeader
-                title='Historia'
-                description='En esta seción podrás crear y organizar tus recuerdos cronológicamente en una linea del tiempo. Todas las ventajas de NUDO en una sola sección.'
-                nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
-            />
-            <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>Crea un recuerdo</button>
-            {showForm && (
-                <div className=''>
-                    <GeneralMemoryForm 
-                        setStateForm={setStateForm} 
-                        stateForm={stateForm}
-                        modalSent={modalSent}
-                        handleCloseMemoryForm={handleCloseMemoryForm}
-                    />
+            {loaded ?
+                <>
+                <ComponentHeader
+                    title='Historia'
+                    description='En esta seción podrás crear y organizar tus recuerdos cronológicamente en una linea del tiempo. Todas las ventajas de NUDO en una sola sección.'
+                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
+                />
+                <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>Crea un recuerdo</button>
+                {showForm && (
+                    <div className=''>
+                        <GeneralMemoryForm 
+                            setStateForm={setStateForm} 
+                            stateForm={stateForm}
+                            modalSent={modalSent}
+                            handleCloseMemoryForm={handleCloseMemoryForm}
+                        />
+                    </div>
+                )}
+
+                <div className='ContainerHistoryTimeline'>
+                    <HistoryTimeline savedEvents={savedEvents} handleSelect={handleSelect} />
                 </div>
-            )}
 
-            <div className='ContainerHistoryTimeline'>
-                {loaded && <HistoryTimeline savedEvents={savedEvents} handleSelect={handleSelect} />}
-            </div>
-
-            {showDialog ?
-                <Modal>
-                    <EventDetailModal
-                        closeModal={closeModal}
-                        selected={selected}
-                        setSelected={setSelected}
-                    />
-                </Modal>
+                {showDialog ?
+                    <Modal>
+                        <EventDetailModal
+                            closeModal={closeModal}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                    </Modal>
                 : null}
+                </>
+            : <Spinner />
+            }
         </div>
 
     )

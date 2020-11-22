@@ -170,7 +170,6 @@ const VideoMenu = () => {
 
     return (
         <div className='NudoMap'>
-            
                 {loaded ?
                     <>  
                     <ComponentHeader
