@@ -68,8 +68,6 @@ const ImagesMemoryForm = ({ stateForm, setStateForm }) => {
 
                 </div>
             </div>
-
-
         </div>
     )
 }

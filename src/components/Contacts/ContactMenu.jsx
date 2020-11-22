@@ -212,6 +212,10 @@ const ContactMenu = () => {
                 <Spinner />
             }
 
+            <div className='AddContactButton'>
+                <button className='AddContactButtonRounded' onClick={addContactClick}>+</button>
+            </div>
+
             <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
                 <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
                     Contacto guardado correctamente!

@@ -3,15 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 12px;
-}
-
-.songHeader {
-    height: 120px;
 }
 
 @media (min-width: 700px) {
     .songSearcher {
         padding: 26px;
+    }
+
+    .songHeader {
+        height: 120px;
     }
 }

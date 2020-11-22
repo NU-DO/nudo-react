@@ -138,7 +138,7 @@ const HistoryMenu = () => {
 
     const modalSent = (event) => {
         event.preventDefault()
-        const contactsId = stateForm.contacts.map(contact => contact.id)
+        const contactsId = stateForm.contacts?.map(contact => contact.id)
         setStateForm(prev => {
             return {
                 ...prev,

@@ -66,7 +66,6 @@ const LocationMemoryForm = ({ stateForm, setStateForm }) => {
                                 <p>{stateForm.location.name}</p>
                             </div>
                     )}
-
                 </div>
             </div>
         </div>
