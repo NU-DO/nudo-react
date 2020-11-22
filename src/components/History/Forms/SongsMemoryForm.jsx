@@ -15,7 +15,6 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
     useEffect(() => {
         getSongs()
             .then(songs => {
-                console.log({ songs })
                 setMySongs(songs)
                 setSearchedSongs(songs)
                 setLoaded(true)

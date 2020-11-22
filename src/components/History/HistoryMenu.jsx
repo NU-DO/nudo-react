@@ -138,6 +138,13 @@ const HistoryMenu = () => {
 
     const modalSent = (event) => {
         event.preventDefault()
+        const contactsId = stateForm.contacts.map(contact => contact.id)
+        setStateForm(prev => {
+            return {
+                ...prev,
+                contacts: contactsId
+            }
+        })
         createEvent(stateForm)
             .then(() => {
                 history.go(0)
@@ -162,7 +169,7 @@ const HistoryMenu = () => {
                     description='En esta seción podrás crear y organizar tus recuerdos cronológicamente en una linea del tiempo. Todas las ventajas de NUDO en una sola sección.'
                     nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
                 />
-                
+
                 {showForm ?
                     <div className=''>
                         <GeneralMemoryForm 
