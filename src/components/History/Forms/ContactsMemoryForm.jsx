@@ -104,10 +104,6 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
                     </div>
                 </div>
             )}
-
-
-
-
         </div>
     )
 }

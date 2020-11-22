@@ -59,7 +59,6 @@ const MemoyForm = ({ handleChange, error }) => {
                         <h5>Hola {user.username}</h5>
                         <p>Para crear un recuerdo, primero debes escribir este formulario.</p>
                         <p>Accede a todos los pasos para ir añadiendo contactos, imágen, localización, canción favorita y video a este recuerdo.</p>
-
             </div>
         </div>
     )
