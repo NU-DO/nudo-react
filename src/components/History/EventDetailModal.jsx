@@ -12,43 +12,6 @@ import './SongMemoryCard.scss'
 const EventDetailModal = ({ selected, setSelected, closeModal, handleDelete }) => {
 
     return (
-        // <div className='ModalContentEvent animate__animated animate__bounceInDown'>
-        //     6
-        //     <h4>{selected.title}</h4>
-        //     <div className='subtitleEvent'>
-        //         <div className='divSubtitleEvent'>{selected.description}</div>
-        //         <div className='divSubtitleEvent'><EventIcon className='contactCardIcon' />{selected.year}</div>
-        //         {selected.location && <div className='divSubtitleEvent'><LocationOnIcon className='contactCardIcon' />{selected.location?.name}</div>}
-        //     </div>
-        //     <div className='imageAndSong'>
-        //         {selected.image && <img src={selected.image?.url} className='eventImage' alt={selected.title} />}
-        //         <div className='songAndContact'>
-        //             {selected.playlist && <SongCard song={selected.playlist} fromEvent={true} />}
-        //             {selected.contacts.length ? <div><PeopleAltIcon className='contactCardIcon' />
-        //                 {selected.contacts.map((contact, index) => {
-        //                     return <img key={index} className='avatarEvent' src={contact.photo} alt='foto de contacto' />
-        //                 })}
-        //             </div> : null}
-        //         </div>
-        //     </div>
-        //     {selected.video ? 
-        //         <div className='eventVideoContainer'>
-        //             <iframe
-        //                 title={selected.video.videoId}
-        //                 width='auto'
-        //                 height='auto'
-        //                 allowFullScreen='allowfullscreen'
-        //                 className='video-iframe videoEvent'
-        //                 src={`https://www.youtube.com/embed/${selected.video.videoId}`}
-        //             />
-        //         </div>
-        //     : null
-        //     }
-        //     <div className='CardFavCRUDButtons'>
-        //         <DeleteIcon className='CardFavDeleteButton' onClick={() => handleDelete(selected.id)} />
-        //     </div>
-        // </div>
-
         <div className='ModalContentEvent animate__animated animate__bounceInDown'>
             <CloseModalButton onClick={() => closeModal()} />
             <div>

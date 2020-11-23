@@ -181,7 +181,10 @@ const HistoryMenu = () => {
                                 error={error}
                             />
                         </div>
-                        : <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>Crea un recuerdo</button>
+                        : 
+                        <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>
+                            Crea un recuerdo
+                        </button>
                     }
 
                     <div className='ContainerHistoryTimeline'>
@@ -202,7 +205,6 @@ const HistoryMenu = () => {
                 : <Spinner />
             }
         </div>
-
     )
 }
 

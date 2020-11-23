@@ -30,20 +30,36 @@ const Agenda = ({ selected, editThisContact, handleDelete, addContactClick }) =>
                         </div>
                         <div className='contactCardBody'>
                             {selected.description && <p>{selected.description}</p>}
-                            {selected.phone && 
+                            {selected.phone &&
                                 <div className='phoneInfo' >
-                                    <p><PhoneEnabledIcon className='contactCardIcon' /><a href={`tel:${selected.phone}`}>{selected.phone} | </a></p>
-                                    <a href={`https://api.whatsapp.com/send?phone=34${selected.phone}`}><img className='whatsappLogo' src='https://res.cloudinary.com/difhe4gl3/image/upload/v1606068707/NUDO/assets/WaRecurso_1_aj2r27.svg' alt='whatsappLogo' /></a>
+                                    <p>
+                                        <PhoneEnabledIcon className='contactCardIcon' />
+                                        <a href={`tel:${selected.phone}`}>{selected.phone} | </a>
+                                    </p>
+                                    <a href={`https://api.whatsapp.com/send?phone=34${selected.phone}`}>
+                                        <img
+                                            className='whatsappLogo'
+                                            src='https://res.cloudinary.com/difhe4gl3/image/upload/v1606068707/NUDO/assets/WaRecurso_1_aj2r27.svg'
+                                            alt='whatsappLogo'
+                                        />
+                                    </a>
                                 </div>
-                                
                             }
-                            {selected.email && <p><EmailIcon className='contactCardIcon' /> <a href={`mailto:${selected.email}`}>{selected.email}</a></p>}
+                            {selected.email &&
+                                <p>
+                                    <EmailIcon className='contactCardIcon' />
+                                    <a href={`mailto:${selected.email}`}>{selected.email}</a>
+                                </p>
+                            }
                             {selected.address && <p><HomeIcon className='contactCardIcon' /> {selected.address}</p>}
                             {selected.birthday && <p><CakeIcon className='contactCardIcon' /> {selected.birthday}</p>}
                         </div>
                     </div>
                 </div>
-                : <div className='contactDetailsContainer'><p>Selecciona un contacto para ver sus detalles</p></div>
+                :
+                <div className='contactDetailsContainer'>
+                    <p>Selecciona un contacto para ver sus detalles</p>
+                </div>
             }
         </div>
     )

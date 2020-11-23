@@ -55,10 +55,13 @@ const MemoyForm = ({ handleChange, error }) => {
                 </div>
             </form>
             <div className='ContainerWelcomeMemory'>
-                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1606028460/NUDO/assets/Dashboard-icons/Recurso_22_st41he.svg' alt='Logo de Nudo' />
-                        <h5>Hola {user.username}</h5>
-                        <p>Para crear un recuerdo, primero debes escribir este formulario.</p>
-                        <p>Accede a todos los pasos para ir añadiendo contactos, imágen, localización, canción favorita y video a este recuerdo.</p>
+                <img 
+                    src='https://res.cloudinary.com/difhe4gl3/image/upload/v1606028460/NUDO/assets/Dashboard-icons/Recurso_22_st41he.svg' 
+                    alt='Logo de Nudo'
+                />
+                <h5>Hola {user.username}</h5>
+                <p>Para crear un recuerdo, primero debes escribir este formulario.</p>
+                <p>Accede a todos los pasos para ir añadiendo contactos, imágen, localización, canción favorita y video a este recuerdo.</p>
             </div>
         </div>
     )

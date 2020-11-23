@@ -46,7 +46,11 @@ const VideosMemoryForm = ({ stateForm, setStateForm }) => {
             <div className='MemoryImagesContainer'>
                 <div>
                     <h5 className='py-3'>Elige un video de tu galería:</h5>
-                    <ContactSeacher handleSearch={handleSearchVideo} search={search} placeholder='Busca un Vídeo' />
+                    <ContactSeacher 
+                        handleSearch={handleSearchVideo} 
+                        search={search} 
+                        placeholder='Busca un Vídeo'
+                    />
                     <div className='MyImagesContainer'>
                         {loaded && searchedVideos.map((video, index) => {
                             return (
@@ -55,7 +59,13 @@ const VideosMemoryForm = ({ stateForm, setStateForm }) => {
                                     key={index}
                                 >
                                     <div>
-                                        <img src={video.snippet} key={index} className='MemoryVideoThumbnail' alt='recorte' onClick={() => handleSelectVideo(video)} />
+                                        <img 
+                                            src={video.snippet} 
+                                            key={index} 
+                                            className='MemoryVideoThumbnail' 
+                                            alt='recorte' 
+                                            onClick={() => handleSelectVideo(video)}
+                                        />
                                     </div>
                                     <div>
                                         <p className='MemoryVideoCardTitle' >{video.title}</p>
@@ -71,7 +81,11 @@ const VideosMemoryForm = ({ stateForm, setStateForm }) => {
                         {favLoaded && (
                             <div className='SelectedVideoCard' >
                                 <div>
-                                    <img src={stateForm.video?.snippet} className='SelectedVideoThumbnail' alt='recorte' />
+                                    <img 
+                                        src={stateForm.video?.snippet} 
+                                        className='SelectedVideoThumbnail' 
+                                        alt='recorte'
+                                    />
                                 </div>
                                 <div>
                                     <p className='SelectedVideoCardTitle' >{stateForm.video?.title}</p>
@@ -81,8 +95,6 @@ const VideosMemoryForm = ({ stateForm, setStateForm }) => {
 
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

@@ -45,7 +45,11 @@ const ImagesMemoryForm = ({ stateForm, setStateForm }) => {
         <div className='MemoryImagesContainer'>
             <div>
                 <h5 className='py-3'>Elige una foto de tu galería:</h5>
-                <ContactSeacher handleSearch={handleSearchImage} search={search} placeholder='Busca una Imagen' />
+                <ContactSeacher 
+                    handleSearch={handleSearchImage} 
+                    search={search} 
+                    placeholder='Busca una Imagen'
+                />
                 <div className='MyImagesContainer'>
                     {loaded && searchedImages.map((image, index) => {
                         return (

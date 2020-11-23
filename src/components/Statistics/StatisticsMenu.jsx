@@ -109,7 +109,6 @@ const StatisticsMenu = () => {
             .then(() => setSelectedInfo(total))
             .then(() => setSelected('total'))
             .then(() => setLoaded(true))
-            console.log(total);
     }, [])
 
     useEffect(() => {
@@ -183,7 +182,6 @@ const StatisticsMenu = () => {
                                 />
                             }
                         </div>
-
                         : <div>Campo sin información</div>
                     }
                 </> :

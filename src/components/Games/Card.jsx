@@ -2,17 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useSpring, animated as a } from 'react-spring'
 import './Game.scss'
 
-const Card = ({
-    id,
-    color,
-    game,
-    score,
-    setScore,
-    flippedCount,
-    setFlippedCount,
-    flippedIndexes,
-    setFlippedIndexes,
-}) => {
+const Card = ({ id, color, game, score, setScore, flippedCount, setFlippedCount, flippedIndexes, setFlippedIndexes }) => {
     const [flipped, set] = useState(false)
     const { transform, opacity } = useSpring({
         opacity: flipped ? 1 : 0,

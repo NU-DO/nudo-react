@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import ComponentHeader from '../Generic/ComponentHeader'
 import Agenda from './Agenda'
 import ContactDetails from './ContactDetails'
+import ComponentHeader from '../Generic/ComponentHeader'
 import Modal from '../Generic/Modal'
 import ContactModal from './ContactModal'
 import Spinner from '../Generic/Spinner'
@@ -10,7 +10,6 @@ import { getContacts, handleUpload, createContact, deleteContact, editContact } 
 import '@reach/dialog/styles.css'
 import { Snackbar } from '@material-ui/core'
 import './ContactMenu.scss'
-
 
 const ContactMenu = () => {
     const [search, setSearch] = useState({
@@ -164,8 +163,8 @@ const ContactMenu = () => {
                 handleEditSnack()
             })
             .catch(err => setError(err.response.data.errors))
-
     }
+    
     return (
         <div>
             {loaded ?

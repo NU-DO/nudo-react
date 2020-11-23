@@ -64,7 +64,11 @@ const NudoDrawer = () => {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <div className='ComponentHeaderStyleDrawer'>
-                <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603577840/NUDO/assets/Dashboard-icons/logo-menu_rxm9q6.svg' className='NudoIconStyleDrawer' alt='logo' />
+                <img 
+                    src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603577840/NUDO/assets/Dashboard-icons/logo-menu_rxm9q6.svg' 
+                    className='NudoIconStyleDrawer' 
+                    alt='logo'
+                />
                 <h5 className='mt-3 text-center'>Hola {user.username}!</h5>
             </div>
             <List>

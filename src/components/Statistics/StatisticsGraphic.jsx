@@ -79,8 +79,6 @@ class StatisticsGraphic extends Component {
 
         },
       },
-
-
     }
   }
 

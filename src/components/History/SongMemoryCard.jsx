@@ -3,7 +3,6 @@ import './SongMemoryCard.scss'
 
 const SongMemoryCard = ({ song }) => {
    
-
     return (
         <div className='SongMemoryCard'>
             <img

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const LocationSearcher = ({ handleSearch, search }) => {
     return (
@@ -16,7 +16,7 @@ const LocationSearcher = ({ handleSearch, search }) => {
                 </div>
             </form>
         </div>
-    );
-};
+    )
+}
 
-export default LocationSearcher;
+export default LocationSearcher

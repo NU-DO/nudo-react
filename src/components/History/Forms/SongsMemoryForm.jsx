@@ -45,7 +45,11 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
         <div className='MemorySongsContainer'>
             <div>
                 <h5 className='py-3'>Elige una canción:</h5>
-                <ContactSeacher handleSearch={handleSearchSong} search={search} placeholder='Busca una Canción' />
+                <ContactSeacher 
+                    handleSearch={handleSearchSong} 
+                    search={search} 
+                    placeholder='Busca una Canción' 
+                />
                 <div className='MySongsContainer'>
                     {loaded && searchedSongs.map((song, index) => {
                         return (

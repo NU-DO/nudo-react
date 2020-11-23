@@ -6,7 +6,7 @@ const VideoSearcher = ({ handleChangeSearch, handleSubmit, title }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="input-group mb-3">
+            <div className='input-group mb-3'>
                 <InputText
                     id='youtubeSearcher'
                     type='text'
@@ -16,8 +16,8 @@ const VideoSearcher = ({ handleChangeSearch, handleSubmit, title }) => {
                     onChange={handleChangeSearch}
                     autoFocus
                 />
-                <div className="input-group-append">
-                    <button className="SearchVideoButton" type="submit" id="button-addon2"><img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1605480624/NUDO/assets/Recurso_20_t4tf3s.svg' alt='logo' className='LupaIcon' /></button>
+                <div className='input-group-append'>
+                    <button className='SearchVideoButton' type='submit' id='button-addon2'><img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1605480624/NUDO/assets/Recurso_20_t4tf3s.svg' alt='logo' className='LupaIcon' /></button>
                 </div>
             </div>
         </form>

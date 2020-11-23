@@ -67,7 +67,11 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
             {loaded && (
                 <div className='ContactsMemoryContainer'>
                     <div className='ContactsFromDB'>
-                        <ContactSeacher handleSearch={handleSearchContact} search={search} placeholder='Busca un contacto' />
+                        <ContactSeacher 
+                            handleSearch={handleSearchContact} 
+                            search={search} 
+                            placeholder='Busca un contacto'
+                        />
                         <div className='AgendaFromDB'>
                             {searchedContacts.map((contact, index) => (
                                 <div className='Contact' onClick={() => handleSelectContact(contact)} key={index}>
@@ -76,7 +80,10 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
                                             className='contactPhoto'
                                             src={contact.photo}
                                             alt={contact.name} />
-                                        <p className='nameHeader'>{contact.name}<span><small>  {contact.role}</small></span></p>
+                                        <p className='nameHeader'>
+                                            {contact.name}
+                                            <span><small>{contact.role}</small></span>
+                                        </p>
                                     </div>
                                     <div className='detailsButton'></div>
                                 </div>
@@ -94,7 +101,10 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
                                                 className='contactPhotoAdded'
                                                 src={contact.photo}
                                                 alt={contact.name} />
-                                            <p className='nameHeaderAdded'>{contact.name}<span><small>  {contact.role}</small></span></p>
+                                            <p className='nameHeaderAdded'>
+                                                {contact.name}
+                                                <span><small> {contact.role}</small></span>
+                                            </p>
                                         </div>
                                         <div className='detailsButton'  onClick={() => {handleDelete(contact.id)}}>X</div>
                                     </div>

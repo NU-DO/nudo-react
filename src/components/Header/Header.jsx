@@ -34,7 +34,12 @@ const MenuAppBar = () => {
             <nav className='navbar'>
                 <div className='NudoHeaderLeft'>
                     <Link to='/' className='NudoHeaderLogo'>
-                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604218253/NUDO/assets/Recurso_17_ky7ydo.svg' alt='Nudo Logo Header' loading='lazy' className='NudoHeaderIcon' />
+                        <img
+                            src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604218253/NUDO/assets/Recurso_17_ky7ydo.svg'
+                            alt='Nudo Logo Header'
+                            loading='lazy'
+                            className='NudoHeaderIcon'
+                        />
                     </Link>
                 </div>
                 <div className='NudoHeaderRight'>
@@ -48,8 +53,14 @@ const MenuAppBar = () => {
                         <Drawer />
                     </IconButton>
                         :
-                        <><Link to='/login' style={LinkStyle}><span className='NudoHeaderSpan'>Entrar</span> </Link>
-                            <Link to='/signin' style={LinkStyle}><span className='NudoHeaderSpan' >Registrate</span> </Link></>
+                        <>
+                            <Link to='/login' style={LinkStyle}>
+                                <span className='NudoHeaderSpan'>Entrar</span>
+                            </Link>
+                            <Link to='/signin' style={LinkStyle}>
+                                <span className='NudoHeaderSpan' >Registrate</span>
+                            </Link>
+                        </>
                     }
                 </div>
 

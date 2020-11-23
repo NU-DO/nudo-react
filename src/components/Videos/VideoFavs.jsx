@@ -7,7 +7,6 @@ import './VideoFavs.scss'
 const PER_PAGE = 6
 
 const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
-
     const [titleVideos, setTitleVideos] = useState(videos)
     const [currentPage, setCurrentPage] = useState(0)
 
@@ -43,7 +42,6 @@ const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
     const setAlphabetlAscendent = (videos) => {
         const alphaTitles = [...videos].sort((a, b) => a.title.localeCompare(b.title))
         setTitleVideos(alphaTitles)
-        console.log(videos)
     }
 
     const setAlphabetlDescendent = (videos) => {
@@ -85,7 +83,6 @@ const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
                 activeClassName={'pagination__link--active'}
             />
         </div>
-
     )
 }
 

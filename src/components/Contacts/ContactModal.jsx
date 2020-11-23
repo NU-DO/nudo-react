@@ -146,8 +146,14 @@ const ContactModal = ({ closeModal, tempState, handleChange, handleFileUpload, h
                                 text='Guardar'
                             />
                             <div>
-                                {imageLoad && <Spinner animation="border" style={{ color: '#B73551' }} />}
-                                {tempState.photo && <img src={tempState.photo} style={{ width: '100px', marginLeft: '10px' }} alt='cargando' className='rounded-circle' />}
+                                {imageLoad && <Spinner animation='border' style={{ color: '#B73551' }} />}
+                                {tempState.photo &&
+                                    <img src={tempState.photo}
+                                        style={{ width: '100px', marginLeft: '10px' }}
+                                        alt='cargando'
+                                        className='rounded-circle'
+                                    />
+                                }
                                 {tempState.photo && <p className='text-center text-muted'>Imagen actual</p>}
                             </div>
                         </div>

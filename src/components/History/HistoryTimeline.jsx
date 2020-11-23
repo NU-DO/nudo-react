@@ -14,7 +14,7 @@ const HistoryTimeline = ({ savedEvents, handleSelect }) => {
                 cardTitle: event.title,
                 cardSubtitle: <div className='eventDetailButton' onClick={() => handleSelect(event)}>+Detalle</div>,
                 media: {
-                    type: "IMAGE",
+                    type: 'IMAGE',
                     source: {
                         url: event.image?.url
                     }

@@ -20,7 +20,6 @@ const Album = ({ images, setImages, addImageClick, handleDelete, editThisImage }
 
     const offset = currentPage * PER_PAGE
 
-
     const currentPageData = dateImages
         .slice(offset, offset + PER_PAGE)
         .map(image => <Image image={image} key={image.id} handleDelete={handleDelete} editThisImage={editThisImage} />)
@@ -79,7 +78,6 @@ const Album = ({ images, setImages, addImageClick, handleDelete, editThisImage }
                 activeClassName={'pagination__link--active'}
             />
         </div>
-
     )
 }
 
