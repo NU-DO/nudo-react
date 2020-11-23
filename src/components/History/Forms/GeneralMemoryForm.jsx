@@ -33,37 +33,37 @@ const GeneralMemoryForm = ({ stateForm, setStateForm, modalSent, handleCloseMemo
                         error={error}
                     />
                 </Step>
-                <Step label='Contactos'>
+                <Step label=''>
                     <ContactsMemoryForm
                         stateForm={stateForm}
                         setStateForm={setStateForm}
                     />
                 </Step>
-                <Step label='Imagenes'>
+                <Step label=''>
                     <ImagesMemoryForm
                         stateForm={stateForm}
                         setStateForm={setStateForm}
                     />
                 </Step>
-                <Step label='Localizaciones'>
+                <Step label=''>
                     <LocationMemoryForm
                         stateForm={stateForm}
                         setStateForm={setStateForm}
                     />
                 </Step>
-                <Step label='Canciones'>
+                <Step label=''>
                     <SongsMemoryForm
                         stateForm={stateForm}
                         setStateForm={setStateForm}
                     />
                 </Step>
-                <Step label='Videos'>
+                <Step label=''>
                     <VideosMemoryForm
                         stateForm={stateForm}
                         setStateForm={setStateForm}
                     />
                 </Step>
-                <Step label='Enhorabuena'>
+                <Step label='Guardar'>
                     <CongratulationsMemoryForm
                         modalSent={modalSent}
                     />
