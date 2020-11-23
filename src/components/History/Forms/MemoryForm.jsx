@@ -55,8 +55,8 @@ const MemoyForm = ({ handleChange, error }) => {
                 </div>
             </form>
             <div className='ContainerWelcomeMemory'>
-                <img 
-                    src='https://res.cloudinary.com/difhe4gl3/image/upload/v1606028460/NUDO/assets/Dashboard-icons/Recurso_22_st41he.svg' 
+                <img
+                    src='https://res.cloudinary.com/difhe4gl3/image/upload/v1606028460/NUDO/assets/Dashboard-icons/Recurso_22_st41he.svg'
                     alt='Logo de Nudo'
                 />
                 <h5>Hola {user.username}</h5>

@@ -7,7 +7,6 @@ class StatisticsGameGraphic extends Component {
         super(props)
 
         this.state = {
-
             series: [{
                 data: props.gamesArray
             }],
@@ -58,8 +57,6 @@ class StatisticsGameGraphic extends Component {
                     }
                 },
             },
-
-
             selection: 'one_year',
         }
     }
@@ -69,7 +66,12 @@ class StatisticsGameGraphic extends Component {
             <div className='StatisticsGraphic'>
                 <div id='chart'>
                     <div className='chartLine'>
-                        <ReactApexChart options={this.state.options} series={this.state.series} type='area' height={350} width={500} />
+                        <ReactApexChart
+                            options={this.state.options}
+                            series={this.state.series}
+                            type='area' height={350}
+                            width={500}
+                        />
                     </div>
                 </div>
             </div>

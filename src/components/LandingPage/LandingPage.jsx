@@ -27,7 +27,11 @@ const LandingPage = () => {
                     </div>
 
                 </div>
-                <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604574054/NUDO/assets/Landing%20Page/HeaderCTA_copia_inmcoa.jpg' alt='old people smile' className='ImageHeaderCTA' />
+                <img
+                    src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604574054/NUDO/assets/Landing%20Page/HeaderCTA_copia_inmcoa.jpg'
+                    alt='old people smile'
+                    className='ImageHeaderCTA'
+                />
             </div>
             <div className='LandingPartTwo'>
                 <div className='LandingPartTwoText'>
@@ -36,14 +40,20 @@ const LandingPage = () => {
                     <Link to='/signin'><button>Regístrarme ya</button></Link>
                 </div>
                 <div className='FirstAmoeba'>
-                    <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604488768/NUDO/assets/Landing%20Page/Recurso_8_oezojl.svg' alt='pink amoeba' />
+                    <img
+                        src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604488768/NUDO/assets/Landing%20Page/Recurso_8_oezojl.svg'
+                        alt='pink amoeba'
+                    />
                     <div className='macbookNudo'></div>
                 </div>
             </div>
             <div className='LandingPartThree'>
                 <div className='LandingPartThreeDivider'>
                     <div className='SecondAmoeba'>
-                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604481035/NUDO/assets/Landing%20Page/Recurso_4_ykg3mb.svg' alt='pink amoeba' />
+                        <img
+                            src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604481035/NUDO/assets/Landing%20Page/Recurso_4_ykg3mb.svg'
+                            alt='pink amoeba'
+                        />
                         <div className='oldRadio'></div>
                     </div>
                 </div>
@@ -60,7 +70,10 @@ const LandingPage = () => {
                     <Link to='/signin'><button>Regístrarme ya</button></Link>
                 </div>
                 <div className='ThirdAmoeba'>
-                    <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604481037/NUDO/assets/Landing%20Page/Recurso_7_gwcxgc.svg' alt='pink amoeba' />
+                    <img
+                        src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604481037/NUDO/assets/Landing%20Page/Recurso_7_gwcxgc.svg'
+                        alt='pink amoeba'
+                    />
                     <div className='oldLomo'></div>
                 </div>
             </div>

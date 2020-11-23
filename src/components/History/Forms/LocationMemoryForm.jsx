@@ -50,8 +50,8 @@ const LocationMemoryForm = ({ stateForm, setStateForm }) => {
                     {loaded && searchedLocations.map((location, index) => {
                         return (
                             <div className='MemoryLocationsCard' key={index} onClick={() => handleSelectLocation(location)}>
-                                <img 
-                                    src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png' 
+                                <img
+                                    src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png'
                                     alt='Chincheta logo Nudo'
                                 />
                                 <p>{location.name}</p>
@@ -65,12 +65,12 @@ const LocationMemoryForm = ({ stateForm, setStateForm }) => {
                     <h5 className='py-3'>Localización seleccionada:</h5>
                     {favLoaded && (
                         <div className='MemorySelectedLocations'>
-                                <img 
-                                    src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png' 
-                                    alt='Chincheta Logo de Nudo'
-                                />
-                                <p>{stateForm.location.name}</p>
-                            </div>
+                            <img
+                                src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603541727/NUDO/assets/Dashboard-icons/Icon-Marker-Map_ghhptr.png'
+                                alt='Chincheta Logo de Nudo'
+                            />
+                            <p>{stateForm.location.name}</p>
+                        </div>
                     )}
                 </div>
             </div>

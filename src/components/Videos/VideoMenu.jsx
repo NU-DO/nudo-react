@@ -170,8 +170,8 @@ const VideoMenu = () => {
 
     return (
         <div className='NudoMap'>
-                {loaded ?
-                    <>  
+            {loaded ?
+                <>
                     <ComponentHeader
                         nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1605476909/NUDO/assets/Dashboard-icons/Recurso_18_zgdpsa.svg'
                         title='Videos'
@@ -222,24 +222,24 @@ const VideoMenu = () => {
                         </Modal>
                             : null}
                     </div>
-                    </>
-                :<Spinner />
-                }
-                <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
-                    <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
-                        Video guardado correctamente!
+                </>
+                : <Spinner />
+            }
+            <Snackbar open={snackSavedOpen} autoHideDuration={4000} onClose={handleCloseSavedSnack}>
+                <AlertSnackBar onClose={handleCloseSavedSnack} severity='success'>
+                    Video guardado correctamente!
                  </AlertSnackBar>
-                </Snackbar>
-                <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
-                    <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
-                        Video editado correctamente!
+            </Snackbar>
+            <Snackbar open={snackEditOpen} autoHideDuration={4000} onClose={handleCloseEditSnack}>
+                <AlertSnackBar onClose={handleCloseEditSnack} severity='info'>
+                    Video editado correctamente!
                  </AlertSnackBar>
-                </Snackbar>
-                <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
-                    <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
-                        Video Borrado correctamente!
+            </Snackbar>
+            <Snackbar open={snackDeleteOpen} autoHideDuration={4000} onClose={handleCloseDeleteSnack}>
+                <AlertSnackBar onClose={handleCloseDeleteSnack} severity='warning'>
+                    Video Borrado correctamente!
                  </AlertSnackBar>
-                </Snackbar> 
+            </Snackbar>
         </div>
     )
 }

@@ -22,6 +22,7 @@
     -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
     .eventImage {
       height: 230px;
       padding: 10px;
@@ -35,10 +36,13 @@
   .SubtitleIconsMemory {
     display: flex;
     margin-bottom: 14px;
+
     .subtitleEvent {
       margin-bottom: 40px;
+
       .divSubtitleEvent {
         color: rgb(85, 84, 84);
+
         & span {
           color: red;
         }
@@ -150,6 +154,7 @@
       -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
       .eventImage {
         height: 230px;
         padding: 10px;
@@ -163,10 +168,13 @@
     .SubtitleIconsMemory {
       display: flex;
       margin-bottom: 14px;
+
       .subtitleEvent {
         margin-bottom: 40px;
+
         .divSubtitleEvent {
           color: rgb(85, 84, 84);
+
           & span {
             color: red;
           }

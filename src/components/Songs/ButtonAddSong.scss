@@ -24,6 +24,7 @@
 
 .sixtiesBtn {
     border: 2px solid rgb(248, 60, 95);
+
     &:hover {
         background-color: rgba(248, 60, 95, 0.5);
     }
@@ -31,6 +32,7 @@
 
 .seventiesBtn {
     border: 2px solid rgb(243, 103, 129);
+
     &:hover {
         background-color: rgba(243, 103, 129, 0.5);
     }
@@ -38,13 +40,15 @@
 
 .eightiesBtn {
     border: 2px solid rgb(245, 152, 169);
+
     &:hover {
-        background-color:  rgba(245, 152, 169, 0.5);
+        background-color: rgba(245, 152, 169, 0.5);
     }
 }
 
 .ninetiesBtn {
     border: 2px solid rgb(245, 209, 215);
+
     &:hover {
         background-color: rgb(245, 209, 215);
     }

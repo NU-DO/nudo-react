@@ -78,7 +78,10 @@ const LogIn = (props) => {
         </div>
         <div className='LogInContainer'>
           <div className='LogInNudoIcon'>
-            <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-login_cuaa4a.svg' alt='login rock and roll' />
+            <img
+              src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-login_cuaa4a.svg'
+              alt='login rock and roll'
+            />
           </div>
           <div className='LogInImage'>
           </div>
@@ -113,7 +116,9 @@ const LogIn = (props) => {
                     required
                   />
                 </div>
-                <small className='form-text text-muted LogInText' htmlFor='exampleCheck1'>Si no tienes perfil, <Link to='/signin' style={{ color: '#839672' }}>Regístrate</Link></small>
+                <small className='form-text text-muted LogInText' htmlFor='exampleCheck1'>
+                  Si no tienes perfil, <Link to='/signin' style={{ color: '#839672' }}>Regístrate</Link>
+                </small>
               </div>
               <div className='LogInButton'>
                 <GenericButton text='Entrar' />

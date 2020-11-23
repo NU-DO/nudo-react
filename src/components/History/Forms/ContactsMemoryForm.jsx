@@ -51,12 +51,12 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
     }
 
     const handleDelete = (contactID) => {
-       setStateForm((prev) => {
-           return {
-               ...prev,
-               contacts: [...prev.contacts.filter(contact => contact.id !== contactID)]
-           }
-       })
+        setStateForm((prev) => {
+            return {
+                ...prev,
+                contacts: [...prev.contacts.filter(contact => contact.id !== contactID)]
+            }
+        })
     }
 
     return (
@@ -67,9 +67,9 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
             {loaded && (
                 <div className='ContactsMemoryContainer'>
                     <div className='ContactsFromDB'>
-                        <ContactSeacher 
-                            handleSearch={handleSearchContact} 
-                            search={search} 
+                        <ContactSeacher
+                            handleSearch={handleSearchContact}
+                            search={search}
                             placeholder='Busca un contacto'
                         />
                         <div className='AgendaFromDB'>
@@ -93,7 +93,7 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
                     <div className='SelectedContacts'>
                         <h5>Personas añadidas al recuerdo:</h5>
                         <div className='SelectedContactsContainer'>
-                            {stateForm.contacts && stateForm.contacts.map((contact, index)=> {
+                            {stateForm.contacts && stateForm.contacts.map((contact, index) => {
                                 return (
                                     <div className='ContactAdded' key={index}>
                                         <div className='contactSmAdded'>
@@ -106,7 +106,7 @@ const ContactsMemoryForm = ({ stateForm, setStateForm }) => {
                                                 <span><small> {contact.role}</small></span>
                                             </p>
                                         </div>
-                                        <div className='detailsButton'  onClick={() => {handleDelete(contact.id)}}>X</div>
+                                        <div className='detailsButton' onClick={() => { handleDelete(contact.id) }}>X</div>
                                     </div>
                                 )
                             })}

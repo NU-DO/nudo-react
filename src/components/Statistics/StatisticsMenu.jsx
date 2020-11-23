@@ -112,7 +112,7 @@ const StatisticsMenu = () => {
     }, [])
 
     useEffect(() => {
-        const allElementsLength = total.images?.length + total.songs?.length + total.locations?.length + total.contacts?.length + total.events?.length + total.videos?.length +total.gameScores?.length
+        const allElementsLength = total.images?.length + total.songs?.length + total.locations?.length + total.contacts?.length + total.events?.length + total.videos?.length + total.gameScores?.length
         setTotalLength(allElementsLength)
     }, [total])
 

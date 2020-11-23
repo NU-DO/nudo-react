@@ -45,10 +45,10 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
         <div className='MemorySongsContainer'>
             <div>
                 <h5 className='py-3'>Elige una canción:</h5>
-                <ContactSeacher 
-                    handleSearch={handleSearchSong} 
-                    search={search} 
-                    placeholder='Busca una Canción' 
+                <ContactSeacher
+                    handleSearch={handleSearchSong}
+                    search={search}
+                    placeholder='Busca una Canción'
                 />
                 <div className='MySongsContainer'>
                     {loaded && searchedSongs.map((song, index) => {
@@ -66,7 +66,7 @@ const SongsMemoryForm = ({ stateForm, setStateForm }) => {
                     <h5 className='py-3'>Canción seleccionada:</h5>
                     {favLoaded && (
                         <div className='MemorySelectedLocations'>
-                        <div className='MemorySongsCardSelected'>
+                            <div className='MemorySongsCardSelected'>
                                 <img src={stateForm.playlist.image} alt={stateForm.playlist.name} />
                                 <p>{stateForm.playlist.name}</p>
                             </div>

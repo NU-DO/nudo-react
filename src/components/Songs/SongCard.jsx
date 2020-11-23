@@ -60,7 +60,12 @@ const SongCard = ({ song, typeSearch, form, handleOpen, addFav, handleDeleteSong
                             </div>
                             : null}
                     </div>
-                    : fromEvent ? null : <div onClick={() => handleDeleteSong(song.id)}><DeleteIcon className='songsDeleteIcon' /></div>}
+                    :
+                    fromEvent ?
+                        null
+                        :
+                        <div onClick={() => handleDeleteSong(song.id)}><DeleteIcon className='songsDeleteIcon' /></div>
+                }
             </div>
         </div>
     )

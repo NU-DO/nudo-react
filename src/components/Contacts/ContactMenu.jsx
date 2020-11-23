@@ -164,7 +164,7 @@ const ContactMenu = () => {
             })
             .catch(err => setError(err.response.data.errors))
     }
-    
+
     return (
         <div>
             {loaded ?

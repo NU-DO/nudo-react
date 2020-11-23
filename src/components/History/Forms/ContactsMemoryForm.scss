@@ -2,26 +2,31 @@
   display: flex;
   flex-direction: column;
   margin: 14px 0px;
+
   .ContactsFromDB {
     display: flex;
     flex-direction: column;
     width: fit-content;
+
     .AgendaFromDB {
       height: 200px;
       overflow: scroll;
       border-radius: 10px;
     }
   }
+
   .SelectedContacts {
     display: flex;
     flex-direction: column;
     margin-top: 16px;
+
     .SelectedContactsContainer {
       overflow: scroll;
       height: 150px;
       border-radius: 10px;
       margin-top: 30px;
     }
+
     .ContactAdded {
       border-radius: 5px;
       padding-left: 0px;
@@ -39,12 +44,14 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
+
         .contactPhotoAdded {
           margin: 0px 16px 0 12px;
           width: 60px;
           height: 60px;
           border-radius: 50%;
         }
+
         .nameHeaderAdded {
           margin: 3px 0 0 0;
         }
@@ -59,25 +66,30 @@
     flex-direction: row;
     justify-content: space-around;
     margin: 14px 0px;
+
     .ContactsFromDB {
       display: flex;
       flex-direction: column;
       width: fit-content;
+
       .AgendaFromDB {
         height: 200px;
         overflow: scroll;
         border-radius: 10px;
       }
     }
+
     .SelectedContacts {
       display: flex;
       flex-direction: column;
+
       .SelectedContactsContainer {
         overflow: scroll;
         height: 200px;
         border-radius: 10px;
         margin-top: 30px;
       }
+
       .ContactAdded {
         border-radius: 5px;
         padding-left: 0px;
@@ -95,12 +107,14 @@
           display: flex;
           justify-content: flex-start;
           align-items: center;
+
           .contactPhotoAdded {
             margin: 0px 16px 0 12px;
             width: 60px;
             height: 60px;
             border-radius: 50%;
           }
+
           .nameHeaderAdded {
             margin: 3px 0 0 0;
           }

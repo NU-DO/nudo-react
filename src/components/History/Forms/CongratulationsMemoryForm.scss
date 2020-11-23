@@ -5,12 +5,9 @@
   height: 356px;
 }
 
-// The icon specifics
-// Variables
 $pink: #b73551;
 $icon-base-size: 20px;
 
-// Structure
 .success-icon {
   display: inline-block;
   width: 8em;
@@ -26,8 +23,8 @@ $icon-base-size: 20px;
   transform: scale(1);
 }
 
-// Elements
 .success-icon {
+
   &__tip,
   &__long {
     display: block;
@@ -64,6 +61,7 @@ $icon-base-size: 20px;
   from {
     transform: scale(0);
   }
+
   to {
     transform: scale(1);
   }
@@ -75,6 +73,7 @@ $icon-base-size: 20px;
     top: 0em;
     left: -1.6em;
   }
+
   to {
     width: 2.4em;
     top: 4.3em;
@@ -89,6 +88,7 @@ $icon-base-size: 20px;
     top: 5.1em;
     left: 3.2em;
   }
+
   to {
     width: 4em;
     top: 3.7em;

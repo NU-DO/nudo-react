@@ -181,7 +181,7 @@ const HistoryMenu = () => {
                                 error={error}
                             />
                         </div>
-                        : 
+                        :
                         <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>
                             Crea un recuerdo
                         </button>

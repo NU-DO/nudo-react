@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   .MyImagesContainer {
     display: flex;
     align-items: center;
@@ -11,6 +12,7 @@
     overflow-y: hidden;
     height: 205px;
     margin-bottom: 22px;
+
     .MemoryImageCard {
       height: 180px;
       width: fit-content;
@@ -20,15 +22,18 @@
       -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       transition: all 0.2s linear;
+
       &:hover {
         transform: scale(1.01);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         cursor: pointer;
       }
+
       & img {
         height: 150px;
         padding: 10px;
       }
+
       & p {
         padding: 4px 0;
         text-align: center;
@@ -37,6 +42,7 @@
       }
     }
   }
+
   .PortraitSelectedImage {
     height: 250px;
     width: fit-content;
@@ -45,9 +51,10 @@
     -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+
     & img {
-        height: 250px;
-        padding: 10px;
+      height: 250px;
+      padding: 10px;
     }
   }
 }
@@ -58,53 +65,60 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-  .MyImagesContainer {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    width: 300px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    height: 205px;
-    margin-bottom: 22px;
-    .MemoryImageCard {
-      height: 180px;
+
+    .MyImagesContainer {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      width: 300px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      height: 205px;
+      margin-bottom: 22px;
+
+      .MemoryImageCard {
+        height: 180px;
+        width: fit-content;
+        margin: 20px 14px 18px 0;
+        background-color: #f8f8f8;
+        -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        transition: all 0.2s linear;
+
+        &:hover {
+          transform: scale(1.01);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+          cursor: pointer;
+        }
+
+        & img {
+          height: 150px;
+          padding: 10px;
+        }
+
+        & p {
+          padding: 4px 0;
+          text-align: center;
+          font-size: 12px;
+          color: grey;
+        }
+      }
+    }
+
+    .PortraitSelectedImage {
+      height: 250px;
       width: fit-content;
       margin: 20px 14px 18px 0;
       background-color: #f8f8f8;
       -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      transition: all 0.2s linear;
-      &:hover {
-        transform: scale(1.01);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        cursor: pointer;
-      }
+
       & img {
-        height: 150px;
-        padding: 10px;
-      }
-      & p {
-        padding: 4px 0;
-        text-align: center;
-        font-size: 12px;
-        color: grey;
-      }
-    }
-  }
-  .PortraitSelectedImage {
-    height: 250px;
-    width: fit-content;
-    margin: 20px 14px 18px 0;
-    background-color: #f8f8f8;
-    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    & img {
         height: 250px;
         padding: 10px;
+      }
     }
   }
-}
 }

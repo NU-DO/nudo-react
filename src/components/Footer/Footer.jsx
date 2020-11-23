@@ -8,9 +8,9 @@ const Footer = () => {
             <footer>
                 <div className='FooterWaves'>
                     <div className='FooterIconNudo'>
-                        <img 
-                            src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604245115/NUDO/assets/Recurso_2_aheau7.svg' 
-                            alt='logo nudo white icon' 
+                        <img
+                            src='https://res.cloudinary.com/difhe4gl3/image/upload/v1604245115/NUDO/assets/Recurso_2_aheau7.svg'
+                            alt='logo nudo white icon'
                         />
                     </div>
                     <div className='FooterText'>

@@ -46,24 +46,21 @@ const VideosMemoryForm = ({ stateForm, setStateForm }) => {
             <div className='MemoryImagesContainer'>
                 <div>
                     <h5 className='py-3'>Elige un video de tu galería:</h5>
-                    <ContactSeacher 
-                        handleSearch={handleSearchVideo} 
-                        search={search} 
+                    <ContactSeacher
+                        handleSearch={handleSearchVideo}
+                        search={search}
                         placeholder='Busca un Vídeo'
                     />
                     <div className='MyImagesContainer'>
                         {loaded && searchedVideos.map((video, index) => {
                             return (
-                                <div
-                                    className='MemoryVideoCard'
-                                    key={index}
-                                >
+                                <div className='MemoryVideoCard' key={index} >
                                     <div>
-                                        <img 
-                                            src={video.snippet} 
-                                            key={index} 
-                                            className='MemoryVideoThumbnail' 
-                                            alt='recorte' 
+                                        <img
+                                            src={video.snippet}
+                                            key={index}
+                                            className='MemoryVideoThumbnail'
+                                            alt='recorte'
                                             onClick={() => handleSelectVideo(video)}
                                         />
                                     </div>
@@ -81,9 +78,9 @@ const VideosMemoryForm = ({ stateForm, setStateForm }) => {
                         {favLoaded && (
                             <div className='SelectedVideoCard' >
                                 <div>
-                                    <img 
-                                        src={stateForm.video?.snippet} 
-                                        className='SelectedVideoThumbnail' 
+                                    <img
+                                        src={stateForm.video?.snippet}
+                                        className='SelectedVideoThumbnail'
                                         alt='recorte'
                                     />
                                 </div>

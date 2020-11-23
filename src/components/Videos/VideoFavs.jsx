@@ -25,8 +25,18 @@ const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
         .map((video, index) => {
             return (
                 <div className='VideoCardFav' key={index} >
-                    <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1605477175/NUDO/assets/Recurso_19_bpiczh.svg' alt='logo' className='PlayIconVideo' onClick={() => playVideo(video)} />
-                    <img src={video.snippet} className='VideoCardFavImage' onClick={() => playVideo(video)} alt='recorte de vídeo' />
+                    <img
+                        src='https://res.cloudinary.com/difhe4gl3/image/upload/v1605477175/NUDO/assets/Recurso_19_bpiczh.svg'
+                        alt='logo'
+                        className='PlayIconVideo'
+                        onClick={() => playVideo(video)}
+                    />
+                    <img
+                        src={video.snippet}
+                        className='VideoCardFavImage'
+                        onClick={() => playVideo(video)}
+                        alt='recorte de vídeo'
+                    />
                     <h5>{video.title}</h5>
                     <p> Descripción: {video.description}</p>
                     <div className='CardFavCRUDButtons'>
@@ -56,16 +66,30 @@ const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
                     Alfabético:
                         </label>
                 <div className='form-check'>
-                    <input className='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setAlphabetlAscendent(titleVideos)} />
+                    <input
+                        className='form-check-input pl-2'
+                        type='radio'
+                        name='exampleRadios'
+                        id='exampleRadios1'
+                        value='option1'
+                        onClick={() => setAlphabetlAscendent(titleVideos)}
+                    />
                     <label className='form-check-label mr-2' htmlFor='exampleRadios1'>
                         Ascendente
                         </label>
                 </div>
                 <div className='form-check'>
-                    <input className='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setAlphabetlDescendent(titleVideos)} />
+                    <input
+                        className='form-check-input pl-2'
+                        type='radio'
+                        name='exampleRadios'
+                        id='exampleRadios1'
+                        value='option1'
+                        onClick={() => setAlphabetlDescendent(titleVideos)}
+                    />
                     <label className='form-check-label' htmlFor='exampleRadios1'>
                         Descendente
-                        </label>
+                    </label>
                 </div>
             </div>
             <div className='ContainerVideoCardFav'>

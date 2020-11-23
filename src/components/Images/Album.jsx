@@ -50,19 +50,28 @@ const Album = ({ images, setImages, addImageClick, handleDelete, editThisImage }
                             Cronológico:
                         </label>
                         <div className='form-check'>
-                            <input className='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setCronologicalAscendent(dateImages)} />
+                            <input
+                                className='form-check-input pl-2'
+                                type='radio' name='exampleRadios'
+                                id='exampleRadios1' value='option1'
+                                onClick={() => setCronologicalAscendent(dateImages)}
+                            />
                             <label className='form-check-label mr-2' htmlFor='exampleRadios1'>
                                 Ascendente
                         </label>
                         </div>
                         <div className='form-check'>
-                            <input className='form-check-input pl-2' type='radio' name='exampleRadios' id='exampleRadios1' value='option1' onClick={() => setCronologicalDescendent(dateImages)} />
+                            <input
+                                className='form-check-input pl-2'
+                                type='radio' name='exampleRadios'
+                                id='exampleRadios1' value='option1'
+                                onClick={() => setCronologicalDescendent(dateImages)}
+                            />
                             <label className='form-check-label' htmlFor='exampleRadios1'>
                                 Descendente
                         </label>
                         </div>
                     </div>
-
                 </div>
                 {currentPageData}
             </div>

@@ -6,7 +6,8 @@
   width: 100%;
   height: fit-content;
   position: relative;
-   .MultiFormNavigation {
+
+  .MultiFormNavigation {
     width: 120px;
     padding: 8px;
     margin: 0px 8px;
@@ -39,7 +40,8 @@
     width: 900px;
     height: 520px;
     position: relative;
-     .MultiFormNavigation {
+
+    .MultiFormNavigation {
       width: 120px;
       padding: 8px;
       margin: 0px 8px;
@@ -50,17 +52,16 @@
       color: black;
       cursor: pointer;
       transition: 0.5s;
-  
+
       &:hover {
         font-size: 18px;
         color: #b73551;
         transition: 0.5s;
       }
-  
+
       &:focus {
         outline: none;
       }
     }
   }
 }
-

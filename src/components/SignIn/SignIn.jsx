@@ -60,7 +60,10 @@ const SignIn = () => {
                 </div>
                 <div className='SignInContainer'>
                     <div className='SignInNudoIcon'>
-                        <img src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-signin_ekelsq.svg' alt='login rock and roll' />
+                        <img
+                            src='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296190/NUDO/assets/Dashboard-icons/Icon-signin_ekelsq.svg'
+                            alt='login rock and roll'
+                        />
                     </div>
                     <div className='SignInImage'>
                     </div>
