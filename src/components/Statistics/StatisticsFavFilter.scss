@@ -1,17 +1,8 @@
 .StatisticsFavFilter {
     display: flex;
     margin: 0 0 10px 0;
-
-    .filterButton {
-        background-color: #EF7E93;
-        padding: 5px 10px;
-        border-radius: 5px;
-        margin: 3px;
-        color: white;
-        font-size: 12px;
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }

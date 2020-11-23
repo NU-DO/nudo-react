@@ -5,7 +5,7 @@ import StatisticsBoxNumber from './StatisticsBoxNumber'
 import StatisticsGraphic from './StatisticsGraphic'
 import StatisticsGameGraphic from './StatisticsGameGraphic'
 import Spinner from '../Generic/Spinner'
-import { getSongs, getLocations, getImages, getContacts, getScores } from '../../services/Api'
+import { getSongs, getLocations, getImages, getContacts, getVideos, getEvents, getScores } from '../../services/Api'
 import './StatisticsMenu.scss'
 
 const StatisticsMenu = () => {
@@ -67,6 +67,30 @@ const StatisticsMenu = () => {
                     })
             })
             .then(() => {
+                getVideos()
+                    .then(videos => {
+                        setTotal(prev => {
+                            return {
+                                ...prev,
+                                videos: videos
+                            }
+                        })
+                        arrayTotals[4] = videos.length
+                    })
+            })
+            .then(() => {
+                getEvents()
+                    .then(events => {
+                        setTotal(prev => {
+                            return {
+                                ...prev,
+                                events: events
+                            }
+                        })
+                        arrayTotals[5] = events.length
+                    })
+            })
+            .then(() => {
                 getScores()
                     .then(gameScores => {
                         setTotal(prev => {
@@ -78,7 +102,7 @@ const StatisticsMenu = () => {
                         const gameScoresArray = []
                         gameScores.forEach(score => gameScoresArray.push([score.createdAt, score.score]))
                         setGameArray(gameScoresArray)
-                        arrayTotals[5] = gameScores.length
+                        arrayTotals[6] = gameScores.length
                     })
             })
             .then(() => setSelectedInfo(total))
