@@ -12,6 +12,7 @@ const StatisticsFavFilter = ({ setFocus }) => {
                 <option value='canciones'>Canciones</option>
                 <option value='lugares'>Lugares</option>
                 <option value='contactos'>Contactos</option>
+                <option value='videos'>Vídeos</option>
                 <option value='eventos'>Historia</option>
                 <option value='partidas'>Puntuaciones</option>
             </select>
