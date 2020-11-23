@@ -3,8 +3,8 @@
   border: 1px solid black;
   padding: 45px;
   border-radius: 10px;
-  width: 900px;
-  height: 520px;
+  width: 100%;
+  height: fit-content;
   position: relative;
    .MultiFormNavigation {
     width: 120px;
@@ -29,3 +29,38 @@
     }
   }
 }
+
+@media (min-width: 700px) {
+  .MultiStepContainer {
+    margin: 24px 0;
+    border: 1px solid black;
+    padding: 45px;
+    border-radius: 10px;
+    width: 900px;
+    height: 520px;
+    position: relative;
+     .MultiFormNavigation {
+      width: 120px;
+      padding: 8px;
+      margin: 0px 8px;
+      border-radius: 10px;
+      border: none;
+      background-color: white;
+      font-size: 16px;
+      color: black;
+      cursor: pointer;
+      transition: 0.5s;
+  
+      &:hover {
+        font-size: 18px;
+        color: #b73551;
+        transition: 0.5s;
+      }
+  
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+

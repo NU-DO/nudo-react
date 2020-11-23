@@ -1,6 +1,6 @@
 .MemorySongsContainer {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   .MySongsContainer {
     display: flex;
     flex-direction: column;
@@ -44,6 +44,64 @@
     align-items: center;
     justify-content: flex-start;
     & img {
+      border-radius: 50%;
+      width: 30px;
+    }
+    & p {
+      font-size: 12px;
+      margin: 9px;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .MemorySongsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    .MySongsContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: right;
+      width: 300px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      height: 205px;
+      margin-bottom: 22px;
+      .MemorySongsCard {
+        padding: 6px;
+        box-shadow: 0px 0px 4px 0px rgba(85, 85, 85, 0.2);
+        border-radius: 10px;
+        display: flex;
+        width: 288px;
+        align-items: center;
+        justify-content: flex-start;
+        transition: all 0.2s linear;
+        & img {
+          border-radius: 50%;
+          width: 30px;
+        }
+        & p {
+          font-size: 12px;
+          margin: 9px;
+        }
+        &:hover {
+          width: 300px;
+          height: 120px;
+          box-shadow: 0px 0px 4px 0px rgba(216, 48, 48, 0.9);
+        }
+      }
+    }
+    .MemorySongsCardSelected {
+      padding: 6px;
+      box-shadow: 0px 0px 4px 0px rgba(85, 85, 85, 0.2);
+      border-radius: 10px;
+      display: flex;
+      width: 288px;
+      align-items: center;
+      justify-content: flex-start;
+      & img {
         border-radius: 50%;
         width: 30px;
       }
@@ -51,5 +109,6 @@
         font-size: 12px;
         margin: 9px;
       }
+    }
   }
 }

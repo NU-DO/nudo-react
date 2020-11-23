@@ -1,7 +1,7 @@
 .ContainerMemoryForm {
     width: 90%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: space-around;
     padding: 20px 0;
@@ -15,7 +15,7 @@
         }
     }
     .ContainerWelcomeMemory {
-        width: 45%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -25,6 +25,39 @@
         }
         & h5 {
             padding-top:10px;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    .ContainerMemoryForm {
+        width: 90%;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-around;
+        padding: 20px 0;
+        position: relative;
+        .InputsMemoryForm {
+            display: flex;
+            flex-direction: column;
+            width: 45%;
+            .FirstInputsMemory {
+                width: 300px;
+            }
+        }
+        .ContainerWelcomeMemory {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            & img {
+                width: 100px;
+            }
+            & h5 {
+                padding-top:10px;
+            }
         }
     }
 }

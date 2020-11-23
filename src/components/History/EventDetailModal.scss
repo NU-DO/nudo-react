@@ -1,7 +1,8 @@
 .ModalContentEvent {
   position: relative;
-  padding: 50px 80px 80px;
+  padding: 20px;
   width: auto;
+  height: -moz-fit-content;
   height: fit-content;
   background-color: white;
   border-radius: 10px;
@@ -9,8 +10,9 @@
   margin: auto 0;
   animation-name: animatetop;
   transition: all 5s ease;
-  width: 70%;
-  height: fit-content;
+  width: 98%;
+  height: 700px;
+  overflow: scroll;
 
   .PortraitPhotoMemoryDetail {
     height: 280px;
@@ -52,6 +54,7 @@
   .imageAndSong {
     display: flex;
     align-items: center;
+    flex-direction: column-reverse;
     justify-content: space-between;
 
     .VideoSongContainer {
@@ -84,12 +87,12 @@
   }
 
   .CardFavCRUDButtons {
-    bottom: 10px;
+    top: 70px;
     display: flex;
     justify-content: flex-end;
     margin: 12px 12px 12px 0;
     position: absolute;
-    right: 7px;
+    right: 10px;
 
     .CardFavEditButton {
       color: #839672;
@@ -121,5 +124,134 @@
 
   to {
     margin: auto 0;
+  }
+}
+
+@media (min-width: 700px) {
+  .ModalContentEvent {
+    position: relative;
+    padding: 50px 80px 80px;
+    width: auto;
+    height: fit-content;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 3px 15px 15px rgba(0, 0, 0, 0.12);
+    margin: auto 0;
+    animation-name: animatetop;
+    transition: all 5s ease;
+    width: 70%;
+    height: fit-content;
+
+    .PortraitPhotoMemoryDetail {
+      height: 280px;
+      width: fit-content;
+      margin: 20px 14px 18px 0;
+      background-color: #f8f8f8;
+      -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      .eventImage {
+        height: 230px;
+        padding: 10px;
+      }
+    }
+
+    .divParagraphEvent {
+      padding: 34px 0 34px 0;
+    }
+
+    .SubtitleIconsMemory {
+      display: flex;
+      margin-bottom: 14px;
+      .subtitleEvent {
+        margin-bottom: 40px;
+        .divSubtitleEvent {
+          color: rgb(85, 84, 84);
+          & span {
+            color: red;
+          }
+        }
+      }
+    }
+
+    .contactCardIcon {
+      margin-right: 5px;
+      color: grey;
+    }
+
+    .imageAndSong {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      .VideoSongContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .songAndContact {
+      .avatarEvent {
+        margin: 0px 16px 0;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-top: 10px;
+      }
+    }
+
+    .eventVideoContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 0 0 19px 0;
+
+      .videoEvent {
+        border-radius: 10px;
+      }
+    }
+
+    .CardFavCRUDButtons {
+      bottom: 10px;
+      display: flex;
+      justify-content: flex-end;
+      margin: 12px 12px 12px 0;
+      position: absolute;
+      right: 7px;
+
+      .CardFavEditButton {
+        color: #839672;
+        transition: all 0.2s linear;
+        margin-right: 10px;
+
+        &:hover {
+          font-size: 35px;
+          color: #919d87;
+        }
+      }
+
+      .CardFavDeleteButton {
+        color: #f89677;
+        transition: all 0.2s linear;
+
+        &:hover {
+          font-size: 35px;
+          color: #e13400;
+        }
+      }
+    }
+  }
+
+  @keyframes animatetop {
+    from {
+      margin-left: -3000px;
+    }
+
+    to {
+      margin: auto 0;
+    }
   }
 }
