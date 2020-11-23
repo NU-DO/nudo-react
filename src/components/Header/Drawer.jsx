@@ -78,7 +78,7 @@ const NudoDrawer = () => {
                                             index === 3 ? <LocationOnIcon /> :
                                                 index === 4 ? <VideocamIcon /> :
                                                     index === 5 ? <EventIcon /> :
-                                                        index === 6 ? <SportsEsportsIcon /> : 
+                                                        index === 6 ? <SportsEsportsIcon /> :
                                                             <EqualizerIcon />}
                                 </ListItemIcon>
                                 <ListItemText primary={text} />

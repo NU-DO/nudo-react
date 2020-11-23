@@ -165,41 +165,41 @@ const HistoryMenu = () => {
         <div className='NudoMap'>
             {loaded ?
                 <>
-                <ComponentHeader
-                    title='Historia'
-                    description='En esta seción podrás crear y organizar tus recuerdos cronológicamente en una linea del tiempo. Todas las ventajas de NUDO en una sola sección.'
-                    nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
-                />
+                    <ComponentHeader
+                        title='Historia'
+                        description='En esta seción podrás crear y organizar tus recuerdos cronológicamente en una linea del tiempo. Todas las ventajas de NUDO en una sola sección.'
+                        nudoIcon='https://res.cloudinary.com/difhe4gl3/image/upload/v1603296188/NUDO/assets/Dashboard-icons/Icon-eventos_ydhdym.svg'
+                    />
 
-                {showForm ?
-                    <div className=''>
-                        <GeneralMemoryForm 
-                            setStateForm={setStateForm} 
-                            stateForm={stateForm}
-                            modalSent={modalSent}
-                            handleCloseMemoryForm={handleCloseMemoryForm}
-                            error={error}
-                        />
+                    {showForm ?
+                        <div className=''>
+                            <GeneralMemoryForm
+                                setStateForm={setStateForm}
+                                stateForm={stateForm}
+                                modalSent={modalSent}
+                                handleCloseMemoryForm={handleCloseMemoryForm}
+                                error={error}
+                            />
+                        </div>
+                        : <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>Crea un recuerdo</button>
+                    }
+
+                    <div className='ContainerHistoryTimeline'>
+                        <HistoryTimeline savedEvents={savedEvents} handleSelect={handleSelect} />
                     </div>
-                    : <button className='ButtonMemoryForm' onClick={handleShowMemoryForm}>Crea un recuerdo</button>
-                }
 
-                <div className='ContainerHistoryTimeline'>
-                    <HistoryTimeline savedEvents={savedEvents} handleSelect={handleSelect} />
-                </div>
-
-                {showDialog ?
-                    <Modal>
-                        <EventDetailModal
-                            closeModal={closeModal}
-                            selected={selected}
-                            setSelected={setSelected}
-                            handleDelete={handleDelete}
-                        />
-                    </Modal>
-                : null}
+                    {showDialog ?
+                        <Modal>
+                            <EventDetailModal
+                                closeModal={closeModal}
+                                selected={selected}
+                                setSelected={setSelected}
+                                handleDelete={handleDelete}
+                            />
+                        </Modal>
+                        : null}
                 </>
-            : <Spinner />
+                : <Spinner />
             }
         </div>
 
