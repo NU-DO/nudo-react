@@ -6,7 +6,7 @@ const VideoSearcher = ({ handleChangeSearch, handleSubmit, title }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className='input-group mb-3'>
+            <div className='input-group mb-3 ml-4'>
                 <InputText
                     id='youtubeSearcher'
                     type='text'

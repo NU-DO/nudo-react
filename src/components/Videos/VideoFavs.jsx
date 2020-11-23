@@ -61,7 +61,7 @@ const VideoFavs = ({ videos, editThisVideo, handleDelete, playVideo }) => {
 
     return (
         <div>
-            <div className='AlbumRadioButtons d-flex ml-5'>
+            <div className='AlbumRadioButtons d-flex'>
                 <label className='form-check-label mr-2' htmlFor='exampleRadios1'>
                     Alfabético:
                         </label>
