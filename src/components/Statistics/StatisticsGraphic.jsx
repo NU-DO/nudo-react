@@ -39,7 +39,7 @@ class StatisticsGraphic extends Component {
           colors: ['#EF7E93', '#ae4b61']
         },
         xaxis: {
-          categories: ['Imágenes', 'Canciones', 'Lugares', 'Contactos', 'Eventos', 'Partidas'],
+          categories: ['Imágenes', 'Canciones', 'Lugares', 'Contactos', 'Vídeos', 'Eventos', 'Partidas'],
           position: 'bottom',
           axisBorder: {
             show: false

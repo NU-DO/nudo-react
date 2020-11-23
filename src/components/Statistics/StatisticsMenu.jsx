@@ -19,7 +19,7 @@ const StatisticsMenu = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        const arrayTotals = [0, 0, 0, 0, 0, 0]
+        const arrayTotals = [0, 0, 0, 0, 0, 0, 0]
         getImages()
             .then(images => {
                 setTotal(prev => {
@@ -105,14 +105,15 @@ const StatisticsMenu = () => {
                         arrayTotals[6] = gameScores.length
                     })
             })
+            .then(() => setTotalsArray(arrayTotals))
             .then(() => setSelectedInfo(total))
             .then(() => setSelected('total'))
-            .then(() => setTotalsArray(arrayTotals))
             .then(() => setLoaded(true))
+            console.log(total);
     }, [])
 
     useEffect(() => {
-        const allElementsLength = total.images?.length + total.songs?.length + total.locations?.length + total.contacts?.length + total.gameScores?.length
+        const allElementsLength = total.images?.length + total.songs?.length + total.locations?.length + total.contacts?.length + total.events?.length + total.videos?.length +total.gameScores?.length
         setTotalLength(allElementsLength)
     }, [total])
 
@@ -133,6 +134,9 @@ const StatisticsMenu = () => {
                 break;
             case 'contactos':
                 setSelectedInfo(total.contacts)
+                break;
+            case 'videos':
+                setSelectedInfo(total.videos)
                 break;
             case 'eventos':
                 setSelectedInfo(total.events)
