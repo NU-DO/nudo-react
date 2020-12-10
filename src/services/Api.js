@@ -3,7 +3,7 @@ import axios from 'axios'
 const http = axios.create({
   // baseURL: 'http://nudo.herokuapp.com',
   
-  baseURL: 'http://localhost:300/',
+  baseURL: 'http://localhost:3000/',
   withCredentials: true
 })
 
