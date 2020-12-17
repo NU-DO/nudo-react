@@ -2,9 +2,49 @@ import React, { useEffect, useState } from 'react'
 import Image from './Image'
 import GenericButton from '../Generic/GenericButton'
 import ReactPaginate from 'react-paginate'
+import { SRLWrapper } from 'simple-react-lightbox'
 import './Album.scss'
 
 const PER_PAGE = 6
+
+const options = {
+    caption: {
+        captionFontSize: '22px',
+        captionColor: '#8D99AE',
+        captionFontWeight: 200,
+        showCaption: true
+    },
+    settings: {
+        transitionTimingFunction: 'ease-in-out',
+        slideTransitionSpeed: 0.6,
+        slideTransitionTimingFunction: [0.25, 0.75, 0.5, 1],
+        slideAnimationType: 'slide',
+        disablePanzoom: true,
+    },
+    buttons: {
+        backgroundColor: 'rgba(30,30,36,0.8)',
+        iconColor: 'rgba(255, 255, 255, 0.8)',
+        iconPadding: '5px',
+        showAutoplayButton: true,
+        showCloseButton: true,
+        showDownloadButton: true,
+        showFullscreenButton: true,
+        showNextButton: true,
+        showPrevButton: true,
+        showThumbnailsButton: true,
+        size: '40px'
+    },
+    thumbnails: {
+        showThumbnails: true,
+        thumbnailsAlignment: 'center',
+        thumbnailsContainerBackgroundColor: 'transparent',
+        thumbnailsContainerPadding: '0',
+        thumbnailsGap: '1px',
+        thumbnailsOpacity: 0.4,
+        thumbnailsPosition: 'bottom',
+        thumbnailsSize: ['100px', '80px']
+    }
+}
 
 const Album = ({ images, setImages, addImageClick, handleDelete, editThisImage }) => {
     const [dateImages, setDateImages] = useState(images)
@@ -73,7 +113,13 @@ const Album = ({ images, setImages, addImageClick, handleDelete, editThisImage }
                         </div>
                     </div>
                 </div>
-                {currentPageData}
+
+                <SRLWrapper options={options} className='Hello'>
+                    <div className='ContainerPhotoWrapper'>
+                        {currentPageData}
+                    </div>
+                </SRLWrapper>
+
             </div>
             <ReactPaginate
                 previousLabel={'← Anterior'}

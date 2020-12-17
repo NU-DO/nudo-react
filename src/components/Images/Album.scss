@@ -1,3 +1,8 @@
+.ContainerPhotoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .ContainerAlbum {
   max-width: 1000px;
   min-width: 360px;
@@ -87,6 +92,13 @@
 }
 
 @media (min-width: 700px) {
+  .ContainerPhotoWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+  }
+
   .ContainerAlbum {
     max-width: 1000px;
     min-width: 999px;
